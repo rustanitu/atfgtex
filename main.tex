@@ -1,0 +1,234 @@
+%% -*- coding: utf-8; -*-
+
+\documentclass[
+%  draft,
+master,
+brazilian
+]{ThesisPUC}
+
+\renewcommand{\floatpagefraction}{.9}
+\renewcommand{\topfraction}{.9}
+\renewcommand{\bottomfraction}{.9}
+\renewcommand{\textfraction}{.01}
+
+\usepackage{microtype}
+
+\def\LHF#1{{\color{red}#1}}
+
+\hyphenation{ma-lhas}
+%%%
+%%% Additional Packages
+%%%
+
+  %% \usepackage[brazilian]{babel}      %% in ThesisPUC.cls
+  %% \usepackage[utf8]{inputenc}        %% .
+  %% \usepackage[T1]{fontenc}           %% .
+  %% \usepackage{lmodern}               %% .
+  %% \usepackage[pdftex]{graphicx}	%% .
+\usepackage{gensymb}
+  \usepackage{tabularx}
+  \usepackage{multirow}
+  \usepackage{multicol}
+  \usepackage{colortbl}
+  \usepackage[%
+    dvipsnames,
+    svgnames,
+    x11names,
+    fixpdftex
+  ]{xcolor}
+  \usepackage{numprint}
+  \usepackage{textcomp}
+  \usepackage{booktabs}
+  \usepackage{amsmath}
+  \usepackage{enumitem}
+  \usepackage{amssymb}
+  \usepackage{textcomp}
+% \usepackage{etoolbox}
+
+%% numprint 
+\npthousandsep{.}
+\npdecimalsign{,}
+
+%% ThesisPUC option
+%% \tablesmode{figtab} %% [nada, fig, tab ou figtab]
+
+
+%%%
+%%% Counters
+%%%
+
+%% uncomment and change for other depth values
+%\setcounter{tocdepth}{1}
+\setcounter{lofdepth}{1}
+%% \setcounter{lotdepth}{3}
+%% \setcounter{secnumdepth}{3}
+
+
+%%%
+%%% New commands and other global definitions
+%%%
+
+%\input{defs}
+
+
+%%%
+%%% Misc.
+%%%
+
+\usecolour{true}
+
+
+%%%
+%%% Titulos
+%%%
+
+\author{Rustam Câmara Mesquita}
+\authorR{Mesquita, Rustam}
+
+\advisor{Waldemar Celes Filho}{Prof.}
+\advisorR{Celes Filho, Waldemar}
+
+%\coadvisor{}{}
+%\coadvisorR{}
+%\coadvisorInst{}{}
+
+%% \title{Desenvolvimento de um sistema de microscopia digital para
+%%  classificação automática de tipos de hematita em minério de ferro}
+
+\title{Geração Automática de Função de Transferência para Realce de Fronteiras Baseada em Derivadas Médias}
+
+\titleuk{Automatic Generation of Transfer Function for Boundary Highlight Based on Average Derivatives}
+
+%% \subtitulo{Aqui vai o subtitulo caso precise}
+
+\day{15}
+\month{Dezembro}
+\year{2017}
+
+\city{Rio de Janeiro}
+\CDD{004}
+\department{Informática}
+\program{Informática}
+\school{Centro Técnico Científico}
+\university{Pontifícia Universidade Católica do Rio de Janeiro}
+\uni{PUC-Rio}
+
+
+%%%
+%%% Jury
+%%%
+
+\jury{%
+	\jurymemberext{Membro externo da banca}{Prof.}
+	{De onde vem o membro externo}{}
+	\jurymember{Membro da banca}{Prof.}
+	{Departamento de ?}{PUC-Rio}
+	\jurymember{Membro da banca}{Prof.}
+	{Departamento de ?}{PUC-Rio}
+	\jurymember{Membro da banca}{Prof.}
+	{Departamento de ?}{PUC-Rio}
+}
+
+
+%%%
+%%% Resume
+%%%
+
+\resume{%
+  Graduado em Engenharia da Computação pela Pontifícia Universidade Católica do Rio de Janeiro (Rio de Janeiro, Brasil) em 2014, tornou-se bolsista de mestrado associado ao Instituto Tecgraf de Desenvolvimento de Software Técnico-Científico da PUC-Rio em 2015, onde iniciou seu desenvolvimento profissional em computação gráfica. Durante o mestrado, direcionou sua pesquisa para a geração de funções de transferência em visualização científica.}
+
+
+%%%
+%%% Acknowledgment
+%%%
+
+\acknowledgment{%
+  \noindent I would like to first thank my advisor ...
+  \bigskip
+
+  \noindent Then I wish to thank ...
+}
+
+
+%%%
+%%% Catalog prekeywords
+%%%
+
+\catalogprekeywords{%
+	\catalogprekey{Informática}%
+}
+
+
+%%%
+%%% Keywords
+%%%
+
+\keywords{%
+  \key{Detecção de Fronteiras;}
+  \key{Função de Transferência;}
+  \key{Visualização Científica;}
+  \key{Visualização Volumétrica;}
+}
+
+\keywordsuk{%
+  \key{Boundary Detection;}%
+  \key{Transfer Function;}%
+  \key{Scientific Visualization;}%
+  \key{Volume Rendering;}%
+}
+
+
+%%%
+%%% Abstract
+%%%
+
+\abstract{%
+Encontrar manualmente uma boa função de transferência para visualização volumétrica é uma tarefa difícil que exige um conhecimento prévio sobre os dados sendo visualizados. Por isso, muitas pesquisas têm sido desenvolvidas nos últimos anos, com o objetivo de facilitar esse processo. No entanto, poucos trabalhos se esforçaram em obter métodos automáticos para a detecção de funções de transferência. A grande maioria busca melhorar o controle do usuário sobre a função de transferência indicando regiões potencialmente interessantes em histogramas e facilitando sua manipulação através de interfaces. Além disso, os resultados encontrados são geralmente apresentados na área médica, buscando melhorar a visualização dos exames de ressonância magnética, tomografia computadorizada ou ultrassom. Assim, visando mostrar que os conceitos utilizados nesses trabalhos podem ser explorados na área de petróleo e gás, este trabalho propõem um novo método para detecção automática de funções de transferência com o intuito de visualizar as interfaces entre regiões de um reservatório de petróleo. A abordagem proposta também é avaliada na detecção de fronteiras entre diferentes materiais de volumes médicos e outros volumes científicos amplamente utilizados.
+}
+
+\abstractuk{%
+Finding a good transfer function for volume rendering is a difficult task, that requires previous knowledge about the data domain itself. Therefore, many researches have been developed in the past few years aiming to overcome this barrier. However, only a few of them have concentrated forces into obtaining an automatic transfer function detector. Most of them focus on improving user control over transfer function domain, indicating potentially interesting regions and easing its manipulation through different histograms. Also, the results are often presented in medical field, through MRI, CT scan or ultrasound images. Thus, with the purpose of showing that the concepts used in these works can be exploited on oil and gas research field, this work proposes a novel method to automatically detect transfer functions, aiming to visualize the interfaces between different regions in the reservoir. The proposed approach is also tested in detecting boundaries between different materials of medical datasets and other datasets widely used.
+}
+
+
+%%%
+%%% Dedication
+%%%
+
+\dedication{%
+  Aos meus pais e irmãs,\\
+  pela paciência e constante encorajamento.
+}
+
+
+%%%
+%%% Epigraph
+%%%
+
+\epigraph{%
+  Knowing yourself is the beginning of all wisdom.
+}
+\epigraphauthor{Aristóteles}
+%\epigraphbook{Regards sur le passé}
+
+
+%%%
+%%% 
+%%%
+
+\begin{document}
+
+%  \input{abrevs}
+\input{chapters/1_introduction}
+\input{chapters/2_related_work}
+\input{chapters/3_gordon}
+\input{chapters/4_mymethod}
+\input{chapters/5_results}
+\input{chapters/6_conclusion}
+  %% ...
+  \arial
+  \bibliography{bib}
+  \normalfont
+%  \input{appendix}
+
+\end{document}

@@ -1,0 +1,27 @@
+\select@language {american}
+\select@language {american}
+\select@language {brazilian}
+\select@language {brazilian}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{11}{chapter.1}
+\contentsline {chapter}{\numberline {2}Trabalhos relacionados}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Gera\IeC {\c c}\IeC {\~a}o de malhas de quadril\IeC {\'a}teros}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}M\IeC {\'e}tricas de qualidade de malhas de quadril\IeC {\'a}teros}{14}{section.2.2}
+\contentsline {chapter}{\numberline {3}Parti\IeC {\c c}\IeC {\~a}o do dom\IeC {\'\i }nio em regi\IeC {\~o}es quadrilaterais}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Campo de direcionalidade}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Singularidades}{20}{section.3.2}
+\contentsline {section}{\numberline {3.3}Separatrizes}{21}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Combina\IeC {\c c}\IeC {\~a}o de separatrizes}{23}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Raio de influ\IeC {\^e}ncia}{24}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Gera\IeC {\c c}\IeC {\~a}o da malha de quadril\IeC {\'a}teros}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Implementa\IeC {\c c}\IeC {\~a}o e Resultados}{25}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Campo de direcionalidade}{26}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Singularidades}{29}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Separatrizes}{31}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Varia\IeC {\c c}\IeC {\~a}o do raio de influ\IeC {\^e}ncia}{34}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}Parti\IeC {\c c}\IeC {\~a}o de dom\IeC {\'\i }nios com restri\IeC {\c c}\IeC {\~o}es}{34}{subsection.3.5.5}
+\contentsline {chapter}{\numberline {4}M\IeC {\'e}trica de qualidade de alinhamento de malhas quadrilaterais}{38}{chapter.4}
+\contentsline {section}{\numberline {4.1}Exemplos}{42}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Influ\IeC {\^e}ncia do raio na qualidade da malha}{42}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Dom\IeC {\'\i }nios com restri\IeC {\c c}\IeC {\~o}es}{48}{subsection.4.1.2}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{56}{chapter.5}
+\contentsline {chapter}{Refer\^{e}ncias Bibliogr\'{a}ficas}{57}{chapter*.1}

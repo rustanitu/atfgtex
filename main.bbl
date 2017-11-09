@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}  \addcontentsline{toc}{chapter}{Refer\^{e}ncias
+  Bibliogr\'{a}ficas} \arial\markboth{\bibname}{\bibname}
+
+\bibitem{gordonms}
+\MakeUppercase{Kindlmann, G.\/}.
+\newblock {\bf Semi-automatic generation of transfer functions for direct
+  volume rendering}.
+\newblock Disserta\c c\~ao de Mestrado, Cornell University, Ithaca, New York,
+  Jan. 1999.
+
+\bibitem{gordon}
+\MakeUppercase{Kindlmann, G.; Durkin, J.~W.\/}.
+\newblock {\bf Semi-automatic generation of transfer functions for direct
+  volume rendering}.
+\newblock In: IEEE SYMPOSIUM ON VOLUME VISUALIZATION, p. 79--86,170, Oct. 1998.
+
+\bibitem{rosa}
+\MakeUppercase{Rosa, A.; de~Souza~Carvalho, R. ; Xavier, J.\/}.
+\newblock {\bf Engenharia de reservatórios de petróleo}.
+\newblock Interciência.
+
+\end{thebibliography}
