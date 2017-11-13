@@ -4,16 +4,16 @@
 \select@language {brazilian}
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{12}{chapter.1}
 \contentsline {chapter}{\numberline {2}Trabalhos Relacionados}{15}{chapter.2}
-\contentsline {chapter}{\numberline {3}INSERIR TITULO PARA: GORDON}{16}{chapter.3}
-\contentsline {section}{\numberline {3.1}1d}{16}{section.3.1}
-\contentsline {section}{\numberline {3.2}2d}{16}{section.3.2}
-\contentsline {section}{\numberline {3.3}Avalia\IeC {\c c}\IeC {\~a}o do m\IeC {\'e}todo}{16}{section.3.3}
-\contentsline {chapter}{\numberline {4}INSERIR TITULO PARA: NOSSO M\IeC {\'E}TODO}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Detec\IeC {\c c}\IeC {\~a}o de fronteiras}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}Avalia\IeC {\c c}\IeC {\~a}o m\IeC {\'e}dia das derivadas}{17}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Malhas estruturadas}{17}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Malhas n\IeC {\~a}o estruturadas}{17}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Gera\IeC {\c c}\IeC {\~a}o da fun\IeC {\c c}\IeC {\~a}o de transfer\IeC {\^e}ncia}{17}{section.4.3}
-\contentsline {chapter}{\numberline {5}Resultados}{18}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o e Trabalhos Futuros}{19}{chapter.6}
-\contentsline {chapter}{Refer\^{e}ncias Bibliogr\'{a}ficas}{20}{chapter*.1}
+\contentsline {chapter}{\numberline {3}INSERIR TITULO PARA: GORDON}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}1d}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}2d}{17}{section.3.2}
+\contentsline {section}{\numberline {3.3}Avalia\IeC {\c c}\IeC {\~a}o do m\IeC {\'e}todo}{17}{section.3.3}
+\contentsline {chapter}{\numberline {4}INSERIR TITULO PARA: NOSSO M\IeC {\'E}TODO}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}Detec\IeC {\c c}\IeC {\~a}o de fronteiras}{18}{section.4.1}
+\contentsline {section}{\numberline {4.2}Avalia\IeC {\c c}\IeC {\~a}o m\IeC {\'e}dia das derivadas}{18}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Malhas estruturadas}{18}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Malhas n\IeC {\~a}o estruturadas}{18}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Gera\IeC {\c c}\IeC {\~a}o da fun\IeC {\c c}\IeC {\~a}o de transfer\IeC {\^e}ncia}{18}{section.4.3}
+\contentsline {chapter}{\numberline {5}Resultados}{19}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o e Trabalhos Futuros}{20}{chapter.6}
+\contentsline {chapter}{Refer\^{e}ncias Bibliogr\'{a}ficas}{21}{chapter*.1}

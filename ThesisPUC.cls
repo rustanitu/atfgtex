@@ -73,7 +73,7 @@
 
 % hyphenation
 
-\newcommand{\locale}{}
+\renewcommand{\locale}{}
 \newboolean{puc@localebr}
 \setboolean{puc@localebr}{false}
 \newboolean{puc@localeus}

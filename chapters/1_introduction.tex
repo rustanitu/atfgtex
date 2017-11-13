@@ -5,7 +5,7 @@
 	Visualização volumétrica é a vertente da computação gráfica caracterizada por visualizar campos escalares, isto é, representar visualmente um volume de dados que relaciona um valor escalar a um ponto no espaço. Esses dados podem vir de inúmeras fontes, desde exames médicos de ressonância magnética (RM) e tomografia computadorizada (TC) a simulações físicas, como em reservatórios de petróleo e fraturas em materiais. Um campo escalar também pode ser interpretado como a variação de uma determinada informação num espaço delimitado. Por exemplo, um exame de tomografia computadorizada informa como a densidade da estrutura fisiológica varia naquela região em que foi escaneada, como visto na figura~\ref{fig:head_ct_slice_intro}, onde a cor preta indica a menor densidade e a cor branca a maior.
     
     Um componente essencial da visualização volumétrica é a função de transferência (FT): um mapeamento feito entre voxels do volume renderizado e um ou mais atributos que compõem suas propriedades ópticas, como por exemplo, cor e opacidade. Ou seja, através da função de transferência é possível definir como cada elemento do volume de dados será visto na imagem final. Um objetivo prático do uso de FTs seria, dado uma TC da cabeça de um indivíduo, visualizar apenas seu crânio. Essa prática auxilia os médicos no exame e diagnóstico de pacientes, o que mostra o quanto pode ser importante utilizar funções de transferência. As imagens na figura~\ref{fig:head_skull_intro} mostram visualizações volumétricas da tomografia apresentada na figura~\ref{fig:head_ct_slice_intro}, utilizando diferentes funções de transferência.
-
+    
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.3\textwidth]{images/head_ct_slice_intro}

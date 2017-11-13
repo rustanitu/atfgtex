@@ -2,7 +2,25 @@
 
 \chapter{Trabalhos Relacionados}
 \label{related}
-	Desde que publicaram seu trabalho ``Semi-automatic Generation of Transfer Functions for Direct Volume Rendering'', \textit{Kindlmann e Durkin}~\cite{1} vêm sendo citados nos trabalhos seguintes desta área. Contudo, gradativamente as  propostas que se sucederam foram diminuindo o foco em automatizar ainda mais a geração de FTs e buscando cada vez mais aumentar o controle do usuário sobre a função de transferência, aprimorar a interface com o usuário.
+	Desde a publicação de \quote{Semi-automatic Generation of Transfer Functions for Direct Volume Rendering} em 1998, \textit{Kindlmann e Durkin}~\cite{gordon} vêm sendo citados quando o assunto é função de transferência. Seu trabalho, que será explicado em maiores detalhes no capítulo~\ref{gordon}, utiliza a mesma ideia dos detectores de aresta como em~\cite{canny} para encontrar fronteiras, onde uma aresta se encontra nos pontos de primeira derivada máxima e segunda igual a zero. Com o modelo matemático de uma fronteira ideal e suas derivadas, uma relação entre um valor escalar e sua distância até o centro da fronteira é extraída. Para compor a função de transferência, o usuário fornece uma função que relaciona opacidade e distância à fronteira. A opacidade final de um voxel é então dada pela relação entre seu valor escalar e suas derivadas médias. 
+	
+	Um histograma 2D acumula a ocorrência de todos os pares de valores do volume e magnitude do gradiente, que são respectivamente os eixos \textit{x} e \textit{y}. O histograma ajuda a identificar as fronteiras. Elas aparecem como arcos que vão de um valor escalar ao outro. Em volumes mais complexos é muito comum arcos se sobreporem. Isso indica uma falha na classificação destes valores, pois não é possível definir a qual fronteira eles realmente pertencem. Afim de essa sobreposição, uma versão 2D da função de transferência também é proposta, utilizando a primeira derivada de cada voxel no lugar de sua média.
+	
+	Em 2001, \textit{Kniss et al.}~\cite{kniss1} estenderam essa metodologia para funções de transferência 3D, também buscando classificar melhor as fronteiras. A complexidade da FT 3D gerou a necessidade de aprimorar a interface com o usuário, fornecendo ferramentas de inspeção de dados no volume com resposta direta na função de transferência. Dessa forma era possível saber que região da FT correspondia à porção do volume selecionada. No ano seguinte \textit{Kniss et al.}~\cite{kniss2} aprimoraram ainda mais o controle do usuário sobre a função de transferência, porém, perdendo o caráter automático da geração de FTs.
+	
+	\\DESCREVER AQUI ISOSURFACES 1 e 2\\
+	
+	Anos depois \textit{Park e Bajaj}~\cite{park} utilizaram traçado de raios para eliminar as médias de \textit{Kindlmann e Durkin}~\cite{gordon} e obter uma função de transferência espacial, onde a opacidade é calculada individualmente para cada voxel. No mesmo ano, também buscando resolver a sobreposição de regiões, \textit{Lum e Ma}~\cite{lumema} optaram por mudar o domínio da função de transferência. Neste método, para cada voxel do volume registra-se em um histograma 2D o par de vizinhos mais próximos na direção do gradiente. Os dois eixos do histograma são horizontais, sendo um inferior no sentido crescente dos valores e um superior decrescente. Dessa forma, as fronteiras são identificadas como segmentos retos que ligam os eixos e não mais arcos como em~\cite{gordon}.
+	
+	Muitos trabalhos seguiram esse mesmo caminho, em busca de um novo domínio para a função de transferência. É o caso de \textit{Sereda et al.}~\cite{sereda1}, que identificam os valores extremos de uma fronteira (FL e FH) através de 3 possíveis perfis de função. As ocorrências de FL e FH são acumuladas em seu \quote{Histograma LH}: um histograma 2D aonde as fronteiras ideais se apresentam como regiões circulares acima da reta FL = FH. Um algoritmo de crescimento de região é proposto para agrupar todas as entradas do histograma que pertencem à mesma fronteira. Caso o usuário queira ver mais de uma região, ele deve indicar sementes para o algoritmo.
+	
+	Outro exemplo de um novo domínio para a função de transferência é apresentado por \textit{Haidacher et al.}~\cite{haidacher}. Eles propõem acumular em um histograma 2D a média e o desvio padrão de todos os voxels. Mas assim como em~\cite{sereda1} o histograma apresenta as fronteiras e os materiais entre elas de forma visualmente semelhante, forçando o usuário ao processo de tentativa e erro. Gradativamente os trabalhos seguintes desta área foram diminuindo o foco em automatizar a geração de funções de transferência, como visto em~\cite{zou, wang} que propõem novas ferramentas de seleção para o histograma 2D proposto por~\cite{gordon}.
+	
+	
+	
+	
+	
+	, aumentando seu controle sobre a função de transferência.
 
 	 sobre..... Como resultado, o usuário ganhou um controle maior sobre a visualização final, mas não sobre a função de transferência em si, uma vez que a interface tornou-se menos intuitiva. 
 

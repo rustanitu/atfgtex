@@ -1,7 +1,6 @@
 % -*- coding: utf-8; -*-
 
 @inproceedings{gordon,
-	key = {1},
 	Abstract = {Although direct volume rendering is a powerful tool for visualizing complex structures within volume data, the size and complexity of the parameter space controlling the rendering process makes generating an informative rendering challenging. In particular, the specification of the transfer function-the mapping from data values to renderable optical properties-is frequently a time consuming and unintuitive task. Ideally, the data being visualized should itself suggest an appropriate transfer function that brings out the features of interest without obscuring them with elements of little importance. We demonstrate that this is possible for a large class of scalar volume data, namely that where the regions of interest are the boundaries between different materials. A transfer function which makes boundaries readily visible can be generated from the relationship between three quantities: the data value and its first and second directional derivatives along the gradient direction. A data structure we term the histogram volume captures the relationship between these quantities throughout the volume in a position independent, computationally efficient fashion. We describe the theoretical importance of the quantities measured by the histogram volume, the implementation issues in its calculation, and a method for semiautomatic transfer function generation through its analysis. We conclude with results of the method on both idealized synthetic data as well as real world datasets.},
 	Author = {Gordon Kindlmann and James W. Durkin},
 	Booktitle = {IEEE Symposium On Volume Visualization},
@@ -14,7 +13,6 @@
 }
 
 @mastersthesis{gordonms,
-	key = {2},
 	Abstract = {Finding appropriate transfer functions for direct volume rendering is a difficult problem because of the large amount of user experimentation typically involved. Ideally, the dataset being rendered should itself be able to suggest a transfer function which makes the important structures visible. We demonstrate that this is possible for a large class of scalar volume data, namely that where the region of interest is the boundary between different materials. A transfer function which makes boundaries readily visible can be generated from the relationship between three quantities: the data value and its first and second directional derivatives along the gradient direction. A data structure we term the histogram volume captures the relationship between these quantities throughout the volume in a position independent, computationally efficient fashion. We describe the theoretical importance of the quantities measured by the histogram volume, the implementation issues in its calculation, and a method for semi-automatic transfer function generation through its analysis. The techniques presented here make direct volume rendering easier to use, not only because there are much fewer variables for the user to adjust to find an informative rendering, but because using them is more intuitive then current interfaces for transfer function specification. Furthermore, the results are derived solely from the original dataset and its inherent patterns of values, without the introduction of any artificial structures or limitations. Examples with volume datasets from a variety of disciplines illustrate the generality and strength of the techniques.},
 	Address = {Ithaca, New York},
 	Author = {Gordon Kindlmann},
@@ -26,11 +24,137 @@
 }
 
 @book{rosa,
-	key = {3},
 	title = {Engenharia de reservatórios de petróleo},
 	isbn = {978-85-7193-135-0},
 	url = {https://books.google.com.br/books?id=aSUNAQAACAAJ},
 	publisher = {Interciência},
 	author = {Rosa, A.J. and de Souza Carvalho, R. and Xavier, J.A.D.},
 	date = {2006}
+}
+
+@article{canny, 
+	author={J. Canny}, 
+	journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+	title={A Computational Approach to Edge Detection}, 
+	year={1986}, 
+	volume={PAMI-8}, 
+	number={6}, 
+	pages={679-698}, 
+	keywords={Detectors;Feature extraction;Gaussian approximation;Image edge detection;Machine vision;Performance analysis;Shape measurement;Signal synthesis;Signal to noise ratio;Uncertainty;Edge detection;feature extraction;image processing;machine vision;multiscale image analysis}, 
+	doi={10.1109/TPAMI.1986.4767851}, 
+	ISSN={0162-8828}, 
+	month={Nov},
+}
+
+@article{park,
+	title = {Multi-Dimensional Transfer Function Design for Scientific Visualization},
+	url = {https://www.cse.iitb.ac.in/~sharat/icvgip.org/icvgip2004/proceedings/cg2_299.pdf},
+	pages = {6},
+	author = {Park, Sangmin and Bajaj, Chandrajit},
+	date = {2004},
+	file = {Multi-Dimensional Transfer Function Design for Scientific Visualization.pdf:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\EHTNGN9T\\Multi-Dimensional Transfer Function Design for Scientific Visualization.pdf:application/pdf},
+}
+
+@inproceedings{lumema,
+	location = {Washington, {DC}, {USA}},
+	title = {Lighting Transfer Functions Using Gradient Aligned Sampling},
+	isbn = {0-7803-8788-0},
+	url = {http://dx.doi.org/10.1109/VISUAL.2004.64},
+	doi = {10.1109/VISUAL.2004.64},
+	series = {{VIS} '04},
+	abstract = {An important task in volume rendering is the visualization of boundaries between materials. This is typically accomplished using transfer functions that increase opacity based on a voxelýs value and gradient. Lighting also plays a crucial role in illustrating surfaces. In this paper we present a multi-dimensional transfer function method for enhancing surfaces, not through the variation of opacity, but through the modification of surface shading. The technique uses a lighting transfer function that takes into account the distribution of values along a material boundary and features a novel interface for visualizing and specifying these transfer functions. With our method, the user is given a means of visualizing boundaries without modifying opacity, allowing opacity to be used for illustrating the thickness of homogeneous materials through the absorption of light.},
+	pages = {289--296},
+	booktitle = {Proceedings of the Conference on Visualization '04},
+	publisher = {{IEEE} Computer Society},
+	author = {Lum, Eric B. and Ma, Kwan-Liu},
+	urldate = {2016-03-02},
+	date = {2004},
+	keywords = {Chromium, Computer graphics, data visualisation, Data visualization, direct volume rendering, Electromagnetic wave absorption, gradient aligned sampling, homogeneous materials, image colour analysis, Image sampling, image texture, lighting, lighting transfer functions, Multidimensional systems, multi-dimensional transfer functions, multidimensional transfer functions, opacity, Optical reflection, realistic images, Rendering (computer graphics), Sampling methods, shading, surface enhancement, surface shading, transfer functions, Volume Rendering, volume visualization},
+	file = {ACM Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\ZXRKNJ8U\\Lum e Ma - 2004 - Lighting Transfer Functions Using Gradient Aligned.pdf:application/pdf;IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\7ZDM7R7R\\1372209.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\UIDQ8G28\\Lum e Ma - 2004 - Lighting transfer functions using gradient aligned.pdf:application/pdf}
+}
+
+@article{sereda1,
+	title = {Visualization of boundaries in volumetric data sets using {LH} histograms},
+	volume = {12},
+	issn = {1077-2626},
+	doi = {10.1109/TVCG.2006.39},
+	abstract = {A crucial step in volume rendering is the design of transfer functions that highlights those aspects of the volume data that are of interest to the user. For many applications, boundaries carry most of the relevant information. Reliable detection of boundaries is often hampered by limitations of the imaging process, such as blurring and noise. We present a method to identify the materials that form the boundaries. These materials are then used in a new domain that facilitates interactive and semiautomatic design of appropriate transfer functions. We also show how the obtained boundary information can be used in region-growing-based segmentation.},
+	pages = {208--218},
+	number = {2},
+	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	author = {Sereda, P. and Bartroli, A. V. and Serlie, I. W. O. and Gerritsen, F. A.},
+	date = {2006-03},
+	keywords = {Algorithms, boundary detection, Computed tomography, Computer graphics, Computer Simulation, Data Interpretation, Statistical, data visualisation, Data visualization, direct volume rendering, Histograms, Image Enhancement, Image Interpretation, Computer-Assisted, Image reconstruction, image segmentation, Imaging, Three-Dimensional, Information Storage and Retrieval, interactive design, {LH} histogram, Medical diagnostic imaging, Models, Statistical, Multidimensional systems, multidimensional transfer functions, Numerical Analysis, Computer-Assisted, Optical imaging, region growing., Rendering (computer graphics), semiautomatic design, Shape, Signal Processing, Computer-Assisted, Transfer function, transfer functions, User-Computer Interface, Volume Rendering, volume visualization},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\U3SE4KNT\\1580455.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\QMXZW9HU\\Sereda et al. - 2006 - Visualization of boundaries in volumetric data set.pdf:application/pdf}
+}
+
+@inproceedings{kniss1,
+	title = {Interactive volume rendering using multi-dimensional transfer functions and direct manipulation widgets},
+	doi = {10.1109/VISUAL.2001.964519},
+	abstract = {Most direct volume renderings produced today employ one-dimensional transfer functions, which assign color and opacity to the volume based solely on the single scalar quantity which comprises the dataset. Though they have not received widespread attention, multi-dimensional transfer functions are a very effective way to extract specific material boundaries and convey subtle surface properties. However, identifying good transfer functions is difficult enough in one dimension, let alone two or three dimensions. This paper demonstrates an important class of three-dimensional transfer functions for scalar data (based on data value, gradient magnitude, and a second directional derivative), and describes a set of direct manipulation widgets which make specifying such transfer functions intuitive and convenient. We also describe how to use modem graphics hardware to interactively render with multi-dimensional transfer functions. The transfer functions, widgets, and hardware combine to form a powerful system for interactive volume exploration.},
+	eventtitle = {Visualization, 2001. {VIS} '01. Proceedings},
+	pages = {255--562},
+	booktitle = {Visualization, 2001. {VIS} '01. Proceedings},
+	author = {Kniss, J. and Kindlmann, G. and Hansen, C.},
+	date = {2001-10},
+	keywords = {computational complexity, computational geometry, Computer graphics, Data mining, dataset, data visualisation, Data visualization, direct manipulation widgets, direct volume renderings, gradient magnitude, graphics hardware, Hardware, interactive volume exploration, interactive volume rendering, Interpolation, Multidimensional systems, multidimensional transfer functions, object modelling, Optical imaging, Rendering (computer graphics), Scientific computing, Table lookup, time series, transfer functions, volume visualization, widgets},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\G8U668ZU\\964519.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\TH7F5GWD\\Kniss et al. - 2001 - Interactive volume rendering using multi-dimension.pdf:application/pdf}
+}
+
+@article{kniss2,
+	title = {Multidimensional Transfer Functions for Interactive Volume Rendering},
+	volume = {8},
+	issn = {1077-2626},
+	url = {http://dx.doi.org/10.1109/TVCG.2002.1021579},
+	doi = {10.1109/TVCG.2002.1021579},
+	abstract = {Most direct volume renderings produced today employ one-dimensional transfer functions which assign color and opacity to the volume based solely on the single scalar quantity which comprises the data set. Though they have not received widespread attention, multidimensional transfer functions are a very effective way to extract materials and their boundaries for both scalar and multivariate data. However, identifying good transfer functions is difficult enough in one dimension, let alone two or three dimensions. This paper demonstrates an important class of three-dimensional transfer functions for scalar data, and describes the application of multidimensional transfer functions to multivariate data. We present a set of direct manipulation widgets that make specifying such transfer functions intuitive and convenient. We also describe how to use modern graphics hardware to both interactively render with multidimensional transfer functions and to provide interactive shadows for volumes. The transfer functions, widgets, and hardware combine to form a powerful system for interactive volume exploration.},
+	pages = {270--285},
+	number = {3},
+	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	author = {Kniss, Joe and Kindlmann, Gordon and Hansen, Charles},
+	urldate = {2016-03-02},
+	date = {2002-07},
+	keywords = {direct manipulation widgets, direct volume rendering, graphics hardware., multidimensional transfer functions, volume visualization},
+	file = {IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\RZFI9H7I\\Kniss et al. - 2002 - Multidimensional transfer functions for interactiv.pdf:application/pdf}
+}
+
+@inproceedings{zou,
+	title = {A new two-dimensional transfer functions for volume rendering},
+	volume = {8},
+	doi = {10.1109/CISP.2010.5648200},
+	abstract = {Most direct volume rendering produced today still employ one-dimensional (1D) transfer function. The 1D transfer function is very convenient, but their capability for extracting specific material boundaries is not entirely satisfactory. The two-dimensional (2D) transfer functions are known as a very effective way to extract specific material boundaries and convey subtle surface properties, though they are not convenient enough for operators. That makes the 2D transfer functions not been wildly used yet. This paper demonstrates a new 2D transfer functions which based on 1D transfer function and combined with methods of traditional 2D transfer functions. That means this new 2D transfer functions are convenient as the 1D function and capable as the traditional 2D transfer functions.},
+	eventtitle = {2010 3rd International Congress on Image and Signal Processing},
+	pages = {3733--3736},
+	booktitle = {2010 3rd International Congress on Image and Signal Processing},
+	author = {Zou, Y. and Bai, D. and Wang, S. and Kang, Y.},
+	date = {2010-10},
+	keywords = {1D transfer function, 2D transfer function, Biomedical imaging, convenient, Data visualization, direct volume rendering, Image color analysis, material boundaries extraction, Materials, quality, Rendering (computer graphics), Transfer function, transfer functions, Volume Rendering},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\JC5UMFNW\\5648200.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\I37SJS5B\\Zou et al. - 2010 - A new two-dimensional transfer functions for volum.pdf:application/pdf}
+}
+
+@inproceedings{haidacher,
+	title = {Volume visualization based on statistical transfer-function spaces},
+	url = {http://ieeexplore.ieee.org/document/5429615/},
+	doi = {10.1109/PACIFICVIS.2010.5429615},
+	abstract = {It is a difficult task to design transfer functions for noisy data. In traditional transfer-function spaces, data values of different materials overlap. In this paper we introduce a novel statistical transfer-function space which in the presence of noise, separates different materials in volume data sets. Our method adaptively estimates statistical properties, i.e. the mean value and the standard deviation, of the data values in the neighborhood of each sample point. These properties are used to define a transfer-function space which enables the distinction of different materials. Additionally, we present a novel approach for interacting with our new transfer-function space which enables the design of transfer functions based on statistical properties. Furthermore, we demonstrate that statistical information can be applied to enhance visual appearance in the rendering process. We compare the new method with 1D, 2D, and {LH} transfer functions to demonstrate its usefulness.},
+	eventtitle = {2010 {IEEE} Pacific Visualization Symposium ({PacificVis})},
+	pages = {17--24},
+	booktitle = {2010 {IEEE} Pacific Visualization Symposium ({PacificVis})},
+	author = {Haidacher, M. and Patel, D. and Bruckner, S. and Kanitsar, A. and Gröller, M. E.},
+	date = {2010-03},
+	keywords = {Algorithm design and analysis, classification, Computer graphics, data visualisation, Data visualization, Medical services, Noise measurement, noisy data, Rendering (computer graphics), rendering process, shading, Space technology, statistical analysis, statistical transfer-function space, Statistics, Transfer function, transfer functions, volume visualization, White noise},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\2IFJX3PK\\5429615.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\RSCXB2V6\\Haidacher et al. - 2010 - Volume visualization based on statistical transfer.pdf:application/pdf}
+}
+
+@inproceedings{wang,
+	title = {Volume exploration using ellipsoidal Gaussian transfer functions},
+	doi = {10.1109/PACIFICVIS.2010.5429612},
+	abstract = {This paper presents an interactive transfer function design tool based on ellipsoidal Gaussian transfer functions ({ETFs}). Our approach explores volumetric features in the statistical space by modeling the space using the Gaussian mixture model ({GMM}) with a small number of Gaussians to maximize the likelihood of feature separation. Instant visual feedback is possible by mapping these Gaussians to {ETFs} and analytically integrating these {ETFs} in the context of the pre-integrated volume rendering process. A suite of intuitive control widgets is designed to offer automatic transfer function generation and flexible manipulations, allowing an inexperienced user to easily explore undiscovered features with several simple interactions. Our {GPU} implementation demonstrates interactive performance and plausible scalability which compare favorably with existing solutions. The effectiveness of our approach has been verified on several datasets.},
+	eventtitle = {2010 {IEEE} Pacific Visualization Symposium ({PacificVis})},
+	pages = {25--32},
+	booktitle = {2010 {IEEE} Pacific Visualization Symposium ({PacificVis})},
+	author = {Wang, Y. and Chen, W. and Shan, G. and Dong, T. and Chi, X.},
+	date = {2010-03},
+	keywords = {automatic transfer function generation, Data visualization, Electrical engineering, ellipsoidal gaussian transfer functions, {ETF}, Feature extraction, feature separation, Feedback, Gaussian mixture model, Gaussian processes, hidden feature removal, interactive transfer function design tool, intuitive control widgets, Laboratories, Navigation, Oscilloscopes, pattern classification, preintegrated volume rendering process, Prototypes, Rendering (computer graphics), Signal analysis, statistical space, Time series analysis, transfer functions, visual feedback, volume exploration},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\ID5P3NGR\\5429612.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\ERW6322N\\Wang et al. - 2010 - Volume exploration using ellipsoidal Gaussian tran.pdf:application/pdf}
 }
