@@ -1,8 +1,27 @@
 % -*- coding: utf-8; -*-
 
-\chapter{INSERIR TITULO PARA: GORDON}
+\chapter{Geração Semiautomática}
 \label{gordon}
-	Texto...
+
+	Faça uma apresentação do método....extende o trabalho relacionado + introdução e (talvez) emende nesse início de deteção de fronteira...(talvez não rs).
+\section{Detecção de fronteiras}
+\label{gordon.bound}
+	\textit{Kindlmann e Durkin}~\cite{gordon} partem do princípio que toda fronteira é caracterizada por uma variação abrupta na intensidade de um material. Uma vez que também é assumido que os materiais são homogêneos, uma fronteira pode inicialmente ser modelada pela função degrau. No entanto, devido a uma limitação da aquisição de dados, as fronteiras são comumente borradas com uma resposta gaussiana na frequência. Por esse motivo, o comportamento de uma fronteira deve ser modelado como a convolução da função degrau com uma gaussiana. O resultado dessa convolução é a função \textit{erf()}, ou função \textit{erro}, ilustrada na Figura~\ref{fig:boundary_model}.
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{images/g_boundary_model}
+	\caption{Comportamento das funções degrau, gaussiana e erro, respectivamente.~\cite{gordon}.}
+	\label{fig:boundary_model}
+\end{figure}
+
+	A função \textit{erf()} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, a função $f(x)$ deve variar de $s_{min}$ a $s_{max}$ com o comportamento de \textit{erf()} para poder modelar corretamente uma fronteira. Assim, $f(x)$ é definida como a equação~\eqref{eq:boundary} abaixo:
+
+\begin{equation} \label{eq:boundary}
+	f(x) = s = s_{min} + (s_{max} - s_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
+\end{equation}
+	
+	A equação \eqref{eq1}...
     
 \section{1d}
 \label{gordon.1d}
