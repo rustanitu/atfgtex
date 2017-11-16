@@ -2,9 +2,9 @@
 
 \chapter{Introdução}
 \label{intro}
-	Visualização volumétrica é a vertente da computação gráfica caracterizada por visualizar campos escalares, isto é, representar visualmente um volume de dados que relaciona um valor escalar a um ponto no espaço. Esses dados podem vir de inúmeras fontes, desde exames médicos de ressonância magnética (RM) e tomografia computadorizada (TC) a simulações físicas, como em reservatórios de petróleo e fraturas em materiais. Um campo escalar também pode ser interpretado como a variação de uma determinada informação num espaço delimitado. Por exemplo, um exame de tomografia computadorizada informa como a densidade da estrutura fisiológica varia naquela região em que foi escaneada, como visto na figura~\ref{fig:head_ct_slice_intro}, onde a cor preta indica a menor densidade e a cor branca a maior.
+	Visualização volumétrica é a vertente da computação gráfica caracterizada por visualizar campos escalares, isto é, representar visualmente um volume de dados que relaciona um valor escalar a um ponto no espaço. Esses dados podem vir de inúmeras fontes, desde exames médicos de ressonância magnética (RM) e tomografia computadorizada (TC) a simulações físicas, como em reservatórios de petróleo e fraturas em materiais. Um campo escalar também pode ser interpretado como a variação de uma determinada informação num espaço delimitado. Por exemplo, um exame de tomografia computadorizada informa como a densidade da estrutura fisiológica varia naquela região em que foi escaneada, como visto na Figura~\ref{fig:head_ct_slice_intro}, onde a cor preta indica a menor densidade e a cor branca a maior.
     
-    Um componente essencial da visualização volumétrica é a função de transferência (FT): um mapeamento feito entre voxels do volume renderizado e um ou mais atributos que compõem suas propriedades ópticas, como por exemplo, cor e opacidade. Ou seja, através da função de transferência é possível definir como cada elemento do volume de dados será visto na imagem final. Um objetivo prático do uso de FTs seria, dado uma TC da cabeça de um indivíduo, visualizar apenas seu crânio. Essa prática auxilia os médicos no exame e diagnóstico de pacientes, o que mostra o quanto pode ser importante utilizar funções de transferência. As imagens na figura~\ref{fig:head_skull_intro} mostram visualizações volumétricas da tomografia apresentada na figura~\ref{fig:head_ct_slice_intro}, utilizando diferentes funções de transferência.
+    Um componente essencial da visualização volumétrica é a função de transferência (FT): um mapeamento feito entre voxels do volume renderizado e um ou mais atributos que compõem suas propriedades ópticas, como por exemplo, cor e opacidade. Ou seja, através da função de transferência é possível definir como cada elemento do volume de dados será visto na imagem final. Um objetivo prático do uso de FTs seria, dado uma TC da cabeça de um indivíduo, visualizar apenas seu crânio. Essa prática auxilia os médicos no exame e diagnóstico de pacientes, o que mostra o quanto pode ser importante utilizar funções de transferência. As imagens na Figura~\ref{fig:head_skull_intro} mostram visualizações volumétricas da tomografia apresentada na Figura~\ref{fig:head_ct_slice_intro}, utilizando diferentes funções de transferência.
     
 \begin{figure}[h]
 	\centering
@@ -20,7 +20,7 @@
     \subfigure[]{
     	\includegraphics[width=0.3\textwidth]{images/head_skull_intro}
     }
-    \caption{Visualização volumétrica da mesma TC apresentada na figura~\ref{fig:head_ct_slice_intro} a partir de diferentes funções de transferência~\cite{gordonms}.}
+    \caption{Visualização volumétrica da mesma TC apresentada na Figura~\ref{fig:head_ct_slice_intro} a partir de diferentes funções de transferência~\cite{gordonms}.}
     \label{fig:head_skull_intro}
 \end{figure}
     
@@ -32,20 +32,28 @@
     
     Durante esses anos, a grande maioria das pesquisas têm analisado seus resultados na área médica, sem avaliar a aplicabilidade de tais métodos em outros dados científicos. Como consequência, os métodos desenvolvidos exploram apenas malhas estruturadas, deixando de lado dados representados por malhas não estruturadas, como reservatórios de petróleo, por exemplo.
     
-    Segundo \textit{Rosa et al. 2006, p. xii, p. 517}~\cite{rosa}, um dos métodos mais sofisticados para se estimar características e prever o comportamento de reservatórios de petróleo é utilizar simulação numérica. A simulação permite, por exemplo, determinar as melhores condições para a produção de petróleo, assim como estimar o volume de óleo e gás que poderá ser extraído durante a exploração do reservatório.
+    Segundo \textit{Rosa et al.}~\cite{rosa}, um dos métodos mais sofisticados para se estimar características e prever o comportamento de reservatórios de petróleo é utilizar simulação numérica. A simulação permite, por exemplo, determinar as melhores condições para a produção de petróleo, assim como estimar o volume de óleo e gás que poderá ser extraído durante a exploração do reservatório.
     
-    Assim como no caso dos volumes médicos, a aplicação de FTs pode destacar regiões do reservatório, ou realçar a interface entre elas. Por exemplo, a área de contato entre a água e o óleo (denominada frente de avanço) é uma informação importante sobre o fluxo do reservatório. As frentes de avanço delimitam regiões importantes na fase de recuperação secundária de um reservatório e podem ser calculadas analiticamente, mas não visualizadas sem uma função de transferência apropriada.
+    Assim como no caso dos volumes médicos, a aplicação de FTs pode destacar regiões do reservatório, ou realçar a interface entre elas. Por exemplo, a área de contato entre a água e o óleo (denominada frente de avanço) é uma informação importante sobre o fluxo do reservatório. As frentes de avanço delimitam regiões importantes na fase de recuperação secundária de um reservatório e podem ser calculadas analiticamente, mas não visualizadas sem uma função de transferência apropriada. A Figura\ref{fig:reserv_livro} mostra a frente de avanço da área invadida pela água em quatro momentos diferentes. A simulação de um reservatório com as mesmas propriedades pode ser observada na Figura~\ref{fig:reserv}, onde a Figura~\ref{fig:reserv_intro} mostra a simulação da saturação de óleo do reservatório em um dado tempo, enquanto a Figura~\ref{fig:reserv_tf_intro} mostra a visualização da frente de avanço identificada nesse mesmo tempo.
+    
+\begin{figure}[h]
+   	\centering
+   	\includegraphics[width=1\textwidth]{images/reserv_livro}
+   	\label{fig:reserv_livro}
+   	\caption{Evolução da área invadida em uma malha de 5 pontos~\cite{rosa}.}
+\end{figure}
     
 \begin{figure}[h]
 	\centering
     \subfigure[Simulação da saturação de óleo em um reservatório.]{
-    	\includegraphics[width=0.4\textwidth]{images/reserv_intro}%
-        \label{fig:reserv_intro}%
+    	\includegraphics[width=0.4\textwidth]{images/reserv_intro}
+        \label{fig:reserv_intro}
     }
     \subfigure[Realce da fronteira mais evidente da imagem ao lado.]{
-    	\includegraphics[width=0.4\textwidth]{images/reserv_tf_intro}%
-        \label{fig:reserv_tf_intro}%
+    	\includegraphics[width=0.4\textwidth]{images/reserv_tf_intro}
+        \label{fig:reserv_tf_intro}
     }
+	\label{fig:reserv}
     \caption{Visualização volumétrica de reservatório de petróleo.}
 \end{figure}
     
