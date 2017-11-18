@@ -3,16 +3,7 @@
 \chapter{Geração Semiautomática}
 \label{gordon}
 
-	Kindlmann e Durkin foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir problemas na identificação de fronteiras em que a variação de seus valores se sobrepõem, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso porque seu método gera bons resultados com uma função de transferência 1D exigindo uma intervenção mínima do usuário, ao mesmo tempo que o permite um controle fino sobre como a fronteira deve se apresentar visualmente.
-	
-	Neste Capítulo, o trabalho de \textit{Kindlmann e Durkin}~\cite{gordon} é apresentado em 4 seções. A seção~\ref{gordon.bound} define o conceito de fronteira e explica como identificá-las matematicamente. A geração da função de transferência 1D e 2D pode ser encontrada respectivamente nas seções~\ref{gordon.1d}~e~\ref{gordon.2d}. Por fim, o método é avaliado juntamente com alguns resultados, na seção~\ref{gordon.aval}.
-	
-	Afim de dinamizar a leitura desta dissertação, algumas simplificações serão utilizadas deste ponto em diante:
-\begin{itemize}
-	\item $s$ é um valor escalar qualquer contido no volume.
-	\item Todas as funções que correspondem ao volume serão representadas por funções de uma única variável $x$.
-	\item Todas as derivadas do volume são calculadas na direção do gradiente e portanto, representadas por $f'(x)$, $f''(x)$ e $f'''(x)$.
-\end{itemize}
+	Kindlmann e Durkin foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudado por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para a pesquisa e desenvolvimento dessa dissertação e será apresentado neste Capítulo em 4 seções. A seção~\ref{gordon.bound} define o conceito de fronteira e explica como identificá-las matematicamente. A geração da função de transferência 1D e 2D pode ser encontrada respectivamente nas seções~\ref{gordon.1d}~e~\ref{gordon.2d}. Por fim, o método é avaliado juntamente com alguns resultados, na seção~\ref{gordon.aval}.
 	
 \section{Detecção de fronteiras}
 \label{gordon.bound}
