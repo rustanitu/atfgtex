@@ -3,7 +3,7 @@
 \chapter{Geração Semiautomática}
 \label{gordon}
 
-	Kindlmann e Durkin foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudado por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para a pesquisa e desenvolvimento dessa dissertação e será apresentado neste Capítulo em 4 seções. A seção~\ref{gordon.bound} define o conceito de fronteira e explica como identificá-las matematicamente. A geração da função de transferência 1D e 2D pode ser encontrada respectivamente nas seções~\ref{gordon.1d}~e~\ref{gordon.2d}. Por fim, o método é avaliado juntamente com alguns resultados, na seção~\ref{gordon.aval}.
+	Kindlmann e Durkin foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudado por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para a pesquisa e desenvolvimento dessa dissertação e será apresentado neste Capítulo em 4 seções. A seção~\ref{gordon.bound} define o conceito de fronteira e explica como identificá-las matematicamente. A geração da função de transferência 1D e 2D pode ser encontrada respectivamente nas seções~\ref{gordon.1d}~e~\ref{gordon.2d}. Por fim, o método é avaliado juntamente com alguns resultados na seção~\ref{gordon.aval}.
 	
 \section{Detecção de fronteiras}
 \label{gordon.bound}
@@ -11,37 +11,49 @@
 	
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{images/g_boundary_model}
+	\includegraphics[width=1\textwidth]{images/gordon}
 	\caption{Comportamento das funções degrau, gaussiana e erro, respectivamente~\cite{gordon}.}
 	\label{fig:boundary_model}
 \end{figure}
 
+	A função \textit{erf()} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf()} deve ser escalada para variar de $v_{min}$ a $v_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela equação~\eqref{eq:boundary}.
+
+\begin{equation} \label{eq:boundary}
+	f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
+\end{equation} \\
+
+	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Como o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira pode ser obtida.
+	
+	A Figura~\ref{a} mostra o corte de um volume cilíndrico, onde $v_{min}$ foi mapeado para preto e $v_{max}$ para branco. As isosuperfícies existentes entre esses valores estão ilustradas na Figura~\ref{b}, enquanto a Figura~\ref{c} exibe os vetores gradiente do volume. Percebe-se que os gradientes se aproximam das normais das isosuperfícies, apontando sempre para uma próxima isosuperfície, como discutido anteriormente.
+	
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{images/grad}
 	\caption{Visão em corte de um cilindro. Em~\ref{a} as intensidades do volume, em~\ref{b} as isosuperfícies e em~\ref{c} os vetores gradientes~\cite{gordon}.}
 	\label{fig:grad}
 \end{figure}
-
-	Como uma fronteira pode assumir um conjunto de valores que varia entre a intensidade de dois materiais, ela pode ser interpretada como uma das isosuperfícies dentro desse conjunto de valores. Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Uma vez que o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira entre dois isovolumes pode ser obtida.
 	
-	A Figura~\ref{fig:grad} ilustra algumas isosuperfícies na região de fronteira do cilindro. É possível perceber também que os gradientes se aproximam das normais das isosuperfícies, apontando sempre para uma próxima isosuperfície.
+	A Figura~\ref{fig:functions} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira. No entanto, as curvas apresentadas só se comportam dessa forma na direção do gradiente. Isso dificulta expressar graficamente as ocorrências de fronteiras em um volume, uma vez que a direção do gradiente muda constantemente. É preciso então encontrar uma relação que identifique uma fronteira sem depender de sua posição no volume. 
 	
-	A Figura~\ref{fig:functions} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira.
-	
-	A função \textit{erf()} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf()} deve ser escalada para variar de $s_{min}$ a $s_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela equação~\eqref{eq:boundary} abaixo:
-
-\begin{equation} \label{eq:boundary}
-	f(x) = s_{min} + (s_{max} - s_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
-\end{equation}
-	
-	A função $f$ que defina uma fronteira deveria ser definida com 3 incógnitas. Afinal, os dados estão em um espaço tridimensional. No entanto, é preciso relembrar que a curva exibida na Figura~\ref{fig:} apenas é válida na direção do gradiente. Com essa ideia em mente, a função $f$ será descrita com apenas uma incógnita, cujo eixo é sempre a direção do gradiente no ponto em que a função está sendo avaliada. Da mesma forma, como as derivadas são sempre calculadas na direção do gradiente, será omitida a direção da notação. Dessa forma, a primeira e a segunda derivada da função $f$ são, respectivamente $f'$ e $f''$.
+	Uma solução simples para isso é avaliar o comportamento das derivadas em relação ao valor escalar do volume e não mais à sua posição, como mostra a Figura~\ref{}. Agora, fica mais fácil representar graficamente todas as fronteiras de um volume. Através de um histograma 2D, pode-se acumular todos os pares $(v,g)$ de escalares e primeiras derivadas que ocorrem no volume. Espera-se que as fronteiras apareçam no histograma como arcos que vão de $v_{min}$ a $v_{max}$, como na Figura~\ref{}. O mesmo pode ser feito para a segunda derivada. Os histogramas do volume cilíndrico são exibidos na Figura~\ref{}.
     
-\section{Função de Transferência 1D}
+\section{Geração da Função de Transferência}
+\label{gordon.ft}
+	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como a curva exibida na Figura~\ref{fig:} apenas é válida na direção do gradiente, optou-se por mantê-la com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas parciais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}. \\
+	
+\begin{equation} \label{eq:first}
+	f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+\end{equation} \\
+
+\begin{equation} \label{eq:second}
+	f''(x) = -\frac{x(v_{max} - v_{min})}{\sigma^{3}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+\end{equation} \\
+	
+\subsection{Função de Transferência 1D}
 \label{gordon.1d}
 	Texto...
     
-\section{Função de Transferência 2D}
+\subsection{Função de Transferência 2D}
 \label{gordon.2d}    
     Texto..
     
