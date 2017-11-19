@@ -7,7 +7,7 @@
 	
 \section{Detecção de fronteiras}
 \label{gordon.bound}
-	\textit{Kindlmann e Durkin}~\cite{gordon} partem do princípio que toda fronteira é caracterizada por uma variação abrupta na intensidade de um material. Uma vez que também é assumido que os materiais são homogêneos, uma fronteira pode inicialmente ser modelada pela função degrau. No entanto, devido aos dispositivos responsáveis pela aquisição de dados, as fronteiras são comumente borradas com uma resposta gaussiana na frequência. Por esse motivo, o comportamento de uma fronteira em um volume de dados é melhor representado pela convolução da função degrau com uma gaussiana. O resultado dessa convolução é a função \textit{erf()}, ou função \textit{erro}, ilustrada na Figura~\ref{fig:boundary_model}.
+	\textit{Kindlmann e Durkin}~\cite{gordon} partem da premissa de que todos os materiais representados no volume de dados possuem propriedades físicas homogêneas. Dessa forma, toda fronteira seria caracterizada por uma variação abrupta na intensidade lida do volume e poderia ser representada pela função degrau. No entanto, devido aos dispositivos responsáveis pela aquisição de dados, as fronteiras são comumente borradas com uma resposta gaussiana na frequência. Por esse motivo, o comportamento de uma fronteira em um volume de dados é melhor representado pela convolução da função degrau com uma gaussiana. O resultado dessa convolução é a função \textit{erf()}, ou função \textit{erro}, ilustrada na Figura~\ref{fig:boundary_model}.
 	
 \begin{figure}[h]
 	\centering
@@ -16,15 +16,26 @@
 	\label{fig:boundary_model}
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{images/grad}
+	\caption{Visão em corte de um cilindro. Em~\ref{a} as intensidades do volume, em~\ref{b} as isosuperfícies e em~\ref{c} os vetores gradientes~\cite{gordon}.}
+	\label{fig:grad}
+\end{figure}
+
+	Como uma fronteira pode assumir um conjunto de valores que varia entre a intensidade de dois materiais, ela pode ser interpretada como uma das isosuperfícies dentro desse conjunto de valores. Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Uma vez que o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira entre dois isovolumes pode ser obtida.
+	
+	A Figura~\ref{fig:grad} ilustra algumas isosuperfícies na região de fronteira do cilindro. É possível perceber também que os gradientes se aproximam das normais das isosuperfícies, apontando sempre para uma próxima isosuperfície.
+	
+	A Figura~\ref{fig:functions} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira.
+	
 	A função \textit{erf()} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf()} deve ser escalada para variar de $s_{min}$ a $s_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela equação~\eqref{eq:boundary} abaixo:
 
 \begin{equation} \label{eq:boundary}
-	f(x) = s = s_{min} + (s_{max} - s_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
+	f(x) = s_{min} + (s_{max} - s_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
 \end{equation}
 	
-	Por definição, a derivada direcional de uma função indica a taxa de variação dessa função em uma determinada direção...
-	
-	Apesar da fronteira poder variar entre $s_{min}$ e $s_{max}$, a Figura~\ref{fig:} mostra que a posição exata da fronteira encontra-se onde $f'(x)$ é máximo e $f''(x)$ é zero.
+	A função $f$ que defina uma fronteira deveria ser definida com 3 incógnitas. Afinal, os dados estão em um espaço tridimensional. No entanto, é preciso relembrar que a curva exibida na Figura~\ref{fig:} apenas é válida na direção do gradiente. Com essa ideia em mente, a função $f$ será descrita com apenas uma incógnita, cujo eixo é sempre a direção do gradiente no ponto em que a função está sendo avaliada. Da mesma forma, como as derivadas são sempre calculadas na direção do gradiente, será omitida a direção da notação. Dessa forma, a primeira e a segunda derivada da função $f$ são, respectivamente $f'$ e $f''$.
     
 \section{Função de Transferência 1D}
 \label{gordon.1d}
