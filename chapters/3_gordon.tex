@@ -19,7 +19,7 @@
 	A função \textit{erf()} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf()} deve ser escalada para variar de $v_{min}$ a $v_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela equação~\eqref{eq:boundary}.
 
 \begin{equation} \label{eq:boundary}
-	f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
+	v = f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
 \end{equation} \\
 
 	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Como o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira pode ser obtida.
@@ -58,7 +58,6 @@
 	\subfigure{
 		\includegraphics[width=0.5\textwidth]{images/g_functions_leg}
 	}
-%	\includegraphics[width=1\textwidth]{images/g_all_functions}
 	\caption{Comportamento das funções $f(x)$, $f'(x)$ e $f''(x)$ na direção do gradiente: \ref{fig:g_functions_a} em relação à posição, ~\ref{fig:g_functions_b} em relação ao valor escalar~\cite{gordon}.}
 	\label{fig:g_functions}
 \end{figure}
@@ -97,15 +96,52 @@
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)}
 \end{equation} \\
 
-	X é na direção do gradiente e como f(x) é centrado em 0 então |x| é distância ao centro da fronteira. Basta então relacionar x com alpha.
+	Isolar $x$ é importante pois ele é mais que uma posição do volume na direção do vetor gradiente. A posição indicada por $x$ é perpendicular à fronteira e relativa ao centro desta mesma fronteira, ou seja, $|x|$ é a distância ao centro da fronteira. Agora fica mais fácil designar uma opacidade para cada voxel do volume, basta relacionar sua transparência de acordo com a sua distância à fronteira.
+	
+	A função par que decresce linearmente de $1$ a $0$ no intervalo $[0,\sigma]$ e permanece $0$ em $[0, \infty]$ é talvez a forma mais intuitiva de relacionar a transparência com a distância $x$ à fronteira. O volume se torna completamente opaco apenas nos pontos onde há ocorrência do centro exato de uma fronteira e vai perdendo essa opacidade linearmente até atingir uma região homogênea. Contudo, um ganho relevante é obtido se for designado ao usuário a tarefa de definir uma função de opacidade $b(x)$, responsável por descrever a relação \quote{distância X opacidade} descrita anteriormente.
+	
+	Através de $b(x)$ o usuário ganha um controle fino sobre o render final do volume, pois cabe a ele dizer como a fronteira deve ser visualizada. A Figura~\ref{fig:ig:bx} mostra como diferentes opções de $b(x)$ podem afetar a visualização final. Nesse exemplo o volume é composto por duas esferas concêntricas de raios distintos. Percebe-se que apenas variando a função de opacidade é possível alternar entre: visualizar apenas a esfera de fora ou ambas, visualizar toda a fronteira ou apenas o lado interior da esfera que compõe a fronteira, ou até mesmo decidir entre uma transição suave ou abrupta.
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{images/g_bx}
+	\caption{O impacto de diferentes funções de opacidade $b(x)$ na visualização de duas esferas concêntricas~\cite{gordon}.}
+	\label{fig:g_bx}
+\end{figure}
+
+	Esse controle é especialmente importante quando as fronteiras de um volume não se comportam da forma ideal. Por exemplo, uma fronteira com o crescimento mais acentuado de um lado fará com que a distância $x$ seja deslocada. Neste caso, a correção desse deslocamento se torna muito mais simples se feita em $b(x)$ ao invés de $f(x)$. O usuário continua livre de ter que inspecionar o volume em busca da fronteira, mesmo que o método seja apenas capaz de indicar sua proximidade.
 	
 \subsection{Função de Transferência 1D}
 \label{gordon.1d}
-	Texto...
+	Com a premissa de que os materiais têm propriedades físicas homogêneas e o modelo definido na seção~\ref{gordon.bound}, pode-se assumir também que os valores do volume na fronteira são sempre os mesmos e que, na média, um fronteira pode ser atribuída a um valor escalar. Isso fica claro na Figura~\ref{fig:g_functions}~\ref{fig:g_functions_b} onde foi encontrado um padrão para identificar as fronteiras em função de $v$.
+	
+	A equação~\eqref{eq:x} reescrita em função de $v$ é apresentada na equação~\eqref{eq:pv}, cujo significado pode ser interpretado como a distância média com que os voxels de valor $v$ se encontram da fronteira mais próxima a eles. Nela, $g(v)$ indica a média da primeira derivada na direção do gradiente sobre todas as posições $x$ do volume de valor $v$. Da mesma forma, $h(v)$ indica a média da segunda derivada na direção do gradiente sobre todas as ocorrências de $v$. \\	
+
+\begin{equation} \label{eq:pv}
+	p(v) = -\frac{\sigma^{2}h(v)}{g(v)}
+\end{equation} \\
+
+	Como explicado previamente, o $\sigma$ é obtido em função dos valores extremos de $f'(x)$ e $f''(x)$. No entanto, apesar de ser uma característica do volume e, portanto, constante, ele também precisa ser reformulado em função de $v$. O cálculo de $\sigma$ utilizando os máximos globais do volume pode distorcer todas as distâncias médias, por causa de ruído. Assim, os valores extremos utilizados devem ser os máximos dentre os valores médios: $g(v)_{max}$ e $h(v)_{max}$, como na equação~\eqref{eq:sigmav}. Uma forma mais equilibrada de obter o $\sigma$ é utilizar também o extremo mínimo da segunda derivada direcional, como demonstrado na equação~\eqref{eq:sigmav2}. \\
+	
+\begin{equation} \label{eq:sigmav}
+	\sigma = \frac{g(v)_{max}}{\sqrt{e}\ h(v)_{max}}
+\end{equation} \\
+
+\begin{equation} \label{eq:sigmav2}
+	\sigma = \frac{2\ g(v)_{max}}{\sqrt{e}\ (h(v)_{max} - h(v)_{min})}
+\end{equation} \\
+
+	A função $b(x)$ definida pelo usuário continua conceitualmente correta. Contudo, uma simples transformação de notação precisa ser feita, afinal deseja-se designar opacidade em função de $v$ e no entanto, a função responsável por definir opacidade está em função de $x$. Define-se então a equação~\eqref{eq:alpha} \\
+	
+\begin{equation} \label{eq:alpha}
+	\alpha(v) = b(p(v))
+\end{equation}
+
+	INSERIR RESULTADOS
     
 \subsection{Função de Transferência 2D}
-\label{gordon.2d}    
-    Texto..
+\label{gordon.2d}
+    INSERIR A JUSTIFICATIVA DO GORDON PARA 2D, MESMO QUE SEJA REPETIR A SOBREPOSIÇÃO DA INTRODUÇÃO....
     
 \section{Avaliação do método}
 \label{gordon.aval}    
