@@ -3,7 +3,7 @@
 \chapter{Geração Semiautomática}
 \label{gordon}
 
-	Kindlmann e Durkin foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudado por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para a pesquisa e desenvolvimento dessa dissertação e será apresentado neste Capítulo em 4 seções. A seção~\ref{gordon.bound} define o conceito de fronteira e explica como identificá-las matematicamente. A geração da função de transferência 1D e 2D pode ser encontrada respectivamente nas seções~\ref{gordon.1d}~e~\ref{gordon.2d}. Por fim, o método é avaliado juntamente com alguns resultados na seção~\ref{gordon.aval}.
+	Kindlmann e Durkin foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudados por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para a pesquisa e desenvolvimento dessa dissertação e será apresentado neste Capítulo em 3 seções. A seção~\ref{gordon.bound} define o conceito de fronteira e explica como identificá-las. A obtenção do modelo matemático que gera a função de transferência 1D e 2D pode ser encontrada na seção~\ref{gordon.ft}. Por fim, o método é avaliado juntamente com alguns resultados na seção~\ref{gordon.aval}.
 	
 \section{Detecção de fronteiras}
 \label{gordon.bound}
@@ -11,7 +11,7 @@
 	
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{images/gordon}
+	\includegraphics[width=1\textwidth]{images/g_boundary_model}
 	\caption{Comportamento das funções degrau, gaussiana e erro, respectivamente~\cite{gordon}.}
 	\label{fig:boundary_model}
 \end{figure}
@@ -24,22 +24,59 @@
 
 	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Como o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira pode ser obtida.
 	
-	A Figura~\ref{a} mostra o corte de um volume cilíndrico, onde $v_{min}$ foi mapeado para preto e $v_{max}$ para branco. As isosuperfícies existentes entre esses valores estão ilustradas na Figura~\ref{b}, enquanto a Figura~\ref{c} exibe os vetores gradiente do volume. Percebe-se que os gradientes se aproximam das normais das isosuperfícies, apontando sempre para uma próxima isosuperfície, como discutido anteriormente.
+\begin{figure}[h]
+	\centering
+%	\includegraphics[width=1\textwidth]{images/grad}
+	\subfigure[Intensidades]{
+		\includegraphics[width=0.3\textwidth]{images/g_cilynder}
+		\label{fig:g_isosurfaces_a}
+	}
+	\subfigure[Isosuperfícies]{
+		\includegraphics[width=0.3\textwidth]{images/g_isosurfaces}
+		\label{fig:g_isosurfaces_b}
+	}
+	\subfigure[Vetores gradiente]{
+		\includegraphics[width=0.3\textwidth]{images/g_grads}
+		\label{fig:g_isosurfaces_c}
+	}
+	\caption{Visão em corte de um cilindro~\cite{gordon}.}
+	\label{fig:g_isosurfaces}
+\end{figure}
+
+	A Figura~\ref{fig:g_isosurfaces}~\ref{fig:g_isosurfaces_a} mostra o corte de um volume cilíndrico, onde $v_{min}$ foi mapeado para preto e $v_{max}$ para branco. As isosuperfícies existentes entre esses valores estão ilustradas na Figura~\ref{fig:g_isosurfaces}~\ref{fig:g_isosurfaces_b}, enquanto a Figura~\ref{fig:g_isosurfaces}~\ref{fig:g_isosurfaces_c} exibe os vetores gradiente do volume. Percebe-se que os gradientes se aproximam das normais das isosuperfícies, apontando sempre para uma próxima isosuperfície, como discutido anteriormente.
+		
+\begin{figure}[h]
+	\centering
+	\subfigure[]{
+		\includegraphics[width=0.4\textwidth]{images/g_functions_all}
+		\label{fig:g_functions_a}
+	}
+	\subfigure[]{
+		\includegraphics[width=0.4\textwidth]{images/g_functions_deriv}
+		\label{fig:g_functions_b}
+	}
+	\subfigure{
+		\includegraphics[width=0.5\textwidth]{images/g_functions_leg}
+	}
+%	\includegraphics[width=1\textwidth]{images/g_all_functions}
+	\caption{Comportamento das funções $f(x)$, $f'(x)$ e $f''(x)$ na direção do gradiente: \ref{fig:g_functions_a} em relação à posição, ~\ref{fig:g_functions_b} em relação ao valor escalar~\cite{gordon}.}
+	\label{fig:g_functions}
+\end{figure}
+	
+	A Figura~\ref{fig:g_functions}~\ref{fig:g_functions_a} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira. No entanto, as curvas apresentadas só se comportam dessa forma na direção do gradiente. Isso dificulta expressar graficamente as ocorrências de fronteiras em um volume, uma vez que a direção do gradiente muda constantemente. É preciso então encontrar uma relação que identifique uma fronteira sem depender de sua posição no volume. 
+	
+	Uma solução simples para isso é avaliar o comportamento das derivadas em relação ao valor escalar do volume e não mais à sua posição, como mostra a Figura~\ref{fig:g_functions}~\ref{fig:g_functions_b}. Dessa forma fica mais fácil representar graficamente todas as fronteiras de um volume. Através de um histograma 2D, pode-se acumular todos os pares escalares e derivadas que ocorrem no volume. A Figura~\ref{fig:g_histo_cil} apresenta tais histogramas para o mesmo cilindro utilizado nas análises anteriores. Vê-se que as curvas da Figura~\ref{fig:g_functions}~\ref{fig:g_functions_b} aparecem nos histogramas, indicando que uma fronteira foi identificada.
 	
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{images/grad}
-	\caption{Visão em corte de um cilindro. Em~\ref{a} as intensidades do volume, em~\ref{b} as isosuperfícies e em~\ref{c} os vetores gradientes~\cite{gordon}.}
-	\label{fig:grad}
+	\includegraphics[width=1\textwidth]{images/g_histo_cil}
+	\caption{Histogramas 2D da primeira e segunda derivada do cilindro~\cite{gordonms}.}
+	\label{fig:g_histo_cil}
 \end{figure}
-	
-	A Figura~\ref{fig:functions} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira. No entanto, as curvas apresentadas só se comportam dessa forma na direção do gradiente. Isso dificulta expressar graficamente as ocorrências de fronteiras em um volume, uma vez que a direção do gradiente muda constantemente. É preciso então encontrar uma relação que identifique uma fronteira sem depender de sua posição no volume. 
-	
-	Uma solução simples para isso é avaliar o comportamento das derivadas em relação ao valor escalar do volume e não mais à sua posição, como mostra a Figura~\ref{}. Agora, fica mais fácil representar graficamente todas as fronteiras de um volume. Através de um histograma 2D, pode-se acumular todos os pares $(v,g)$ de escalares e primeiras derivadas que ocorrem no volume. Espera-se que as fronteiras apareçam no histograma como arcos que vão de $v_{min}$ a $v_{max}$, como na Figura~\ref{}. O mesmo pode ser feito para a segunda derivada. Os histogramas do volume cilíndrico são exibidos na Figura~\ref{}.
     
 \section{Geração da Função de Transferência}
 \label{gordon.ft}
-	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como a curva exibida na Figura~\ref{fig:} apenas é válida na direção do gradiente, optou-se por mantê-la com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas parciais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}. \\
+	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como as curvas exibidas na Figura~\ref{fig:g_functions}~\ref{fig:g_functions_a} apenas são válidas na direção do gradiente, optou-se por mantê-las com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas parciais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}. \\
 	
 \begin{equation} \label{eq:first}
 	f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
@@ -48,6 +85,19 @@
 \begin{equation} \label{eq:second}
 	f''(x) = -\frac{x(v_{max} - v_{min})}{\sigma^{3}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
 \end{equation} \\
+
+	A função $f'(x)$ é uma gaussiana cujo desvio padrão é $\sigma$. Como a gaussiana tem pontos de inflexão em $\pm\sigma$, isso implica que $f''(x)$ atinge seus pontos extremos também em $\pm\sigma$. Observa-se pela Figura~\ref{fig:g_functions}~\ref{fig:g_functions_a} que $2\sigma$ aproxima a distância entre $v_{max}$ e $v_{min}$, servindo assim como \quote{espessura} da fronteira. Cada volume possuirá um $\sigma$ diferente, que pode ser calculado uma vez que se saiba os valores máximos de $f'(x)$ e $f''(x)$. A partir do cálculo de $\sigma$ é possível extrair $x$ relacionando $f'(x)$ e $f''(x)$, como mostram as equações \eqref{eq:sigma} e \eqref{eq:x}.
+	\\
+	
+\begin{equation} \label{eq:sigma}
+	\sigma = \frac{f'(0)}{\sqrt{e}f''(-\sigma)}
+\end{equation} \\
+
+\begin{equation} \label{eq:x}
+	x = -\frac{\sigma^{2}f''(x)}{f'(x)}
+\end{equation} \\
+
+	X é na direção do gradiente e como f(x) é centrado em 0 então |x| é distância ao centro da fronteira. Basta então relacionar x com alpha.
 	
 \subsection{Função de Transferência 1D}
 \label{gordon.1d}
