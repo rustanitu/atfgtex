@@ -115,10 +115,12 @@
 \label{gordon.1d}
 	Com a premissa de que os materiais têm propriedades físicas homogêneas e o modelo definido na seção~\ref{gordon.bound}, pode-se assumir também que os valores do volume na fronteira são sempre os mesmos e que, na média, um fronteira pode ser atribuída a um valor escalar. Isso fica claro na Figura~\ref{fig:g_functions}~\ref{fig:g_functions_b} onde foi encontrado um padrão para identificar as fronteiras em função de $v$.
 	
-	A equação~\eqref{eq:x} reescrita em função de $v$ é apresentada na equação~\eqref{eq:pv}, cujo significado pode ser interpretado como a distância média com que os voxels de valor $v$ se encontram da fronteira mais próxima a eles. Nela, $g(v)$ indica a média da primeira derivada na direção do gradiente sobre todas as posições $x$ do volume de valor $v$. Da mesma forma, $h(v)$ indica a média da segunda derivada na direção do gradiente sobre todas as ocorrências de $v$. \\	
+	A equação~\eqref{eq:x} reescrita em função de $v$ é apresentada na equação~\eqref{eq:pv}, cujo significado pode ser interpretado como a distância média com que os voxels de valor $v$ se encontram da fronteira mais próxima a eles. Nela, $g(v)$ indica a média da primeira derivada na direção do gradiente sobre todas as posições $x$ do volume de valor $v$. Da mesma forma, $h(v)$ indica a média da segunda derivada na direção do gradiente sobre todas as ocorrências de $v$. %TODO Comentar que g(v) e h(v) podem ser extraídos das fativas 'v' do histograma 3D
+	%TODO explicar Gtresh
+	\\	
 
 \begin{equation} \label{eq:pv}
-	p(v) = -\frac{\sigma^{2}h(v)}{g(v)}
+	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{tresh}, 0)}
 \end{equation} \\
 
 	Como explicado previamente, o $\sigma$ é obtido em função dos valores extremos de $f'(x)$ e $f''(x)$. No entanto, apesar de ser uma característica do volume e, portanto, constante, ele também precisa ser reformulado em função de $v$. O cálculo de $\sigma$ utilizando os máximos globais do volume pode distorcer todas as distâncias médias, por causa de ruído. Assim, os valores extremos utilizados devem ser os máximos dentre os valores médios: $g(v)_{max}$ e $h(v)_{max}$, como na equação~\eqref{eq:sigmav}. Uma forma mais equilibrada de obter o $\sigma$ é utilizar também o extremo mínimo da segunda derivada direcional, como demonstrado na equação~\eqref{eq:sigmav2}. \\
@@ -137,11 +139,13 @@
 	\alpha(v) = b(p(v))
 \end{equation}
 
-	INSERIR RESULTADOS
+	%TODO INSERIR RESULTADOS
     
 \subsection{Função de Transferência 2D}
 \label{gordon.2d}
-    INSERIR A JUSTIFICATIVA DO GORDON PARA 2D, MESMO QUE SEJA REPETIR A SOBREPOSIÇÃO DA INTRODUÇÃO....
+    Desenhar uma função de transferência 2D é ainda mais difícil que uma 1D. Contudo, obter funções 2D pode ser desejável. Segundo \textit{Kindlmann e Durkin}~\cite{gordon}, definir a opacidade em função do valor escalar e da primeira derivada pode gerar melhores resultados. Isso porque em volumes mais complexos pode haver sobreposição nos intervalos de fronteiras distintas. Os histogramas 2D revelam bem essas sobreposições, uma vez que os arcos se tocam quando isso ocorre. Um exemplo desse problema é visto na Figura~\ref{fig:}.
+    
+    Contudo, o método proposto até aqui pode ser facilmente estendido para uma versão 2D... SIGMA NÃO MUDA, EXPLICA H(V,G) E MOSTRA A EQUAÇÃO NOVA, DAI DIZ QUE "NOVAMENTE...POR AJUSTE NA NOTAÇÃO" E ENTÃO MOSTRA A(V, G).
     
 \section{Avaliação do método}
 \label{gordon.aval}    
