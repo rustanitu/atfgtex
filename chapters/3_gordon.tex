@@ -22,7 +22,11 @@
 	v = f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
 \end{equation} \\
 
-	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Como o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira pode ser obtida.
+	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$, onde isosuperfície é uma superfície do volume formada por todos os voxels de um mesmo valor. Uma vez que a derivada direcional indica a taxa de variação de uma função em uma determinada direção, a isosuperfície que melhor representa a fronteira é aquela que possui a maior derivada, pois esta estará localizada no ponto da fronteira em que a variação entre $v_{min}$ e $v_{max}$ for maior.
+	
+	No entanto a derivada não pode ser calculada em qualquer direção. Para que a derivada indique a variação entre $v_{min}$ e $v_{max}$ a direção deve ser aquela que parte de um voxel com valor $v_{min}$ para um com valor $v_{max}$, atravessando os valores intermediários. Essa direção desejada seria então a normal das isosuperfícies, uma vez que esta é sempre perpendicular ao plano que tangencia a isosuperfície e, portanto, sempre aponta na direção de outra isosuperfície. Nesse caso, o vetor normal pode ser aproximado pelo vetor gradiente, uma vez que este aponta na direção que possui a maior variação de valores do volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira pode ser obtida.
+	
+	%%% Seguindo a premissa de que a fronteira é uma variação rápida de alta intensidade, ela é melhor representada pela isosuperfície que apresenta a maior derivada. Como o vetor gradiente aponta na direção da maior taxa de variação de uma função, ele pode ser usado para caminhar entre as isosuperfícies de um volume. Assim, através da avaliação da derivada na direção do gradiente, a isosuperfície que representa corretamente a fronteira pode ser obtida.
 	
 \begin{figure}[h]
 	\centering
@@ -47,24 +51,28 @@
 		
 \begin{figure}[h]
 	\centering
-	\subfigure[]{
-		\includegraphics[width=0.4\textwidth]{images/g_functions_all}
-		\label{fig:g_functions_a}
-	}
-	\subfigure[]{
-		\includegraphics[width=0.4\textwidth]{images/g_functions_deriv}
-		\label{fig:g_functions_b}
-	}
 	\subfigure{
 		\includegraphics[width=0.5\textwidth]{images/g_functions_leg}
 	}
-	\caption{Comportamento das funções $f(x)$, $f'(x)$ e $f''(x)$ na direção do gradiente: \ref{fig:g_functions_a} em relação à posição, ~\ref{fig:g_functions_b} em relação ao valor escalar~\cite{gordon}.}
+	\subfigure{
+		\includegraphics[width=0.5\textwidth]{images/g_functions_all}
+%		\label{fig:g_functions_a}
+	}
+%	\subfigure[]{
+%		\includegraphics[width=0.4\textwidth]{images/g_functions_deriv}
+%		\label{fig:g_functions_b}
+%	}
+	\caption{Comportamento de $f(x)$, $f'(x)$ e $f''(x)$ na direção do gradiente, em função da posição no volume~\cite{gordon}.}
 	\label{fig:g_functions}
 \end{figure}
 	
-	A Figura~\ref{fig:g_functions}~\ref{fig:g_functions_a} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira. No entanto, as curvas apresentadas só se comportam dessa forma na direção do gradiente. Isso dificulta expressar graficamente as ocorrências de fronteiras em um volume, uma vez que a direção do gradiente muda constantemente. É preciso então encontrar uma relação que identifique uma fronteira sem depender de sua posição no volume. 
+	A Figura~\ref{fig:g_functions} mostra o comportamento da primeira e segunda derivadas na presença de uma fronteira. Como esperado, o ponto de maior primeira derivada e segunda derivada igual a zero identifica a posição exata da fronteira. No entanto, as curvas apresentadas só se comportam dessa forma na direção do gradiente. Isso dificulta expressar graficamente as ocorrências de fronteiras em um volume, uma vez que a direção do gradiente muda a cada posição. É preciso então encontrar uma relação que identifique uma fronteira independente de sua posição no volume.
 	
-	Uma solução simples para isso é avaliar o comportamento das derivadas em relação ao valor escalar do volume e não mais à sua posição, como mostra a Figura~\ref{fig:g_functions}~\ref{fig:g_functions_b}. Dessa forma fica mais fácil representar graficamente todas as fronteiras de um volume. Através de um histograma 2D, pode-se acumular todos os pares escalares e derivadas que ocorrem no volume. A Figura~\ref{fig:g_histo_cil} apresenta tais histogramas para o mesmo cilindro utilizado nas análises anteriores. Vê-se que as curvas da Figura~\ref{fig:g_functions}~\ref{fig:g_functions_b} aparecem nos histogramas, indicando que uma fronteira foi identificada.
+	Em busca de uma solução, \textit{Kindlmann e Durkin}~\cite{gordon} decidiram inspecionar as curvas de $ f(x) $, $ f'(x) $ e $ f''(x) $, em função umas das outras. Como pode ser visto na Figura~\ref{fig:}, uma fronteira ainda é identificada quando $ f'(x) $ é máximo e $ f''(x) $ é zero, mesmo em função de $ f(x) $. Mas como a própria ilustração indica, apesar da posição não ter sido levada em consideração, as funções ainda foram avaliadas na localização conhecida de uma fronteira. Então, a mesma análise foi feita para todas as posições do volume, guardando em histogramas distintos as ocorrências das derivadas em função do valor escalar. Como ilustrado na Figura~\ref{fig:}, as curvas apresentam o mesmo padrão já proposto para identificar fronteiras.
+	
+	Para guardar a relação entre $ f(x) $, $ f'(x) $ e $ f''(x) $ independente de $x$ é proposto um histograma 3D de tamanho $ 256^{3} $. Cada eixo corresponde a uma função cujo valor deve ser mapeado para o intervalo $ [0,255] $. O objetivo do histograma é contabilizar as ocorrências das tríades $ (v,g,h) $, isto é: valor escalar, primeira derivada na direção do gradiente e segunda derivada na direção do gradiente.
+	
+	O histograma 3D permite ainda gerar os histogramas 2D exibidos na Figura~\ref{fig:}. Para obter um histograma 2D de $ f'(x) $ em função de $ f(x) $, acumula-se o histograma 3D na direção do eixo $ f''(x) $. Já para obter $ f''(x) $ em função de $ f(x) $, acumula-se na direção do eixo $ f'(x) $. Além disso, a partir dele é possível extrair as médias que serão utilizadas na geração da função de transferência, como será visto nas subseções~\ref{gordon.1d}~e~\ref{gordon.2d}.
 	
 \begin{figure}[h]
 	\centering
@@ -145,8 +153,14 @@
 \label{gordon.2d}
     Desenhar uma função de transferência 2D é ainda mais difícil que uma 1D. Contudo, obter funções 2D pode ser desejável. Segundo \textit{Kindlmann e Durkin}~\cite{gordon}, definir a opacidade em função do valor escalar e da primeira derivada pode gerar melhores resultados. Isso porque em volumes mais complexos pode haver sobreposição nos intervalos de fronteiras distintas. Os histogramas 2D revelam bem essas sobreposições, uma vez que os arcos se tocam quando isso ocorre. Um exemplo desse problema é visto na Figura~\ref{fig:}.
     
-    Contudo, o método proposto até aqui pode ser facilmente estendido para uma versão 2D... SIGMA NÃO MUDA, EXPLICA H(V,G) E MOSTRA A EQUAÇÃO NOVA, DAI DIZ QUE "NOVAMENTE...POR AJUSTE NA NOTAÇÃO" E ENTÃO MOSTRA A(V, G).
+    Contudo, o método proposto até aqui pode ser facilmente estendido para uma versão 2D. O cálculo de $\sigma$ permanece inalterado, como na equação~\eqref{eq:sigmav2}. A distância média à fronteira, no entanto, precisa ser reescrita também em função da derivada $g$. Logo, $p(v)$ é substituída por $p(v,g)$ descrita na equação~\eqref{eq:pvg}. O termo $h(v,g)$ é a segunda derivada média para cada ocorrência de escalar $v$ e primeira derivada $g$. Assim como na versão 1D, esse valor médio também pode ser extraído do histograma 3D...
+    .. SIGMA NÃO MUDA, EXPLICA H(V,G) E MOSTRA A EQUAÇÃO NOVA, DAI DIZ QUE "NOVAMENTE...POR AJUSTE NA NOTAÇÃO" E ENTÃO MOSTRA A(V, G).
+    \\
     
+\begin{equation} \label{eq:pvg}
+	p(v,g) = -\frac{\sigma^{2}h(v,g)}{max(g - g_{tresh}, 0)}
+\end{equation} \\
+
 \section{Avaliação do método}
 \label{gordon.aval}    
     Atacar treshold do gordon, apresentando minha solução. Mas sem criticar de forma negativa.
