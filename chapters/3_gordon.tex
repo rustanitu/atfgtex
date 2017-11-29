@@ -219,19 +219,34 @@
 \label{gordon.aval}
 	O método de \textit{Kindlmann e Durkin}~\cite{gordon} identifica bem as fronteiras que ocorrem em um volume. Os arcos de seu histograma acumulado permitem ver quantas fronteiras bem definidas existem, além de indicar o intervalo de valores no qual a fronteira varia. O modelo matemático da função de transferência é capaz de proporcionar bons resultados mesmo quando os histogramas não revelam arcos tão distintos.
 	
-	No entanto, em casos onde há sobreposição no intervalo das fronteiras a função de transferência 1D não é capaz de distinguir os valores que pertencem a ambas. A visualização de todas as fronteiras ainda pode esconder esse problema, mas ele certamente é revelado na tentativa de visualizar cada uma individualmente.
-	
-	A função de transferência 2D é proposta a fim de resolver essa sobreposição. Apesar da adição de uma dimensão a mais melhorar a classificação dos voxels em fronteiras e resultar numa visualização melhor, principalmente quando o objetivo é visualizar as fronteiras individualmente, ela não resolve o problema de sobreposição. \textit{Sereda et al.}~\cite{sereda1} fazem essa mesma observação e por isso alguns trabalhos buscaram outros domínios para a FT ou apostaram em coerência espacial.
+	No entanto, em casos onde há sobreposição no intervalo das fronteiras a função de transferência 1D não é capaz de distinguir os valores que pertencem a ambas. Neste caso, uma função de transferência 2D pode melhorar a classificação dos voxels. No entanto, como observado por \textit{Sereda et al.}~\cite{sereda1}, nem sempre o aumento da dimensão da FT resolve essa sobreposição. No caso de volumes mais complexos, onde os histogramas acumulados não revelam os arcos esperados, se a FT 2D gerada não realçar as fronteiras corretamente, ela pode se revelar uma opção pior que a FT 1D, uma vez que o espaço 2D trará mais desafios para o usuário na tentativa de ajustar a FT gerada.
 	
 	O treshold utilizado nas equações \eqref{eq:pv} e \eqref{eq:pvg} é um parâmetro trabalhoso de se escolher. Em alguns volumes o valor necessário é tão pequeno que pode ser desconsiderado em troca de utilizar uma função $ b(x) $ estreita. Por outro lado, o uso de um $ g_{tresh} $ muito grande pode impedir a visualização de fronteiras mais fracas, isto é, de menor $ g $. Ao longo dessa dissertação, descobriu-se que um valor bom é o equivalente ao menor vale na curva da primeira derivada média, $ g(v) $. Esta foi a regra utilizada para gerar os resultados de \textit{Kindlmann e Durkin}~\cite{gordon} e não houve melhora significativa em nenhum volume com a variação desse valor. No entanto, mais estudos devem ser feitos para definir um $ g_{tresh} $ preciso.
 	
-    Uma análise mais profunda da equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso muito maior que $ f'(x) $ na determinação da distância $ x $ de um voxel à fronteira. Isso porque basta que $ f''(x) $ seja zero, para que $ x $ seja zero, independente do valor de $ f'(x) $. No entanto, para que $ f'(x) $ determine sozinho o valor de $ x $, ele precisa ser igual a $ \pm\infty $. A discrepância está no fato de que $ f''(x) $ certamente assumirá zero pelo menos uma vez, em quanto $ f'(x) $ raramente assumirá $ \pm\infty $.
+    Uma análise mais profunda da equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou quando $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes, ao longo de x. No entanto, $ f'(x) $ nunca assume infinito, uma vez que é a derivada de $ f(x) $ e, portanto, seria necessário que $ f(x) $ fosse infinito para tal.
     \\
     
-\begin{equation} \label{eq:pvg}
+\begin{equation} \label{eq:xpvg}
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)} \ \approx \ 
 	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{tresh}, 0)}
 \end{equation} \\
 
-    
-    É preciso levar em conta ainda, que a equação~\eqref{eq:x} é conceitual. Na prática, utiliza-se valores médios, como descrito na função $ p(v) $ também repetida acima.
+	Um argumento válido é de que, na prática, $ f'(x) $ não precisa se aproximar tanto de $ \pm \infty $ para que a equação~\eqref{eq:xpvg} resulte em um $ x $ suficientemente próximo de zero. Basta atingir um valor grande o suficiente para aproximar $ x $ de zero, independente do valor de $ f''(x) $. No entanto, tal resultado necessitaria de uma descontinuidade em $ f(x) $ que não é compatível com o modelo de fronteira assumido. Por isso, $ f''(x) $ desempenha um papel muito mais importante na definição de uma fronteira. O problema dessa abordagem se torna mais evidente uma vez que $ x $ é aproximado por valores médios através da função $ p(v) $. 
+	
+	Nesse capítulo mostrou-se que as curvas médias mantém os padrões que identificam uma fronteira. Porém, elas podem possuir um deslocamento na imagem que não é considerado no modelo definido na Figura~\ref{fig:g_functions}. O parâmetro $ g_{tresh} $ corrige esse deslocamento em $ g(v) $, mas não em $ h(v) $. É importante observar também que, em relação a $ g(v) $, um deslocamento na imagem da curva não altera o valor $ v $ que identifica a fronteira, uma vez que os valores máximos de $ g(v) $ e $ g(v) + c $ ocorrem no mesmo valor $ v $. No entanto, o mesmo não é verdade para a função $ h(v) $, como mostra a Figura~\ref{fig:g_shift}. Isso porque as equações $ h(v) = 0 $ e $ h(v) + c = 0 $ são satisfeitas em valores $ v $ distintos.
+	
+\begin{figure}[h]
+	\centering
+	\subfigure[] {
+		\includegraphics[width=0.45\textwidth]{images/g_gvc}
+		\label{fig:g_gvc}
+	}
+	\subfigure[] {
+		\includegraphics[width=0.45\textwidth]{images/g_hvc}
+		\label{fig:g_hvc}
+	}
+	\caption{Deslocamento constante na imagem das funções $ g(v) $ e $ h(v) $.}
+	\label{fig:g_shift}
+\end{figure}
+
+	No capítulo seguinte, o mesmo modelo de fronteira proposto por \textit{Kindlmann e Durkin}~\cite{gordon} é utilizado para obter uma nova função de transferência 1D. As funções médias das derivadas de $ f(x) $ serão exploradas a fim de compor a FT com mesmo peso, além de eliminar o $ g_{tresh} $.

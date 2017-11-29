@@ -2,12 +2,13 @@
 
 \chapter{Geração Baseada em Derivadas Médias}
 \label{my}
-
-	Texto...
+	Este capítulo descreve o método proposto nessa dissertação para gerar funções de transferência automáticas, baseado no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}, explicado no capítulo anterior.
 
 \section{Avaliação média das derivadas}
 \label{my.deriv}
-	Texto...
+	O modelo de fronteiras proposto possui $ f''(x) = 0 $ em 3 momentos. Por isso utilizar $ f''(x) = 0 $ para identificar fronteiras pode ser dúbio. Claro que como $ f''(x) $ é derivada de $ f'(x) $ e FT é definida por máximo em $ f'(x) $ e zero em $ f''(x) $, sabemos que isso nunca ocorrerá nos pontos errados de $ f''(x) = 0 $. No entanto essa garantia é perdida no momento que utilizamos valores médios, isto é $ g(v) $ e $ h(v) $ no lugar de $ f'(x) $ e $ f''(x) $.
+	
+	Ao avaliar a terceira derivada de $ f(x) $ no entanto, percebemos uma característica interessante. O valor mínimo se encontra exatamente no centro da fronteira.
     
 \subsection{Malhas estruturadas}
 \label{my.struct}
