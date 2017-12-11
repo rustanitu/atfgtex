@@ -22,7 +22,7 @@
 
 \begin{equation} \label{eq:boundary}
 	v = f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
-\end{equation} \\
+\end{equation} \
 
 	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$, onde isosuperfície é uma superfície do volume formada por voxels de um mesmo valor. Uma vez que a derivada direcional indica a taxa de variação de uma função em uma determinada direção, a isosuperfície que melhor representa a fronteira é aquela que possui a maior derivada, pois esta estará localizada no ponto da fronteira em que a variação entre $v_{min}$ e $v_{max}$ for maior.
 	
@@ -125,26 +125,26 @@
     
 \section{Geração da Função de Transferência}
 \label{sec:gordon.ft}
-	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como as curvas exibidas na Figura~\ref{fig:g_functions} apenas são válidas na direção do gradiente, optou-se por mantê-las com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas direcionais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}. \\
+	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como as curvas exibidas na Figura~\ref{fig:g_functions} apenas são válidas na direção do gradiente, optou-se por mantê-las com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas direcionais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}.
+	\\
 	
 \begin{equation} \label{eq:first}
 	g = f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
-\end{equation} \\
+\end{equation} \
 
 \begin{equation} \label{eq:second}
 	h = f''(x) = -\frac{x(v_{max} - v_{min})}{\sigma^{3}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
-\end{equation} \\
+\end{equation} \
 
 	A função $f'(x)$ é uma gaussiana cujo desvio padrão é $\sigma$. Como a gaussiana tem pontos de inflexão em $\pm\sigma$, isso implica que $f''(x)$ atinge seus pontos extremos também em $\pm\sigma$. Observa-se pela Figura~\ref{fig:g_functions} que $2\sigma$ aproxima a distância entre $v_{max}$ e $v_{min}$, servindo assim como \quote{espessura} da fronteira. Cada volume possuirá um $\sigma$ diferente, que pode ser calculado uma vez que se saiba os valores máximos de $f'(x)$ e $f''(x)$. A partir do cálculo de $\sigma$ é possível extrair $x$ relacionando $f'(x)$ e $f''(x)$, como mostram as equações \eqref{eq:sigma} e \eqref{eq:x}.
-	\\
 	
 \begin{equation} \label{eq:sigma}
 	\sigma = \frac{f'(0)}{\sqrt{e}f''(-\sigma)}
-\end{equation} \\
+\end{equation} \
 
 \begin{equation} \label{eq:x}
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)}
-\end{equation} \\
+\end{equation} \
 
 	Isolar $x$ é importante pois ele é mais que uma posição do volume na direção do vetor gradiente. A posição indicada por $x$ é perpendicular à fronteira e relativa ao centro desta mesma fronteira, ou seja, $|x|$ é a distância ao centro da fronteira. Agora fica mais fácil designar uma opacidade para cada voxel do volume, basta relacionar sua transparência de acordo com a sua distância à fronteira.
 	
@@ -178,23 +178,23 @@
 
 \begin{equation} \label{eq:pv}
 	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{thresh}, 0)}
-\end{equation} \\
+\end{equation} \
 
-	Como explicado previamente, $\sigma$ é obtido em função dos valores extremos de $f'(x)$ e $f''(x)$. No entanto, apesar de ser uma característica do volume e, portanto, constante, ele também precisa ser reformulado em função de $v$. O cálculo de $\sigma$ utilizando os máximos globais do volume pode distorcer todas as distâncias médias, por causa de ruído. Assim, os valores extremos utilizados devem ser os máximos dentre os valores médios: $g(v)_{max}$ e $h(v)_{max}$, como na equação~\eqref{eq:sigmav}. Uma forma mais equilibrada de obter o $\sigma$ é utilizar também o extremo mínimo da segunda derivada direcional, como demonstrado na equação~\eqref{eq:sigmav2}. \\
+	Como explicado previamente, $\sigma$ é obtido em função dos valores extremos de $f'(x)$ e $f''(x)$. No entanto, apesar de ser uma característica do volume e, portanto, constante, ele também precisa ser reformulado em função de $v$. O cálculo de $\sigma$ utilizando os máximos globais do volume pode distorcer todas as distâncias médias, por causa de ruído. Assim, os valores extremos utilizados devem ser os máximos dentre os valores médios: $g(v)_{max}$ e $h(v)_{max}$, como na equação~\eqref{eq:sigmav}. Uma forma mais equilibrada de obter o $\sigma$ é utilizar também o extremo mínimo da segunda derivada direcional, como demonstrado na equação~\eqref{eq:sigmav2}.
 	
 \begin{equation} \label{eq:sigmav}
 	\sigma = \frac{g(v)_{max}}{\sqrt{e}\ h(v)_{max}}
-\end{equation} \\
+\end{equation} \
 
 \begin{equation} \label{eq:sigmav2}
 	\sigma = \frac{2\ g(v)_{max}}{\sqrt{e}\ (h(v)_{max} - h(v)_{min})}
-\end{equation} \\
+\end{equation} \
 
 	A função $b(x)$ definida pelo usuário continua conceitualmente correta. Contudo, uma simples transformação de notação precisa ser feita, afinal deseja-se designar opacidade em função de $v$ e no entanto, a função responsável por definir opacidade está em função de $x$. Dessa forma, a função de transferência 1D é dada pela equação abaixo:
 	
 \begin{equation} \label{eq:alpha}
 	\alpha(v) = b(p(v))
-\end{equation} \\
+\end{equation} \
 
 	As imagens abaixo mostram resultados para 3 volumes: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo. A Figura~\ref{fig:g_res_slices_1d} exibe fatias do volume, com o intervalo de intensidades mapeado entre preto e branco. A Figura~\ref{fig:g_res_fts_1d} apresenta as funções de transferência obtidas para cada volume. Por fim, a Figura~\ref{fig:g_res_vis_1d} mostra a visualização do volume com a FT gerada.
 
@@ -285,11 +285,11 @@
     
 \begin{equation} \label{eq:pvg}
 	p(v,g) = -\frac{\sigma^{2}h(v,g)}{max(g - g_{thresh}, 0)}
-\end{equation} \\
+\end{equation} \
 
 \begin{equation} \label{eq:alphavg}
 	\alpha(v, g) = b(p(v, g))
-\end{equation}
+\end{equation} \
 
 	As imagens abaixo mostram resultados para os mesmos 3 volumes da seção anterior: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo.
 	
@@ -380,12 +380,11 @@
 	A solução para o valor do $ g_{thresh} $ emergiu da ideia de que $ g(v) $ pode conter um deslocamento em sua imagem, devido ao fato de que ela é composta pela média dos valores da primeira derivada quantizados no histograma. Esse é o motivo pelo qual se decidiu utilizar o menor vale como $ g_{thresh} $, pois indica a menor base de um possível arco.
 	
     Uma análise mais profunda da equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito, uma vez que é a derivada de $ f(x) $ e, portanto, seria necessário que $ f(x) $ fosse infinito para tal.
-    \\
     
 \begin{equation} \label{eq:xpvg}
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)} \ \approx \ 
 	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{thresh}, 0)}
-\end{equation} \\
+\end{equation} \
 
 	Um argumento válido é de que, na prática, $ f'(x) $ não precisa se aproximar tanto de $ \pm \infty $ para que a equação~\eqref{eq:xpvg} resulte em um $ x $ suficientemente próximo de zero. Basta atingir um valor grande o suficiente para aproximar $ x $ de zero, independente do valor de $ f''(x) $. No entanto, tal resultado necessitaria de uma descontinuidade em $ f(x) $ que não é compatível com o modelo de fronteira assumido. Por isso, $ f''(x) $ desempenha um papel muito mais importante na definição de uma fronteira.
 	
