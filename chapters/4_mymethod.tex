@@ -115,7 +115,32 @@ D_{\widehat{u}} f = \nabla f \cdot u
 
 \subsection{Malhas Estruturadas Não Regulares}
 \label{subsec:my.nonstruct}
-	Explicar malha não estruturada...
+	Em malhas não regulares, a direção dos vivinhos mais próximos pode sempre variar de uma célula para outra. Portanto, a aplicação do método de diferenças finitas resultaria em derivadas direcionais distintas para cada célula, tornando inviável o uso dos conceitos apresentados até aqui. Contudo, é possível transformar o gradiente calculado no espaço paramétrico da malha, para o cartesiano.
+	
+	Aplicando a regra da cadeia, o vetor gradiente no espaço paramétrico $ \nabla f_{(s, t, p)} $ pode ser escrito em função do vetor gradiente no espaço cartesiano $ \nabla f_{(x, y, z)} $, como mostra a equação~\eqref{eq:cadeia}. As derivadas parciais que relacionam os dois gradientes, equivalem aos termos da matriz Jacobiana do espaço paramétrico. Então, a transformação entre os espaços pode ser expressa de forma reduzida pela equação~\eqref{eq:cadeia_jacob}.
+	\\
+	
+\begin{equation}\label{eq:cadeia}
+\begin{aligned}
+	\frac{\partial f}{\partial s} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial s}
+	\\
+	\\
+	\frac{\partial f}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial t}
+	\\
+	\\
+	\frac{\partial f}{\partial p} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial p} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial p} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial p}
+\end{aligned}
+\end{equation} \
+
+\begin{equation}\label{eq:cadeia_jacob}
+	\nabla f_{(s, t, p)} = J\ \nabla f_{(x, y, z)}
+\end{equation} \
+
+	De forma análoga, multiplicando à esquerda a equação acima pela matriz Jacobiana inversa obtém-se:
+	
+\begin{equation}\label{eq:cadeia_jacob_inv}
+	\nabla f_{(x, y, z)} = J^{-}\ \nabla f_{(s, t, p)}
+\end{equation}
 
 \section{Geração da função de transferência}
 \label{sec:my.tf}
