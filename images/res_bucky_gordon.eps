@@ -1,0 +1,2066 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: CanvasDraw
+%%Creator: CanvasDraw
+%%CreationDate: Wed Nov 29 15:56:40 2017
+%%DocumentFonts: (atend)
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%LanguageLevel: 2
+%%Orientation: Portrait
+%%BoundingBox: (atend)
+%%EndComments
+%%BeginProlog
+/N {newpath} bind def
+/C {closepath} bind def
+/M {moveto} bind def
+/L {lineto} bind def
+/B {curveto} bind def
+/S {stroke} bind def
+/LL {moveto lineto stroke} bind def
+/RF {rectfill} bind def
+/RS {rectstroke} bind def
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+/newcodes	% foreign character encodings
+[
+160/space 161/exclamdown 162/cent 163/sterling 164/currency
+165/yen 166/brokenbar 167/section  168/dieresis 169/copyright
+170/ordfeminine 171/guillemotleft 172/logicalnot 173/hyphen 174/registered
+175/macron 176/degree 177/plusminus 178/twosuperior 179/threesuperior
+180/acute 181/mu 182/paragraph  183/periodcentered 184/cedilla
+185/onesuperior 186/ordmasculine 187/guillemotright 188/onequarter
+189/onehalf 190/threequarters 191/questiondown 192/Agrave 193/Aacute
+194/Acircumflex 195/Atilde 196/Adieresis 197/Aring 198/AE 199/Ccedilla
+200/Egrave 201/Eacute 202/Ecircumflex 203/Edieresis 204/Igrave  205/Iacute
+206/Icircumflex 207/Idieresis 208/Eth 209/Ntilde 210/Ograve 211/Oacute
+212/Ocircumflex 213/Otilde  214/Odieresis 215/multiply 216/Oslash
+217/Ugrave 218/Uacute 219/Ucircumflex 220/Udieresis 221/Yacute 222/Thorn
+223/germandbls 224/agrave 225/aacute 226/acircumflex 227/atilde
+228/adieresis 229/aring 230/ae 231/ccedilla  232/egrave 233/eacute
+234/ecircumflex 235/edieresis 236/igrave 237/iacute 238/icircumflex
+239/idieresis 240/eth 241/ntilde 242/ograve 243/oacute 244/ocircumflex
+245/otilde 246/odieresis 247/divide 248/oslash 249/ugrave  250/uacute
+251/ucircumflex 252/udieresis 253/yacute 254/thorn 255/ydieresis
+] def
+% change fonts using ISO Latin1 characters
+/ChgFnt		% size psname natname  =>  font
+{
+    dup FontDirectory exch known	% is re-encoded name known?
+    { exch pop }			% yes, get rid of long name
+    { dup 3 1 roll ReEncode } ifelse	% no, re-encode it
+    findfont exch scalefont setfont
+} def
+/ReEncode	%
+{
+  12 dict begin
+	/newname exch def
+	/basename exch def
+	/basedict basename findfont def
+	/newfont basedict maxlength dict def
+	basedict
+	{ exch dup /FID ne
+	    { dup /Encoding eq
+		    { exch dup length array copy newfont 3 1 roll put }
+		    { exch newfont 3 1 roll put } ifelse
+	    }
+	    { pop pop } ifelse
+	} forall
+	newfont /FontName newname put
+	newcodes aload pop newcodes length 2 idiv
+	{ newfont /Encoding get 3 1 roll put } repeat
+	newname newfont definefont pop
+    end
+} def
+%%Page: 1 1
+/oldmatrix [0 0 0 0 0 0] currentmatrix def
+oldmatrix setmatrix
+72 72 translate
+0.6 0.6 scale
+[ ] 0 setdash
+1 setlinewidth
+0 setlinecap
+0 setlinejoin
+/cd_pattern
+currentfile 192 string readhexstring
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+000000000000000000000000000000000000000000000000
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+pop
+/Pat exch def
+<<
+  /PatternType 1
+  /PaintType 1
+  /TilingType 1
+  /BBox [0 0 8 8]
+  /XStep 8 /YStep 8
+  /PaintProc {
+              pop
+              8 8 8
+              matrix
+              Pat
+              false 3
+              colorimage
+             }
+>>
+matrix
+makepattern
+def
+20 /Courier /Courier-Latin1 ChgFnt
+1 1 1 setrgbcolor
+0 0 751 1162 RF
+15 /Segoe UI /Segoe UI-Latin1 ChgFnt
+0 0 0 setrgbcolor
+N 76 45 710 45 LL
+0 0 0 setrgbcolor
+N 710 45 716 45 LL
+0 0 0 setrgbcolor
+N
+716 45 M
+712 41 L
+712 49 L
+eofill
+0 0 0 setrgbcolor
+N 0 0 M
+(0)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+76 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 45 76 36 LL
+0 0 0 setrgbcolor
+N 85.9451 45 85.9451 41 LL
+0 0 0 setrgbcolor
+N 95.8902 45 95.8902 41 LL
+0 0 0 setrgbcolor
+N 105.835 45 105.835 41 LL
+0 0 0 setrgbcolor
+N 115.78 45 115.78 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(20)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+125.725 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 125.725 45 125.725 36 LL
+0 0 0 setrgbcolor
+N 135.671 45 135.671 41 LL
+0 0 0 setrgbcolor
+N 145.616 45 145.616 41 LL
+0 0 0 setrgbcolor
+N 155.561 45 155.561 41 LL
+0 0 0 setrgbcolor
+N 165.506 45 165.506 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(40)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+175.451 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 175.451 45 175.451 36 LL
+0 0 0 setrgbcolor
+N 185.396 45 185.396 41 LL
+0 0 0 setrgbcolor
+N 195.341 45 195.341 41 LL
+0 0 0 setrgbcolor
+N 205.286 45 205.286 41 LL
+0 0 0 setrgbcolor
+N 215.231 45 215.231 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(60)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+225.176 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 225.176 45 225.176 36 LL
+0 0 0 setrgbcolor
+N 235.122 45 235.122 41 LL
+0 0 0 setrgbcolor
+N 245.067 45 245.067 41 LL
+0 0 0 setrgbcolor
+N 255.012 45 255.012 41 LL
+0 0 0 setrgbcolor
+N 264.957 45 264.957 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(80)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+274.902 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 274.902 45 274.902 36 LL
+0 0 0 setrgbcolor
+N 284.847 45 284.847 41 LL
+0 0 0 setrgbcolor
+N 294.792 45 294.792 41 LL
+0 0 0 setrgbcolor
+N 304.737 45 304.737 41 LL
+0 0 0 setrgbcolor
+N 314.682 45 314.682 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(100)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+324.627 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 324.627 45 324.627 36 LL
+0 0 0 setrgbcolor
+N 334.573 45 334.573 41 LL
+0 0 0 setrgbcolor
+N 344.518 45 344.518 41 LL
+0 0 0 setrgbcolor
+N 354.463 45 354.463 41 LL
+0 0 0 setrgbcolor
+N 364.408 45 364.408 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(120)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+374.353 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 374.353 45 374.353 36 LL
+0 0 0 setrgbcolor
+N 384.298 45 384.298 41 LL
+0 0 0 setrgbcolor
+N 394.243 45 394.243 41 LL
+0 0 0 setrgbcolor
+N 404.188 45 404.188 41 LL
+0 0 0 setrgbcolor
+N 414.133 45 414.133 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(140)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+424.078 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 424.078 45 424.078 36 LL
+0 0 0 setrgbcolor
+N 434.024 45 434.024 41 LL
+0 0 0 setrgbcolor
+N 443.969 45 443.969 41 LL
+0 0 0 setrgbcolor
+N 453.914 45 453.914 41 LL
+0 0 0 setrgbcolor
+N 463.859 45 463.859 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(160)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+473.804 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 473.804 45 473.804 36 LL
+0 0 0 setrgbcolor
+N 483.749 45 483.749 41 LL
+0 0 0 setrgbcolor
+N 493.694 45 493.694 41 LL
+0 0 0 setrgbcolor
+N 503.639 45 503.639 41 LL
+0 0 0 setrgbcolor
+N 513.584 45 513.584 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(180)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+523.529 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 523.529 45 523.529 36 LL
+0 0 0 setrgbcolor
+N 533.475 45 533.475 41 LL
+0 0 0 setrgbcolor
+N 543.42 45 543.42 41 LL
+0 0 0 setrgbcolor
+N 553.365 45 553.365 41 LL
+0 0 0 setrgbcolor
+N 563.31 45 563.31 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(200)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+573.255 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 573.255 45 573.255 36 LL
+0 0 0 setrgbcolor
+N 583.2 45 583.2 41 LL
+0 0 0 setrgbcolor
+N 593.145 45 593.145 41 LL
+0 0 0 setrgbcolor
+N 603.09 45 603.09 41 LL
+0 0 0 setrgbcolor
+N 613.035 45 613.035 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(220)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+622.98 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 622.98 45 622.98 36 LL
+0 0 0 setrgbcolor
+N 632.925 45 632.925 41 LL
+0 0 0 setrgbcolor
+N 642.871 45 642.871 41 LL
+0 0 0 setrgbcolor
+N 652.816 45 652.816 41 LL
+0 0 0 setrgbcolor
+N 662.761 45 662.761 41 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(240)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+672.706 32 translate
+4 sub sub
+3 1 roll
+exch
+2 div sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 672.706 45 672.706 36 LL
+0 0 0 setrgbcolor
+N 682.651 45 682.651 41 LL
+0 0 0 setrgbcolor
+N 692.596 45 692.596 41 LL
+0 0 0 setrgbcolor
+N 702.541 45 702.541 41 LL
+0 0 0 setrgbcolor
+N 76 45 76 1134 LL
+0 0 0 setrgbcolor
+N 76 1134 76 1140 LL
+0 0 0 setrgbcolor
+N
+76 1140 M
+72 1136 L
+80 1136 L
+eofill
+0 0 0 setrgbcolor
+N 0 0 M
+(-1.0)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 50.3911 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 50.3911 67 50.3911 LL
+0 0 0 setrgbcolor
+N 76 61.1733 72 61.1733 LL
+0 0 0 setrgbcolor
+N 76 71.9554 72 71.9554 LL
+0 0 0 setrgbcolor
+N 76 82.7376 72 82.7376 LL
+0 0 0 setrgbcolor
+N 76 93.5198 72 93.5198 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.9)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 104.302 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 104.302 67 104.302 LL
+0 0 0 setrgbcolor
+N 76 115.084 72 115.084 LL
+0 0 0 setrgbcolor
+N 76 125.866 72 125.866 LL
+0 0 0 setrgbcolor
+N 76 136.649 72 136.649 LL
+0 0 0 setrgbcolor
+N 76 147.431 72 147.431 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.8)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 158.213 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 158.213 67 158.213 LL
+0 0 0 setrgbcolor
+N 76 168.995 72 168.995 LL
+0 0 0 setrgbcolor
+N 76 179.777 72 179.777 LL
+0 0 0 setrgbcolor
+N 76 190.559 72 190.559 LL
+0 0 0 setrgbcolor
+N 76 201.342 72 201.342 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.7)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 212.124 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 212.124 67 212.124 LL
+0 0 0 setrgbcolor
+N 76 222.906 72 222.906 LL
+0 0 0 setrgbcolor
+N 76 233.688 72 233.688 LL
+0 0 0 setrgbcolor
+N 76 244.47 72 244.47 LL
+0 0 0 setrgbcolor
+N 76 255.252 72 255.252 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.6)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 266.035 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 266.035 67 266.035 LL
+0 0 0 setrgbcolor
+N 76 276.817 72 276.817 LL
+0 0 0 setrgbcolor
+N 76 287.599 72 287.599 LL
+0 0 0 setrgbcolor
+N 76 298.381 72 298.381 LL
+0 0 0 setrgbcolor
+N 76 309.163 72 309.163 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.5)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 319.946 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 319.946 67 319.946 LL
+0 0 0 setrgbcolor
+N 76 330.728 72 330.728 LL
+0 0 0 setrgbcolor
+N 76 341.51 72 341.51 LL
+0 0 0 setrgbcolor
+N 76 352.292 72 352.292 LL
+0 0 0 setrgbcolor
+N 76 363.074 72 363.074 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.4)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 373.856 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 373.856 67 373.856 LL
+0 0 0 setrgbcolor
+N 76 384.639 72 384.639 LL
+0 0 0 setrgbcolor
+N 76 395.421 72 395.421 LL
+0 0 0 setrgbcolor
+N 76 406.203 72 406.203 LL
+0 0 0 setrgbcolor
+N 76 416.985 72 416.985 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.3)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 427.767 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 427.767 67 427.767 LL
+0 0 0 setrgbcolor
+N 76 438.55 72 438.55 LL
+0 0 0 setrgbcolor
+N 76 449.332 72 449.332 LL
+0 0 0 setrgbcolor
+N 76 460.114 72 460.114 LL
+0 0 0 setrgbcolor
+N 76 470.896 72 470.896 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.2)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 481.678 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 481.678 67 481.678 LL
+0 0 0 setrgbcolor
+N 76 492.46 72 492.46 LL
+0 0 0 setrgbcolor
+N 76 503.243 72 503.243 LL
+0 0 0 setrgbcolor
+N 76 514.025 72 514.025 LL
+0 0 0 setrgbcolor
+N 76 524.807 72 524.807 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(-0.1)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 535.589 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 535.589 67 535.589 LL
+0 0 0 setrgbcolor
+N 76 546.371 72 546.371 LL
+0 0 0 setrgbcolor
+N 76 557.153 72 557.153 LL
+0 0 0 setrgbcolor
+N 76 567.936 72 567.936 LL
+0 0 0 setrgbcolor
+N 76 578.718 72 578.718 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.0)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 589.5 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 589.5 67 589.5 LL
+0 0 0 setrgbcolor
+N 76 600.282 72 600.282 LL
+0 0 0 setrgbcolor
+N 76 611.064 72 611.064 LL
+0 0 0 setrgbcolor
+N 76 621.847 72 621.847 LL
+0 0 0 setrgbcolor
+N 76 632.629 72 632.629 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.1)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 643.411 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 643.411 67 643.411 LL
+0 0 0 setrgbcolor
+N 76 654.193 72 654.193 LL
+0 0 0 setrgbcolor
+N 76 664.975 72 664.975 LL
+0 0 0 setrgbcolor
+N 76 675.757 72 675.757 LL
+0 0 0 setrgbcolor
+N 76 686.54 72 686.54 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.2)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 697.322 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 697.322 67 697.322 LL
+0 0 0 setrgbcolor
+N 76 708.104 72 708.104 LL
+0 0 0 setrgbcolor
+N 76 718.886 72 718.886 LL
+0 0 0 setrgbcolor
+N 76 729.668 72 729.668 LL
+0 0 0 setrgbcolor
+N 76 740.45 72 740.45 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.3)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 751.233 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 751.233 67 751.233 LL
+0 0 0 setrgbcolor
+N 76 762.015 72 762.015 LL
+0 0 0 setrgbcolor
+N 76 772.797 72 772.797 LL
+0 0 0 setrgbcolor
+N 76 783.579 72 783.579 LL
+0 0 0 setrgbcolor
+N 76 794.361 72 794.361 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.4)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 805.144 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 805.144 67 805.144 LL
+0 0 0 setrgbcolor
+N 76 815.926 72 815.926 LL
+0 0 0 setrgbcolor
+N 76 826.708 72 826.708 LL
+0 0 0 setrgbcolor
+N 76 837.49 72 837.49 LL
+0 0 0 setrgbcolor
+N 76 848.272 72 848.272 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.5)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 859.054 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 859.054 67 859.054 LL
+0 0 0 setrgbcolor
+N 76 869.837 72 869.837 LL
+0 0 0 setrgbcolor
+N 76 880.619 72 880.619 LL
+0 0 0 setrgbcolor
+N 76 891.401 72 891.401 LL
+0 0 0 setrgbcolor
+N 76 902.183 72 902.183 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.6)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 912.965 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 912.965 67 912.965 LL
+0 0 0 setrgbcolor
+N 76 923.748 72 923.748 LL
+0 0 0 setrgbcolor
+N 76 934.53 72 934.53 LL
+0 0 0 setrgbcolor
+N 76 945.312 72 945.312 LL
+0 0 0 setrgbcolor
+N 76 956.094 72 956.094 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.7)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 966.876 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 966.876 67 966.876 LL
+0 0 0 setrgbcolor
+N 76 977.658 72 977.658 LL
+0 0 0 setrgbcolor
+N 76 988.441 72 988.441 LL
+0 0 0 setrgbcolor
+N 76 999.223 72 999.223 LL
+0 0 0 setrgbcolor
+N 76 1010 72 1010 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.8)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 1020.79 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 1020.79 67 1020.79 LL
+0 0 0 setrgbcolor
+N 76 1031.57 72 1031.57 LL
+0 0 0 setrgbcolor
+N 76 1042.35 72 1042.35 LL
+0 0 0 setrgbcolor
+N 76 1053.13 72 1053.13 LL
+0 0 0 setrgbcolor
+N 76 1063.92 72 1063.92 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(0.9)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 1074.7 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 1074.7 67 1074.7 LL
+0 0 0 setrgbcolor
+N 76 1085.48 72 1085.48 LL
+0 0 0 setrgbcolor
+N 76 1096.26 72 1096.26 LL
+0 0 0 setrgbcolor
+N 76 1107.04 72 1107.04 LL
+0 0 0 setrgbcolor
+N 76 1117.83 72 1117.83 LL
+0 0 0 setrgbcolor
+N 0 0 M
+(1.0)
+dup true charpath
+flattenpath
+pathbbox
+exch
+4 1 roll
+exch
+sub
+3 1 roll
+sub
+0 0
+4 -1 roll
+gsave
+63 1128.61 translate
+2 div 4 sub sub
+3 1 roll
+exch
+sub
+exch
+M
+show
+grestore
+0 0 0 setrgbcolor
+N 76 1128.61 67 1128.61 LL
+0.0784314 0.0784314 0.784314 setrgbcolor
+N
+76 590.88 M
+78.4863 595.771 L
+80.9725 601.511 L
+83.4588 607.146 L
+85.9451 613.274 L
+88.4314 620.581 L
+90.9176 629.543 L
+93.4039 639.727 L
+95.8902 650.155 L
+98.3765 660.216 L
+100.863 669.828 L
+103.349 678.972 L
+105.835 687.573 L
+108.322 695.767 L
+110.808 703.811 L
+113.294 711.628 L
+115.78 718.738 L
+118.267 724.953 L
+120.753 731.102 L
+123.239 738.586 L
+125.725 747.872 L
+128.212 757.982 L
+130.698 767.932 L
+133.184 777.533 L
+135.671 786.269 L
+138.157 793.366 L
+140.643 799.67 L
+143.129 807.095 L
+145.616 815.542 L
+148.102 822.79 L
+150.588 828.051 L
+153.075 833.402 L
+155.561 840.689 L
+158.047 849.058 L
+160.533 856.609 L
+163.02 862.603 L
+165.506 867.507 L
+167.992 872.293 L
+170.478 878.054 L
+172.965 885.58 L
+175.451 894.508 L
+177.937 903.217 L
+180.424 910.421 L
+182.91 916.358 L
+185.396 922.265 L
+187.882 929.345 L
+190.369 937.519 L
+192.855 945.079 L
+195.341 950.639 L
+197.827 954.559 L
+200.314 958.093 L
+202.8 962.164 L
+205.286 967.139 L
+207.773 973.427 L
+210.259 980.796 L
+212.745 987.393 L
+215.231 991.651 L
+217.718 994.224 L
+220.204 997.171 L
+222.69 1001.78 L
+225.176 1006.79 L
+227.663 1010.23 L
+230.149 1013.23 L
+232.635 1018.35 L
+235.122 1025.16 L
+237.608 1030.9 L
+240.094 1034.02 L
+242.58 1035.61 L
+245.067 1038.31 L
+247.553 1043.2 L
+250.039 1048.27 L
+252.525 1051.39 L
+255.012 1053.2 L
+257.498 1056.04 L
+259.984 1061.01 L
+262.471 1066.61 L
+264.957 1070.81 L
+267.443 1073.71 L
+269.929 1075.95 L
+272.416 1076.98 L
+274.902 1077.09 L
+277.388 1078.61 L
+279.875 1083.31 L
+282.361 1090 L
+284.847 1094.7 L
+287.333 1094.43 L
+289.82 1090.94 L
+292.306 1088.67 L
+294.792 1090.23 L
+297.278 1095.14 L
+299.765 1101.37 L
+302.251 1106.31 L
+304.737 1107.61 L
+307.224 1106.19 L
+309.71 1106.64 L
+312.196 1111.48 L
+314.682 1117.2 L
+317.169 1118.09 L
+319.655 1113.26 L
+322.141 1108.65 L
+324.627 1109.9 L
+327.114 1115.2 L
+329.6 1119.13 L
+332.086 1119.74 L
+334.573 1117.19 L
+337.059 1112.18 L
+339.545 1108.64 L
+342.031 1110.35 L
+344.518 1115.56 L
+347.004 1120.92 L
+349.49 1125.38 L
+351.976 1128.13 L
+354.463 1128.61 L
+356.949 1128.11 L
+359.435 1127.1 L
+361.922 1122.81 L
+364.408 1114.98 L
+366.894 1110.04 L
+369.38 1112.46 L
+371.867 1117.86 L
+374.353 1119.87 L
+376.839 1116.83 L
+379.325 1111.51 L
+381.812 1108.31 L
+384.298 1107.29 L
+386.784 1104.27 L
+389.271 1100.31 L
+391.757 1100.97 L
+394.243 1105.74 L
+396.729 1109.34 L
+399.216 1109.36 L
+401.702 1106.7 L
+404.188 1103.61 L
+406.675 1101.29 L
+409.161 1097.73 L
+411.647 1092.44 L
+414.133 1089.65 L
+416.62 1090.61 L
+419.106 1090.37 L
+421.592 1085.78 L
+424.078 1078.85 L
+426.565 1072.58 L
+429.051 1067.96 L
+431.537 1065.4 L
+434.024 1066.44 L
+436.51 1070.12 L
+438.996 1071.61 L
+441.482 1068.54 L
+443.969 1064.1 L
+446.455 1062.34 L
+448.941 1063.24 L
+451.427 1063.58 L
+453.914 1060.35 L
+456.4 1052.88 L
+458.886 1043.57 L
+461.373 1035.35 L
+463.859 1028.82 L
+466.345 1024.07 L
+468.831 1021.38 L
+471.318 1020.57 L
+473.804 1022.53 L
+476.29 1027.16 L
+478.776 1030.73 L
+481.263 1028.85 L
+483.749 1021.27 L
+486.235 1013.82 L
+488.722 1012.83 L
+491.208 1016.16 L
+493.694 1016.54 L
+496.18 1011.76 L
+498.667 1004.62 L
+501.153 996.992 L
+503.639 988.008 L
+506.125 977.835 L
+508.612 969.687 L
+511.098 964.913 L
+513.584 961.24 L
+516.071 956.965 L
+518.557 951.783 L
+521.043 946.06 L
+523.529 942.031 L
+526.016 942.886 L
+528.502 947.717 L
+530.988 949.896 L
+533.475 945.618 L
+535.961 939.286 L
+538.447 935.699 L
+540.933 933.259 L
+543.42 928.766 L
+545.906 924.631 L
+548.392 925.303 L
+550.878 928.227 L
+553.365 926.114 L
+555.851 917.486 L
+558.337 908.684 L
+560.824 905.131 L
+563.31 905.082 L
+565.796 905.119 L
+568.282 906.792 L
+570.769 910.21 L
+573.255 908.56 L
+575.741 899.147 L
+578.227 890.022 L
+580.714 888.098 L
+583.2 891.477 L
+585.686 895.485 L
+588.173 896.991 L
+590.659 894.329 L
+593.145 887.871 L
+595.631 879.988 L
+598.118 873.582 L
+600.604 870.525 L
+603.09 871.616 L
+605.576 874.116 L
+608.063 870.687 L
+610.549 858.777 L
+613.035 844.517 L
+615.522 833.116 L
+618.008 827.047 L
+620.494 829.875 L
+622.98 840.442 L
+625.467 849.58 L
+627.953 848.035 L
+630.439 835.231 L
+632.925 818.425 L
+635.412 803.558 L
+637.898 793.441 L
+640.384 791.438 L
+642.871 795.543 L
+645.357 797.804 L
+647.843 795.939 L
+650.329 792.523 L
+652.816 786.125 L
+655.302 776.393 L
+657.788 769.061 L
+660.275 767.718 L
+662.761 771.092 L
+665.247 777.293 L
+667.733 780.03 L
+670.22 771.446 L
+672.706 755.896 L
+675.192 748.744 L
+677.678 758.821 L
+680.165 777.013 L
+682.651 787.211 L
+685.137 787.374 L
+687.624 785.765 L
+690.11 782.992 L
+692.596 776.327 L
+695.082 769.352 L
+697.569 764.037 L
+700.055 755.95 L
+702.541 742.392 L
+705.027 725.659 L
+707.514 708.277 L
+710 690.895 L
+S
+0.0784314 0.784314 0.0784314 setrgbcolor
+N
+76 591.988 M
+78.4863 612.081 L
+80.9725 631.577 L
+83.4588 649.214 L
+85.9451 669.145 L
+88.4314 693.111 L
+90.9176 721.884 L
+93.4039 752.974 L
+95.8902 782.557 L
+98.3765 808.647 L
+100.863 831.418 L
+103.349 851.821 L
+105.835 871.175 L
+108.322 890.566 L
+110.808 910.048 L
+113.294 928.418 L
+115.78 943.72 L
+118.267 955.738 L
+120.753 967.499 L
+123.239 981.822 L
+125.725 998.197 L
+128.212 1015.09 L
+130.698 1032.49 L
+133.184 1050.14 L
+135.671 1065.39 L
+138.157 1075.56 L
+140.643 1082.43 L
+143.129 1090.09 L
+145.616 1098.07 L
+148.102 1102.23 L
+150.588 1102.4 L
+153.075 1103.07 L
+155.561 1107.49 L
+158.047 1114.71 L
+160.533 1120.46 L
+163.02 1120.82 L
+165.506 1117.34 L
+167.992 1115.49 L
+170.478 1117.48 L
+172.965 1121.43 L
+175.451 1125.01 L
+177.937 1125.91 L
+180.424 1123.55 L
+182.91 1121.13 L
+185.396 1122.19 L
+187.882 1126.14 L
+190.369 1128.61 L
+192.855 1126.31 L
+195.341 1120.4 L
+197.827 1113.42 L
+200.314 1106.12 L
+202.8 1097.62 L
+205.286 1087.76 L
+207.773 1081.07 L
+210.259 1081.46 L
+212.745 1083.78 L
+215.231 1080.78 L
+217.718 1072.72 L
+220.204 1063.74 L
+222.69 1055.41 L
+225.176 1046.43 L
+227.663 1035.95 L
+230.149 1025.45 L
+232.635 1016.95 L
+235.122 1010.98 L
+237.608 1006.51 L
+240.094 1001.24 L
+242.58 993.236 L
+245.067 983.287 L
+247.553 973.501 L
+250.039 964.412 L
+252.525 955.238 L
+255.012 945.891 L
+257.498 937.716 L
+259.984 932.116 L
+262.471 928.448 L
+264.957 923.936 L
+267.443 915.756 L
+269.929 903.05 L
+272.416 888.069 L
+274.902 875.463 L
+277.388 868.656 L
+279.875 866.6 L
+282.361 863.904 L
+284.847 855.171 L
+287.333 841.028 L
+289.82 826.566 L
+292.306 814.684 L
+294.792 805.374 L
+297.278 797.555 L
+299.765 789.895 L
+302.251 781.991 L
+304.737 772.984 L
+307.224 762.276 L
+309.71 752.863 L
+312.196 747.173 L
+314.682 742.34 L
+317.169 735.272 L
+319.655 726.24 L
+322.141 715.964 L
+324.627 705.618 L
+327.114 697.817 L
+329.6 692.661 L
+332.086 686.12 L
+334.573 675.424 L
+337.059 662.24 L
+339.545 649.926 L
+342.031 640.569 L
+344.518 633.168 L
+347.004 625.178 L
+349.49 617.182 L
+351.976 611.274 L
+354.463 605.235 L
+356.949 595.94 L
+359.435 585.625 L
+361.922 576.448 L
+364.408 566.343 L
+366.894 555.967 L
+369.38 548.73 L
+371.867 543.762 L
+374.353 537.444 L
+376.839 528.902 L
+379.325 521.139 L
+381.812 516.129 L
+384.298 509.03 L
+386.784 495.223 L
+389.271 480.56 L
+391.757 472.188 L
+394.243 466.817 L
+396.729 459.869 L
+399.216 453.975 L
+401.702 451.022 L
+404.188 448.571 L
+406.675 445.791 L
+409.161 444.129 L
+411.647 442.885 L
+414.133 437.791 L
+416.62 426.177 L
+419.106 412.498 L
+421.592 403.134 L
+424.078 397.67 L
+426.565 390.812 L
+429.051 379.979 L
+431.537 368.573 L
+434.024 362.036 L
+436.51 359.716 L
+438.996 355.372 L
+441.482 347.052 L
+443.969 339.35 L
+446.455 335.912 L
+448.941 334.236 L
+451.427 328.938 L
+453.914 320.024 L
+456.4 312.759 L
+458.886 308.363 L
+461.373 303.564 L
+463.859 297.225 L
+466.345 289.226 L
+468.831 278.673 L
+471.318 268.265 L
+473.804 264.582 L
+476.29 270.021 L
+478.776 275.666 L
+481.263 269.336 L
+483.749 252.509 L
+486.235 238.742 L
+488.722 236.396 L
+491.208 241.943 L
+493.694 245.621 L
+496.18 240.044 L
+498.667 227.093 L
+501.153 215.634 L
+503.639 211.279 L
+506.125 211.639 L
+508.612 212.498 L
+511.098 214.56 L
+513.584 220.603 L
+516.071 228.03 L
+518.557 230.05 L
+521.043 224.091 L
+523.529 214.014 L
+526.016 205.618 L
+528.502 201.881 L
+530.988 199.436 L
+533.475 193.034 L
+535.961 184.664 L
+538.447 180.094 L
+540.933 181.098 L
+543.42 186.707 L
+545.906 192.918 L
+548.392 195.89 L
+550.878 199.466 L
+553.365 205.983 L
+555.851 208.438 L
+558.337 204.152 L
+560.824 201.203 L
+563.31 207.441 L
+565.796 221.112 L
+568.282 231.124 L
+570.769 230.337 L
+573.255 226.041 L
+575.741 229.213 L
+578.227 240.972 L
+580.714 253.541 L
+583.2 259.802 L
+585.686 261.784 L
+588.173 266.803 L
+590.659 275.686 L
+593.145 281.416 L
+595.631 279.901 L
+598.118 278.18 L
+600.604 283.62 L
+603.09 288.872 L
+605.576 288.444 L
+608.063 294.005 L
+610.549 310.013 L
+613.035 325.206 L
+615.522 334.657 L
+618.008 339.405 L
+620.494 335.518 L
+622.98 322.317 L
+625.467 311.95 L
+627.953 320.228 L
+630.439 346.023 L
+632.925 373.621 L
+635.412 398.031 L
+637.898 420.947 L
+640.384 430.161 L
+642.871 419.361 L
+645.357 407.157 L
+647.843 407.655 L
+650.329 413.857 L
+652.816 423.907 L
+655.302 442.734 L
+657.788 457.15 L
+660.275 454.511 L
+662.761 449.5 L
+665.247 460.607 L
+667.733 491.122 L
+670.22 533.918 L
+672.706 566.452 L
+675.192 563.869 L
+677.678 530.86 L
+680.165 496.358 L
+682.651 478.104 L
+685.137 476.649 L
+687.624 496.336 L
+690.11 540.226 L
+692.596 588.152 L
+695.082 612.835 L
+697.569 618.711 L
+700.055 636.05 L
+702.541 678.952 L
+705.027 736.584 L
+707.514 797.208 L
+710 857.833 L
+S
+0.784314 0.0784314 0.0784314 setrgbcolor
+N
+76 589.5 M
+78.4863 589.5 L
+80.9725 589.5 L
+83.4588 589.5 L
+85.9451 589.5 L
+88.4314 589.5 L
+90.9176 589.5 L
+93.4039 589.5 L
+95.8902 589.5 L
+98.3765 589.5 L
+100.863 589.5 L
+103.349 589.5 L
+105.835 589.5 L
+108.322 589.5 L
+110.808 589.5 L
+113.294 589.5 L
+115.78 589.5 L
+118.267 589.5 L
+120.753 589.5 L
+123.239 589.5 L
+125.725 589.5 L
+128.212 589.5 L
+130.698 589.5 L
+133.184 589.5 L
+135.671 589.5 L
+138.157 589.5 L
+140.643 589.5 L
+143.129 589.5 L
+145.616 589.5 L
+148.102 589.5 L
+150.588 589.5 L
+153.075 589.5 L
+155.561 589.5 L
+158.047 589.5 L
+160.533 589.5 L
+163.02 589.5 L
+165.506 589.5 L
+167.992 589.5 L
+170.478 589.5 L
+172.965 589.5 L
+175.451 589.5 L
+177.937 589.5 L
+180.424 589.5 L
+182.91 589.5 L
+185.396 589.5 L
+187.882 589.5 L
+190.369 589.5 L
+192.855 589.5 L
+195.341 589.5 L
+197.827 589.5 L
+200.314 589.5 L
+202.8 589.5 L
+205.286 589.5 L
+207.773 589.5 L
+210.259 589.5 L
+212.745 589.5 L
+215.231 589.5 L
+217.718 589.5 L
+220.204 589.5 L
+222.69 589.5 L
+225.176 589.5 L
+227.663 589.5 L
+230.149 589.5 L
+232.635 589.5 L
+235.122 589.5 L
+237.608 589.5 L
+240.094 589.5 L
+242.58 589.5 L
+245.067 589.5 L
+247.553 589.5 L
+250.039 589.5 L
+252.525 589.5 L
+255.012 589.5 L
+257.498 589.5 L
+259.984 589.5 L
+262.471 589.501 L
+264.957 589.501 L
+267.443 589.502 L
+269.929 589.507 L
+272.416 589.521 L
+274.902 589.549 L
+277.388 589.58 L
+279.875 589.608 L
+282.361 589.658 L
+284.847 589.804 L
+287.333 590.155 L
+289.82 590.775 L
+292.306 591.69 L
+294.792 593.031 L
+297.278 595.028 L
+299.765 598.032 L
+302.251 602.148 L
+304.737 607.631 L
+307.224 615.689 L
+309.71 625.759 L
+312.196 635.195 L
+314.682 645.262 L
+317.169 658.426 L
+319.655 674.82 L
+322.141 697.793 L
+324.627 729.725 L
+327.114 760.502 L
+329.6 782.72 L
+332.086 809.117 L
+334.573 852.68 L
+337.059 908.783 L
+339.545 963.201 L
+342.031 1005.17 L
+344.518 1036.95 L
+347.004 1066.74 L
+349.49 1091.08 L
+351.976 1105.3 L
+354.463 1116.33 L
+356.949 1126.53 L
+359.435 1127.85 L
+361.922 1119.95 L
+364.408 1101.02 L
+366.894 1071.37 L
+369.38 1046.89 L
+371.867 1029.7 L
+374.353 1004.96 L
+376.839 966.693 L
+379.325 928.517 L
+381.812 903.356 L
+384.298 870.016 L
+386.784 807.093 L
+389.271 747.016 L
+391.757 719.412 L
+394.243 706.513 L
+396.729 689.779 L
+399.216 675.271 L
+401.702 667.04 L
+404.188 660.117 L
+406.675 653.381 L
+409.161 648.449 L
+411.647 643.604 L
+414.133 634.234 L
+416.62 619.951 L
+419.106 607.881 L
+421.592 601.377 L
+424.078 597.931 L
+426.565 595.042 L
+429.051 592.506 L
+431.537 591.081 L
+434.024 590.644 L
+436.51 590.61 L
+438.996 590.412 L
+441.482 590.026 L
+443.969 589.793 L
+446.455 589.724 L
+448.941 589.709 L
+451.427 589.652 L
+453.914 589.576 L
+456.4 589.535 L
+458.886 589.517 L
+461.373 589.508 L
+463.859 589.503 L
+466.345 589.501 L
+468.831 589.5 L
+471.318 589.5 L
+473.804 589.5 L
+476.29 589.5 L
+478.776 589.501 L
+481.263 589.5 L
+483.749 589.5 L
+486.235 589.5 L
+488.722 589.5 L
+491.208 589.5 L
+493.694 589.5 L
+496.18 589.5 L
+498.667 589.5 L
+501.153 589.5 L
+503.639 589.5 L
+506.125 589.5 L
+508.612 589.5 L
+511.098 589.5 L
+513.584 589.5 L
+516.071 589.5 L
+518.557 589.5 L
+521.043 589.5 L
+523.529 589.5 L
+526.016 589.5 L
+528.502 589.5 L
+530.988 589.5 L
+533.475 589.5 L
+535.961 589.5 L
+538.447 589.5 L
+540.933 589.5 L
+543.42 589.5 L
+545.906 589.5 L
+548.392 589.5 L
+550.878 589.5 L
+553.365 589.5 L
+555.851 589.5 L
+558.337 589.5 L
+560.824 589.5 L
+563.31 589.5 L
+565.796 589.5 L
+568.282 589.5 L
+570.769 589.5 L
+573.255 589.5 L
+575.741 589.5 L
+578.227 589.5 L
+580.714 589.5 L
+583.2 589.5 L
+585.686 589.5 L
+588.173 589.5 L
+590.659 589.5 L
+593.145 589.5 L
+595.631 589.5 L
+598.118 589.5 L
+600.604 589.5 L
+603.09 589.5 L
+605.576 589.5 L
+608.063 589.5 L
+610.549 589.5 L
+613.035 589.5 L
+615.522 589.5 L
+618.008 589.5 L
+620.494 589.5 L
+622.98 589.5 L
+625.467 589.5 L
+627.953 589.5 L
+630.439 589.5 L
+632.925 589.5 L
+635.412 589.5 L
+637.898 589.5 L
+640.384 589.5 L
+642.871 589.5 L
+645.357 589.5 L
+647.843 589.5 L
+650.329 589.5 L
+652.816 589.5 L
+655.302 589.5 L
+657.788 589.5 L
+660.275 589.5 L
+662.761 589.5 L
+665.247 589.501 L
+667.733 589.872 L
+670.22 631.624 L
+672.706 908.458 L
+675.192 854.745 L
+677.678 609.781 L
+680.165 590.139 L
+682.651 589.593 L
+685.137 589.575 L
+687.624 590.652 L
+690.11 681.331 L
+692.596 1127.84 L
+695.082 929.845 L
+697.569 840.196 L
+700.055 652.952 L
+702.541 589.546 L
+705.027 589.5 L
+707.514 589.5 L
+710 589.5 L
+S
+showpage
+%%Trailer
+%%Pages: 1 1
+%%BoundingBox:   117    98   523   770
+%%DocumentFonts: Courier Segoe UI
+%%EOF
