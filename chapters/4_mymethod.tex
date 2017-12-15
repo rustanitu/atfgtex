@@ -200,17 +200,47 @@ D_{\widehat{u}} f = \nabla f \cdot u
 
 \section{Geração da função de transferência}
 \label{sec:my.tf}
-	Depois de calcular as derivadas para todas as células do volume, obtém-se a média da primeira e terceira derivadas, para cada valor $ v $ do volume, gerando as funções médias $ g(v) $ e $ t(v) $. Em geral, essas curvas possuem um perfil serrilhado, não só devido à média mas também por causa da quantização dos valores escalares. A fim de suavizar $ g(v) $ e $ t(v) $ decidiu-se convolui-las com uma gaussiana. Por fim, as funções são normalizadas, dividindo-as pelo módulo de seu valor extremo.
+	Depois de calcular as derivadas para todas as células do volume, obtém-se a média da primeira e terceira derivadas, para cada valor $ v $ do volume, gerando as funções $ g(v) $ e $ t(v) $. Em geral, essas curvas possuem um perfil serrilhado, não só devido à média mas também por causa da quantização dos valores escalares. A fim de suavizar $ g(v) $ e $ t(v) $ decidiu-se convolui-las com uma gaussiana. Por fim, as funções são normalizadas, dividindo-as pelo se maior valor absoluto.
 	
-	Além do modelo de fronteira definido, outra característica de~\cite{gordon} que se deseja incorporar é a ideia de distância ao centro da fronteira. Diferentemente da função $ b(x) $, que permitia ao usuário definir a relação entre distância e opacidade, decidiu-se estabelecer como fixa a relação que mais revela apenas a fronteira, isto é, seu centro recebe a maior opacidade e esta decai com a distância. Contudo, foi mantido ao usuário o controle da espessura de visibilidade da fronteira, como indica a Figura~\ref{fig:}. Então, visando obter uma transição suave entre os voxels da fronteira e seus vizinhos, decidiu-se que a contribuição de uma fronteira para a função de transferência é dada por uma função gaussiana com $ \sigma $ inicial igual a $ 1 $ (podendo ser alterado pelo usuário) e amplitude $ \le 1 $.
+	Além do modelo de fronteira definido, outra característica de~\cite{gordon} que se deseja incorporar é a ideia de distância ao centro da fronteira. No entanto, diferentemente da função $ b(x) $ que permitia ao usuário definir a relação entre distância e opacidade, estabeleceu-se que o centro deve ser sempre mais opaco que os limites da fronteira. Então, visando obter uma transição suave entre os voxels da fronteira e seus vizinhos, decidiu-se utilizar uma função gaussiana com $ \sigma $ inicial igual a $ 1 $ e amplitude $ \le 1 $. Contudo, foi mantido ao usuário o controle da espessura de visibilidade da fronteira através da variação do sigma da gaussiana, como indica a Figura~\ref{fig:m_gauss}~\ref{fig:m_gauss_ft}.
 	
-	No entanto, é preciso lembrar que a expressão para $ x $ foi descartada. O centro da fronteira agora é indicado mutuamente por um máximo local em $ g(v) $ e um mínimo local em $ t(v) $. Como essas curvas são compostas de valores médios, seus extremos podem não coincidir em um mesmo $ v $. Porém, se as fronteiras forem identificadas separadamente para cada função e suas gaussianas multiplicadas, o resultado é também uma gaussiana, que atinge seu máximo no ponto de interseção das funções que lhe deram origem.
-
 \begin{figure}[h]
+	\centering
+	\subfigure[]
+	{
+		\includegraphics[width=0.7\textwidth]{images/m_gauss_ft}
+		\label{fig:m_gauss_ft}
+	}
+	\subfigure[]
+	{
+		\includegraphics[width=0.7\textwidth]{images/m_gausses_ft}
+		\label{fig:m_gausses_ft}
+	}
+	%TODO
+	\label{fig:m_gauss}
+	\caption{Lalala...}
 \end{figure}
+	
+	É preciso lembrar, porém, que a expressão para a distância $ x $ ao centro da fronteira foi descartada. A posição exata de uma fronteira agora é indicada mutuamente por um máximo local em $ g(v) $ e um mínimo local em $ t(v) $. Como essas curvas são compostas de valores médios, seus extremos podem não coincidir em um mesmo $ v $. Contudo, se as fronteiras forem identificadas separadamente para cada função e suas gaussianas multiplicadas, o resultado é também uma gaussiana, que atinge seu máximo no ponto de interseção das funções que lhe deram origem. Assim é obtido um novo escalar $ v $ onde a fronteira está centrada.
 
-	Sabe-se que $ g(v) $ e $ t(v) $ raramente apresentarão o comportamento exibido na Figura~\ref{fig:}. Apesar de \textit{Kindlmann e Durkin}~\cite{gordon} terem demonstrado que isso é possível, o volume utilizado na demonstração possuía apenas uma fronteira e esta se comportava idealmente de acordo com o modelo proposto por eles. Nos volumes em que o intervalo de valores das fronteiras se sobrepõem, a média afeta os arcos esperados, como mostra a Figura~\ref{fig:}. Porém, as fronteiras ainda são identificadas por máximos locais em $ g(v) $ e mínimos locais em $ t(v) $. Na verdade, o formato no qual esses extremos se apresentam pode ser utilizado para inferir a \quote{força} ou importância de uma fronteira.
-	%TODO Referenciar imagens dessa demonstração do gordon.
+	Um outro fato sobre as curvas médias é que elas raramente apresentarão o comportamento exibido nas imagens da Figura~\ref{fig:m_gauss}. Apesar de \textit{Kindlmann e Durkin}~\cite{gordon} terem demonstrado que isso é possível, o volume utilizado na demonstração possuí apenas uma fronteira e esta se comporta idealmente de acordo com o modelo proposto por eles. Nos volumes em que o intervalo de valores das fronteiras se sobrepõem, a média afeta os arcos esperados, como mostra a Figura~\ref{fig:}. Porém, as fronteiras ainda são identificadas por máximos locais em $ g(v) $ e mínimos locais em $ t(v) $. Na verdade, o formato no qual esses extremos se apresentam pode ser utilizado para inferir a \quote{força} ou importância de uma fronteira.
+	
+\begin{figure}[h]
+	\centering
+	\subfigure[]
+	{
+		%\includegraphics[width=0.7\textwidth]{images/m_gauss_ft}
+		\label{fig:m_gauss_ft}
+	}
+	\subfigure[]
+	{
+		%\includegraphics[width=0.7\textwidth]{images/m_gausses_ft}
+		\label{fig:m_gausses_ft}
+	}
+	%TODO
+	\label{fig:m_gauss}
+	\caption{Lalala...}
+\end{figure}
 	
 	Dois fatores indicam a \quote{força} de uma fronteira nas funções médias: a amplitude e largura do extremo local na qual ela se encontra. A amplitude claramente é um indício de \quote{força} da fronteira já que uma derivada maior implica em uma mudança de valores mais brusca. Contudo, uma variação não tão ríspida, porém longa, indica uma grande mudança de material sendo visualizado, o que justifica o uso da largura do extremo local. A largura é definida como sendo a maior distância entre o extremo local que indica o centro da fronteira e seus extremos imediatamente opostos.
 	
