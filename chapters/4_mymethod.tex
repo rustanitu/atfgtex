@@ -223,23 +223,44 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	
 	É preciso lembrar, porém, que a expressão para a distância $ x $ ao centro da fronteira foi descartada. A posição exata de uma fronteira agora é indicada mutuamente por um máximo local em $ g(v) $ e um mínimo local em $ t(v) $. Como essas curvas são compostas de valores médios, seus extremos podem não coincidir em um mesmo $ v $. Contudo, se as fronteiras forem identificadas separadamente para cada função e suas gaussianas multiplicadas, o resultado é também uma gaussiana, que atinge seu máximo no ponto de interseção das funções que lhe deram origem. Assim é obtido um novo escalar $ v $ onde a fronteira está centrada.
 
-	Um outro fato sobre as curvas médias é que elas raramente apresentarão o comportamento exibido nas imagens da Figura~\ref{fig:m_gauss}. Apesar de \textit{Kindlmann e Durkin}~\cite{gordon} terem demonstrado que isso é possível, o volume utilizado na demonstração possuí apenas uma fronteira e esta se comporta idealmente de acordo com o modelo proposto por eles. Nos volumes em que o intervalo de valores das fronteiras se sobrepõem, a média afeta os arcos esperados, como mostra a Figura~\ref{fig:}. Porém, as fronteiras ainda são identificadas por máximos locais em $ g(v) $ e mínimos locais em $ t(v) $. Na verdade, o formato no qual esses extremos se apresentam pode ser utilizado para inferir a \quote{força} ou importância de uma fronteira.
+	Um outro fato sobre as curvas médias é que elas raramente apresentarão o comportamento exibido nas imagens da Figura~\ref{fig:m_gauss}. Apesar de \textit{Kindlmann e Durkin}~\cite{gordon} terem demonstrado que isso é possível, o volume utilizado na demonstração possuí apenas uma fronteira e esta se comporta idealmente de acordo com o modelo proposto por eles. Nos volumes em que o intervalo de valores das fronteiras se sobrepõem, a média afeta o comportamento dos arcos esperados. Para demonstrar esse fenômeno, dois volumes sintéticos foram criados, cada um contendo duas esferas concêntricas. O raio das esferas é o mesmo para cada volume e as fronteiras se comportam idealmente. A diferença está apenas nos valores escolhidos para cada esfera.
+	
+	As esferas da Figura~\ref{fig:m_double_sphere} claramente possuem fronteiras nos intervalos $ [0,127] $ e $ [127,255] $, onde não há sobreposição. Na imagem~\ref{fig:m_double_sphere_deriv} percebe-se que as derivadas médias se comportam exatamente como o esperado na imagem~\ref{fig:m_double_sphere_deriv}, indicando claramente o centro das fronteiras em $ 64 $ e $ 190 $. Já na Figura~\ref{fig:m_double_sphere_disc} os intervalos das fronteiras são $ [0,255] $ e $ [170,255] $. Percebe-se que devido à sobreposição de valores, as funções não se comportam como o esperado. Apesar de existir uma fronteira entre $ 0 $ e $ 255 $, as derivadas não exibem um arco único entre esses valores. A imagem~\ref{fig:m_double_sphere_disc_deriv} mostra que o arco é interrompido justamente no valor $ 170 $, que é o início da segunda fronteira e por isso, um arco destorcido se estende até $ 255 $.
+	
+	Porém, como a Figura~\ref{fig:m_double_sphere_disc}~\ref{fig:m_double_sphere_disc_deriv} ilustra, os pontos de máximo e mínimo locais em $ g(v) $ e $ t(v) $, respectivamente, ainda são boas aproximações para o centro das fronteiras. Podemos extrapolar essa sobreposição como na Figura...
 	
 \begin{figure}[h]
 	\centering
-	\subfigure[]
+	\subfigure[Fatia do volume]
 	{
-		%\includegraphics[width=0.7\textwidth]{images/m_gauss_ft}
-		\label{fig:m_gauss_ft}
+		\includegraphics[width=0.3\textwidth]{images/m_double_sphere_slice}
+		\label{fig:m_double_sphere_slice}
 	}
-	\subfigure[]
+	\subfigure[Derivadas médias do volume]
 	{
-		%\includegraphics[width=0.7\textwidth]{images/m_gausses_ft}
-		\label{fig:m_gausses_ft}
+		\includegraphics[width=0.6\textwidth]{images/m_double_sphere_derivatives}
+		\label{fig:m_double_sphere_deriv}
 	}
 	%TODO
-	\label{fig:m_gauss}
-	\caption{Lalala...}
+	\label{fig:m_double_sphere}
+	\caption{Duas esferas concêntricas sem sobreposição no intervalo de valores das fronteiras.}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Fatia do volume]
+	{
+		\includegraphics[width=0.3\textwidth]{images/m_double_disc_sphere_slice}
+		\label{fig:m_double_sphere_disc_slice}
+	}
+	\subfigure[Derivadas médias do volume]
+	{
+		\includegraphics[width=0.6\textwidth]{images/m_double_disc_sphere_derivatives}
+		\label{fig:m_double_sphere_disc_deriv}
+	}
+	%TODO
+	\label{fig:m_double_sphere_disc}
+	\caption{Duas esferas concêntricas com sobreposição no intervalo de valores das fronteiras.}
 \end{figure}
 	
 	Dois fatores indicam a \quote{força} de uma fronteira nas funções médias: a amplitude e largura do extremo local na qual ela se encontra. A amplitude claramente é um indício de \quote{força} da fronteira já que uma derivada maior implica em uma mudança de valores mais brusca. Contudo, uma variação não tão ríspida, porém longa, indica uma grande mudança de material sendo visualizado, o que justifica o uso da largura do extremo local. A largura é definida como sendo a maior distância entre o extremo local que indica o centro da fronteira e seus extremos imediatamente opostos.
@@ -256,6 +277,6 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	\vspace{2mm}
 	G_{t}(v) = \left\lvert A(v)\right\rvert \cdot \max_{\forall p\ \in\ P_{t}}\left\{ e^{-\frac{(v-p)^{2}}{2\sigma^{2}}}\right\}
 	\\
-	FT(v) = \alpha \cdot G_{g}(v) \cdot G_{g}(v)
+	FT(v) = \alpha \cdot G_{g}(v) \cdot G_{t}(v)
 \end{array}
 \end{equation}
