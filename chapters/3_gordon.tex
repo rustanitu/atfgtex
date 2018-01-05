@@ -105,7 +105,7 @@
 	
 	Já na Figura~\ref{fig:g_res}~\ref{fig:g_res_engine}, três fronteiras são claramente demonstradas na fatia do volume \quote{Engine Block}: preto-branco, preto-cinza e cinza-branco. Como esperado, os histogramas também revelam essas fronteiras. O arco menor e mais forte indica a fronteira preto-cinza. O segundo arco menor representa a fronteira cinza-branco, enquanto o maior indica a fronteira preto-branco e, portanto, sobrepõem os dois outros arcos.
 	
-\begin{figure}[b]
+\begin{figure}[h]
 	\centering
 	\subfigure[]
 	{
@@ -120,7 +120,8 @@
 	\caption{Esquerda: fatia do volume. Centro: Histograma 2D de $ f'(x) $ por $ f(x) $. Direita: Histograma 2D de $ f''(x) $ por $ f(x) $~\cite{gordon}.}
 	\label{fig:g_res}
 \end{figure}
-    
+
+\clearpage    
 \section{Geração da Função de Transferência}
 \label{sec:gordon.ft}
 	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como as curvas exibidas na Figura~\ref{fig:g_functions} apenas são válidas na direção do gradiente, optou-se por mantê-las com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas direcionais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}.
@@ -195,84 +196,81 @@
 \end{equation} \
 
 	As imagens abaixo mostram resultados para 3 volumes: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo. A Figura~\ref{fig:g_res_slices_1d} exibe fatias dos volumes, com o intervalo de intensidades mapeado entre preto e branco. A Figura~\ref{fig:g_res_fts_1d} apresenta as funções de transferência obtidas para cada volume. Por fim, a Figura~\ref{fig:g_res_vis_1d} mostra a visualização do volume com a FT gerada.
-
-	%TODO		INSERIR RESULTADOS
-	%
-	%	PARA OS VOLUMES BUCKY, NUCLEON E VISMALE, MOSTRAR HISTOGRAMA ACUMULADO, SLICE, FT1D E VISUALIZAÇÃO
-	%
-	%TODO
 	
 %%% SLICE
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
-	\subfigure[]
+	\subfigure[\quote{Bucky Ball}]
 	{
 		\includegraphics[width=0.3\textwidth]{images/g_bucky_slice}
 		%\label{fig:}
 	}
-	\subfigure[]
+	\subfigure[\quote{Nucleon}]
 	{
 		\includegraphics[width=0.3\textwidth]{images/g_nucleon_slice}
 		%\label{fig:}
 	}
-	\subfigure[]
+	\subfigure[RM de uma cabeça]
 	{
 		\includegraphics[width=0.3\textwidth]{images/g_vismale_slice}
 		%\label{fig:}
 	}
-	\caption{.}
+	\caption{Fatias dos volumes de dados.}
 	\label{fig:g_res_slices_1d}
 \end{figure}
 
 %%% FT
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\subfigure[]
+	\subfigure[\quote{Bucky Ball}]
 	{
 		\includegraphics[width=0.7\textwidth]{images/g_bucky_ft}
 		%\label{fig:}
 	}
-	\subfigure[]
+	\subfigure[\quote{Nucleon}]
 	{
 		\includegraphics[width=0.7\textwidth]{images/g_nucleon_ft}
 		%\label{fig:}
 	}
-	\subfigure[]
+	\subfigure[RM de uma cabeça]
 	{
 		\includegraphics[width=0.7\textwidth]{images/g_vismale_ft}
 		%\label{fig:}
 	}
-	\caption{.}
+	\caption{Função de transferência 1D gerada para os volumes.}
 	\label{fig:g_res_fts_1d}
 \end{figure}
 
 %%% ViSUAL
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\subfigure[]
+	\subfigure[\quote{Bucky Ball}]
 	{
 		\includegraphics[width=0.5\textwidth]{images/g_bucky}
 		%\label{fig:}
 	}
-	\subfigure[]
+	\subfigure[\quote{Nucleon}]
 	{
 		\includegraphics[width=0.5\textwidth]{images/g_nucleon}
-		%\label{fig:}
+		\label{fig:g_nucleon_1d}
 	}
-	\subfigure[]
+	\subfigure[RM de uma cabeça]
 	{
 		\includegraphics[width=0.5\textwidth]{images/g_vismale}
 		%\label{fig:}
 	}
-	\caption{.}
+	\caption{Visualização dos volumes com FT1D.}
 	\label{fig:g_res_vis_1d}
 \end{figure}
-    
+
+\clearpage
+%%\newpage
 \subsection{Função de Transferência 2D}
 \label{subsec:gordon.2d}
-    Desenhar uma função de transferência 2D é ainda mais difícil que uma 1D. Contudo, obter funções 2D pode ser desejável. Segundo \textit{Kindlmann e Durkin}~\cite{gordon}, definir a opacidade em função do valor escalar e da primeira derivada pode gerar melhores resultados. Isso porque em volumes mais complexos pode haver sobreposição nos intervalos de fronteiras distintas. Os histogramas 2D revelam bem essas sobreposições, uma vez que os arcos se tocam quando isso ocorre. Um exemplo desse problema é visto na Figura~\ref{fig:g_res}~\ref{fig:g_res_engine}.
-    
-    Contudo, o método proposto até aqui pode ser facilmente estendido para uma versão 2D. O cálculo de $\sigma$ permanece inalterado, como na equação~\eqref{eq:sigmav2}. A distância média à fronteira, porém, precisa ser reescrita também em função da derivada $g$. Logo, $p(v)$ é substituída por $p(v,g)$ descrita na equação~\eqref{eq:pvg}. O termo $h(v,g)$ é a segunda derivada média para cada ocorrência de escalar $v$ e primeira derivada $g$. Assim como na versão 1D, esse valor médio também pode ser extraído do histograma 3D, como indica a Figura~\ref{fig:g_hvg}. A função de transferência 2D final é então representada pela função $ \alpha(v, g) $, descrita na equação~\eqref{eq:alphavg}.
+	Uma função de transferência 2D designa opacidade não só em função da intensidade do volume, mas também em função de um segundo parâmetro. O uso dessa segunda dimensão tende a diminuir a sobreposição de intervalos das fronteiras. No entanto, ao mesmo tempo que torna a FT mais precisa, a adição de uma nova dimensão também dificulta muito sua especificação de forma manual. Então, 
+	\textit{Kindlmann e Durkin}~\cite{gordon} estenderam o método descrito até aqui, utilizando a primeira derivada para compor a FT2D.
+	
+	O cálculo de $\sigma$ permanece inalterado, como na equação~\eqref{eq:sigmav2}. A distância média à fronteira, porém, precisa ser reescrita também em função da primeira derivada. Logo, $p(v)$ é substituída por $p(v,g)$ descrita na equação~\eqref{eq:pvg}. O termo $h(v,g)$ é a segunda derivada média para cada ocorrência de escalar $v$ e primeira derivada $g$. Assim como na versão 1D, esse valor médio também pode ser extraído do histograma 3D, como indica a Figura~\ref{fig:g_hvg}. A função de transferência 2D final é então representada pela função $ \alpha(v, g) $, descrita na equação~\eqref{eq:alphavg}.
     
 \begin{figure}[h]
 	\centering
@@ -289,95 +287,93 @@
 	\alpha(v, g) = b(p(v, g))
 \end{equation} \
 
-	As imagens abaixo mostram resultados para os mesmos 3 volumes da seção anterior: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo.
+	As imagens abaixo mostram resultados para os mesmos 3 volumes da seção anterior: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo. A Figura~\ref{fig:g_res_vis_2d} exibe as visualizações dos volumes a partir das funções de transferência que foram obtidas, exibidas na Figura~\ref{fig:g_res_fts_2d}
 	
-	%TODO		INSERIR RESULTADOS
-	%
-	%	PARA OS VOLUMES BUCKY, NUCLEON E VISMALE, MOSTRAR HISTOGRAMA ACUMULADO, SLICE, FT2D E VISUALIZAÇÃO
-	%
-	%TODO
-
-%%% SLICE
-%\begin{figure}[H]
-%	\centering
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.3\textwidth]{images/bucky_slice}
-%		\label{fig:}
-%	}
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.3\textwidth]{images/nucleon_slice}
-%		\label{fig:}
-%	}
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.3\textwidth]{images/vismale_slice}
-%		\label{fig:}
-%	}
-%	\caption{.}
-%	\label{fig:g_res_slices_2d}
-%\end{figure}
-%
-%%% FT
-%\begin{figure}[H]
-%	\centering
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.3\textwidth]{images/res_bucky_gordon_ft2d}
-%		\label{fig:}
-%	}
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.3\textwidth]{images/res_nucleon_gordon_ft2d}
-%		\label{fig:}
-%	}
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.3\textwidth]{images/res_vismale_gordon_ft2d}
-%		\label{fig:}
-%	}
-%	\caption{.}
-%	\label{fig:g_res_fts_2d}
-%\end{figure}
-%
 %%% ViSUAL
-%\begin{figure}[H]
-%	\centering
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.5\textwidth]{images/res_bucky_gordon_2d}
-%		\label{fig:}
-%	}
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.5\textwidth]{images/res_nucleon_gordon_2d}
-%		\label{fig:}
-%	}
-%	\subfigure[]
-%	{
-%		\includegraphics[width=0.5\textwidth]{images/res_vismale_gordon_2d}
-%		\label{fig:}
-%	}
-%	\caption{.}
-%	\label{fig:g_res_vis_2d}
-%\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfigure[\quote{Bucky Ball}]
+	{
+		\includegraphics[width=0.5\textwidth]{images/g_bucky_2d}
+		%\label{fig:}
+	}
+	\subfigure[\quote{Nucleon}]
+	{
+		\includegraphics[width=0.5\textwidth]{images/g_nucleon_2d}
+		%\label{fig:}
+	}
+	\subfigure[RM de uma cabeça]
+	{
+		\includegraphics[width=0.5\textwidth]{images/g_vismale_2d}
+		%\label{fig:}
+	}
+	\caption{Visualização dos volumes com FT2D}
+	\label{fig:g_res_vis_2d}
+\end{figure}
 
+%%% FT
+\begin{figure}[]
+	\centering
+	\subfigure[\quote{Bucky Ball}]
+	{
+		\includegraphics[width=0.5\textwidth]{images/g_bucky_ft_2d}
+		%\label{fig:}
+	}
+	\subfigure[\quote{Nucleon}]
+	{
+		\includegraphics[width=0.5\textwidth]{images/g_nucleon_ft_2d}
+		\label{fig:g_nucleon_2d}
+	}
+	\subfigure[RM de uma cabeça]
+	{
+		\includegraphics[width=0.5\textwidth]{images/g_vismale_ft_2d}
+		%\label{fig:}
+	}
+	\caption{Função de transferência 2D gerada para os volumes.}
+	\label{fig:g_res_fts_2d}
+\end{figure}
+
+\clearpage
 \section{Avaliação do Método}
 \label{sec:gordon.aval}
 	O método de \textit{Kindlmann e Durkin}~\cite{gordon} identifica bem as fronteiras que ocorrem em um volume. Os arcos de seu histograma acumulado permitem ver quantas fronteiras bem definidas existem, além de indicar o intervalo de valores no qual a fronteira varia. Nos casos em que os arcos não são tão distintos, o modelo matemático da função de transferência ainda é capaz de proporcionar bons resultados.
 	
-	No entanto, quando os arcos se cruzam no histograma, o modelo matemático não é capaz de distinguir entre as fronteiras existentes no intervalo de valores sobrepostos. Isso pode acarretar em uma função de transferência ruim, que não destaca as fronteiras corretamente. Nesses casos, uma solução pode ser o uso de funções de transferência 2D, que melhoraram a classificação dos valores quanto às fronteiras. Contudo, como observado por \textit{Sereda et al.}~\cite{sereda1}, nem sempre o aumento na dimensão da FT resolve essa sobreposição.
+	No entanto, quando os arcos se cruzam no histograma, o modelo matemático não é capaz de distinguir entre as fronteiras existentes no intervalo de valores sobrepostos. Isso pode acarretar em uma função de transferência que não destaca as fronteiras corretamente. Nesses casos, uma solução pode ser o uso de funções de transferência 2D, que melhoraram a classificação dos valores quanto às fronteiras. Contudo, como observado por \textit{Sereda et al.}~\cite{sereda1}, nem sempre o aumento na dimensão da FT resolve essa sobreposição.
 	
-	Além disso, não há garantia de que o uso de uma função de transferência 2D não resultará em uma visualização pior que a obtida com uma 1D, como visto no volume \quote{Nucleon}: Figuras \ref{fig:} e \ref{fig:}. Por esse motivo, a função de transferência 1D é preferível. Por ser mais intuitiva e fácil de manipular, ela permite que o usuário faça correções quando a visualização não estiver adequada.
+	Além disso, não há garantia de que o uso de uma função de transferência 2D não resultará em uma visualização pior que a obtida com uma 1D, como visto no volume \quote{Nucleon}: Figuras~\ref{fig:g_res_fts_1d}~\ref{fig:g_nucleon_1d} e \ref{fig:g_res_fts_2d}~\ref{fig:g_nucleon_2d}. Dessa forma, a função de transferência 1D se torna preferível. Por ser mais intuitiva e fácil de manipular, ela permite que o usuário faça correções quando a visualização não estiver adequada.
 	
-	Ainda perseguindo o objetivo de que a tarefa do usuário deve ser facilitada, é preciso ressaltar que o threshold utilizado nas equações \eqref{eq:pv} e \eqref{eq:pvg} é um parâmetro trabalhoso de se escolher. Em alguns volumes o valor necessário é tão pequeno que pode ser desconsiderado em troca de utilizar uma função $ b(x) $ estreita. Por outro lado, o uso de um $ g_{thresh} $ muito grande pode impedir a visualização de fronteiras mais fracas, isto é, de menor $ g $.
+	Ainda perseguindo o objetivo de que a tarefa do usuário deve ser facilitada, é preciso ressaltar que o threshold utilizado nas equações \eqref{eq:pv} e \eqref{eq:pvg} é um parâmetro trabalhoso de se escolher. Em alguns volumes o valor necessário é tão pequeno que pode ser desconsiderado em troca de utilizar uma função $ b(x) $ estreita. Contudo, pode ser preciso um threshold alto para que a visualização permita uma compreensão adequada do volume. Por outro lado, o uso de um $ g_{thresh} $ grande, sem necessidade, pode impedir a visualização de fronteiras mais fracas, isto é, de menor $ g $. A Figura~\ref{fig:g_res_thresh} mostra a função de transferência e a visualização do volume \quote{Bonsai} sem threshold e com threshold.
 	
 	Ao longo dessa dissertação, descobriu-se que um valor bom é o equivalente ao menor vale na curva da primeira derivada média, $ g(v) $. Esta foi a regra utilizada para gerar os resultados de \textit{Kindlmann e Durkin}~\cite{gordon} e, nos volumes avaliados, não houve melhora significativa com a variação desse valor. No entanto, mais estudos devem ser feitos para definir um $ g_{thresh} $ preciso.
 	
+\begin{figure}[h]
+	\subfigure[Função de transferência sem threshold]
+	{
+		\includegraphics[width=0.47\textwidth]{images/g_bonsai_nothresh_ft}
+		\label{fig:nothresh}
+	}
+	\subfigure[Função de transferência com threshold]
+	{
+		\includegraphics[width=0.47\textwidth]{images/g_bonsai_ft}
+		\label{fig:thresh}
+	}
+	\subfigure[\quote{Bonsai} sem threshold]
+	{
+		\includegraphics[width=0.47\textwidth]{images/g_bonsai_nothresh}
+		\label{fig:nothresh_ft}
+	}
+	\subfigure[\quote{Bonsai} com threshold]
+	{
+		\includegraphics[width=0.47\textwidth]{images/g_bonsai}
+		\label{fig:thresh_ft}
+	}
+	\caption{O impacto do $g_{thresh}$ na função de transferência.}
+	\label{fig:g_res_thresh}
+\end{figure}
+	
 	A solução para o valor do $ g_{thresh} $ emergiu da ideia de que $ g(v) $ pode conter um deslocamento em sua imagem, devido ao fato de que ela é composta pela média dos valores da primeira derivada quantizados no histograma. Esse é o motivo pelo qual se decidiu utilizar o menor vale como $ g_{thresh} $, pois indica a menor base de um possível arco.
 	
-    Uma análise mais profunda da equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito, uma vez que é a derivada de $ f(x) $ e, portanto, seria necessário que $ f(x) $ fosse infinito para tal.
+    Uma análise mais profunda da equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito.
     
 \begin{equation} \label{eq:xpvg}
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)} \ \approx \ 
