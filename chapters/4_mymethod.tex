@@ -2,42 +2,38 @@
 
 \chapter{Geração Baseada em Derivadas Médias}
 \label{ch:my}
-	Este capítulo descreve o método proposto nessa dissertação para gerar funções de transferência automáticas, baseado no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}, explicado no capítulo anterior.
+	Este capítulo descreve o método automático para gerar funções de transferência proposto por esta dissertação, utilizando derivadas médias baseadas no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}.
 
 \section{Detecção de Fronteiras}
 \label{sec:my.deriv}
-	Para eliminar o problema de deslocamento em $ h(v) $ é preciso repensar o modelo de \textit{Kindlmann e Durkin}~\cite{gordon} a fim de identificar a fronteira pela segunda derivada que não seja através de $ f''(x) = 0 $. Uma opção é utilizar o ponto de inflexão que ocorre quando $ f''(x) = 0 $. No entanto, como são encontrados três pontos de inflexão ao longo de $ f''(x) $, é preciso identificar aquele que ocorre quando $ f'(x) $ é máximo.
-	
-	Para encontrar o ponto de inflexão de uma função, deve-se avaliar sua primeira e segunda derivadas. Na verdade, um ponto de inflexão é encontrado da mesma forma que a fronteira é identificada: um extremo local na primeira derivada e segunda derivada igual a zero. O que faz sentido, uma vez que segundo o modelo estipulado, o centro de uma fronteira é exatamente um ponto de inflexão. A Figura~\ref{fig:m_inflection} mostra $ f''(x) $ como $ D(x) $ e suas respectivas derivadas $ D'(x) $ e $ D''(x) $, onde os pontos de inflexão são indicados pelas retas tracejadas.
+	Para eliminar o problema de deslocamento em $ h(v) $ é preciso repensar o modelo de \textit{Kindlmann e Durkin}~\cite{gordon}. A função $ f''(x) $ possui uma inflexão na mesma posição em que cruza o eixo $ x $. Esse ponto de inflexão pode ser utilizado para identificar a fronteira pela segunda derivada sem ser através de $ f''(x) = 0 $. No entanto, como são encontrados três pontos de inflexão ao longo de $ f''(x) $, é preciso identificar aquele que ocorre quando $ f'(x) $ é máximo. Para isso, avalia-se a derivada de $ f''(x) $, exibida na Figura~\ref{fig:m_inflection}.
 	
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/m_inflection}
+	\caption{Segunda e terceira derivadas na direção do gradiente, centradas na ocorrência de uma fronteira.}
 	\label{fig:m_inflection}
-	%TODO
-	\caption{Lalala...}
 \end{figure}
 
-	Vê-se que apenas um extremo de $ D'(x) $ é negativo. Essa informação é indiferente para encontrar os pontos de inflexão, mas é muito útil na detecção da fronteira, pois a posição do extremo negativo é justamente $ D(x) = 0 $, onde se encontra o centro da fronteira. Lembrando que $ D'(x) = f'''(x), $ percebe-se que $ f'''(x) $ pode ser utilizada no lugar de $ f''(x) $ para identificar uma fronteira, como mostra a Figura~\ref{fig:m_functions}.
-	
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{images/m_functions}
-	\label{fig:m_functions}
-	%TODO
-	\caption{Lalala...}
-\end{figure}
-
-	É preciso obter uma nova relação para extrair $ \sigma $ e $ x $, mas agora utilizando $ f'(x) $ e $ f'''(x) $. Para facilitar a leitura, $ f'(x) $ é repetida na equação~\eqref{eq:first2}, enquanto a função $ f'''(x) $ é definida na equação~\eqref{eq:third}. Devido ao fato de $ f'(x) $ ter um grande termo em comum com $ f'''(x) $, a simples divisão entre essas funções revela uma relação envolvendo $ \sigma $ e $ x $, como mostra a equação~\eqref{eq:sigmax}. Com $ x = 0 $ percebe-se que, mais uma vez, o valor de $ \sigma $ pode ser recuperado através dos valores extremos das derivadas, indicado na equação~\eqref{eq:sigma3}. Por fim, $ x $ pode ser isolado na equação~\eqref{eq:sigmax} resultando em uma nova expressão para a distância ao centro da fronteira, indicada na equação~\eqref{eq:x3}.
-	\
+	Como pode ser visto, a posição antes identificada por $ f''(x) = 0 $, agora pode ser encontrada através do mínimo local em $ f'''(x) $. Contudo, para fazer uso de $ f'''(x) $ para identificar uma fronteira é preciso obter uma nova relação para extrair $ \sigma $ e $ x $, mas agora utilizando $ f'(x) $ e $ f'''(x) $. Para facilitar a leitura, $ f'(x) $ é repetida na Equação~\eqref{eq:first2}, enquanto a função $ f'''(x) $ é definida na Equação~\eqref{eq:third}.
 	
 \begin{equation} \label{eq:first2}
-	g = f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+g = f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+\end{equation} \
+
+\begin{equation} \label{eq:third}
+t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
 \end{equation} \
 	
-\begin{equation} \label{eq:third}
-	t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
-\end{equation} \
+	Devido ao fato de $ f'(x) $ ter um grande termo em comum com $ f'''(x) $, a simples divisão entre essas funções revela uma relação envolvendo $ \sigma $ e $ x $, como mostra a Equação~\eqref{eq:sigmax}. Com $ x = 0 $ percebe-se que, mais uma vez, o valor de $ \sigma $ pode ser recuperado através dos valores extremos das derivadas, indicado na Equação~\eqref{eq:sigma3}. Por fim, $ x $ pode ser isolado na Equação~\eqref{eq:sigmax} resultando em uma nova expressão para a distância ao centro da fronteira, indicada na Equação~\eqref{eq:x3}.
+	
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{images/m_functions}
+%	\label{fig:m_functions}
+%	%TODO
+%	\caption{Lalala...}
+%\end{figure}
 
 \begin{equation} \label{eq:sigmax}
 	\frac{f'''(x)}{f'(x)} = \frac{x^{2} - \sigma^{2}}{\sigma^{4}}
@@ -52,13 +48,41 @@
 	p(v) = \sigma^{2}\sqrt{\frac{t(v)}{g(v)} + \frac{1}{\sigma^{2}}}
 \end{equation} \
 
-	À primeira vista, o uso da terceira derivada no lugar da segunda garante que o deslocamento das curvas médias não resultará na atribuição de um $ v $ incorreto à fronteira. No entanto, não impede que a distância $ x $ seja alterada por esse fenômeno. Uma análise da contribuição de $ \sigma $ para o valor de $ x $ ajuda a entender melhor essa relação.
+	À primeira vista, o uso da terceira derivada no lugar da segunda garante que o deslocamento das curvas médias não resultará na atribuição de um $ v $ incorreto à fronteira. No entanto, isso ainda pode ocorrer indiretamente, a partir da distância $ x $. Uma análise da contribuição de $ \sigma $ para o valor de $ x $ ajuda a entender melhor essa relação.
 	
-	$ p(v) $ é igual a zero apenas quando $ \frac{t(v)}{g(v)} = -\frac{1}{\sigma^{2}} $, já que $ \sigma $ não pode ser zero. Como $ \sigma $ é obtido a partir dos valores extremos de $ g(v) $ e $ t(v) $, qualquer deslocamento nessas funções altera seu valor. Consequentemente, $ p(v) = 0 $ pode ocorrer em um $ v $ que não corresponde exatamente ao centro da fronteira.
+	$ p(v) $ é igual a zero apenas quando $ \frac{t(v)}{g(v)} = -\frac{1}{\sigma^{2}} $, já que $ \sigma $ não pode ser zero. Como $ \sigma $ é obtido a partir dos valores extremos de $ g(v) $ e $ t(v) $, qualquer deslocamento nessas funções altera seu valor. Consequentemente, $ p(v) = 0 $ pode ocorrer em um $ v $ que não corresponde exatamente ao centro da fronteira. Na Equação~\eqref{eq:x} de \textit{Kindlmann e Durkin}~\cite{gordon} isso não acontece, pois $ \sigma $ apenas é capaz de escalar a relação entre $ f'(x) $ e $ f''(x) $. A Figura~\ref{fig:} ilustra como uma pequena variação no valor de $ \sigma $ pode ter um grande impacto na função de transferência.
 	
-	No lugar de obter parâmetros que façam a correção dos deslocamentos na equação $ p(v) $, uma nova abordagem pode ser pensada a fim de identificar fronteiras a partir dos valores extremos de $ f'(x) $ e $ f'''(x) $. Por exemplo, uma métrica pode ser desenvolvida para atribuir opacidade aos valores do volume em que as curvas $ g(v) $ e $ t(v) $ apresentem máximos e mínimos locais.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.2\textwidth]{images/m_triple_sphere_slice}
+	%TODO INSERIR ENGINE BLOCK COM VARIAÇÃO DO SIGMA
+	\caption{lalalalla}
+	\label{}
+\end{figure}
 	
-	Além de eliminar o $ g_{thresh} $, essa abordagem resulta em uma função de transferência formada pelas isosuperfícies mais importantes do volume. Essa característica permite que o usuário escolha entre quais fronteiras deseja visualizar. Devido a esse benefício e à resolução dos problemas discutidos nesse capítulo, optou-se pelo desenvolvimento de uma função de transferência obtida de modo procedural, e não mais regida por uma equação matemática.
+	O deslocamento causado pela variação do $ \sigma $ sugere que fronteiras diferentes podem ter sigmas distintos. Sob esse ponto de vista, a correção de $ p(v) $ por meio de parâmetros exige que estes também variem em função de $ v $. Entretanto, ao invés de obter parâmetros para essas correções, uma nova abordagem pode ser pensada para identificar fronteiras a partir dos valores extremos de $ f'(x) $ e $ f'''(x) $. Por exemplo, uma métrica pode ser desenvolvida para atribuir opacidade ao volume baseada nos máximos e mínimos locais de $ g(v) $ e $ t(v) $.
+	
+	Como a terceira derivada é mais sensível que a primeira, ela possui uma curva mais expressiva em relação aos extremos locais. Essa característica faz com que a terceira derivada seja mais robusta em relação a falsos positivos, isto é, ela tende a apresentar menos extremos locais que não indicam uma fronteira, mas que existem em decorrência da média dos valores. Ao mesmo tempo, a terceira derivada conserva melhor seus extremos locais, não perdendo-os devido à suavização que é inerente quando se tira uma média.
+	
+\begin{figure}
+	\centering
+	\subfigure[Fatia do volume.]
+	{
+		\includegraphics[width=0.2\textwidth]{images/m_triple_sphere_slice}
+		\label{fig:m_triple_slice}
+	}
+	\subfigure[Funções $ g(v) $ e $ t(v) $.]
+	{
+		\includegraphics[width=0.7\textwidth]{images/m_triple_sphere_ft}
+		\label{fig:m_triple_ft}
+	}
+	\caption{Volume sintético composto por três esferas concêntricas.}
+	\label{fig:m_triple}
+\end{figure}
+	
+	Um volume sintético, composto por três esferas concêntricas, foi utilizado para ilustrar como as derivadas médias podem exibir quantidades diferentes de extremos locais. Uma fatia do volume, exibida na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_slice}, mostra que existem três fronteiras nos seguintes intervalos: $ [0,255] $, $ [50,150] $ e $ [150,255] $. Portanto, as fronteiras estão próximas a $ 128 $, $ 100 $ e $ 203 $, respectivamente. Como pode ser visto na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_ft}, a primeira derivada apresenta um extremo local em $ 44 $ que não corresponde a uma fronteira. O mesmo não ocorre com a terceira derivada.
+	
+	Então, escolheu-se utilizar os mínimos locais de $ t(v) $ para identificar o centro das fronteiras. Além de eliminar o $ g_{thresh} $, o resultado desta abordagem é uma função de transferência composta por um conjunto de funções de opacidade atribuídas às isosuperfícies mais importantes do volume. Essa característica permite que o usuário escolha quais fronteiras deseja visualizar. Na Seção~\ref{sec:my.tf} a métrica exata de como gerar a função de transferência será descrita. As subseções abaixo apresentam como calcular a terceira derivada do volume de dados.
 	
 \subsection{Cálculo das Derivadas}
 	É preciso lembrar que o volume não possui uma função analítica $ f(x, y, z) $ que o defina. Ele contém apenas um mapeamento de uma posição $ (x, y, z) $ para um valor escalar $ v $. Portanto, as derivadas de cada ponto do volume precisam ser calculadas com base na sua vizinhança e esse cálculo pode variar de acordo com o tipo do volume de dados.
@@ -67,8 +91,17 @@
 	
 \begin{figure}[h]
 	\centering
-	\label{fig:meshes}
-	%TODO
+	\subfigure[Malha regular estruturada]
+	{
+		\includegraphics[width=0.3\textwidth]{images/regular_mesh}
+		\label{fig:meshes}
+	}
+	\hspace{10mm}
+	\subfigure[Malha não regular estruturada]
+	{
+		\includegraphics[width=0.3\textwidth]{images/irregular_mesh}
+		\label{fig:meshes}
+	}
 	\caption{Lalala...}
 \end{figure}
     
@@ -76,7 +109,7 @@
 \label{subsec:my.struct}
 	O método de diferenças finitas descreve como obter uma aproximação polinomial para a derivada de uma função $ f $ em um determinado ponto $ p $, utilizando $ n $ amostras de $ f $ equidistantes entre si a uma distância $ h $. Logo, o método das diferenças finitas serve para calcular as derivadas dos volumes com malhas regulares, uma vez que a distância entre suas células é sempre a mesma, na direção dos eixos.
 	
-	Nessa dissertação, optou-se por utilizar diferença central com $ n = 3 $. Isto é, uma das amostras é o próprio ponto $ p $ onde se deseja avaliar a derivada. As outras duas, estão a $ +h $ e $ -h $ de $ p $. A equação~\eqref{eq:diff} mostra a primeira derivada de uma função $ f $ em um dado ponto $ p $, através de diferenças finitas centrais, como descrito acima.
+	Nessa dissertação, optou-se por utilizar diferença central com $ n = 3 $. Isto é, uma das amostras é o próprio ponto $ p $ onde se deseja avaliar a derivada. As outras duas, estão a $ +h $ e $ -h $ de $ p $. A Equação~\eqref{eq:diff} mostra a primeira derivada de uma função $ f $ em um dado ponto $ p $, através de diferenças finitas centrais, como descrito acima.
 	
 \begin{equation}\label{eq:diff}
 	f'(p) = \frac{f(p + h) - f(p - h)}{2h}
@@ -84,7 +117,7 @@
 
 	Escolhendo o menor $ h $ possível, a aplicação dessa equação no volume de dados implica em: para todas as posições do volume, computar a diferença entre os dois vizinhos mais próximos em uma mesma direção, dividido pela distância entre os mesmos. No entanto, como explicado na seção~\ref{sec:gordon.bound}, as derivadas devem ser calculadas na direção do gradiente.
 	
-	O gradiente de uma função é um vetor formado pelas derivadas parciais dessa função, como indica a equação~\eqref{eq:grad}. Assim, para cada posição do volume, o vetor gradiente também pode ser recuperado através da equação~\eqref{eq:diff}, aproximando as derivadas nas direções $ x $, $ y $ e $ z $. Contudo, utilizar a equação~\eqref{eq:diff} na direção do gradiente para cada posição do volume não é uma tarefa trivial, já que há apenas 3 direções do volume na qual as amostras podem ser igualmente espaçadas entre si. É preciso então recorrer à propriedade do cálculo vetorial de que a derivada direcional em uma dada direção é igual ao produto escalar do gradiente da função com o vetor da direção, como mostra a equação~\eqref{eq:ddir}.
+	O gradiente de uma função é um vetor formado pelas derivadas parciais dessa função, como indica a Equação~\eqref{eq:grad}. Assim, para cada posição do volume, o vetor gradiente também pode ser recuperado através da Equação~\eqref{eq:diff}, aproximando as derivadas nas direções $ x $, $ y $ e $ z $. Contudo, utilizar a Equação~\eqref{eq:diff} na direção do gradiente para cada posição do volume não é uma tarefa trivial, já que há apenas 3 direções do volume na qual as amostras podem ser igualmente espaçadas entre si. É preciso então recorrer à propriedade do cálculo vetorial de que a derivada direcional em uma dada direção é igual ao produto escalar do gradiente da função com o vetor da direção, como mostra a Equação~\eqref{eq:ddir}.
 	
 \begin{equation}\label{eq:grad}
 	\nabla f = \bigg(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\bigg)
@@ -100,7 +133,7 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	D_{\widehat{\nabla f}} f = \nabla f \cdot \widehat{\nabla f} = \nabla f \cdot \frac{\nabla f}{\|\nabla f\|} = \|\nabla f\|
 \end{equation} \
 
-	Não é possível calcular a terceira derivada diretamente, utilizando os conceitos acima. Porém, se a magnitude do gradiente for armazenada em um novo campo escalar, a equação~\eqref{eq:first_derivative} pode ser aplicada novamente, agora sobre $ \|\nabla f\| $. Com isso, obtém-se a segunda derivada do volume, a partir da qual pode se obter a terceira, utilizando o mesmo processo. As equações abaixo formalizam o cálculo da segunda e terceira derivadas, na direção do gradiente. Com o fim de simplificar a compreensão das expressões, tomou-se a liberdade de representar o resultado da segunda derivada por $ \|\nabla f'\| $.
+	Não é possível calcular a terceira derivada diretamente, utilizando os conceitos acima. Porém, se a magnitude do gradiente for armazenada em um novo campo escalar, a Equação~\eqref{eq:first_derivative} pode ser aplicada novamente, agora sobre $ \|\nabla f\| $. Com isso, obtém-se a segunda derivada do volume, a partir da qual pode se obter a terceira, utilizando o mesmo processo. As equações abaixo formalizam o cálculo da segunda e terceira derivadas, na direção do gradiente. Com o fim de simplificar a compreensão das expressões, tomou-se a liberdade de representar o resultado da segunda derivada por $ \|\nabla f'\| $.
 	
 \begin{equation}\label{eq:second_derivative}
 	D^{2}_{\widehat{\nabla f}} f = D_{\widehat{\nabla f}} (\|\nabla f\|) = \nabla (\|\nabla f\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f\|) \cdot \frac{\nabla f}{\|\nabla f\|} = \|\nabla f'\|
@@ -112,13 +145,13 @@ D_{\widehat{u}} f = \nabla f \cdot u
 
 	Antes de aplicar os conceitos discutidos até aqui, armazena-se em cada vértice a média do valor das células que o compartilham. Em seguida, é atribuído ao centro de cada face a média do valor dos vértices que a compõem. Dessa forma, o método de diferenças finitas é calculado entre os centros das faces de uma célula. Além da suavização implícita nos valores das faces, essa escolha faz com que o cálculo das derivadas seja igual, mesmo nas bordas do volume. A Figura~\ref{fig:} ilustra esse processo.
 	
-	Em posse dos valores escalares no centro das faces, a equação~\eqref{eq:diff} é utilizada nas direções $ x $, $ y $ e $ z $, compondo respectivamente as componentes $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $ e $ \frac{\partial f}{\partial z} $ do gradiente $ \nabla f $. Então, a equação~\eqref{eq:first_derivative} é aplicada e o resultado é armazenado no centro da célula. Depois que a primeira derivada é calculada para todo o volume, a norma do gradiente armazenada no centro da célula é interpolada para o centro das faces através do mesmo processo descrito anteriormente. O vetor gradiente de cada célula já foi calculado na etapa anterior, então, pode-se aplicar a equação~\eqref{eq:second_derivative} para obter a segunda derivada. Por fim, o resultado dessa iteração é interpolado para o centro das faces da mesma maneira, para que a terceira derivada seja calculada, de acordo com a equação~\eqref{eq:third_derivative}.
+	Em posse dos valores escalares no centro das faces, a Equação~\eqref{eq:diff} é utilizada nas direções $ x $, $ y $ e $ z $, compondo respectivamente as componentes $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $ e $ \frac{\partial f}{\partial z} $ do gradiente $ \nabla f $. Então, a Equação~\eqref{eq:first_derivative} é aplicada e o resultado é armazenado no centro da célula. Depois que a primeira derivada é calculada para todo o volume, a norma do gradiente armazenada no centro da célula é interpolada para o centro das faces através do mesmo processo descrito anteriormente. O vetor gradiente de cada célula já foi calculado na etapa anterior, então, pode-se aplicar a Equação~\eqref{eq:second_derivative} para obter a segunda derivada. Por fim, o resultado dessa iteração é interpolado para o centro das faces da mesma maneira, para que a terceira derivada seja calculada, de acordo com a Equação~\eqref{eq:third_derivative}.
 
 \subsubsection{Malhas Estruturadas Não Regulares}
 \label{subsec:my.nonstruct}
 	Em malhas não regulares, a direção dos vivinhos mais próximos pode sempre variar de uma célula para outra. Portanto, a aplicação do método de diferenças finitas resultaria em derivadas direcionais distintas para cada célula, tornando inviável o uso dos conceitos apresentados até aqui. Contudo, é possível transformar o gradiente calculado no espaço paramétrico da malha, para o espaço cartesiano.
 	
-	Aplicando a regra da cadeia, o vetor gradiente no espaço paramétrico $ \nabla f_{(s, t, p)} $ pode ser escrito em função do vetor gradiente no espaço cartesiano $ \nabla f_{(x, y, z)} $, como mostra a equação~\eqref{eq:cadeia}. As derivadas parciais que relacionam os dois vetores, equivalem aos termos da matriz Jacobiana do espaço paramétrico. Então, a transformação entre os espaços pode ser expressa de forma reduzida pela equação~\eqref{eq:cadeia_jacob}.
+	Aplicando a regra da cadeia, o vetor gradiente no espaço paramétrico $ \nabla f_{(s, t, p)} $ pode ser escrito em função do vetor gradiente no espaço cartesiano $ \nabla f_{(x, y, z)} $, como mostra a Equação~\eqref{eq:cadeia}. As derivadas parciais que relacionam os dois vetores, equivalem aos termos da matriz Jacobiana do espaço paramétrico. Então, a transformação entre os espaços pode ser expressa de forma reduzida pela Equação~\eqref{eq:cadeia_jacob}.
 	\\
 	
 \begin{equation}\label{eq:cadeia}
