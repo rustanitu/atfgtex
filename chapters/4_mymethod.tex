@@ -87,26 +87,35 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 \subsection{Cálculo das Derivadas}
 	É preciso lembrar que o volume não possui uma função analítica $ f(x, y, z) $ que o defina. Ele contém apenas um mapeamento de uma posição $ (x, y, z) $ para um valor escalar $ v $. Portanto, as derivadas de cada ponto do volume precisam ser calculadas com base na sua vizinhança e esse cálculo pode variar de acordo com o tipo do volume de dados.
 	
-	Se o volume pode ser representado por uma malha regular, isso significa que ele é delimitado por uma caixa retangular preenchida por células cúbicas que estão alinhadas com os eixos da caixa. Caso o volume não possua tais características, mas seja composto por células hexaédricas conexas entre si, diz-se que esse volume possui uma malha estruturada. A diferença entre esses dois tipos de representatividade pode ser visto na Figura~\ref{fig:meshes} e o modo de se calcular as derivadas para cada um desses casos é discutido nas seções seguintes.
+	Se um volume pode ser representado por uma malha regular, então ele é espacialmente delimitado por uma caixa retangular, preenchida por células cúbicas alinhadas aos eixos da caixa, onde cada célula representa um dado do volume. Este é o caso dos volumes resultantes da maioria dos métodos de aquisição por escaneamento de uma estrutura fisiológica real, como os exames médicos. Há ainda volumes cujos dados são topologicamente estruturados, mas que não podem ser representados por uma grade regular, pois a direção da disposição dos dados varia ao longo do volume. Então, utiliza-se uma malha não regular, composta por células hexaédricos irregulares, como é o caso dos reservatórios de petróleo utilizados nesta dissertação.
+	
+	A diferença entre esses dois tipos de representatividade pode ser visto na Figura~\ref{fig:meshes}, onde uma versão 2D de cada malha é ilustrada. O modo de se calcular as derivadas para cada um desses casos é discutido nas seções seguintes.
 	
 \begin{figure}[h]
 	\centering
-	\subfigure[Malha regular estruturada]
+	\subfigure[Malha regular]
 	{
-		\includegraphics[width=0.3\textwidth]{images/regular_mesh}
-		\label{fig:meshes}
+		\includegraphics[width=0.3\textwidth]{images/m_regular_mesh}
 	}
 	\hspace{10mm}
-	\subfigure[Malha não regular estruturada]
+	\subfigure[Malha não regular topologicamente estruturada]
 	{
-		\includegraphics[width=0.3\textwidth]{images/irregular_mesh}
-		\label{fig:meshes}
+		\includegraphics[width=0.3\textwidth]{images/m_irregular_mesh}
 	}
-	\caption{Lalala...}
+	\caption{Tipos de malhas utilizadas nesta dissertação, em 2D.}
+	\label{fig:meshes}
 \end{figure}
     
 \subsubsection{Malhas Regulares}
 \label{subsec:my.struct}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/m_regular_cells}
+	\caption{Exemplo de células em malhas regulares.}
+	\label{fig:m_regular_cells}
+\end{figure}
+
 	O método de diferenças finitas descreve como obter uma aproximação polinomial para a derivada de uma função $ f $ em um determinado ponto $ p $, utilizando $ n $ amostras de $ f $ equidistantes entre si a uma distância $ h $. Logo, o método das diferenças finitas serve para calcular as derivadas dos volumes com malhas regulares, uma vez que a distância entre suas células é sempre a mesma, na direção dos eixos.
 	
 	Nessa dissertação, optou-se por utilizar diferença central com $ n = 3 $. Isto é, uma das amostras é o próprio ponto $ p $ onde se deseja avaliar a derivada. As outras duas, estão a $ +h $ e $ -h $ de $ p $. A Equação~\eqref{eq:diff} mostra a primeira derivada de uma função $ f $ em um dado ponto $ p $, através de diferenças finitas centrais, como descrito acima.
@@ -115,7 +124,7 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 	f'(p) = \frac{f(p + h) - f(p - h)}{2h}
 \end{equation} \
 
-	Escolhendo o menor $ h $ possível, a aplicação dessa equação no volume de dados implica em: para todas as posições do volume, computar a diferença entre os dois vizinhos mais próximos em uma mesma direção, dividido pela distância entre os mesmos. No entanto, como explicado na seção~\ref{sec:gordon.bound}, as derivadas devem ser calculadas na direção do gradiente.
+	Escolhendo o menor $ h $ possível, a aplicação dessa equação no volume de dados implica em: para todas as posições do volume, computar a diferença entre os dois vizinhos mais próximos em uma mesma direção, dividido pela distância entre os mesmos. No entanto, como explicado na Seção~\ref{sec:gordon.bound}, as derivadas devem ser calculadas na direção do gradiente.
 	
 	O gradiente de uma função é um vetor formado pelas derivadas parciais dessa função, como indica a Equação~\eqref{eq:grad}. Assim, para cada posição do volume, o vetor gradiente também pode ser recuperado através da Equação~\eqref{eq:diff}, aproximando as derivadas nas direções $ x $, $ y $ e $ z $. Contudo, utilizar a Equação~\eqref{eq:diff} na direção do gradiente para cada posição do volume não é uma tarefa trivial, já que há apenas 3 direções do volume na qual as amostras podem ser igualmente espaçadas entre si. É preciso então recorrer à propriedade do cálculo vetorial de que a derivada direcional em uma dada direção é igual ao produto escalar do gradiente da função com o vetor da direção, como mostra a Equação~\eqref{eq:ddir}.
 	
@@ -143,12 +152,38 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	D^{3}_{\widehat{\nabla f}} f = D_{\widehat{\nabla f}} (\|\nabla f'\|) = \nabla (\|\nabla f'\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f'\|) \cdot \frac{\nabla f}{\|\nabla f\|}
 \end{equation} \
 
-	Antes de aplicar os conceitos discutidos até aqui, armazena-se em cada vértice a média do valor das células que o compartilham. Em seguida, é atribuído ao centro de cada face a média do valor dos vértices que a compõem. Dessa forma, o método de diferenças finitas é calculado entre os centros das faces de uma célula. Além da suavização implícita nos valores das faces, essa escolha faz com que o cálculo das derivadas seja igual, mesmo nas bordas do volume. A Figura~\ref{fig:} ilustra esse processo.
+	Antes de aplicar os conceitos discutidos até aqui, armazena-se em cada vértice a média do valor das células que o compartilham. Em seguida, é atribuído ao centro de cada face a média do valor dos vértices que a compõem. Dessa forma, o método de diferenças finitas é calculado entre os centros das faces de uma célula. Além da suavização implícita nos valores das faces, essa escolha faz com que o cálculo das derivadas seja igual, mesmo nas bordas do volume. A Figura~\ref{fig:m_regular_cells} ilustra esse processo.
 	
 	Em posse dos valores escalares no centro das faces, a Equação~\eqref{eq:diff} é utilizada nas direções $ x $, $ y $ e $ z $, compondo respectivamente as componentes $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $ e $ \frac{\partial f}{\partial z} $ do gradiente $ \nabla f $. Então, a Equação~\eqref{eq:first_derivative} é aplicada e o resultado é armazenado no centro da célula. Depois que a primeira derivada é calculada para todo o volume, a norma do gradiente armazenada no centro da célula é interpolada para o centro das faces através do mesmo processo descrito anteriormente. O vetor gradiente de cada célula já foi calculado na etapa anterior, então, pode-se aplicar a Equação~\eqref{eq:second_derivative} para obter a segunda derivada. Por fim, o resultado dessa iteração é interpolado para o centro das faces da mesma maneira, para que a terceira derivada seja calculada, de acordo com a Equação~\eqref{eq:third_derivative}.
+	
+\begin{figure}[h]
+	\centering
+	\subfigure[]
+	{
+		\includegraphics[width=0.3\textwidth]{images/m_cube}
+	}
+	\subfigure[]
+	{
+		\includegraphics[width=0.3\textwidth]{images/m_cube_vertex}
+	}
+	\subfigure[]
+	{
+		\includegraphics[width=0.3\textwidth]{images/m_cube_face}
+	}
+	\caption{Interpolação de valores do centro da célula para o centro das faces.}
+	\label{fig:m_cubes}
+\end{figure}
 
-\subsubsection{Malhas Estruturadas Não Regulares}
+\subsubsection{Malhas Não Regulares Topologicamente Estruturadas}
 \label{subsec:my.nonstruct}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/m_irregular_cells}
+	\caption{Exemplo de células em malhas não regulares topologicamente estruturadas.}
+	\label{fig:m_irregular_cells}
+\end{figure}
+
 	Em malhas não regulares, a direção dos vivinhos mais próximos pode sempre variar de uma célula para outra. Portanto, a aplicação do método de diferenças finitas resultaria em derivadas direcionais distintas para cada célula, tornando inviável o uso dos conceitos apresentados até aqui. Contudo, é possível transformar o gradiente calculado no espaço paramétrico da malha, para o espaço cartesiano.
 	
 	Aplicando a regra da cadeia, o vetor gradiente no espaço paramétrico $ \nabla f_{(s, t, p)} $ pode ser escrito em função do vetor gradiente no espaço cartesiano $ \nabla f_{(x, y, z)} $, como mostra a Equação~\eqref{eq:cadeia}. As derivadas parciais que relacionam os dois vetores, equivalem aos termos da matriz Jacobiana do espaço paramétrico. Então, a transformação entre os espaços pode ser expressa de forma reduzida pela Equação~\eqref{eq:cadeia_jacob}.
