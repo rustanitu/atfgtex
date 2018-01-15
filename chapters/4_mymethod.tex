@@ -107,19 +107,20 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 	p(v) = \sigma^{2}\sqrt{\frac{t(v)}{g(v)} + \frac{1}{\sigma^{2}}}
 \end{equation} \
 
-	À primeira vista, o uso da terceira derivada no lugar da segunda garante que o deslocamento das curvas médias não resultará na atribuição de um $ v $ incorreto à fronteira. No entanto, isso ainda pode ocorrer indiretamente, a partir da distância $ x $. %TODO A PARTIR DAQUI.....Uma análise da contribuição de $ \sigma $ para o valor de $ x $ ajuda a entender melhor essa relação.
+	À primeira vista, o uso da terceira derivada no lugar da segunda garante que o deslocamento das curvas médias não resultará na atribuição de um $ v $ incorreto à fronteira. No entanto, isso ainda pode ocorrer indiretamente, a partir da distância $ x $. Uma análise da contribuição de $ \sigma $ para o valor de $ x $ ajuda a entender melhor essa relação.
 	
-	$ p(v) $ é igual a zero apenas quando $ \frac{t(v)}{g(v)} = -\frac{1}{\sigma^{2}} $, já que $ \sigma $ não pode ser zero. Como $ \sigma $ é obtido a partir dos valores extremos de $ g(v) $ e $ t(v) $, qualquer deslocamento nessas funções altera seu valor. Consequentemente, $ p(v) = 0 $ pode ocorrer em um $ v $ que não corresponde exatamente ao centro da fronteira. Na Equação~\eqref{eq:x} de \textit{Kindlmann e Durkin}~\cite{gordon} isso não acontece, pois $ \sigma $ apenas é capaz de escalar a relação entre $ f'(x) $ e $ f''(x) $. A Figura~\ref{fig:} ilustra como uma pequena variação no valor de $ \sigma $ pode ter um grande impacto na função de transferência.
+	$ p(v) $ é igual a zero apenas quando $ \frac{t(v)}{g(v)} = -\frac{1}{\sigma^{2}} $, já que $ \sigma $ não pode ser zero. Como $ \sigma $ é obtido a partir dos valores extremos de $ g(v) $ e $ t(v) $, qualquer deslocamento nessas funções altera seu valor. Consequentemente, $ p(v) = 0 $ pode ocorrer em um $ v $ que não corresponde exatamente ao centro da fronteira. 
+	
+	A Figura~\ref{fig:m_sigma} ilustra como uma pequena variação no valor de $ \sigma $ pode ter um grande impacto na função de transferência. As curvas exibidas são referentes ao mesmo volume utilizado na Figura~\ref{fig:m_double_sphere}. O $ \sigma $ de valor $ 2,21 $ é o teoricamente correto, obtido através da Equação~\eqref{eq:sigma3}. A função de transferência resultante do uso deste $ \sigma $ realça muito mais a fronteira em $ 64 $ que em $ 190 $. Além disso, a FT em $ 64 $ apresenta um formato em \quote{U}, possuindo dois picos com um vale no meio onde deveria haver um só pico.
+	
+	Variando $ \sigma $ em apenas $ 0.02 $ vê-se que a função de transferência alterna entre realçar apenas a fronteira em $ 64 $, com baixa opacidade, e identificar as duas fronteiras apresentando um formato em \quote{U}, evidenciando que o $ \sigma $ pode provocar um deslocamento em $ p(v) $. Entretanto, ao invés de obter parâmetros para corrigir $ p(v) $, como \textit{Kindlmann e Durkin}~\cite{gordon} fizeram com $ g_{thresh} $, uma nova abordagem pode ser pensada para identificar fronteiras a partir dos valores extremos de $ f'(x) $ e $ f'''(x) $. Por exemplo, uma métrica pode ser desenvolvida para atribuir opacidade ao volume, baseada nos máximos e mínimos locais de $ g(v) $ e $ t(v) $.
 	
 \begin{figure}
 	\centering
-	\includegraphics[width=0.2\textwidth]{images/m_triple_sphere_slice}
-	%TODO INSERIR ENGINE BLOCK COM VARIAÇÃO DO SIGMA
-	\caption{lalalalla}
-	\label{}
+	\includegraphics[width=0.7\textwidth]{images/m_sigma}
+	\caption{O impacto da variação do $ \sigma $ na função de transferência.}
+	\label{fig:m_sigma}
 \end{figure}
-	
-	O deslocamento causado pela variação do $ \sigma $ sugere que fronteiras diferentes podem ter sigmas distintos. Sob esse ponto de vista, a correção de $ p(v) $ por meio de parâmetros exige que estes também variem em função de $ v $. Entretanto, ao invés de obter parâmetros para essas correções, uma nova abordagem pode ser pensada para identificar fronteiras a partir dos valores extremos de $ f'(x) $ e $ f'''(x) $. Por exemplo, uma métrica pode ser desenvolvida para atribuir opacidade ao volume baseada nos máximos e mínimos locais de $ g(v) $ e $ t(v) $.
 	
 	Como a terceira derivada é mais sensível que a primeira, ela possui uma curva mais expressiva em relação aos extremos locais. Essa característica faz com que a terceira derivada seja mais robusta em relação a falsos positivos, isto é, ela tende a apresentar menos extremos locais que não indicam uma fronteira, mas que existem em decorrência da média dos valores. Ao mesmo tempo, a terceira derivada conserva melhor seus extremos locais, não perdendo-os devido à suavização que é inerente quando se tira uma média.
 	
@@ -139,16 +140,18 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 	\label{fig:m_triple}
 \end{figure}
 	
-	Um volume sintético, composto por três esferas concêntricas, foi utilizado para ilustrar como as derivadas médias podem exibir quantidades diferentes de extremos locais. Uma fatia do volume, exibida na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_slice}, mostra que existem três fronteiras nos seguintes intervalos: $ [0,255] $, $ [50,150] $ e $ [150,255] $. Portanto, as fronteiras estão próximas a $ 128 $, $ 100 $ e $ 203 $, respectivamente. Como pode ser visto na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_ft}, a primeira derivada apresenta um extremo local em $ 44 $ que não corresponde a uma fronteira. O mesmo não ocorre com a terceira derivada.
+	Um volume sintético composto por três esferas concêntricas foi utilizado para ilustrar como as derivadas médias podem exibir quantidades diferentes de extremos locais. Uma fatia do volume, exibida na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_slice}, mostra que existem três fronteiras nos seguintes intervalos: $ [0,255] $, $ [50,150] $ e $ [150,255] $. Portanto, as fronteiras estão próximas a $ 128 $, $ 100 $ e $ 203 $, respectivamente. Como pode ser visto na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_ft}, a primeira derivada apresenta um extremo local em $ 44 $ que não corresponde a uma fronteira. O mesmo não ocorre com a terceira derivada.
 	
-	Então, escolheu-se utilizar os mínimos locais de $ t(v) $ para identificar o centro das fronteiras. Além de eliminar o $ g_{thresh} $, o resultado desta abordagem é uma função de transferência composta por um conjunto de funções de opacidade atribuídas às isosuperfícies mais importantes do volume. Essa característica permite que o usuário escolha quais fronteiras deseja visualizar. Na Seção~\ref{sec:my.tf} a métrica exata de como gerar a função de transferência será descrita. As subseções abaixo apresentam como calcular a terceira derivada do volume de dados.
+	Então, escolheu-se utilizar os mínimos locais de $ t(v) $ para identificar o centro das fronteiras. Além de eliminar o $ g_{thresh} $, o resultado desta abordagem é uma função de transferência composta por um conjunto de funções de opacidade atribuídas às isosuperfícies mais importantes do volume. Essa característica permite que o usuário escolha quais fronteiras deseja visualizar. 
+	
+	Na Seção~\ref{sec:my.tf} a métrica exata de como gerar a função de transferência será descrita. As subseções abaixo apresentam como calcular a terceira derivada do volume de dados.
 	
 \subsection{Cálculo das Derivadas}
-	É preciso lembrar que o volume não possui uma função analítica $ f(x, y, z) $ que o defina. Ele contém apenas um mapeamento de uma posição $ (x, y, z) $ para um valor escalar $ v $. Portanto, as derivadas de cada ponto do volume precisam ser calculadas com base na sua vizinhança e esse cálculo pode variar de acordo com o tipo do volume de dados.
+	Para calcular as derivadas é preciso lembrar que o volume não possui uma função analítica $ f(x, y, z) $ que o defina. Ele contém apenas um mapeamento de uma posição $ (x, y, z) $ para um valor escalar $ v $. Portanto, as derivadas de cada ponto do volume precisam ser calculadas com base na sua vizinhança e esse cálculo pode variar de acordo com o tipo do volume de dados.
 	
-	Se um volume pode ser representado por uma malha regular, então ele é espacialmente delimitado por uma caixa retangular, preenchida por células cúbicas alinhadas aos eixos da caixa, onde cada célula representa um dado do volume. Este é o caso dos volumes resultantes da maioria dos métodos de aquisição por escaneamento de uma estrutura fisiológica real, como os exames médicos. Há ainda volumes cujos dados são topologicamente estruturados, mas que não podem ser representados por uma grade regular, pois a direção da disposição dos dados varia ao longo do volume. Então, utiliza-se uma malha não regular, composta por células hexaédricos irregulares, como é o caso dos reservatórios de petróleo utilizados nesta dissertação.
+	Se um volume pode ser representado por uma malha regular, então ele é espacialmente delimitado por uma caixa retangular, preenchida por células cúbicas alinhadas aos eixos da caixa, onde cada célula representa um dado do volume. Este é o caso dos volumes resultantes da maioria dos métodos de aquisição por escaneamento de uma estrutura fisiológica real, como os exames médicos. Há ainda volumes cujos dados são topologicamente estruturados, mas que não podem ser representados por uma grade regular, pois a direção da disposição dos dados varia ao longo do volume. Então, utiliza-se uma malha não regular, composta por células hexaédricos irregulares, como é o caso dos volumes resultantes das simulações de reservatórios de petróleo utilizados nesta dissertação.
 	
-	A diferença entre esses dois tipos de representatividade pode ser visto na Figura~\ref{fig:meshes}, onde uma versão 2D de cada malha é ilustrada. O modo de se calcular as derivadas para cada um desses casos é discutido nas seções seguintes.
+	A diferença entre esses dois tipos de representatividade pode ser vista na Figura~\ref{fig:meshes}, onde uma versão 2D de cada malha é ilustrada. O modo de se calcular as derivadas para cada um desses casos é discutido nas subseções seguintes.
 	
 \begin{figure}[h]
 	\centering
@@ -175,7 +178,7 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 	\label{fig:m_regular_cells}
 \end{figure}
 
-	O método de diferenças finitas descreve como obter uma aproximação polinomial para a derivada de uma função $ f $ em um determinado ponto $ p $, utilizando $ n $ amostras de $ f $ equidistantes entre si a uma distância $ h $. Logo, o método das diferenças finitas serve para calcular as derivadas dos volumes com malhas regulares, uma vez que a distância entre suas células é sempre a mesma, na direção dos eixos.
+	O método de diferenças finitas descreve como obter uma aproximação polinomial para a derivada de uma função $ f $ em um determinado ponto $ p $, utilizando $ n $ amostras de $ f $ equidistantes entre si a uma distância $ h $. Logo, o método das diferenças finitas pode ser utilizado para calcular as derivadas dos volumes com malhas regulares, uma vez que a distância entre suas células é sempre a mesma, na direção dos eixos.
 	
 	Nessa dissertação, optou-se por utilizar diferença central com $ n = 3 $. Isto é, uma das amostras é o próprio ponto $ p $ onde se deseja avaliar a derivada. As outras duas, estão a $ +h $ e $ -h $ de $ p $. A Equação~\eqref{eq:diff} mostra a primeira derivada de uma função $ f $ em um dado ponto $ p $, através de diferenças finitas centrais, como descrito acima.
 	
@@ -201,7 +204,9 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	D_{\widehat{\nabla f}} f = \nabla f \cdot \widehat{\nabla f} = \nabla f \cdot \frac{\nabla f}{\|\nabla f\|} = \|\nabla f\|
 \end{equation} \
 
-	Não é possível calcular a terceira derivada diretamente, utilizando os conceitos acima. Porém, se a magnitude do gradiente for armazenada em um novo campo escalar, a Equação~\eqref{eq:first_derivative} pode ser aplicada novamente, agora sobre $ \|\nabla f\| $. Com isso, obtém-se a segunda derivada do volume, a partir da qual pode se obter a terceira, utilizando o mesmo processo. As equações abaixo formalizam o cálculo da segunda e terceira derivadas, na direção do gradiente. Com o fim de simplificar a compreensão das expressões, tomou-se a liberdade de representar o resultado da segunda derivada por $ \|\nabla f'\| $.
+	Não é possível calcular a terceira derivada diretamente, utilizando os conceitos acima. Porém, se a magnitude do gradiente for armazenada em um novo campo escalar, a Equação~\eqref{eq:first_derivative} pode ser aplicada novamente, agora sobre $ \|\nabla f\| $. Com isso, obtém-se a segunda derivada do volume, a partir da qual pode se obter a terceira, repetindo o mesmo processo. As equações abaixo formalizam o cálculo da segunda e terceira derivadas, na direção do gradiente. 
+	
+	Com o fim de simplificar a compreensão das expressões, tomou-se a liberdade de representar o resultado da segunda derivada por $ \|\nabla f'\| $.
 	
 \begin{equation}\label{eq:second_derivative}
 	D^{2}_{\widehat{\nabla f}} f = D_{\widehat{\nabla f}} (\|\nabla f\|) = \nabla (\|\nabla f\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f\|) \cdot \frac{\nabla f}{\|\nabla f\|} = \|\nabla f'\|
@@ -211,9 +216,7 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	D^{3}_{\widehat{\nabla f}} f = D_{\widehat{\nabla f}} (\|\nabla f'\|) = \nabla (\|\nabla f'\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f'\|) \cdot \frac{\nabla f}{\|\nabla f\|}
 \end{equation} \
 
-	Antes de aplicar os conceitos discutidos até aqui, armazena-se em cada vértice a média do valor das células que o compartilham. Em seguida, é atribuído ao centro de cada face a média do valor dos vértices que a compõem. Dessa forma, o método de diferenças finitas é calculado entre os centros das faces de uma célula. Além da suavização implícita nos valores das faces, essa escolha faz com que o cálculo das derivadas seja igual, mesmo nas bordas do volume. A Figura~\ref{fig:m_regular_cells} ilustra esse processo.
-	
-	Em posse dos valores escalares no centro das faces, a Equação~\eqref{eq:diff} é utilizada nas direções $ x $, $ y $ e $ z $, compondo respectivamente as componentes $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $ e $ \frac{\partial f}{\partial z} $ do gradiente $ \nabla f $. Então, a Equação~\eqref{eq:first_derivative} é aplicada e o resultado é armazenado no centro da célula. Depois que a primeira derivada é calculada para todo o volume, a norma do gradiente armazenada no centro da célula é interpolada para o centro das faces através do mesmo processo descrito anteriormente. O vetor gradiente de cada célula já foi calculado na etapa anterior, então, pode-se aplicar a Equação~\eqref{eq:second_derivative} para obter a segunda derivada. Por fim, o resultado dessa iteração é interpolado para o centro das faces da mesma maneira, para que a terceira derivada seja calculada, de acordo com a Equação~\eqref{eq:third_derivative}.
+	Antes de aplicar os conceitos discutidos até aqui, armazena-se em cada vértice a média da intensidade das células que o compartilham. Em seguida, é atribuído ao centro de cada face a média do valor dos vértices que a compõem. Dessa forma, o método de diferenças finitas é calculado entre os centros das faces de uma célula. Essa escolha faz com que o cálculo das derivadas seja igual, mesmo nas bordas do volume. Esse processo que interpola o valor escalar do centro de uma célula até o centro de suas faces é ilustrado na Figura~\ref{fig:m_cubes}.
 	
 \begin{figure}[h]
 	\centering
@@ -232,6 +235,10 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	\caption{Interpolação de valores do centro da célula para o centro das faces.}
 	\label{fig:m_cubes}
 \end{figure}
+	
+	Em posse dos valores escalares no centro das faces, a Equação~\eqref{eq:diff} é utilizada nas direções $ x $, $ y $ e $ z $, compondo respectivamente as componentes $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $ e $ \frac{\partial f}{\partial z} $ do gradiente $ \nabla f $. Então, a Equação~\eqref{eq:first_derivative} é aplicada e o resultado é armazenado no centro da célula, resultando no campo escalar da primeira derivada do volume. 
+	
+	Depois que a primeira derivada é calculada para todo o volume, a norma do gradiente armazenada no centro da célula é interpolada para o centro das faces através do mesmo processo descrito anteriormente. O vetor gradiente de cada célula já foi calculado na etapa anterior, então, pode-se aplicar a Equação~\eqref{eq:second_derivative} para obter a segunda derivada. Por fim, o resultado dessa iteração é interpolado para o centro das faces da mesma maneira, para que a terceira derivada seja calculada, de acordo com a Equação~\eqref{eq:third_derivative}.
 
 \subsubsection{Malhas Não Regulares Topologicamente Estruturadas}
 \label{subsec:my.nonstruct}
@@ -299,7 +306,7 @@ D_{\widehat{u}} f = \nabla f \cdot u
 \end{bmatrix}	
 \end{equation} \
 
-	Uma vez transformado para o espaço cartesiano, o vetor gradiente pode ser armazenado na célula. Então, o mesmo processo descrito na seção anterior ocorre: a magnitude do gradiente é interpolada até o centro das faces para que a próxima derivada possa ser calculada. Para obter a segunda e terceira derivadas, transforma-se para o espaço cartesiano, o gradiente do campo escalar correspondente à derivada de menor ordem. Abaixo, as expressões para a primeira, segunda e terceira derivadas são reescritas com a correção para o espaço cartesiano:
+	Uma vez transformado para o espaço cartesiano, o vetor gradiente pode ser armazenado na célula. Então, o mesmo processo descrito na seção anterior ocorre: a magnitude do gradiente é interpolada até o centro das faces para que a próxima derivada possa ser calculada. Para obter a segunda e terceira derivadas, transforma-se para o espaço cartesiano o gradiente do campo escalar correspondente à derivada de menor ordem. Abaixo, as expressões para a primeira, segunda e terceira derivadas são reescritas com a correção para o espaço cartesiano:
 	
 \begin{equation}\label{eq:derivatives_cart}
 \begin{aligned}
@@ -329,8 +336,28 @@ D_{\widehat{u}} f = \nabla f \cdot u
 \label{sec:my.tf}
 	Após calcular as derivadas para todas as células do volume, obtém-se a média da terceira derivada para cada $ v $ (já quantizado) do volume, dando origem a $ t(v) $. Essa função naturalmente possui um perfil serrilhado, uma vez que ela é formada pela média de valores quantizados. Então, para suavizar $ t(v) $, ela é convoluida com uma gaussiana. Por fim, a função é normalizada, dividindo-a pelo seu maior valor absoluto.
 	
-	Como discutido anteriormente, os mínimos locais em $ t(v) $ indicam fronteiras a serem realçadas. Portanto, todo centro de fronteira é determinado por um valor $ v_{f} $ tal que $t(v_{f}) < t(v_{f} - 1)$ e $ t(v_{f}) < t(v_{f} + 1)$. A contribuição de uma fronteira para a função de transferência é dada por uma gaussiana cuja amplitude máxima é $ |t(v_{f})| $. A espessura da gaussiana, aproximada por $ 2\sigma $, é um parâmetro que pode ser controlado pelo usuário e é inicializado com $ \sigma $ igual a $ 1 $.
+	Como discutido anteriormente, os mínimos locais em $ t(v) $ indicam fronteiras a serem realçadas. Portanto, todo centro de fronteira é determinado por um valor $ v_{f} $ tal que $t(v_{f}) < t(v_{f} - 1)$ e $ t(v_{f}) < t(v_{f} + 1)$. A contribuição de uma fronteira para a função de transferência é dada por uma gaussiana cuja amplitude máxima é $ |t(v_{f})| $. A espessura da gaussiana, aproximada por $ 2\sigma $, é um parâmetro que pode ser controlado pelo usuário e é inicializado com $ 1 $.
+	
+	Um fator de opacidade máximo $ \alpha_{max} $ foi definido para controlar melhor a transparência final da visualização. Dessa forma, o usuário possui um controle fino sobre a função de transferência, semelhante à função $ b(x) $ de \textit{Kindlmann e Durkin}~\cite{gordon}, porém, esse controle está implícito no modelo da função de transferência, como mostra a Equação~\eqref{eq:ft}.
 
-\begin{equation}
+\begin{equation} \label{eq:ft}
 	\alpha(v) = \alpha_{max}\max_{\forall v_{f}}\big\{|t(v_{f})|e^{-\frac{(v-v_{f})^{2}}{2\sigma^{2}}}\big\}
 \end{equation}
+
+	A equação matemática da função de transferência evidencia que ela é composta por um conjunto de gaussianas, uma para cada centro de fronteira identificado. Assim, ao substituir o termo $ \forall v_{f} $ por um conjunto de isosuperfícies contido no universo de todas as fronteiras identificadas, o usuário ganha também um controle para visualizar fronteiras de forma independente.
+	
+	Durante a pesquisa, desenvolveu-se uma interface, permitindo ao usuário todo o controle discutido até aqui, bem como alternar entre todos os métodos abordados nesta dissertação.
+	
+\begin{figure}[h]
+	\centering
+	\subfigure[]
+	{
+		\includegraphics[width=1\textwidth]{images/m_interface_all}
+	}
+	\subfigure[]
+	{
+		\includegraphics[width=0.6\textwidth]{images/m_interface_all_res}
+	}
+	\caption{Interpolação de valores do centro da célula para o centro das faces.}
+	\label{fig:m_cubes}
+\end{figure}
