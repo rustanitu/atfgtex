@@ -334,30 +334,90 @@ D_{\widehat{u}} f = \nabla f \cdot u
 
 \section{Geração da função de transferência}
 \label{sec:my.tf}
-	Após calcular as derivadas para todas as células do volume, obtém-se a média da terceira derivada para cada $ v $ (já quantizado) do volume, dando origem a $ t(v) $. Essa função naturalmente possui um perfil serrilhado, uma vez que ela é formada pela média de valores quantizados. Então, para suavizar $ t(v) $, ela é convoluida com uma gaussiana. Por fim, a função é normalizada, dividindo-a pelo seu maior valor absoluto.
+	Após calcular as derivadas para todas as células do volume, obtém-se a média da terceira derivada para cada $ v $ (já quantizado) do volume, dando origem a $ t(v) $. Essa função naturalmente possui um perfil serrilhado, uma vez que ela é formada pela média de valores quantizados. Então, convolui-se $ t(v) $ com uma gaussiana, para suavizá-la. Por fim, a função é normalizada, dividindo-a pelo seu maior valor absoluto.
 	
-	Como discutido anteriormente, os mínimos locais em $ t(v) $ indicam fronteiras a serem realçadas. Portanto, todo centro de fronteira é determinado por um valor $ v_{f} $ tal que $t(v_{f}) < t(v_{f} - 1)$ e $ t(v_{f}) < t(v_{f} + 1)$. A contribuição de uma fronteira para a função de transferência é dada por uma gaussiana cuja amplitude máxima é $ |t(v_{f})| $. A espessura da gaussiana, aproximada por $ 2\sigma $, é um parâmetro que pode ser controlado pelo usuário e é inicializado com $ 1 $.
+	Como discutido anteriormente, os mínimos locais em $ t(v) $ indicam fronteiras a serem realçadas. Portanto, todo centro de fronteira é determinado por um valor $ v_{f} $ tal que $t(v_{f}) < t(v_{f} - 1)$ e $ t(v_{f}) < t(v_{f} + 1)$. A contribuição de uma fronteira para a função de transferência é dada por uma gaussiana cuja amplitude máxima é $ |t(v_{f})| $. A espessura da gaussiana, aproximada por $ 2\sigma $, é um parâmetro que pode ser controlado pelo usuário e é inicializado com $ 2 $.
 	
-	Um fator de opacidade máximo $ \alpha_{max} $ foi definido para controlar melhor a transparência final da visualização. Dessa forma, o usuário possui um controle fino sobre a função de transferência, semelhante à função $ b(x) $ de \textit{Kindlmann e Durkin}~\cite{gordon}, porém, esse controle está implícito no modelo da função de transferência, como mostra a Equação~\eqref{eq:ft}.
+	Um fator de opacidade máximo $ \alpha_{max} $ foi definido para controlar melhor a transparência final da visualização. Dessa forma, o usuário possui um controle fino sobre a função de transferência, semelhante à função $ b(x) $ de \textit{Kindlmann e Durkin}~\cite{gordon}, porém, esse controle está implícito no modelo da função de transferência através de $ \sigma $ e $ \alpha_{max} $, como mostra a Equação~\eqref{eq:ft}.
 
 \begin{equation} \label{eq:ft}
 	\alpha(v) = \alpha_{max}\max_{\forall v_{f}}\big\{|t(v_{f})|e^{-\frac{(v-v_{f})^{2}}{2\sigma^{2}}}\big\}
-\end{equation}
+\end{equation}\
 
-	A equação matemática da função de transferência evidencia que ela é composta por um conjunto de gaussianas, uma para cada centro de fronteira identificado. Assim, ao substituir o termo $ \forall v_{f} $ por um conjunto de isosuperfícies contido no universo de todas as fronteiras identificadas, o usuário ganha também um controle para visualizar fronteiras de forma independente.
+	A equação matemática da função de transferência evidencia que ela é composta por um conjunto de gaussianas, uma para cada centro de fronteira identificado. Assim, ao substituir o termo $ \forall v_{f} $ por um conjunto de isosuperfícies contido no universo de todas as fronteiras identificadas, o usuário ganha também um controle para visualizar fronteiras de forma independente. Então, uma interface foi desenvolvida para permitir ao usuário visualizar o volume utilizando a FT gerada automaticamente, bem como realizar nela esses pequenos ajustes discutidos. 
 	
-	Durante a pesquisa, desenvolveu-se uma interface, permitindo ao usuário todo o controle discutido até aqui, bem como alternar entre todos os métodos abordados nesta dissertação.
+	A Figura~\ref{fig:m_interface}~\ref{fig:m_interface_methods} mostra que a interface permite também alternar entre os seguintes métodos para geração automática de FTs:
+	\begin{itemize}
+		\item \quote{Use Ours} $ \rightarrow $ Método proposto por esta dissertação.
+		\item \quote{Use Gordon} $ \rightarrow $ Método 1D de \textit{Kindlmann e Durkin}~\cite{gordon}.
+		\item \quote{Use Gordon (3)} $ \rightarrow $ Método baseado em \textit{Kindlmann e Durkin}~\cite{gordon}, utilizando a terceira derivada média, no lugar da segunda.
+		\item \quote{Use Gordon 2D} $ \rightarrow $ Método 2D de \textit{Kindlmann e Durkin}~\cite{gordon}.
+	\end{itemize}
+	
+	Caso o primeiro método seja selecionado, o usuário pode escolher quais fronteiras deseja visualizar. Para isso, sempre que um novo modelo é carregado, o componente exibido na Figura~\ref{fig:m_interface}~\ref{fig:m_interface_iso} é recarregado com uma lista de valores do volume nos quais há ocorrência de fronteira. Então, o usuário pode alternar entre visualizar todas (\quote{Select all}), nenhuma (\quote{Select None}), ou um conjunto específico a partir da lista apresentada.
+	
+	É possível ainda alternar para o modo de isovolume. Nele apenas um valor de intensidade pode ser escolhido na lista, pois a função de transferência será máxima em todos os valores superiores ao escolhido (\quote{+ IsoVolume +}), ou inferiores (\quote{- IsoVolume -}). Contudo, se o método selecionado não for o proposto por essa dissertação, as opções discutidas são desabilitadas.
+	
+	A Figura~\ref{fig:m_interface}~\ref{fig:m_interface_bx} mostra componentes da interface que estão sempre disponíveis, independentemente do método selecionado. Para os métodos baseados no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}, esses controles definem a própria função $ b(x) $, onde \quote{Thickness} define a largura da função enquanto sua altura é definida pela multiplicação de \quote{Opacity Factor} e \quote{Alpha}. Caso a função de transferência utilizada seja a definida pela Equação~\eqref{eq:ft}, o parâmetro $ \alpha_{max} $ é obtido através do produto de \quote{Opacity Factor} com \quote{Alpha} e $ \sigma $ recebe o valor de \quote{Thickness}.% O controle \quote{Thickness} varia de $ 0,1 $ a $ 30 $ enquanto \quote{Alpha} varia de $ 0,001 $ a  $ 0,1 $.
+	
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{cc}
+		\begin{tabular}{c}
+			\subfigure[]
+			{
+				\includegraphics[width=0.2\textwidth]{images/m_interface_methods}
+				\label{fig:m_interface_methods}
+			}\\
+			\subfigure[]
+			{
+				\includegraphics[width=0.2\textwidth]{images/m_interface_iso}
+				\label{fig:m_interface_iso}
+			}
+		\end{tabular}
+		&
+		\begin{tabular}{c}\\
+			\subfigure[]
+			{
+				\includegraphics[width=0.2\textwidth]{images/m_interface_bx}
+				\label{fig:m_interface_bx}
+			}
+		\end{tabular}
+	\end{tabular}
+	\caption{Campos da interface de controle do usuário.}
+	\label{fig:m_interface}
+\end{figure}
+
+	Os controles da Figura~\ref{fig:m_interface} são referentes à função de transferência exibida na Figura~\ref{fig:m_interface_all}~\ref{fig:m_interface_all_tf}, cuja visualização do volume pode ser vista na Figura~\ref{fig:m_interface_all}~\ref{fig:m_interface_all_res}. Supondo uma interação do usuário com a interface, ainda sobre o mesmo volume, caso apenas a opção \quote{IsoValue 85} fosse marcada e o usuário aumentasse a largura da FT, o resultado seria a Figura~\ref{fig:m_interface_isoval}~\ref{fig:m_interface_iso_tf}. A visualização volumétrica correspondente ao uso dessa FT é exibida na Figura~\ref{fig:m_interface_isoval}~\ref{fig:m_interface_iso_res}.
 	
 \begin{figure}[h]
 	\centering
 	\subfigure[]
 	{
-		\includegraphics[width=1\textwidth]{images/m_interface_all}
+		\includegraphics[width=0.7\textwidth]{images/m_interface_all}
+		\label{fig:m_interface_all_tf}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.6\textwidth]{images/m_interface_all_res}
+		\includegraphics[width=0.5\textwidth]{images/m_interface_all_res}
+		\label{fig:m_interface_all_res}
 	}
-	\caption{Interpolação de valores do centro da célula para o centro das faces.}
-	\label{fig:m_cubes}
+	\caption{}
+	\label{fig:m_interface_all}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[]
+	{
+		\includegraphics[width=0.7\textwidth]{images/m_interface_iso_tf}
+		\label{fig:m_interface_iso_tf}
+	}
+	\subfigure[]
+	{
+		\includegraphics[width=0.5\textwidth]{images/m_interface_iso_res}
+		\label{fig:m_interface_iso_res}
+	}
+	\caption{}
+	\label{fig:m_interface_isoval}
 \end{figure}
