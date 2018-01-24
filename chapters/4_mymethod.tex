@@ -17,7 +17,7 @@
 	\label{fig:m_inflection}
 \end{figure}
 
-	No capítulo anterior foi visto que as derivadas médias $ g(v) $ e $ h(v) $ mantém os mesmos pontos característicos de $ f'(x) $ e $ f''(x) $ que identificam uma fronteira. Então, é preciso verificar que o mesmo ocorre com a terceira derivada. Para fazer tal demonstração, criou-se um volume sintético que consiste em duas esferas concêntricas, de raios e intensidades distintas, onde as fronteiras se comportam idealmente.
+	No capítulo anterior foi visto que as derivadas médias $ g(v) $ e $ h(v) $ mantém os mesmos pontos característicos de $ f'(x) $ e $ f''(x) $ que identificam uma fronteira. Então, é preciso verificar que o mesmo ocorre com a terceira derivada média $ t(v) $. Para fazer tal demonstração, criou-se um volume sintético que consiste em duas esferas concêntricas, de raios e intensidades distintas, onde as fronteiras se comportam idealmente.
 	
 	A fatia do volume, exibida na Figura~\ref{fig:m_double_sphere}~\ref{fig:m_double_sphere_slice}, mostra que ele possui fronteiras nos intervalos $ [0,127] $ e $ [127,255] $. Portanto, espera-se que o centro das fronteiras estejam próximos a $ 64 $ e $ 190 $. Na Figura~\ref{fig:m_double_sphere}~\ref{fig:m_double_sphere_deriv} percebe-se que as derivadas médias se comportam exatamente como o esperado, pois $ 64 $ e $ 190 $ são justamente os pontos de primeira derivada máxima, segunda derivada zero e terceira derivada mínima.
 	
@@ -37,7 +37,7 @@
 	\label{fig:m_double_sphere}
 \end{figure}
 
-	No entanto, $ h(v) $ é igual a zero em $ 127 $, indicando uma fronteira que não existe. Como o valor de $ g(v) $ é baixo, a função $ p(v) $ nesse ponto resulta em uma distância maior que a ocorrida em $ 64 $ e $ 190 $. Dessa forma, a fronteira falsa é sempre menos opaca que as fronteias reais. Mas dependendo da função $ b(x) $ definida pelo usuário, a falsa fronteira pode acabar sendo realçada e visualizada. A Figura~\ref{fig:m_double_sphere_tf} ilustra esses dois cenários.
+	No entanto, $ h(v) $ é igual a zero em $ 127 $, indicando uma fronteira que não existe. Para este exemplo sintético e ideal, como o valor de $ g(v) $ é baixo, a função $ p(v) $ nesse ponto resulta em uma distância maior que a ocorrida em $ 64 $ e $ 190 $. Dessa forma, a fronteira falsa é sempre menos opaca que as fronteias reais no método de \textit{Kindlmann e Durkin}~\cite{gordon}, mas dependendo da função $ b(x) $ definida pelo usuário, a falsa fronteira pode acabar sendo realçada e visualizada. A Figura~\ref{fig:m_double_sphere_tf} ilustra esses dois cenários.
 	
 	Na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_curves} duas funções de transferência são exibidas. A FT vermelha realça corretamente as fronteiras e foi gerada utilizando $ b(x) $ com largura igual a $ 1 $, resultando na visualização da Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_right}. Com a largura de $ b(x) $ igual a $ 3 $ o resultado é a FT roxa na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_wrong}. Como pode ser visto, o pequeno pico na FT roxa em 127 realça a isosuperfície em amarelo, que não corresponde a uma fronteira.
 
@@ -62,9 +62,9 @@
 	\label{fig:m_double_sphere_tf}
 \end{figure}
 
-	É preciso lembrar também que as funções $ g(v) $, $ h(v) $ e $ t(v) $ raramente apresentarão o comportamento exibido na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_curves}. Nos volumes em que o intervalo de valores das fronteiras se sobrepõem, a média afeta o comportamento dos arcos esperados. Para demonstrar esse fenômeno, outro volume sintético foi criado, também contendo duas esferas concêntricas, onde as fronteiras se comportam de forma ideal. Porém, neste segundo, o intervalo de valores das fronteiras se sobrepõem. A Figura~\ref{fig:m_double_sphere_disc} exibe uma fatia do volume e também suas derivadas médias.
+	É preciso lembrar também que as funções $ g(v) $, $ h(v) $ e $ t(v) $ raramente apresentarão o comportamento exibido na Figura~\ref{fig:m_double_sphere}~\ref{fig:m_double_sphere_deriv}. Nos volumes em que o intervalo de valores das fronteiras se sobrepõem, a média afeta o comportamento dos arcos esperados. Para demonstrar esse fenômeno, outro volume sintético foi criado, também contendo duas esferas concêntricas, onde as fronteiras se comportam de forma ideal. Porém, neste segundo, o intervalo de valores das fronteiras se sobrepõem. A Figura~\ref{fig:m_double_sphere_disc} exibe uma fatia do volume e também suas derivadas médias.
 	
-	Como pode ser observado na Figura~\ref{fig:m_double_sphere_disc}~\ref{fig:m_double_sphere_disc_slice}, os intervalos das fronteiras são $ [0,255] $ e $ [170,255] $. Percebe-se que devido à sobreposição de valores, as funções não se comportam como o esperado. Apesar de existir uma fronteira entre $ 0 $ e $ 255 $, as derivadas não exibem um arco único entre esses valores. A Figura~\ref{fig:m_double_sphere_disc}~\ref{fig:m_double_sphere_disc_deriv} mostra que o arco é interrompido justamente no valor $ 170 $, que é o início da segunda fronteira e, por isso, um arco destorcido se estende até $ 255 $.	Porém, os mínimos locais em $ t(v) $ ainda são boas aproximações para o centro das fronteiras.
+	Como pode ser observado na Figura~\ref{fig:m_double_sphere_disc}~\ref{fig:m_double_sphere_disc_slice}, os intervalos das fronteiras são $ [0,255] $ e $ [170,255] $. Percebe-se que devido à sobreposição de valores, as funções não se comportam como o esperado. Apesar de existir uma fronteira entre $ 0 $ e $ 255 $, as derivadas não exibem um arco único entre esses valores. A Figura~\ref{fig:m_double_sphere_disc}~\ref{fig:m_double_sphere_disc_deriv} mostra que o arco é interrompido justamente no valor $ 170 $, que é o início da segunda fronteira e, por isso, um arco destorcido se estende até $ 255 $.	Porém, os mínimos locais em $ t(v) $ ainda são boas aproximações para o centro das fronteiras ($ 127 $ e $ 213 $).
 	
 \begin{figure}[h]
 	\centering
@@ -89,7 +89,7 @@ g = f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigm
 \end{equation} \
 
 \begin{equation} \label{eq:third}
-t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+t = f'''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
 \end{equation} \
 	
 	Devido ao fato de $ f'(x) $ ter um grande termo em comum com $ f'''(x) $, a simples divisão entre essas funções revela uma relação envolvendo $ \sigma $ e $ x $, como mostra a Equação~\eqref{eq:sigmax}. Com $ x = 0 $ percebe-se que, mais uma vez, o valor de $ \sigma $ pode ser recuperado através dos valores extremos das derivadas, indicado na Equação~\eqref{eq:sigma3}. Por fim, $ x $ pode ser isolado na Equação~\eqref{eq:sigmax} resultando em uma nova expressão para a distância ao centro da fronteira, indicada na Equação~\eqref{eq:x3}.
@@ -142,7 +142,7 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 	
 	Um volume sintético composto por três esferas concêntricas foi utilizado para ilustrar como as derivadas médias podem exibir quantidades diferentes de extremos locais. Uma fatia do volume, exibida na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_slice}, mostra que existem três fronteiras nos seguintes intervalos: $ [0,255] $, $ [50,150] $ e $ [150,255] $. Portanto, as fronteiras estão próximas a $ 128 $, $ 100 $ e $ 203 $, respectivamente. Como pode ser visto na Figura~\ref{fig:m_triple}~\ref{fig:m_triple_ft}, a primeira derivada apresenta um extremo local em $ 44 $ que não corresponde a uma fronteira. O mesmo não ocorre com a terceira derivada.
 	
-	Então, escolheu-se utilizar os mínimos locais de $ t(v) $ para identificar o centro das fronteiras. Além de eliminar o $ g_{thresh} $, o resultado desta abordagem é uma função de transferência composta por um conjunto de funções de opacidade atribuídas às isosuperfícies mais importantes do volume. Essa característica permite que o usuário escolha quais fronteiras deseja visualizar. 
+	Então, escolheu-se utilizar simplesmente os mínimos locais de $ t(v) $ para identificar o centro das fronteiras. Além de eliminar o $ g_{thresh} $, o resultado desta abordagem é uma função de transferência composta por um conjunto de funções de opacidade atribuídas às isosuperfícies mais importantes do volume. Essa característica permite que o usuário escolha quais fronteiras deseja visualizar. 
 	
 	Na Seção~\ref{sec:my.tf} a métrica exata de como gerar a função de transferência será descrita. As subseções abaixo apresentam como calcular a terceira derivada do volume de dados.
 	
@@ -186,7 +186,7 @@ t = f''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\p
 	f'(p) = \frac{f(p + h) - f(p - h)}{2h}
 \end{equation} \
 
-	Escolhendo o menor $ h $ possível, a aplicação dessa equação no volume de dados implica em: para todas as posições do volume, computar a diferença entre os dois vizinhos mais próximos em uma mesma direção, dividido pela distância entre os mesmos. No entanto, como explicado na Seção~\ref{sec:gordon.bound}, as derivadas devem ser calculadas na direção do gradiente.
+	Escolhendo o menor $ h $ discreto possível, a aplicação dessa equação no volume de dados implica em: para todas as posições do volume, computar a diferença entre os dois vizinhos mais próximos em uma mesma direção, dividido pela distância entre os mesmos. No entanto, como explicado na Seção~\ref{sec:gordon.bound}, as derivadas devem ser calculadas na direção do gradiente.
 	
 	O gradiente de uma função é um vetor formado pelas derivadas parciais dessa função, como indica a Equação~\eqref{eq:grad}. Assim, para cada posição do volume, o vetor gradiente também pode ser recuperado através da Equação~\eqref{eq:diff}, aproximando as derivadas nas direções $ x $, $ y $ e $ z $. Contudo, utilizar a Equação~\eqref{eq:diff} na direção do gradiente para cada posição do volume não é uma tarefa trivial, já que há apenas 3 direções do volume na qual as amostras podem ser igualmente espaçadas entre si. É preciso então recorrer à propriedade do cálculo vetorial de que a derivada direcional em uma dada direção é igual ao produto escalar do gradiente da função com o vetor da direção, como mostra a Equação~\eqref{eq:ddir}.
 	
@@ -399,7 +399,7 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.5\textwidth]{images/m_interface_all_res}
+		\includegraphics[width=0.7\textwidth]{images/m_interface_all_res}
 		\label{fig:m_interface_all_res}
 	}
 	\caption{}
@@ -415,7 +415,7 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.5\textwidth]{images/m_interface_iso_res}
+		\includegraphics[width=0.7\textwidth]{images/m_interface_iso_res}
 		\label{fig:m_interface_iso_res}
 	}
 	\caption{}
