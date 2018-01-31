@@ -274,3 +274,67 @@
 	publisher = {Society for Industrial and Applied Mathematics},
 	address = {Philadelphia, PA, USA},
 }
+
+@inproceedings{lqc,
+	title = {Accurate Volume Rendering Based on Adaptive Numerical Integration},
+	doi = {10.1109/SIBGRAPI.2015.27},
+	abstract = {We present an adaptive integration strategy to evaluate the volume rendering integral for regular volumes. We discuss different strategies to control the step size for both the inner and the outer integrals in the volume rendering equation. We report a set of computational experiments that compare both accuracy and efficiency of our proposal against Riemann summation with uniform step size. The comparisons are made for both {CPU} and {GPU} implementations and show that our method delivers both accuracy control and competitive performance.},
+	eventtitle = {2015 28th {SIBGRAPI} Conference on Graphics, Patterns and Images},
+	pages = {17--24},
+	booktitle = {2015 28th {SIBGRAPI} Conference on Graphics, Patterns and Images},
+	author = {Campagnolo, L. Q. and Celes, W. and Figueiredo, L. H. de},
+	date = {2015-08},
+	keywords = {Accuracy, adaptive integration, adaptive numerical integration, Computational modeling, {CPU} implementations, error control, {GPU} implementations, Graphics processing units, inner integrals, Integral equations, integration, Iterative methods, outer integrals, rendering (computer graphics), Rendering (computer graphics), Riemann summation, Simpson's rule, Transfer functions, volume rendering, volume rendering equation},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\rustam\\Zotero\\storage\\XY9C9H26\\7314541.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\rustam\\Zotero\\storage\\4JCIK7BB\\Campagnolo et al. - 2015 - Accurate Volume Rendering Based on Adaptive Numeri.pdf:application/pdf}
+}
+
+@article{phong,
+	title = {Illumination for Computer Generated Pictures},
+	volume = {18},
+	issn = {0001-0782},
+	url = {http://doi.acm.org/10.1145/360825.360839},
+	doi = {10.1145/360825.360839},
+	abstract = {The quality of computer generated images of three-dimensional scenes depends on the shading technique used to paint the objects on the cathode-ray tube screen. The shading algorithm itself depends in part on the method for modeling the object, which also determines the hidden surface algorithm. The various methods of object modeling, shading, and hidden surface removal are thus strongly interconnected. Several shading techniques corresponding to different methods of object modeling and the related hidden surface algorithms are presented here. Human visual perception and the fundamental laws of optics are considered in the development of a shading rule that provides better quality and increased realism in generated images.},
+	pages = {311--317},
+	number = {6},
+	journaltitle = {Commun. {ACM}},
+	author = {Phong, Bui Tuong},
+	urldate = {2018-01-31},
+	date = {1975-06},
+	keywords = {shading, computer graphics, graphic display, hidden surface removal},
+	file = {ACM Full Text PDF:C\:\\Users\\rustam\\Zotero\\storage\\U57GNCME\\Phong - 1975 - Illumination for Computer Generated Pictures.pdf:application/pdf}
+}
+
+@book{gems,
+	title = {{GPU} Gems: Programming Techniques, Tips and Tricks for Real-Time Graphics},
+	isbn = {978-0-321-22832-1},
+	shorttitle = {{GPU} Gems},
+	abstract = {{GPU} Gems has won a prestigious Front Line Award from Game Developer Magazine. The Front Line Awards recognize products that enable faster and more efficient game development, advancing the state of the art.{FULL} {COLOR} {THROUGHOUT}! “This collection of articles is particularly impressive for its depth and breadth. The book includes product-oriented case studies, previously unpublished state-of-the-art research, comprehensive tutorials, and extensive code samples and demos throughout.” -Eric Haines, Author of Real-Time Rendering “{GPU} Gems is a cool toolbox of advanced graphics techniques. Novice programmers and graphics gurus alike will find the Gems practical, intriguing and useful.” -Tim Sweeney, Lead Programmer of Unreal at Epic Games {GPU} Gems is a compilation of articles covering practical real-time graphics techniques arising from the research and practice of cutting-edge developers. It focuses on the programmable graphics pipeline available in today's graphics processing units ({GPUs}) and highlights quick and dirty tricks used by leading developers, as well as fundamental, performance-conscious techniques for creating advanced visual effects. The contributors and editors, collectively, bring countless years of experience to enlighten and propel the reader into the fascinating world of programmable real-time graphics.Major topics covered include: Natural effects Lighting and shadows Materials Image processing Performance and practicalities Beyond triangles Contributors are from the following universities and corporations: Alias Systems Brown University Croteam Cyan Worlds Hochschule Bremen Industrial Light \& Magic {iXBT}.com Monolith Productions New York University Novarama {NVIDIA} Paralelo Computacao Piranha Bytes Pixar Animation Studios Siemens Medical Solutions Softimage Co. Softlab-{NSK} Sony Pictures Imageworks Stanford University {UC} Davis {UNC}-Chapel Hill Universitat Pompeu Fabra University of Utah University of Waterloo The accompanying {CD}-{ROM} includes complementary examples and sample programs.},
+	publisher = {Pearson Higher Education},
+	author = {Fernando, Randima},
+	date = {2004}
+}
+
+@inproceedings{barata,
+	location = {Las Vegas},
+	title = {Fast Fluid Simulation on Three-Dimensional Parameterized Structured Grids},
+	abstract = {We present a fast and straightforward Eulerian technique to simulate fluid flows on three-dimensional parameterized structured grids. The method’s primary design goal is the correct and efficient handling of fluid interactions with curved boundary walls and internal obstacles. This is accomplished by the use of per-cell Jacobian matrices to relate field derivatives in the world and parameter spaces, which allows us to solve the Navier-Stokes equations directly in the latter, where the domain discretization becomes a uniform grid. We describe how to apply Jacobian matrices to each step of a standard regular-grid-based simulator, including the solution of Poisson equations using both Jacobi iterations and a Biconjugate Gradient Stabilized sparse matrix solver. The technique is implemented efficiently in the {CUDA} programming language and takes full advantage of the massively parallel architecture of graphics cards.},
+	eventtitle = {Proceedings of the International Conference on Modeling, Simulation and Visualization Methods},
+	pages = {28--34},
+	booktitle = {International Conference on Modeling, Simulation and Visualization Methods},
+	author = {Barroso, V.B.R.B. and Celes, W. and Gattass, M.},
+	date = {2013},
+}
+
+@inproceedings{miranda,
+	title = {Accurate Volume Rendering of Unstructured Hexahedral Meshes},
+	doi = {10.1109/SIBGRAPI.2011.3},
+	abstract = {Important engineering applications use unstructured hexahedral meshes for numerical simulations. Hexahedral cells, when compared to tetrahedral ones, tend to be more numerically stable and to require less mesh refinement. However, volume visualization of unstructured hexahedral meshes is challenging due to the trilinear variation of scalar fields inside the cells. The conventional solution consists in subdividing each hexahedral cell into five or six tetrahedra, approximating a trilinear variation by a piecewise linear function. This results in inaccurate images and increases the memory consumption. In this paper, we present an accurate ray-casting volume rendering algorithm for unstructured hexahedral meshes. In order to capture the trilinear variation along the ray, we propose the use of quadrature integration. A set of computational experiments demonstrates that our proposal produces accurate results, with reduced memory footprint. The entire algorithm is implemented on graphics cards, ensuring competitive performance.},
+	eventtitle = {2011 24th {SIBGRAPI} Conference on Graphics, Patterns and Images},
+	pages = {93--100},
+	booktitle = {2011 24th {SIBGRAPI} Conference on Graphics, Patterns and Images},
+	author = {Miranda, F. M. and Celes, W.},
+	date = {2011-08},
+	keywords = {Volume Rendering, isosurfaces, transfer functions, Image color analysis, Rendering (computer graphics), approximation theory, computational geometry, mesh generation, numerical analysis, piecewise linear techniques, accurate ray-casting volume rendering algorithm, engineering applications, graphics cards, hexahedral cells, memory consumption, numerical simulations, piecewise linear function, reduced memory footprint, trilinear variation approximation, unstructured hexahedral meshes, Equations, Mathematical model, Proposals, hexahedral mesh, ray integral, unstructured mesh},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\rustam\\Zotero\\storage\\HH3IBC54\\6134719.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\rustam\\Zotero\\storage\\TXSBATCK\\Miranda e Celes - 2011 - Accurate Volume Rendering of Unstructured Hexahedr.pdf:application/pdf}
+}

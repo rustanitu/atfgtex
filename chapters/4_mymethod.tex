@@ -110,7 +110,7 @@ t = f'''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\
 \begin{equation} \label{eq:x3}
 	x = \sigma^{2}\sqrt{\frac{f'''(x)}{f'(x)} + \frac{1}{\sigma^{2}}} \ \approx \ 
 	p(v) = \sigma^{2}\sqrt{\frac{t(v)}{g(v)} + \frac{1}{\sigma^{2}}}
-\end{equation} \
+\end{equation} \\
 
 	À primeira vista, o uso da terceira derivada no lugar da segunda garante que o deslocamento das curvas médias não resultará na atribuição de um $ v $ incorreto à fronteira. No entanto, isso ainda pode ocorrer indiretamente, a partir da distância $ x $. Uma análise da contribuição de $ \sigma $ para o valor de $ x $ ajuda a entender melhor essa relação.
 	
@@ -126,7 +126,7 @@ t = f'''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\
 	
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/m_sigma}
+	\includegraphics[width=0.8\textwidth]{images/m_sigma}
 	\caption{O impacto da variação do $ \sigma $ na função de transferência.}
 	\label{fig:m_sigma}
 \end{figure}
@@ -230,15 +230,15 @@ D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 	\centering
 	\subfigure[]
 	{
-		\includegraphics[width=0.3\textwidth]{images/m_cube}
+		\includegraphics[width=0.25\textwidth]{images/m_cube}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.3\textwidth]{images/m_cube_vertex}
+		\includegraphics[width=0.25\textwidth]{images/m_cube_vertex}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.3\textwidth]{images/m_cube_face}
+		\includegraphics[width=0.25\textwidth]{images/m_cube_face}
 	}
 	\caption{Interpolação de valores do centro da célula para o centro das faces.}
 	\label{fig:m_cubes}
@@ -253,12 +253,12 @@ D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/m_irregular_cells}
+	\includegraphics[width=0.6\textwidth]{images/m_irregular_cells}
 	\caption{Exemplo de células em malhas não regulares topologicamente estruturadas.}
 	\label{fig:m_irregular_cells}
 \end{figure}
 
-	Em malhas não regulares, a direção dos vivinhos mais próximos pode sempre variar de uma célula para outra. Portanto, a aplicação do método de diferenças finitas resultaria em derivadas direcionais distintas para cada célula, tornando inviável o uso dos conceitos apresentados até aqui. Contudo, é possível transformar o gradiente calculado no espaço paramétrico da malha, para o espaço cartesiano.
+	Em malhas não regulares, a direção dos vivinhos mais próximos pode sempre variar de uma célula para outra. Portanto, a aplicação do método de diferenças finitas resultaria em derivadas direcionais distintas para cada célula, tornando inviável o uso dos conceitos apresentados até aqui. Contudo, é possível transformar o gradiente calculado no espaço paramétrico da malha, para o espaço cartesiano, como feito por \textit{Barroso et al.}~\cite{barata}.
 	
 	Aplicando a regra da cadeia, o vetor gradiente no espaço paramétrico $ \nabla f_{(s, t, p)} $ pode ser escrito em função do vetor gradiente no espaço cartesiano $ \nabla f_{(x, y, z)} $, como mostra a Equação~\eqref{eq:cadeia}. As derivadas parciais que relacionam os dois vetores, equivalem aos termos da matriz Jacobiana do espaço paramétrico. Então, a transformação entre os espaços pode ser expressa de forma reduzida pela Equação~\eqref{eq:cadeia_jacob}.
 	\\
@@ -343,6 +343,10 @@ D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 \label{sec:my.tf}
 	Após calcular as derivadas para todas as células do volume, obtém-se a média da terceira derivada para cada $ v $ (já quantizado) do volume, dando origem a $ t(v) $. Essa função naturalmente possui um perfil serrilhado, uma vez que ela é formada pela média de valores quantizados. Então, convolui-se $ t(v) $ com uma gaussiana, para suavizá-la. Por fim, a função é normalizada, dividindo-a pelo seu maior valor absoluto.
 	
+	É importante enfatizar que esse processo, apesar de simples, é muito importante. Se a função $ t(v) $ tiver perfil serrilhado, ou não for suavizada suficientemente, seus pequenos extremos locais, isto é, aqueles que pouco diferem da sua vizinhança em amplitude, contribuem para uma função de transferência que realça mais isosuperfícies que a quantidade real de fronteiras existentes.
+
+	Uma vez que o objetivo desta dissertação é automatizar a geração da FT, optou-se por definir um número fixo e suficiente de vezes que a função $ t(v) $ deve ser convoluida com a gaussiana. Essa decisão foi possível devido ao fato de que uma suavização em excesso altera pouco a função de transferência, se comparada com uma suavização ideal ou suficiente (todas feitas por uma função gaussiana). Então, foi decidido convoluir $ t(v) $ com uma função gaussiana $ 20 $ vezes, pois verificou-se que este valor é suficiente (ou mais), para todos os volumes avaliados no decorrer da pesquisa.
+	
 	Como discutido anteriormente, os mínimos locais em $ t(v) $ indicam fronteiras a serem realçadas. Portanto, todo centro de fronteira é determinado por um valor $ v_{f} $ tal que $t(v_{f}) < t(v_{f} - 1)$ e $ t(v_{f}) < t(v_{f} + 1)$. A contribuição de uma fronteira para a função de transferência é dada por uma gaussiana cuja amplitude máxima é $ |t(v_{f})| $. A espessura da gaussiana, aproximada por $ 2\sigma $, é um parâmetro que pode ser controlado pelo usuário e é inicializado com $ 2 $.
 	
 	Um fator de opacidade máximo $ \alpha_{max} $ foi definido para controlar melhor a transparência final da visualização. Dessa forma, o usuário possui um controle fino sobre a função de transferência, semelhante à função $ b(x) $ de \textit{Kindlmann e Durkin}~\cite{gordon}, porém, esse controle está implícito no modelo da função de transferência através de $ \sigma $ e $ \alpha_{max} $, como mostra a Equação~\eqref{eq:ft}.
@@ -351,7 +355,7 @@ D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 	\alpha(v) = \alpha_{max}\max_{\forall v_{f}}\big\{|t(v_{f})|e^{-\frac{(v-v_{f})^{2}}{2\sigma^{2}}}\big\}
 \end{equation}\
 
-	A equação matemática da função de transferência evidencia que ela é composta por um conjunto de gaussianas, uma para cada centro de fronteira identificado. Assim, ao substituir o termo $ \forall v_{f} $ por um conjunto de isosuperfícies contido no universo de todas as fronteiras identificadas, o usuário ganha também um controle para visualizar fronteiras de forma independente. Então, uma interface foi desenvolvida para permitir ao usuário visualizar o volume utilizando a FT gerada automaticamente, bem como realizar nela esses pequenos ajustes discutidos. 
+	Como a função de transferência é composta por um conjunto de gaussianas centradas nos valores que correspondem às fronteiras, essas gaussianas podem ser subtraídas da FT, permitindo ao usuário visualizar apenas as fronteiras que desejar. Então, uma interface foi desenvolvida para permitir ao usuário visualizar o volume utilizando a FT gerada automaticamente, bem como aplicar a ela essas transformações.
 	
 	A Figura~\ref{fig:m_interface}~\ref{fig:m_interface_methods} mostra que a interface permite também alternar entre os seguintes métodos para geração automática de FTs:
 	\begin{itemize}
