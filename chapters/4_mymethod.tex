@@ -37,26 +37,31 @@
 	\label{fig:m_double_sphere}
 \end{figure}
 
-	No entanto, $ h(v) $ é igual a zero em $ 127 $, indicando uma fronteira que não existe. Para este exemplo sintético e ideal, como o valor de $ g(v) $ é baixo, a função $ p(v) $ nesse ponto resulta em uma distância maior que a ocorrida em $ 64 $ e $ 190 $. Dessa forma, a fronteira falsa é sempre menos opaca que as fronteias reais no método de \textit{Kindlmann e Durkin}~\cite{gordon}, mas dependendo da função $ b(x) $ definida pelo usuário, a falsa fronteira pode acabar sendo realçada e visualizada. A Figura~\ref{fig:m_double_sphere_tf} ilustra esses dois cenários.
+	No entanto, $ h(v) $ é igual a zero em $ 127 $, indicando uma fronteira que não existe. Para este exemplo sintético e ideal, como o valor de $ g(v) $ é baixo, a função $ p(v) $ nesse ponto resulta em uma distância maior que a ocorrida em $ 64 $ e $ 190 $. Dessa forma, a fronteira falsa é sempre menos opaca que as fronteias reais no método de \textit{Kindlmann e Durkin}~\cite{gordon}, mas dependendo da função $ b(x) $ definida pelo usuário, a falsa fronteira pode acabar sendo realçada e visualizada, como ilustra a Figura~\ref{fig:m_double_sphere_tf}.
 	
-	Na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_curves} duas funções de transferência são exibidas. A FT vermelha realça corretamente as fronteiras e foi gerada utilizando $ b(x) $ com largura igual a $ 1 $, resultando na visualização da Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_right}. Com a largura de $ b(x) $ igual a $ 3 $ o resultado é a FT roxa na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_wrong}. Como pode ser visto, o pequeno pico na FT roxa em 127 realça a isosuperfície em amarelo, que não corresponde a uma fronteira.
+	A visualização volumétrica apresentada na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_right}, que realça corretamente as fronteiras do volume, foi obtida com a função de transferência indicada na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_right}, onde utilizou-se $ b(x) $ com largura igual a $ 1 $. No entanto, ao aumentar a largura de $ b(x) $ para $ 3 $, obtém-se uma FT com um novo comportamento, ilustrada na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_wrong}. Como resultado, a nova visualização apresenta uma falsa fronteira em amarelo que pode ser vista na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_wrong}.
 
 \begin{figure}[h]
 	\centering
 	\subfigure[]
 	{
-		\includegraphics[width=0.3\textwidth]{images/m_double_sphere}
+		\includegraphics[width=0.4\textwidth]{images/m_double_sphere}
 		\label{fig:m_double_sphere_right}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.3\textwidth]{images/m_double_sphere_wrong}
+		\includegraphics[width=0.4\textwidth]{images/m_double_sphere_wrong}
 		\label{fig:m_double_sphere_wrong}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=0.7\textwidth]{images/m_double_sphere_tf}
-		\label{fig:m_double_sphere_tf_curves}
+		\includegraphics[width=0.7\textwidth]{images/m_double_sphere_tf_right}
+		\label{fig:m_double_sphere_tf_right}
+	}
+	\subfigure[]
+	{
+		\includegraphics[width=0.7\textwidth]{images/m_double_sphere_tf_wrong}
+		\label{fig:m_double_sphere_tf_wrong}
 	}
 	\caption{Duas esferas concêntricas sem sobreposição no intervalo de valores das fronteiras.}
 	\label{fig:m_double_sphere_tf}
@@ -113,7 +118,11 @@ t = f'''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\
 	
 	A Figura~\ref{fig:m_sigma} ilustra como uma pequena variação no valor de $ \sigma $ pode ter um grande impacto na função de transferência. As curvas exibidas são referentes ao mesmo volume utilizado na Figura~\ref{fig:m_double_sphere}. O $ \sigma $ de valor $ 2,21 $ é o teoricamente correto, obtido através da Equação~\eqref{eq:sigma3}. A função de transferência resultante do uso deste $ \sigma $ realça muito mais a fronteira em $ 64 $ que em $ 190 $. Além disso, a FT em $ 64 $ apresenta um formato em \quote{U}, possuindo dois picos com um vale no meio onde deveria haver um só pico.
 	
-	Variando $ \sigma $ em apenas $ 0.02 $ vê-se que a função de transferência alterna entre realçar apenas a fronteira em $ 64 $, com baixa opacidade, e identificar as duas fronteiras apresentando um formato em \quote{U}, evidenciando que o $ \sigma $ pode provocar um deslocamento em $ p(v) $. Entretanto, ao invés de obter parâmetros para corrigir $ p(v) $, como \textit{Kindlmann e Durkin}~\cite{gordon} fizeram com $ g_{thresh} $, uma nova abordagem pode ser pensada para identificar fronteiras a partir dos valores extremos de $ f'(x) $ e $ f'''(x) $. Por exemplo, uma métrica pode ser desenvolvida para atribuir opacidade ao volume, baseada nos máximos e mínimos locais de $ g(v) $ e $ t(v) $.
+	Variando $ \sigma $ em apenas $ 0.02 $ vê-se que a função de transferência alterna entre realçar apenas a fronteira em $ 64 $, com baixa opacidade, e identificar as duas fronteiras apresentando um formato em \quote{U}, evidenciando que o $ \sigma $ pode provocar um deslocamento em $ p(v) $.
+	
+	A rigor, cada fronteira deveria possuir seu próprio sigma. De fato, durante a aquisição dos dados, o volume gerado incorpora um borrão uniforme, que ao ser representado por uma gaussiana implica em um único valor para $ \sigma $. No entanto, como diferentes fronteiras podem possuir espessuras distintas, nos casos em que o volume possui mais de uma fronteira, expressar essa espessura por um sigma único leva a uma função de transferência menos adequada.
+	
+	Mais estudos precisam ser feitos a fim de se distinguir a espessura de fronteiras distintas, matematicamente. Entretanto, ao invés de obter parâmetros para corrigir $ p(v) $, como \textit{Kindlmann e Durkin}~\cite{gordon} fizeram com $ g_{thresh} $, uma nova abordagem pode ser pensada para identificar fronteiras a partir dos valores extremos de $ f'(x) $ e $ f'''(x) $. Por exemplo, uma métrica pode ser desenvolvida para atribuir opacidade ao volume, baseada nos máximos e mínimos locais de $ g(v) $ e $ t(v) $.
 	
 \begin{figure}
 	\centering
@@ -195,7 +204,7 @@ t = f'''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\
 \end{equation} \
 
 \begin{equation}\label{eq:ddir}
-D_{\widehat{u}} f = \nabla f \cdot u
+D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 \end{equation} \
 
 	Logo, a derivada na direção do gradiente é a própria norma do gradiente:
@@ -206,15 +215,14 @@ D_{\widehat{u}} f = \nabla f \cdot u
 
 	Não é possível calcular a terceira derivada diretamente, utilizando os conceitos acima. Porém, se a magnitude do gradiente for armazenada em um novo campo escalar, a Equação~\eqref{eq:first_derivative} pode ser aplicada novamente, agora sobre $ \|\nabla f\| $. Com isso, obtém-se a segunda derivada do volume, a partir da qual pode se obter a terceira, repetindo o mesmo processo. As equações abaixo formalizam o cálculo da segunda e terceira derivadas, na direção do gradiente. 
 	
-	Com o fim de simplificar a compreensão das expressões, tomou-se a liberdade de representar o resultado da segunda derivada por $ \|\nabla f'\| $.
+	Com o fim de simplificar a compreensão das expressões, tomou-se a liberdade de representar o resultado da segunda derivada por $ \beta $.
 	
-\begin{equation}\label{eq:second_derivative}
-	D^{2}_{\widehat{\nabla f}} f = D_{\widehat{\nabla f}} (\|\nabla f\|) = \nabla (\|\nabla f\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f\|) \cdot \frac{\nabla f}{\|\nabla f\|} = \|\nabla f'\|
-\end{equation}
-
-\begin{equation}\label{eq:third_derivative}
-	D^{3}_{\widehat{\nabla f}} f = D_{\widehat{\nabla f}} (\|\nabla f'\|) = \nabla (\|\nabla f'\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f'\|) \cdot \frac{\nabla f}{\|\nabla f\|}
-\end{equation} \
+\begin{align}
+	\label{eq:second_derivative}
+	D^{2}_{\widehat{\nabla f}} f & = D_{\widehat{\nabla f}} (\|\nabla f\|) = \nabla (\|\nabla f\|) \cdot \widehat{\nabla f} = \nabla (\|\nabla f\|) \cdot \frac{\nabla f}{\|\nabla f\|} = \beta \\
+	\label{eq:third_derivative}
+	D^{3}_{\widehat{\nabla f}} f & = D_{\widehat{\nabla f}} (\beta) = \nabla (\beta) \cdot \widehat{\nabla f} = \nabla (\beta) \cdot \frac{\nabla f}{\|\nabla f\|}
+\end{align} \
 
 	Antes de aplicar os conceitos discutidos até aqui, armazena-se em cada vértice a média da intensidade das células que o compartilham. Em seguida, é atribuído ao centro de cada face a média do valor dos vértices que a compõem. Dessa forma, o método de diferenças finitas é calculado entre os centros das faces de uma célula. Essa escolha faz com que o cálculo das derivadas seja igual, mesmo nas bordas do volume. Esse processo que interpola o valor escalar do centro de uma célula até o centro de suas faces é ilustrado na Figura~\ref{fig:m_cubes}.
 	
@@ -311,24 +319,23 @@ D_{\widehat{u}} f = \nabla f \cdot u
 \begin{equation}\label{eq:derivatives_cart}
 \begin{aligned}
 	\vspace{4mm}
-	D_{\widehat{\nabla f}} f_{(x,y,z)} = 
+	D_{\widehat{\nabla f}} f_{(x,y,z)} & = 
 		J^{-1}\ \nabla f_{(s,t,p)} 
 		\cdot 
 		J^{-1}\ \widehat{\nabla f}_{(s,t,p)}
 		= \|\nabla f_{(x,y,z)}\|
 		\\
 	\vspace{4mm}
-	D^{2}_{\widehat{\nabla f}} f_{(x,y,z)} = 
+	D^{2}_{\widehat{\nabla f}} f_{(x,y,z)} & = 
 		J^{-1}\ \nabla (\|\nabla f_{(x,y,z)}\|)_{(s,t,p)}
 		\cdot
 		J^{-1}\ \widehat{\nabla f}_{(s,t,p)}
-		= \|\nabla f'_{(x,y,z)}\|
+		= \beta
 		\\
-	D^{3}_{\widehat{\nabla f}} f_{(x,y,z)} = 
-	J^{-1}\ \nabla (\|\nabla f'_{(x,y,z)}\|)_{(s,t,p)}
+	D^{3}_{\widehat{\nabla f}} f_{(x,y,z)} & = 
+	J^{-1}\ \nabla (\beta)_{(s,t,p)}
 	\cdot
 	J^{-1}\ \widehat{\nabla f}_{(s,t,p)}
-	= \|\nabla f''_{(x,y,z)}\|
 \end{aligned}
 \end{equation}
 
@@ -348,17 +355,15 @@ D_{\widehat{u}} f = \nabla f \cdot u
 	
 	A Figura~\ref{fig:m_interface}~\ref{fig:m_interface_methods} mostra que a interface permite também alternar entre os seguintes métodos para geração automática de FTs:
 	\begin{itemize}
-		\item \quote{Use Ours} $ \rightarrow $ Método proposto por esta dissertação.
-		\item \quote{Use Gordon} $ \rightarrow $ Método 1D de \textit{Kindlmann e Durkin}~\cite{gordon}.
-		\item \quote{Use Gordon (3)} $ \rightarrow $ Método baseado em \textit{Kindlmann e Durkin}~\cite{gordon}, utilizando a terceira derivada média, no lugar da segunda.
-		\item \quote{Use Gordon 2D} $ \rightarrow $ Método 2D de \textit{Kindlmann e Durkin}~\cite{gordon}.
+		\item \quote{Our Method} $ \rightarrow $ Método proposto por esta dissertação.
+		\item \quote{KD Method} $ \rightarrow $ Método 1D de \textit{Kindlmann e Durkin}~\cite{gordon}.
 	\end{itemize}
 	
 	Caso o primeiro método seja selecionado, o usuário pode escolher quais fronteiras deseja visualizar. Para isso, sempre que um novo modelo é carregado, o componente exibido na Figura~\ref{fig:m_interface}~\ref{fig:m_interface_iso} é recarregado com uma lista de valores do volume nos quais há ocorrência de fronteira. Então, o usuário pode alternar entre visualizar todas (\quote{Select all}), nenhuma (\quote{Select None}), ou um conjunto específico a partir da lista apresentada.
 	
 	É possível ainda alternar para o modo de isovolume. Nele apenas um valor de intensidade pode ser escolhido na lista, pois a função de transferência será máxima em todos os valores superiores ao escolhido (\quote{+ IsoVolume +}), ou inferiores (\quote{- IsoVolume -}). Contudo, se o método selecionado não for o proposto por essa dissertação, as opções discutidas são desabilitadas.
 	
-	A Figura~\ref{fig:m_interface}~\ref{fig:m_interface_bx} mostra componentes da interface que estão sempre disponíveis, independentemente do método selecionado. Para os métodos baseados no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}, esses controles definem a própria função $ b(x) $, onde \quote{Thickness} define a largura da função enquanto sua altura é definida pela multiplicação de \quote{Opacity Factor} e \quote{Alpha}. Caso a função de transferência utilizada seja a definida pela Equação~\eqref{eq:ft}, o parâmetro $ \alpha_{max} $ é obtido através do produto de \quote{Opacity Factor} com \quote{Alpha} e $ \sigma $ recebe o valor de \quote{Thickness}.% O controle \quote{Thickness} varia de $ 0,1 $ a $ 30 $ enquanto \quote{Alpha} varia de $ 0,001 $ a  $ 0,1 $.
+	A Figura~\ref{fig:m_interface}~\ref{fig:m_interface_bx} mostra componentes da interface que estão sempre disponíveis, independentemente do método selecionado. Para os métodos baseados no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}, esses controles definem a própria função $ b(x) $, onde \quote{Thickness} define a largura da função gaussiana enquanto sua altura é definida pela multiplicação de \quote{Opacity Factor} e \quote{Alpha}. Caso a função de transferência utilizada seja a definida pelo método proposto, o parâmetro $ \alpha_{max} $ é obtido através do produto de \quote{Opacity Factor} com \quote{Alpha} e $ \sigma $ recebe o valor de \quote{Thickness}.% O controle \quote{Thickness} varia de $ 0,1 $ a $ 30 $ enquanto \quote{Alpha} varia de $ 0,001 $ a  $ 0,1 $.
 	
 \begin{figure}[H]
 	\centering
@@ -366,17 +371,17 @@ D_{\widehat{u}} f = \nabla f \cdot u
 		\begin{tabular}{c}
 			\subfigure[]
 			{
-				\includegraphics[width=0.2\textwidth]{images/m_interface_methods}
+				\includegraphics[width=0.21\textwidth]{images/m_interface_methods}
 				\label{fig:m_interface_methods}
 			}\\
 			\subfigure[]
 			{
-				\includegraphics[width=0.2\textwidth]{images/m_interface_iso}
+				\includegraphics[width=0.21\textwidth]{images/m_interface_iso}
 				\label{fig:m_interface_iso}
 			}
 		\end{tabular}
 		&
-		\begin{tabular}{c}\\
+		\begin{tabular}{c}
 			\subfigure[]
 			{
 				\includegraphics[width=0.2\textwidth]{images/m_interface_bx}

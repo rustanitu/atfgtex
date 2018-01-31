@@ -17,7 +17,7 @@
 
 	Kindlmann e Durkin partem da premissa de que todos os materiais representados no volume de dados possuem propriedades físicas homogêneas. Dessa forma, toda fronteira seria caracterizada por uma variação abrupta na intensidade lida do volume e poderia ser representada pela função degrau. No entanto, devido aos dispositivos responsáveis pela aquisição de dados, as fronteiras são comumente borradas com uma resposta gaussiana na frequência. Por esse motivo, o comportamento de uma fronteira em um volume de dados é melhor representado pela convolução da função degrau com uma gaussiana. O resultado dessa convolução é a função \textit{erf(x)}, ou função \textit{erro}, ilustrada na Figura~\ref{fig:boundary_model}.
 
-	\textit{erf(x)} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf(x)} deve ser escalada para variar de $v_{min}$ a $v_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela equação~\eqref{eq:boundary}. O esticamento da função $ f(x) $ em relação à $ erf(x) $ pelo fator $ \sigma\sqrt{2} $ será explicado mais à frente.
+	\textit{erf(x)} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf(x)} deve ser escalada para variar de $v_{min}$ a $v_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela Equação~\eqref{eq:boundary}. O esticamento da função $ f(x) $ em relação à $ erf(x) $ pelo fator $ \sigma\sqrt{2} $ será explicado mais à frente.
 	\\
 
 \begin{equation} \label{eq:boundary}
@@ -114,7 +114,7 @@
 \clearpage    
 \section{Geração da Função de Transferência}
 \label{sec:gordon.ft}
-	A equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como as curvas exibidas na Figura~\ref{fig:g_functions} apenas são válidas na direção do gradiente, optou-se por mantê-las com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas direcionais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}.
+	A Equação~\eqref{eq:boundary} deveria ser definida com 3 incógnitas, afinal o volume de dados pertence a um espaço tridimensional. No entanto, como as curvas exibidas na Figura~\ref{fig:g_functions} apenas são válidas na direção do gradiente, optou-se por mantê-las com apenas uma incógnita a fim de simplificar sua leitura. Portanto, ressalta-se que a coordenada $x$ não é alinhada a um eixo do volume, mas sim à direção do gradiente no ponto em que a função $f(x)$ é avaliada. Da mesma forma, a direção na notação das derivadas direcionais será omitida. Assim, a primeira e a segunda derivada de $f(x)$ na direção do gradiente são, respectivamente, $f'(x)$ e $f''(x)$ expressas nas equações \eqref{eq:first} e \eqref{eq:second}.
 	\\
 	
 \begin{equation} \label{eq:first}
@@ -152,10 +152,9 @@
 	
 \subsection{Função de Transferência 1D}
 \label{subsec:gordon.1d}
-%TODO SIMPLIFICAR
-	Com a premissa de que os materiais têm propriedades físicas homogêneas e o modelo definido na Seção~\ref{sec:gordon.bound}, pode-se assumir também que os valores do volume nas fronteiras são sempre os mesmos e que, na média, o centro de uma fronteira pode ser atribuído a um único valor escalar. Isso fica claro na Figura~\ref{fig:g_sampling} onde foi encontrado um padrão para identificar as fronteiras em função de $v$.
+	Como discutido na Seção~\ref{sec:gordon.bound}, deseja-se especificar a função de transferência no domínio dos valores de intensidades do volume. Então, é preciso reescrever as equações que referenciam uma posição no volume, expressando-as em função de seus valores escalares.
 	
-	A equação~\eqref{eq:x} reescrita em função de $v$ é apresentada na equação~\eqref{eq:pv}, cujo significado pode ser interpretado como a distância média com que os voxels de valor $v$ se encontram do centro da fronteira mais próxima. Nela, $g(v)$ indica a média da primeira derivada na direção do gradiente sobre todos os voxels de valor $v$. Da mesma forma, $h(v)$ indica a média da segunda derivada na direção do gradiente sobre todas as ocorrências de $v$. Ambas as médias podem ser extraídas através do centroide da fatia do histograma 3D indexada por $ v $, como mostra a Figura~\ref{fig:g_hv}
+	A Equação~\eqref{eq:x} reescrita em função de $v$ é apresentada na Equação~\eqref{eq:pv}, cujo significado pode ser interpretado como a distância média com que os voxels de valor $v$ se encontram do centro da fronteira mais próxima. Nela, $g(v)$ indica a média da primeira derivada na direção do gradiente sobre todos os voxels de valor $v$. Da mesma forma, $h(v)$ indica a média da segunda derivada na direção do gradiente sobre todas as ocorrências de $v$. Ambas as médias podem ser extraídas através do centroide da fatia do histograma 3D indexada por $ v $, como mostra a Figura~\ref{fig:g_hv}
 	
 \begin{figure}[h]
 	\centering
@@ -164,13 +163,13 @@
 	\label{fig:g_hv}
 \end{figure}
 
-	As regiões homogêneas do volume deveriam possuir derivadas iguais a zero. No entanto, isso raramente acontece na prática. Para lidar com esse ruído, um threshold é inserido na equação~\eqref{eq:pv}. Não é fornecido nenhuma forma precisa de se obter $ g_{thresh} $. Apenas é sugerido que se o usuário for capaz de encontrar um valor escalar superior à derivada \quote{ambiente} do volume, a fórmula de $ p(v) $ será mais precisa.
+	As regiões homogêneas do volume deveriam possuir derivadas iguais a zero. No entanto, isso raramente acontece na prática. Para lidar com esse ruído, um threshold é inserido na Equação~\eqref{eq:pv}. Não é fornecido nenhuma forma precisa de se obter $ g_{thresh} $. Apenas é sugerido que se o usuário for capaz de encontrar um valor escalar superior à derivada \quote{ambiente} do volume, a fórmula de $ p(v) $ será mais precisa.
 
 \begin{equation} \label{eq:pv}
 	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{thresh}, 0)}
 \end{equation} \
 
-	Como explicado previamente, $\sigma$ é obtido em função dos valores extremos de $f'(x)$ e $f''(x)$. Então, ele também precisa ser reformulado em função de $v$. O cálculo de $\sigma$ utilizando os máximos globais do volume pode distorcer todas as distâncias médias, por causa de ruído. Assim, os valores extremos utilizados devem ser os máximos dentre os valores médios: $g(v)_{max}$ e $h(v)_{max}$, como na equação~\eqref{eq:sigmav}. Uma forma mais equilibrada de obter o $\sigma$ é utilizar também o extremo mínimo da segunda derivada direcional, como demonstrado na equação~\eqref{eq:sigmav2}.
+	Como explicado previamente, $\sigma$ é obtido em função dos valores extremos de $f'(x)$ e $f''(x)$. Então, ele também precisa ser reformulado em função de $v$. No entanto, o cálculo de $\sigma$ utilizando os máximos globais do volume pode distorcer todas as distâncias médias, uma vez que esses extremos podem facilmente ser ruído. Então, Kindlmann e Durkin utilizam os valores extremos dentre os médios: $g(v)_{max}$ e $h(v)_{max}$, como na Equação~\eqref{eq:sigmav}. Uma forma mais equilibrada de obter o $\sigma$ é utilizar também o extremo mínimo da segunda derivada direcional, como demonstrado na Equação~\eqref{eq:sigmav2}.
 	
 \begin{equation} \label{eq:sigmav}
 	\sigma = \frac{g(v)_{max}}{\sqrt{e}\ h(v)_{max}}
@@ -261,11 +260,11 @@
 	Uma função de transferência 2D designa opacidade não só em função da intensidade do volume, mas também em função de um segundo parâmetro. O uso dessa segunda dimensão tende a diminuir a sobreposição de intervalos das fronteiras. No entanto, ao mesmo tempo que torna a FT mais precisa, a adição de uma nova dimensão também dificulta muito sua especificação de forma manual. Então, 
 	\textit{Kindlmann e Durkin}~\cite{gordon} estenderam o método descrito até aqui, utilizando a primeira derivada para compor a FT2D.
 	
-	O cálculo de $\sigma$ permanece inalterado, como na equação~\eqref{eq:sigmav2}. A distância média à fronteira, porém, precisa ser reescrita também em função da primeira derivada. Logo, $p(v)$ é substituída por $p(v,g)$ descrita na equação~\eqref{eq:pvg}. O termo $h(v,g)$ é a segunda derivada média para cada ocorrência de escalar $v$ e primeira derivada $g$. Assim como na versão 1D, esse valor médio também pode ser extraído do histograma 3D, como indica a Figura~\ref{fig:g_hvg}. A função de transferência 2D final é então representada pela função $ \alpha(v, g) $, descrita na equação~\eqref{eq:alphavg}.
+	O cálculo de $\sigma$ permanece inalterado, como na Equação~\eqref{eq:sigmav2}. A distância média à fronteira, porém, precisa ser reescrita também em função da primeira derivada. Logo, $p(v)$ é substituída por $p(v,g)$ descrita na Equação~\eqref{eq:pvg}. O termo $h(v,g)$ é a segunda derivada média para cada ocorrência de escalar $v$ e primeira derivada $g$. Assim como na versão 1D, esse valor médio também pode ser extraído do histograma 3D, como indica a Figura~\ref{fig:g_hvg}. A função de transferência 2D final é então representada pela função $ \alpha(v, g) $, descrita na Equação~\eqref{eq:alphavg}.
     
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{images/g_hvg}
+	\includegraphics[width=0.9\textwidth]{images/g_hvg}
 	\caption{Seção do histograma 3D indexado por $ v $ e $ g $~\cite{gordonms}.}
 	\label{fig:g_hvg}
 \end{figure}
@@ -278,24 +277,24 @@
 	\alpha(v, g) = b(p(v, g))
 \end{equation} \
 
-	As imagens abaixo mostram resultados para os mesmos 3 volumes da seção anterior: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo. A Figura~\ref{fig:g_res_vis_2d} exibe as visualizações dos volumes a partir das funções de transferência que foram obtidas, exibidas na Figura~\ref{fig:g_res_fts_2d}
+	As imagens abaixo mostram resultados para os mesmos 3 volumes da seção anterior: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo. A Figura~\ref{fig:g_res_vis_2d} exibe as visualizações dos volumes a partir das funções de transferência que foram obtidas, exibidas na Figura~\ref{fig:g_res_fts_2d}.
 	
 %%% ViSUAL
 \begin{figure}[h]
 	\centering
 	\subfigure[\quote{Bucky Ball}]
 	{
-		\includegraphics[width=0.5\textwidth]{images/g_bucky_2d}
+		\includegraphics[width=0.7\textwidth]{images/g_bucky_2d}
 		%\label{fig:}
 	}
 	\subfigure[\quote{Nucleon}]
 	{
-		\includegraphics[width=0.5\textwidth]{images/g_nucleon_2d}
+		\includegraphics[width=0.7\textwidth]{images/g_nucleon_2d}
 		%\label{fig:}
 	}
 	\subfigure[RM de uma cabeça]
 	{
-		\includegraphics[width=0.5\textwidth]{images/g_vismale_2d}
+		\includegraphics[width=0.7\textwidth]{images/g_vismale_2d}
 		%\label{fig:}
 	}
 	\caption{Visualização dos volumes com FT2D}
@@ -365,14 +364,14 @@
 	
 	A solução para o valor do $ g_{thresh} $ emergiu da ideia de que $ g(v) $ pode conter um deslocamento em sua imagem, devido ao fato de que ela é composta pela média dos valores da primeira derivada quantizados no histograma. Esse é o motivo pelo qual se decidiu utilizar o menor vale como $ g_{thresh} $, pois indica a menor base de um possível arco.
 	
-    Uma análise mais profunda da equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito.
+    Uma análise mais profunda da Equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito.
     
 \begin{equation} \label{eq:xpvg}
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)} \ \approx \ 
 	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{thresh}, 0)}
 \end{equation} \
 
-	Um argumento válido é de que, na prática, $ f'(x) $ não precisa se aproximar tanto de $ \pm \infty $ para que a equação~\eqref{eq:xpvg} resulte em um $ x $ suficientemente próximo de zero. Basta atingir um valor grande o suficiente para aproximar $ x $ de zero, independente do valor de $ f''(x) $. No entanto, tal resultado necessitaria de uma descontinuidade em $ f(x) $ que não é compatível com o modelo de fronteira assumido. Por isso, $ f''(x) $ desempenha um papel muito mais importante na definição de uma fronteira.
+	Um argumento válido é de que, na prática, $ f'(x) $ não precisa se aproximar tanto de $ \pm \infty $ para que a Equação~\eqref{eq:xpvg} resulte em um $ x $ suficientemente próximo de zero. Basta atingir um valor grande o suficiente para aproximar $ x $ de zero, independente do valor de $ f''(x) $. No entanto, tal resultado necessitaria de uma descontinuidade em $ f(x) $ que não é compatível com o modelo de fronteira assumido. Por isso, $ f''(x) $ desempenha um papel muito mais importante na definição de uma fronteira.
 	
 	O problema dessa abordagem se torna mais evidente uma vez que $ x $ é aproximado por valores médios através da função $ p(v) $. Um deslocamento na imagem de $ g(v) $ não altera o valor $ v $ que identifica a fronteira, uma vez que os valores máximos de $ g(v) $ e $ g(v) + c $ ocorrem na mesma posição. No entanto, o mesmo não é verdade para a função $ h(v) $, como mostra a Figura~\ref{fig:g_shift}. Isso porque as equações $ h(v) = 0 $ e $ h(v) + c = 0 $ são satisfeitas em valores $ v $ distintos.
 	
