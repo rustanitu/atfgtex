@@ -238,17 +238,18 @@
 	\centering
 	\subfigure[\quote{Bucky Ball}]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_bucky}
+		\includegraphics[width=0.5\textwidth]{images/g_bucky}
 		%\label{fig:}
-	}
+	}\\
+	\vspace{2mm}
 	\subfigure[\quote{Nucleon}]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_nucleon}
+		\includegraphics[width=0.4\textwidth]{images/g_nucleon}
 		\label{fig:g_nucleon_1d}
-	}
+	}\\
 	\subfigure[RM de uma cabeça]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_vismale}
+		\includegraphics[width=0.6\textwidth]{images/g_vismale}
 		%\label{fig:}
 	}
 	\caption{Visualização dos volumes com FT1D.}
@@ -286,17 +287,17 @@
 	\centering
 	\subfigure[\quote{Bucky Ball}]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_bucky_2d}
+		\includegraphics[width=0.5\textwidth]{images/g_bucky_2d}
 		%\label{fig:}
-	}
+	}\\
 	\subfigure[\quote{Nucleon}]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_nucleon_2d}
+		\includegraphics[width=0.4\textwidth]{images/g_nucleon_2d}
 		%\label{fig:}
-	}
+	}\\
 	\subfigure[RM de uma cabeça]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_vismale_2d}
+		\includegraphics[width=0.6\textwidth]{images/g_vismale_2d}
 		%\label{fig:}
 	}
 	\caption{Visualização dos volumes com FT2D}
@@ -334,40 +335,42 @@
 	
 	Além disso, não há garantia de que o uso de uma FT 2D não resultará em uma visualização pior que a obtida com uma 1D, como visto no volume \quote{Nucleon}: Figuras~\ref{fig:g_res_fts_1d}~\ref{fig:g_nucleon_1d} e \ref{fig:g_res_fts_2d}~\ref{fig:g_nucleon_2d}. Dessa forma, a função de transferência 1D se torna preferível. Por ser mais intuitiva e fácil de manipular, ela permite que o usuário faça correções quando a visualização não estiver adequada.
 	
-	Ainda perseguindo o objetivo de que a tarefa do usuário deve ser facilitada, é preciso ressaltar que o threshold utilizado nas equações \eqref{eq:pv} e \eqref{eq:pvg} é um parâmetro trabalhoso de se escolher. Em alguns volumes, o valor necessário é tão pequeno que pode ser desconsiderado em troca de utilizar uma função $ b(x) $ estreita. Contudo, pode ser preciso um threshold alto para que a visualização permita uma compreensão adequada do volume.	Por outro lado, o uso de um $ g_{thresh} $ grande, sem necessidade, pode impedir a visualização de fronteiras mais fracas, isto é, de menor $ g $.
+\subsection{Gthresh}
+	Ainda perseguindo o objetivo de que a tarefa do usuário deve ser facilitada, é preciso ressaltar que o threshold utilizado nas equações \eqref{eq:pv} e \eqref{eq:pvg} é um parâmetro trabalhoso de se escolher. Em alguns volumes, o valor necessário é tão pequeno que pode ser desconsiderado em troca de utilizar uma função $ b(x) $ estreita. Contudo, pode ser preciso um threshold alto para que a visualização permita uma compreensão adequada do volume, como pode ser observado pela comparação das Figuras~\ref{fig:g_thresh}~\ref{fig:nothresh}~e~\ref{fig:g_thresh}~\ref{fig:thresh_2}, onde quase metade do intervalo de valores de $ g(v) $ é descartado.
 	
-	Como o objetivo do $ g_{thresh} $ é compensar o ruído que impede as áreas mais homogêneas do volume de possuírem primeira derivada igual a zero, é natural que o valor mais apropriado para esse parâmetro seja equivalente ao valor de $ g(v) $ nas regiões de isovolumes. Uma vez que os arcos em $ g(v) $ identificam fronteiras, as regiões de isovolumes podem ser encontradas pelos menores valores de $ g(v) $ entre os arcos existentes, ou seja, os vales na função $ g(v) $. Esta solução é ainda justificada pela ideia de que $ g(v) $ pode conter um deslocamento em sua imagem, uma vez que ela é composta pela média dos valores da primeira derivada quantizados no histograma e, portanto, o $ g_{thresh} $ corrige esse deslocamento na Equação~\eqref{eq:pv}.
+	Como o objetivo do $ g_{thresh} $ é compensar o ruído que impede as áreas mais homogêneas do volume de possuírem primeira derivada igual a zero, é natural que o valor mais apropriado para esse parâmetro seja equivalente ao valor de $ g(v) $ nas regiões de isovolumes. Uma vez que os arcos em $ g(v) $ identificam fronteiras, as regiões de isovolumes podem ser encontradas pelos menores valores de $ g(v) $ entre os arcos existentes, ou seja, os vales na função $ g(v) $.
 	
-	Esta solução resultou em funções de transferência satisfatórias para a maioria dos volumes avaliados. Em alguns casos, um ajuste manual para mais ou para menos pode melhorar a função de transferência. Contudo, esse parâmetro pode mudar completamente a relação entre $ g(v) $ e $ h(v) $, mexendo na distância dos voxels ao centro da fronteira e, portanto, diretamente na função de transferência. Então, embora a solução sugerida para o $ g_{thresh} $ seja por si só uma contribuição desta dissertação, mais estudos devem ser feitos para se definir valores garantidamente adequados.
-	
-	A Figura~\ref{fig:g_res_thresh} mostra a função de transferência e a visualização do volume \quote{Bonsai} sem threshold e com threshold. Para gerar resultados próprios desta dissertação, usando o método de \textit{Kindlmann e Durkin}~\cite{gordon}, decidiu-se utilizar como $ g_{thresh} $ o equivalente ao menor vale na curva da primeira derivada média.
-	
-\begin{figure}[h]
+\begin{figure}[t]
 	\centering
-	\subfigure[Função de transferência sem threshold]
+	\subfigure[]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_bonsai_nothresh_ft}
+		\includegraphics[width=0.4\textwidth]{images/g_bonsai_nothresh}
+		\includegraphics[width=0.6\textwidth]{images/g_bonsai_nothresh_ft}
 		\label{fig:nothresh}
 	}
-	\subfigure[Função de transferência com threshold]
+	\subfigure[]
 	{
-		\includegraphics[width=0.7\textwidth]{images/g_bonsai_ft}
-		\label{fig:thresh}
+		\includegraphics[width=0.4\textwidth]{images/g_bonsai_thresh}
+		\includegraphics[width=0.6\textwidth]{images/g_bonsai_thresh_ft}
+		\label{fig:thresh_1}
 	}
-	\subfigure[\quote{Bonsai} sem threshold]
+	\subfigure[]
 	{
-		\includegraphics[width=0.47\textwidth]{images/g_bonsai_nothresh}
-		\label{fig:nothresh_ft}
+		\includegraphics[width=0.4\textwidth]{images/g_bonsai}
+		\includegraphics[width=0.6\textwidth]{images/g_bonsai_ft}
+		\label{fig:thresh_2}
 	}
-	\subfigure[\quote{Bonsai} com threshold]
-	{
-		\includegraphics[width=0.47\textwidth]{images/g_bonsai}
-		\label{fig:thresh_ft}
-	}
-	\caption{O impacto do $g_{thresh}$ na função de transferência.}
-	\label{fig:g_res_thresh}
+	\caption{O impacto do $g_{thresh}$ na função de transferência e visualização do volume \quote{Bonsai}.}
+	\label{fig:g_thresh}
 \end{figure}
+
+	Durante a pesquisa, utilizou-se como $ g_{thresh} $ o equivalente ao menor vale em $ g(v) $ para gerar resultados pelo método de \textit{Kindlmann e Durkin}~\cite{gordon}. Essa solução automática para a escolha do valor de $ g_{thresh} $ proporcionou funções de transferência satisfatórias para a maioria dos volumes avaliados, de forma que melhores resultados não foram encontrados. No entanto, em alguns casos, melhores resultados podem ser obtidos escolhendo outros vales, ou com uma pequena variação do valor selecionado automaticamente, como é ilustrado na Figura~\ref{fig:g_thresh}. Percebe-se que o menor vale já proporciona uma melhor compreensão do volume, visto na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_1}, enquanto o uso do terceiro menor vale permite uma visualização ainda mais limpa, exibida na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_2}.
 	
+	Contudo, esse parâmetro pode mudar completamente a relação entre $ g(v) $ e $ h(v) $, mexendo na distância dos voxels ao centro da fronteira e, portanto, diretamente na função de transferência. Então, embora a solução sugerida para o $ g_{thresh} $ seja por si só uma contribuição desta dissertação, mais estudos devem ser feitos para se definir valores garantidamente adequados.
+	
+	Esta solução é ainda justificada pela ideia de que $ g(v) $ pode conter um deslocamento em sua imagem (como será visto na subseção abaixo), uma vez que ela é composta pela média dos valores da primeira derivada quantizados no histograma e, portanto, o $ g_{thresh} $ corrige esse deslocamento na Equação~\eqref{eq:pv}.
+	
+\subsection{Deslocamento das derivadas médias}
     Uma análise mais profunda da Equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito.
     
 \begin{equation} \label{eq:xpvg}

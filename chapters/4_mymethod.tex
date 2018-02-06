@@ -37,7 +37,7 @@
 	\label{fig:m_double_sphere}
 \end{figure}
 
-	No entanto, $ h(v) $ é igual a zero em $ 127 $, indicando uma fronteira que não existe. Para este exemplo sintético e ideal, como o valor de $ g(v) $ é baixo, a função $ p(v) $ nesse ponto resulta em uma distância maior que a ocorrida em $ 64 $ e $ 190 $. Dessa forma, a fronteira falsa é sempre menos opaca que as fronteias reais no método de \textit{Kindlmann e Durkin}~\cite{gordon}, mas dependendo da função $ b(x) $ definida pelo usuário, a falsa fronteira pode acabar sendo realçada e visualizada, como ilustra a Figura~\ref{fig:m_double_sphere_tf}.
+	No entanto, $ h(v) $ é igual a zero em $ 127 $, indicando uma fronteira que não existe. Para este exemplo sintético e ideal, como o valor de $ g(v) $ é baixo, a função $ p(v) $ nesse ponto resulta em uma distância maior que a ocorrida em $ 64 $ e $ 190 $. Dessa forma, a fronteira falsa é sempre menos opaca que as fronteias reais no método de \textit{Kindlmann e Durkin}~\cite{gordon}, mas dependendo da função $ b(x) $ definida pelo usuário e do valor de $ g_{thresh} $, a falsa fronteira pode acabar sendo realçada e visualizada, como ilustra a Figura~\ref{fig:m_double_sphere_tf}.
 	
 	A visualização volumétrica apresentada na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_right}, que realça corretamente as fronteiras do volume, foi obtida com a função de transferência indicada na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_right}, onde utilizou-se $ b(x) $ com largura igual a $ 1 $. No entanto, ao aumentar a largura de $ b(x) $ para $ 3 $, obtém-se uma FT com um novo comportamento, ilustrada na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_tf_wrong}. Como resultado, a nova visualização apresenta uma falsa fronteira em amarelo que pode ser vista na Figura~\ref{fig:m_double_sphere_tf}~\ref{fig:m_double_sphere_wrong}.
 
@@ -410,7 +410,7 @@ D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=1\textwidth]{images/m_interface_all_res}
+		\includegraphics[width=0.8\textwidth]{images/m_interface_all_res}
 		\label{fig:m_interface_all_res}
 	}
 	\caption{}
@@ -426,7 +426,7 @@ D_{\widehat{u}} f = \nabla f \cdot \widehat{u}
 	}
 	\subfigure[]
 	{
-		\includegraphics[width=1\textwidth]{images/m_interface_iso_res}
+		\includegraphics[width=0.7\textwidth]{images/m_interface_iso_res}
 		\label{fig:m_interface_iso_res}
 	}
 	\caption{}
