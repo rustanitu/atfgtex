@@ -364,13 +364,29 @@
 	\label{fig:g_thresh}
 \end{figure}
 
-	Durante a pesquisa, utilizou-se como $ g_{thresh} $ o equivalente ao menor vale em $ g(v) $ para gerar resultados pelo método de \textit{Kindlmann e Durkin}~\cite{gordon}. Essa solução automática para a escolha do valor de $ g_{thresh} $ proporcionou funções de transferência satisfatórias para a maioria dos volumes avaliados, de forma que melhores resultados não foram encontrados. No entanto, em alguns casos, uma função de transferência melhor pode ser obtida escolhendo outros vales, ou com uma pequena variação do valor selecionado automaticamente, como é ilustrado na Figura~\ref{fig:g_thresh}. Percebe-se que o menor vale já proporciona uma melhor compreensão do volume, visto na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_1}, enquanto o uso do terceiro menor vale permite uma visualização ainda mais limpa, exibida na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_2}.
+	%Durante a pesquisa, utilizou-se como $ g_{thresh} $ o equivalente ao menor vale em $ g(v) $ para gerar resultados pelo método de \textit{Kindlmann e Durkin}~\cite{gordon}. Essa solução automática para a escolha do valor de $ g_{thresh} $ proporcionou funções de transferência satisfatórias para a maioria dos volumes avaliados, de forma que melhores resultados não foram encontrados. No entanto, em alguns casos, uma função de transferência melhor pode ser obtida escolhendo outros vales, ou com uma pequena variação do valor selecionado automaticamente, como é ilustrado na Figura~\ref{fig:g_thresh}. Percebe-se que o menor vale já proporciona uma melhor compreensão do volume, visto na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_1}, enquanto o uso do terceiro menor vale permite uma visualização ainda mais limpa, exibida na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_2}.
+	Durante a pesquisa, verificou-se que o valor do menor vale em $ g(v) $ serve como um bom $ g_{thresh} $ inicial. Em nenhum volume avaliado este valor comprometeu a visualização, escondendo uma fronteira existente. No entanto, nos volumes mais complexos, com sobreposição no intervalo de valores das fronteiras, um ajuste manual nesse valor resulta em uma função de transferência melhor. A Figura~\ref{fig:g_thresh} ilustra bem a força desse parâmetro. Percebe-se que o menor vale já proporciona uma melhor compreensão do volume, visto na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_1}, enquanto o uso do terceiro menor vale permite uma visualização ainda mais limpa, exibida na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_2}.
 	
-	Contudo, esse parâmetro pode mudar completamente a relação entre $ g(v) $ e $ h(v) $, mexendo na distância dos voxels ao centro da fronteira e, portanto, diretamente na função de transferência. Então, embora a solução sugerida para o $ g_{thresh} $ seja por si só uma contribuição desta dissertação, mais estudos devem ser feitos para se definir valores garantidamente adequados.
+	Contudo, esse parâmetro pode mudar completamente a relação entre $ g(v) $ e $ h(v) $, mexendo na distância dos voxels ao centro da fronteira e, portanto, diretamente na função de transferência. Então, mais estudos devem ser feitos para se definir valores garantidamente adequados.
 	
-	Esta solução é ainda justificada pela ideia de que $ g(v) $ pode conter um deslocamento em sua imagem (como será visto na subseção abaixo), uma vez que ela é composta pela média dos valores da primeira derivada quantizados no histograma e, portanto, o $ g_{thresh} $ corrige esse deslocamento na Equação~\eqref{eq:pv}.
+	%Esta solução é ainda justificada pela ideia de que $ g(v) $ pode conter um deslocamento em sua imagem (como será visto na subseção abaixo), uma vez que ela é composta pela média dos valores da primeira derivada quantizados no histograma e, portanto, o $ g_{thresh} $ corrige esse deslocamento na Equação~\eqref{eq:pv}.
 	
 \subsection{Deslocamento das derivadas médias}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[] {
+		\includegraphics[width=0.45\textwidth]{images/g_gvc}
+		\label{fig:g_gvc}
+	}
+	\subfigure[] {
+		\includegraphics[width=0.45\textwidth]{images/g_hvc}
+		\label{fig:g_hvc}
+	}
+	\caption{Deslocamento constante na imagem das funções $ g(v) $ e $ h(v) $.}
+	\label{fig:g_shift}
+\end{figure}
+
     Uma análise mais profunda da Equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito.
     
 \begin{equation} \label{eq:xpvg}
@@ -381,19 +397,5 @@
 	Um argumento válido é de que, na prática, $ f'(x) $ não precisa se aproximar tanto de $ \pm \infty $ para que a Equação~\eqref{eq:xpvg} resulte em um $ x $ suficientemente próximo de zero. Basta atingir um valor grande o suficiente para aproximar $ x $ de zero, independente do valor de $ f''(x) $. No entanto, tal resultado necessitaria de uma descontinuidade em $ f(x) $ que não é compatível com o modelo de fronteira assumido. Por isso, $ f''(x) $ desempenha um papel muito mais importante na definição de uma fronteira.
 	
 	O problema dessa abordagem se torna mais evidente uma vez que $ x $ é aproximado por valores médios através da função $ p(v) $. Um deslocamento na imagem de $ g(v) $ não altera o valor $ v $ que identifica a fronteira, uma vez que os valores máximos de $ g(v) $ e $ g(v) + c $ ocorrem na mesma posição. No entanto, o mesmo não é verdade para a função $ h(v) $, como mostra a Figura~\ref{fig:g_shift}. Isso porque as equações $ h(v) = 0 $ e $ h(v) + c = 0 $ são satisfeitas em valores $ v $ distintos.
-	
-\begin{figure}[h]
-	\centering
-	\subfigure[] {
-		\includegraphics[width=0.4\textwidth]{images/g_gvc}
-		\label{fig:g_gvc}
-	}
-	\subfigure[] {
-		\includegraphics[width=0.4\textwidth]{images/g_hvc}
-		\label{fig:g_hvc}
-	}
-	\caption{Deslocamento constante na imagem das funções $ g(v) $ e $ h(v) $.}
-	\label{fig:g_shift}
-\end{figure}
 
 	No capítulo seguinte, uma nova metodologia é proposta para gerar funções de transferência 1D, utilizando o mesmo modelo de fronteira de \textit{Kindlmann e Durkin}~\cite{gordon}. As funções médias das derivadas de $ f(x) $ serão exploradas a fim de compor uma FT com mesmo peso, além de eliminar o $ g_{thresh} $.
