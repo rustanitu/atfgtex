@@ -3,32 +3,173 @@
 \chapter{Resultados}
 \label{ch:result}
 
-	Este capítulo apresenta os resultados desta dissertação para volumes de malhas regulares conhecidos na literatura e simulações de reservatório de petróleo, respectivamente nas Seções~\ref{sec:result.reg}~e~\ref{sec:result.irreg}. Na primeira, as visualizações resultantes serão comparadas com as de outros trabalhos. No entanto, como discutido na motivação desta dissertação, não foram encontrados trabalhos utilizando funções de transferência para a visualização de reservatórios. Então, buscando permitir uma comparação com os resultados que se obteria ao aplicar o método de \textit{Kindlmann e Durkin}~\cite{gordon} em malhas não regulares, suas derivadas também serão calculadas de acordo com a Subseção~\ref{subsec:my.nonstruct}.
+	Este capítulo apresenta os resultados desta dissertação para volumes de malhas regulares conhecidos na literatura e simulações de reservatório de petróleo, respectivamente nas Seções~\ref{sec:result.reg}~e~\ref{sec:result.irreg}. Esses resultados serão comparados com os obtidos através da aplicação do método de \textit{Kindlmann e Durkin}~\cite{gordon}. Portanto, para os volumes oriundos de simulações de petróleo, suas derivadas também serão calculadas de acordo com a Subseção~\ref{subsec:my.nonstruct}.
 	
-	É preciso lembrar, contudo, que existem diversas técnicas de visualização volumétrica. Então, a análise feita será sempre em cima da função de transferência obtida e como esta foi capaz, ou não, de realçar as fronteiras do volume. Portanto, a fim de facilitar a argumentação e o entendimento desta análise, juntamente com a visualização volumétrica serão exibidas uma fatia do volume e sua respectiva função de transferência.
+	É preciso lembrar, contudo, que existem diversas técnicas de visualização volumétrica. Então, a análise feita será sempre em cima da função de transferência obtida e como esta foi capaz, ou não, de realçar as fronteiras do volume. Portanto, juntamente com a visualização volumétrica serão exibidas uma fatia do volume e sua respectiva função de transferência.
 	
-\begin{figure}
+	A fim de facilitar a análise dos volumes e suas respectivas funções de transferência geradas pelos dois métodos, utilizou-se uma só escala de cores para todos os volumes, como mostra a figura abaixo.
+
+\begin{figure}[h]
 	\centering
-	\subfigure[]
-	{
-		\includegraphics[width=0.2\textwidth]{images/r_3sphere_slice}
-	}
-	\subfigure[]
-	{
-		\includegraphics[width=0.75\textwidth]{images/r_3sphere_ft}
-	}
-	\subfigure[]
-	{
-		\includegraphics[width=0.45\textwidth]{images/r_g_3sphere}
-	}
-	\subfigure[]
-	{
-		\includegraphics[width=0.45\textwidth]{images/r_m_3sphere}
-	}
+	\includegraphics[width=0.9\textwidth]{images/r_colorscale}
+	\caption{Escala de cores das funções de transferência.}
 \end{figure}
 	
 \section{Malhas Regulares}
 \label{sec:result.reg}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SPHERES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_3sphere_slice}
+	\caption{Fatia do volume \quote{Test Spheres}.}
+\end{figure}
+
+	A figura acima exibe uma fatia de um volume ruidoso que consiste em $ 5 $ esferas com sobreposição no intervalo de suas fronteiras.
+
+\begin{figure}[t]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_g_3sphere}
+		\includegraphics[width=0.65\textwidth]{images/r_g_3sphere_ft}
+		\label{fig:r_3sphere_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_m_3sphere}
+		\includegraphics[width=0.65\textwidth]{images/r_m_3sphere_ft}			\label{fig:r_3sphere_mine}
+	}
+	\caption{Visualização e função de transferência do volume \quote{Test Spheres}.}
+	\label{fig:r_3sphere}
+\end{figure}
+
+	A Figura~\ref{fig:r_3sphere} mostra que o método de \textit{Kindlmann e Durkin} apenas identifica $ 4 $ esferas. Conhecendo a escala de cores sabe-se que, na Figura~\ref{fig:r_3sphere}~\ref{fig:r_3sphere_kd}, o primeiro pico da FT corresponde à esfera mais externa, de cor verde, enquanto o segundo corresponde às outras, de tom alaranjado. No entanto, se apenas um pico realçou 3 fronteiras e há uma grande variação em sua opacidade conclui-se que a esfera menos opaca apenas foi capturada devido à sobreposição de intervalos. Na verdade, o método não a detectou. Jà o método proposto por esta dissertação identificou corretamente todas as esferas, como mostra a Figura~\ref{fig:r_3sphere}~\ref{fig:r_3sphere_mine}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NUCLEON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{images/g_nucleon_slice}
+	\caption{Fatia do volume \quote{Nucleon}.}
+	\label{fig:r_nucleon_slice}
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/g_nucleon}
+		\includegraphics[width=0.65\textwidth]{images/r_g_nucleon_ft}
+		\label{fig:r_nucleon_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_m_nucleon}
+		\includegraphics[width=0.65\textwidth]{images/r_m_nucleon_ft}			\label{fig:r_nucleon_mine}
+	}
+	\caption{Visualização e função de transferência do volume \quote{Nucleon}.}
+	\label{fig:r_nucleon}
+\end{figure}
+
+A Figura~\ref{fig:r_nucleon} mostra mais um caso em que o método de \textit{Kindlmann e Durkin} não identifica todas as fronteiras existentes. Através da fatia do volume \quote{Nucleon}, exibida na Figura~\ref{fig:r_nucleon_slice}, vê-se que existem 2 fronteiras: cinza-preto e branco-preto. Porém, como ilustra a Figura~\ref{fig:r_nucleon}~\ref{fig:r_nucleon_kd}, apenas uma fronteira é realçada: a equivalente à transição cinza-preto na fatia do volume. Já o método proposto nesta dissertação identifica corretamente as duas fronteiras, como mostra a Figura~\ref{fig:r_nucleon}~\ref{fig:r_nucleon_mine}.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ENGINE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_engine_slice}
+	\caption{Fatia do volume \quote{Engine}.}
+	\label{fig:r_engine_slice}
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_g_engine}
+		\includegraphics[width=0.65\textwidth]{images/r_g_engine_ft}
+		\label{fig:r_engine_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_m_engine}
+		\includegraphics[width=0.65\textwidth]{images/r_m_engine_ft}			\label{fig:r_engine_mine}
+	}
+	\caption{Visualização e função de transferência do volume \quote{Engine}.}
+	\label{fig:r_engine}
+\end{figure}
+
+A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde pode ser observada a existência de $ 3 $ fronteiras. Comparando as visualizações resultantes dos dois métodos, exibidas na Figura~\ref{fig:r_engine}, percebe-se que ambos foram capazes de realçar corretamente as fronteiras do volume. No entanto, ressalta-se que esta equivalência só foi possível após encontrar o valor de $ g_{thresh} $ que eliminou algumas regiões da visualização do método de \textit{Kindlmann e Durkin} que foram realçadas indevidamente, devido ao deslocamento do segundo pico da sua função de transferência.
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CT HEAD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_cthead_slice}
+	\caption{Fatia do volume \quote{CT Head}.}
+	\label{fig:r_cthead_slice}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_g_cthead}
+		\includegraphics[width=0.65\textwidth]{images/r_g_cthead_ft}
+		\label{fig:r_cthead_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_m_cthead}
+		\includegraphics[width=0.65\textwidth]{images/r_m_cthead_ft}			\label{fig:r_cthead_mine}
+	}
+	\caption{Visualização e função de transferência do volume \quote{CT Head}.}
+	\label{fig:r_cthead}
+\end{figure}
+
+	A Figura~\ref{fig:r_cthead_slice} apresenta uma fatia do volume \quote{CT Head}. Como pode ser observado, na parte de trás da cabeça do indivíduo, há uma estrutura que se comporta como uma fronteira. O método de \textit{Kindlmann e Durkin} realçou corretamente a cabeça e o crânio do indivíduo, bem como a estrutura comentada, como ilustra a Figura~\ref{fig:r_cthead}~\ref{fig:r_cthead_kd}. Jà o método proposto por esta dissertação foi capaz de realçar corretamente as fronteiras do indivíduo, porém, mostrando menos a estrutura presente na parte de trás. Este resultado, exibido na Figura~\ref{fig:r_cthead}~\ref{fig:r_cthead_mine} proporciona uma visualização mais limpa e, portanto, facilita ainda mais a compreensão do volume.
+
+	Abaixo são exibidas as visualizações de alguns outros volumes conhecidos:
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/r_m_engine_iso}
+	\caption{Estrutura interna do volume \quote{Engine}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/r_m_tooth}
+	\caption{\quote{Tooth}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/r_m_bonsai}
+	\caption{\quote{Bonsai}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfigure
+	{
+		\includegraphics[width=0.7\textwidth]{images/r_m_carp}
+	}
+	\subfigure
+	{
+		\includegraphics[width=0.7\textwidth]{images/r_m_carp_up}
+	}
+	\subfigure
+	{
+		\includegraphics[width=0.7\textwidth]{images/r_m_carp_exo}
+	}
+	\caption{\quote{Carp}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/r_m_knee}
+	\caption{\quote{Knee}.}
+\end{figure}
+
+%\clearpage
 \section{Malhas Não Regulares}
 \label{sec:result.irreg}
