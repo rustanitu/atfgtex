@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1080.4722pt"
+   height="666.52264pt"
+   viewBox="0 0 1800.785 1110.8711"
+   version="1.1"
+   id="svg443"
+   sodipodi:docname="r_vrep_so_kd_ft.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata449">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs447" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     id="namedview445"
+     showgrid="false"
+     inkscape:zoom="0.57014773"
+     inkscape:cx="710.78638"
+     inkscape:cy="407.5096"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g437" />
+  <g
+     id="g441"
+     transform="translate(-8.1244407,85.574007)">
+    <pattern
+       id="pattern0"
+       patternUnits="userSpaceOnUse"
+       x="0"
+       y="0"
+       width="7"
+       height="7">
+      <line
+         x1="0"
+         y1="3"
+         x2="7"
+         y2="3"
+         style="fill:none; stroke:rgb(0,0,0); opacity:1"
+         id="line2" />
+    </pattern>
+    <g
+       clip-path="url(#cliprect0)"
+       id="g437">
+      <path
+         d="M 92.853,499.5 H 57.836"
+         style="fill:none;stroke:#000000;stroke-width:3.33333302;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4525-1-0-2"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:3.26746154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 1625.6304,499.5 H 76"
+         id="path5658-2"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M 87.3797,2.94335 64.5014,2.86665 76,-20.50668 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16666664"
+         id="path4507"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 1625.2739,510.88009 0.076,-22.87684 23.3666,11.49666 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16666664"
+         id="path4517"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="16.481207"
+         y="518.14111"
+         id="text6467"><tspan
+           sodipodi:role="line"
+           id="tspan6465"
+           x="16.481207"
+           y="518.14111"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">0</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;line-height:1.25;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="1638.151"
+         y="549.74677"
+         id="text6471"><tspan
+           sodipodi:role="line"
+           id="tspan6469"
+           x="1638.151"
+           y="549.74677"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">v</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:3.33333302;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 76,0.98966 V 1003.8508"
+         id="path5658"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 64.6204,1001.8466 22.8783,0.077 L 76,1025.297 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16666664"
+         id="path4507-0"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="6.4309144"
+         y="984.58667"
+         id="text6463-6"><tspan
+           sodipodi:role="line"
+           id="tspan6461-6"
+           x="6.4309144"
+           y="984.58667"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">-1</tspan></text>
+      <path
+         d="m 1625.6304,155.8992 h 31.6666 v -31.66666 h -31.6666 z"
+         style="fill:#cc0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16666664"
+         id="path5774-9"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 1625.6304,60.89921 h 31.6666 V 29.23255 h -31.6666 z"
+         style="fill:#00cc00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16666664"
+         id="path5774-2"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;line-height:1.25;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="1678.8385"
+         y="-33.393021"
+         id="text6422"><tspan
+           sodipodi:role="line"
+           id="tspan6420"
+           x="1678.8385"
+           y="-33.393021"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">g(v)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;line-height:1.25;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="1679.088"
+         y="61.300522"
+         id="text6426"><tspan
+           sodipodi:role="line"
+           id="tspan6424"
+           x="1679.088"
+           y="61.300522"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">h(v)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;line-height:1.25;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="1678.7218"
+         y="156.99434"
+         id="text6430"><tspan
+           sodipodi:role="line"
+           id="tspan6428"
+           x="1678.7218"
+           y="156.99434"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.33332825px;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">a(v)</tspan></text>
+      <path
+         d="m 1574.2811,482.24709 v 35.017"
+         style="fill:none;stroke:#000000;stroke-width:3.33333302;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4525-1"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M 93.3384,966.33195 H 58.3214"
+         style="fill:none;stroke:#000000;stroke-width:3.33333302;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4525-1-0"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="24.032354"
+         y="47.956009"
+         id="text6463-6-2"><tspan
+           sodipodi:role="line"
+           id="tspan6461-6-6"
+           x="24.032354"
+           y="47.956009"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">1</tspan></text>
+      <path
+         d="M 94.221,29.23257 H 59.204"
+         style="fill:none;stroke:#000000;stroke-width:3.33333302;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4525-1-0-3"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 1625.6304,-34.10078 h 31.6666 v -31.66667 h -31.6666 z"
+         style="fill:#0000cc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16666664"
+         id="path5774-0-6"
+         inkscape:connector-curvature="0" />
+      <g
+         id="g4618"
+         transform="matrix(0.16666665,0,0,-0.16666665,121.82977,186.25371)">
+        <text
+           transform="scale(1,-1)"
+           id="text5022"
+           y="1678.3165"
+           x="8999.3662"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:360px;line-height:1.25;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.5"
+           xml:space="preserve"><tspan
+             style="stroke-width:7.5"
+             y="1678.3165"
+             x="8999.3662"
+             id="tspan5020"
+             sodipodi:role="line">thresh</tspan></text>
+        <text
+           transform="scale(1,-1)"
+           id="text5026"
+           y="1573.0807"
+           x="8775.7422"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:360px;line-height:1.25;font-family:Vijaya;-inkscape-font-specification:'Vijaya, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.5"
+           xml:space="preserve"><tspan
+             style="font-size:479.99996948px;stroke-width:7.5"
+             y="1573.0807"
+             x="8775.7422"
+             id="tspan5024"
+             sodipodi:role="line">g</tspan></text>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.25"
+         x="1530.8607"
+         y="570.42853"
+         id="text5688"><tspan
+           sodipodi:role="line"
+           id="tspan5686"
+           x="1530.8607"
+           y="570.42853"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33332825px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.25">255</tspan></text>
+      <polyline
+         style="opacity:1;fill:none;stroke:#0000cc;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+         points="76,491.207 81.8824,488.332 87.7647,485.729 93.6471,483.612 99.5294,481.601 105.412,479.842 111.294,478.339 117.176,477.1 123.059,476.125 128.941,475.406 134.824,474.927 140.706,474.667 146.588,474.598 152.471,474.691 158.353,474.909 164.235,475.211 170.118,475.556 176,475.898 181.882,476.193 187.765,476.404 193.647,476.499 199.529,476.459 205.412,476.278 211.294,475.963 217.176,475.538 223.059,475.035 228.941,474.498 234.824,473.974 240.706,473.512 246.588,473.156 252.471,472.945 258.353,472.907 264.235,473.061 270.118,473.415 276,473.965 281.882,474.695 287.765,475.581 293.647,476.588 299.529,477.677 305.412,478.802 311.294,479.917 317.176,480.976 323.059,481.941 328.941,482.78 334.824,483.474 340.706,484.016 346.588,484.41 352.471,484.673 358.353,484.831 364.235,484.914 370.118,484.957 376,484.99 381.882,485.04 387.765,485.128 393.647,485.263 399.529,485.451 405.412,485.685 411.294,485.954 417.176,486.243 423.059,486.532 428.941,486.804 434.824,487.04 440.706,487.225 446.588,487.349 452.471,487.406 458.353,487.392 464.235,487.31 470.118,487.164 476,486.96 481.882,486.707 487.765,486.41 493.647,486.078 499.529,485.717 505.412,485.329 511.294,484.918 517.176,484.487 523.059,484.034 528.941,483.562 534.824,483.071 540.706,482.562 546.588,482.036 552.471,481.497 558.353,480.947 564.235,480.391 570.118,479.831 576,479.273 581.882,478.72 587.765,478.173 593.647,477.635 599.529,477.106 605.412,476.585 611.294,476.069 617.176,475.557 623.059,475.045 628.941,474.528 634.824,474.003 640.706,473.466 646.588,472.914 652.471,472.342 658.353,471.748 664.235,471.131 670.118,470.488 676,469.819 681.882,469.125 687.765,468.408 693.647,467.669 699.529,466.911 705.412,466.137 711.294,465.346 717.176,464.538 723.059,463.707 728.941,462.846 734.824,461.941 740.706,460.976 746.588,459.932 752.471,458.787 758.353,457.519 764.235,456.103 770.118,454.516 776,452.732 781.882,450.72 787.765,448.445 793.647,445.863 799.529,442.922 805.412,439.558 811.294,435.702 817.176,431.279 823.059,426.219 828.941,420.459 834.824,413.95 840.706,406.667 846.588,398.608 852.471,389.799 858.353,380.29 864.235,370.155 870.118,359.479 876,348.357 881.882,336.887 887.765,325.164 893.647,313.28 899.529,301.324 905.412,289.385 911.294,277.556 917.176,265.933 923.059,254.617 928.941,243.71 934.824,233.311 940.706,223.507 946.588,214.368 952.471,205.939 958.353,198.231 964.235,191.22 970.118,184.839 976,178.986 981.882,173.518 987.765,168.269 993.647,163.058 999.529,157.709 1005.41,152.07 1011.29,146.038 1017.18,139.569 1023.06,132.688 1028.94,125.488 1034.82,118.116 1040.71,110.755 1046.59,103.592 1052.47,96.7973 1058.35,90.4987 1064.24,84.7675 1070.12,79.6141 1076,74.9932 1081.88,70.8174 1087.76,66.9753 1093.65,63.3519 1099.53,59.8475 1105.41,56.3928 1111.29,52.9584 1117.18,49.5577 1123.06,46.2443 1128.94,43.1026 1134.82,40.2338 1140.71,37.7398 1146.59,35.7063 1152.47,34.188 1158.35,33.2001 1164.24,32.7151 1170.12,32.6683 1176,32.969 1181.88,33.5165 1187.76,34.2184 1193.65,35.0076 1199.53,35.8571 1205.41,36.7922 1211.29,37.8974 1217.18,39.3217 1223.06,41.2787 1228.94,44.043 1234.82,47.941 1240.71,53.3341 1246.59,60.5946 1252.47,70.0733 1258.35,82.0622 1264.24,96.7561 1270.12,114.218 1276,134.354 1281.88,156.906 1287.76,181.457 1293.65,207.461 1299.53,234.284 1305.41,261.252 1311.29,287.711 1317.18,313.071 1323.06,336.843 1328.94,358.663 1334.82,378.294 1340.71,395.618 1346.59,410.611 1352.47,423.313 1358.35,433.798 1364.24,442.143 1370.12,448.408 1376,452.62 1381.88,454.776 1387.76,454.852 1393.65,452.816 1399.53,448.653 1405.41,442.392 1411.29,434.123 1417.18,424.012 1423.06,412.304 1428.94,399.319 1434.82,385.429 1440.71,371.044 1446.59,356.577 1452.47,342.43 1458.35,328.972 1464.24,316.534 1470.12,305.407 1476,295.846 1481.88,288.074 1487.76,282.287 1493.65,278.646 1499.53,277.268 1505.41,278.205 1511.29,281.422 1517.18,286.781 1523.06,294.027 1528.94,302.791 1534.82,312.611 1540.71,322.965 1546.59,333.326 1552.47,343.219 1558.35,352.145 1564.24,360.72 1570.12,365.853 1576,368.744 "
+         id="polyline422" />
+      <polyline
+         style="opacity:1;fill:none;stroke:#00cc00;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+         points="76,488.331 81.8824,489.138 87.7647,490.007 93.6471,490.974 99.5294,491.955 105.412,492.971 111.294,494.011 117.176,495.062 123.059,496.109 128.941,497.132 134.824,498.104 140.706,498.999 146.588,499.784 152.471,500.427 158.353,500.897 164.235,501.168 170.118,501.224 176,501.06 181.882,500.691 187.765,500.146 193.647,499.474 199.529,498.736 205.412,498.004 211.294,497.349 217.176,496.838 223.059,496.524 228.941,496.442 234.824,496.608 240.706,497.014 246.588,497.634 252.471,498.426 258.353,499.337 264.235,500.308 270.118,501.276 276,502.185 281.882,502.982 287.765,503.625 293.647,504.081 299.529,504.333 305.412,504.375 311.294,504.216 317.176,503.879 323.059,503.397 328.941,502.811 334.824,502.167 340.706,501.513 346.588,500.89 352.471,500.335 358.353,499.873 364.235,499.516 370.118,499.27 376,499.125 381.882,499.066 387.765,499.074 393.647,499.126 399.529,499.201 405.412,499.278 411.294,499.343 417.176,499.384 423.059,499.396 428.941,499.377 434.824,499.327 440.706,499.251 446.588,499.155 452.471,499.042 458.353,498.921 464.235,498.795 470.118,498.669 476,498.546 481.882,498.43 487.765,498.321 493.647,498.221 499.529,498.131 505.412,498.05 511.294,497.978 517.176,497.914 523.059,497.859 528.941,497.809 534.824,497.765 540.706,497.724 546.588,497.683 552.471,497.64 558.353,497.591 564.235,497.532 570.118,497.457 576,497.362 581.882,497.241 587.765,497.088 593.647,496.897 599.529,496.662 605.412,496.377 611.294,496.036 617.176,495.631 623.059,495.156 628.941,494.602 634.824,493.959 640.706,493.218 646.588,492.369 652.471,491.4 658.353,490.302 664.235,489.066 670.118,487.684 676,486.155 681.882,484.479 687.765,482.662 693.647,480.716 699.529,478.657 705.412,476.503 711.294,474.277 717.176,471.998 723.059,469.683 728.941,467.345 734.824,464.984 740.706,462.598 746.588,460.173 752.471,457.689 758.353,455.12 764.235,452.438 770.118,449.609 776,446.594 781.882,443.345 787.765,439.806 793.647,435.905 799.529,431.557 805.412,426.664 811.294,421.122 817.176,414.829 823.059,407.692 828.941,399.647 834.824,390.665 840.706,380.762 846.588,370.008 852.471,358.523 858.353,346.474 864.235,334.064 870.118,321.521 876,309.08 881.882,296.966 887.765,285.383 893.647,274.502 899.529,264.454 905.412,255.329 911.294,247.175 917.176,240.004 923.059,233.797 928.941,228.506 934.824,224.065 940.706,220.391 946.588,217.396 952.471,214.99 958.353,213.098 964.235,211.664 970.118,210.668 976,210.127 981.882,210.101 987.765,210.686 993.647,212.003 999.529,214.173 1005.41,217.302 1011.29,221.453 1017.18,226.628 1023.06,232.764 1028.94,239.731 1034.82,247.354 1040.71,255.431 1046.59,263.77 1052.47,272.214 1058.35,280.667 1064.24,289.102 1070.12,297.564 1076,306.153 1081.88,315.006 1087.76,324.264 1093.65,334.045 1099.53,344.42 1105.41,355.389 1111.29,366.872 1117.18,378.702 1123.06,390.636 1128.94,402.371 1134.82,413.568 1140.71,423.896 1146.59,433.066 1152.47,440.874 1158.35,447.237 1164.24,452.212 1170.12,456.002 1176,458.943 1181.88,461.471 1187.76,464.075 1193.65,467.245 1199.53,471.409 1205.41,476.886 1211.29,483.842 1217.18,492.273 1223.06,502.001 1228.94,512.697 1234.82,523.916 1240.71,535.153 1246.59,545.893 1252.47,555.662 1258.35,564.069 1264.24,570.826 1270.12,575.764 1276,578.822 1281.88,580.04 1287.76,579.54 1293.65,577.507 1299.53,574.17 1305.41,569.787 1311.29,564.632 1317.18,558.976 1323.06,553.077 1328.94,547.165 1334.82,541.435 1340.71,536.037 1346.59,531.083 1352.47,526.643 1358.35,522.766 1364.24,519.485 1370.12,516.841 1376,514.889 1381.88,513.712 1387.76,513.421 1393.65,514.152 1399.53,516.053 1405.41,519.265 1411.29,523.903 1417.18,530.038 1423.06,537.681 1428.94,546.777 1434.82,557.207 1440.71,568.796 1446.59,581.328 1452.47,594.558 1458.35,608.227 1464.24,622.07 1470.12,635.821 1476,649.225 1481.88,662.04 1487.76,674.06 1493.65,685.135 1499.53,695.209 1505.41,704.353 1511.29,712.809 1517.18,721.007 1523.06,729.58 1528.94,739.339 1534.82,751.218 1540.71,766.193 1546.59,785.145 1552.47,808.745 1558.35,837.81 1564.24,869.07 1570.12,913.674 1576,966.332 "
+         id="polyline424" />
+      <polyline
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:3.33333325;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:26.66666626, 26.66666626;stroke-dashoffset:0"
+         points="76,476.862 1576,476.862 "
+         id="polyline428" />
+      <polyline
+         style="opacity:1;fill:none;stroke:#cc0000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+         points="76,499.5 81.8824,499.5 87.7647,499.5 93.6471,499.5 99.5294,499.5 105.412,499.5 111.294,499.5 117.176,499.5 123.059,499.5 128.941,499.5 134.824,499.5 140.706,499.5 146.588,499.5 152.471,499.5 158.353,499.5 164.235,499.5 170.118,499.5 176,499.5 181.882,499.5 187.765,499.5 193.647,496.988 199.529,499.5 205.412,499.5 211.294,499.5 217.176,499.5 223.059,499.5 228.941,499.5 234.824,499.5 240.706,499.5 246.588,499.5 252.471,499.5 258.353,411.403 264.235,499.5 270.118,499.5 276,499.5 281.882,499.5 287.765,499.5 293.647,499.5 299.529,499.5 305.412,499.5 311.294,499.5 317.176,499.5 323.059,499.5 328.941,499.5 334.824,499.5 340.706,499.5 346.588,499.5 352.471,499.5 358.353,499.5 364.235,499.5 370.118,499.5 376,499.5 381.882,499.5 387.765,499.5 393.647,499.5 399.529,499.5 405.412,499.5 411.294,499.5 417.176,499.5 423.059,499.5 428.941,499.5 434.824,499.5 440.706,499.5 446.588,499.5 452.471,499.5 458.353,499.5 464.235,499.5 470.118,499.5 476,499.5 481.882,499.5 487.765,499.5 493.647,499.5 499.529,499.5 505.412,499.5 511.294,499.5 517.176,499.5 523.059,499.5 528.941,499.5 534.824,499.5 540.706,499.5 546.588,499.5 552.471,499.5 558.353,499.5 564.235,499.5 570.118,499.5 576,499.5 581.882,499.5 587.765,499.5 593.647,499.5 599.529,499.5 605.412,499.5 611.294,499.5 617.176,499.5 623.059,499.5 628.941,499.5 634.824,499.5 640.706,499.5 646.588,499.5 652.471,499.5 658.353,499.5 664.235,499.5 670.118,499.5 676,499.5 681.882,499.5 687.765,499.5 693.647,499.5 699.529,499.5 705.412,499.5 711.294,499.5 717.176,499.5 723.059,499.5 728.941,499.5 734.824,499.5 740.706,499.5 746.588,499.5 752.471,499.5 758.353,499.5 764.235,499.5 770.118,499.5 776,499.5 781.882,499.5 787.765,499.5 793.647,499.5 799.529,499.5 805.412,499.5 811.294,499.5 817.176,499.5 823.059,499.5 828.941,499.5 834.824,499.5 840.706,499.5 846.588,499.5 852.471,499.5 858.353,499.5 864.235,499.5 870.118,499.5 876,499.5 881.882,499.5 887.765,499.5 893.647,499.5 899.529,499.5 905.412,499.5 911.294,499.5 917.176,499.5 923.059,499.5 928.941,499.5 934.824,499.5 940.706,499.5 946.588,499.5 952.471,499.5 958.353,499.5 964.235,499.5 970.118,499.5 976,499.5 981.882,499.5 987.765,499.5 993.647,499.5 999.529,499.5 1005.41,499.5 1011.29,499.5 1017.18,499.5 1023.06,499.5 1028.94,499.5 1034.82,499.5 1040.71,499.5 1046.59,499.5 1052.47,499.5 1058.35,499.5 1064.24,499.5 1070.12,499.5 1076,499.5 1081.88,499.5 1087.76,499.5 1093.65,499.5 1099.53,499.5 1105.41,499.5 1111.29,499.5 1117.18,499.5 1123.06,499.5 1128.94,499.5 1134.82,499.5 1140.71,499.5 1146.59,499.5 1152.47,499.5 1158.35,499.499 1164.24,499.493 1170.12,499.463 1176,499.374 1181.88,499.166 1187.76,498.647 1193.65,497.041 1199.53,490.901 1205.41,464.816 1211.29,366.098 1217.18,142.623 1223.06,47.5786 1228.94,312.56 1234.82,480.28 1240.71,499.064 1246.59,499.498 1252.47,499.5 1258.35,499.5 1264.24,499.5 1270.12,499.5 1276,499.5 1281.88,499.5 1287.76,499.5 1293.65,499.5 1299.53,499.5 1305.41,499.5 1311.29,499.5 1317.18,499.5 1323.06,499.5 1328.94,499.5 1334.82,499.5 1340.71,499.5 1346.59,499.5 1352.47,499.5 1358.35,499.5 1364.24,499.5 1370.12,499.5 1376,499.5 1381.88,499.5 1387.76,499.5 1393.65,499.5 1399.53,499.5 1405.41,499.5 1411.29,499.5 1417.18,499.5 1423.06,499.5 1428.94,499.5 1434.82,499.5 1440.71,499.5 1446.59,499.5 1452.47,499.5 1458.35,499.5 1464.24,499.5 1470.12,499.5 1476,499.5 1481.88,499.5 1487.76,499.5 1493.65,499.5 1499.53,499.5 1505.41,499.5 1511.29,499.5 1517.18,499.5 1523.06,499.5 1528.94,499.5 1534.82,499.5 1540.71,499.5 1546.59,499.5 1552.47,499.5 1558.35,499.5 1564.24,499.5 1570.12,499.5 1576,499.5 "
+         id="polyline430" />
+      <clipPath
+         id="cliprect1">
+        <rect
+           x="0"
+           y="0"
+           width="1618"
+           height="1017"
+           id="rect434" />
+      </clipPath>
+    </g>
+    <g
+       clip-path="url(#cliprect1)"
+       id="g439" />
+  </g>
+</svg>

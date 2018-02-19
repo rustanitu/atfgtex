@@ -7,7 +7,7 @@
 	
 	É preciso lembrar, contudo, que existem diversas técnicas de visualização volumétrica. Então, a análise feita será sempre em cima da função de transferência obtida e como esta foi capaz, ou não, de realçar as fronteiras do volume. Portanto, juntamente com a visualização volumétrica serão exibidas uma fatia do volume e sua respectiva função de transferência.
 	
-	A fim de facilitar a análise dos volumes e suas respectivas funções de transferência geradas pelos dois métodos, utilizou-se uma só escala de cores para todos os volumes, como mostra a figura abaixo.
+	A fim de facilitar a análise dos volumes e suas respectivas funções de transferência geradas pelos dois métodos, utilizou-se uma só escala de cores para todos os volumes, exibida na figura abaixo. O acesso à textura da escala é feito por $ v $, de forma que o primeiro texel é dado por $ v = 0 $ e o último por $ v = 255 $.
 
 \begin{figure}[h]
 	\centering
@@ -21,7 +21,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SPHERES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.3\textwidth]{images/r_3sphere_slice}
+	\includegraphics[width=0.25\textwidth]{images/r_3sphere_slice}
 	\caption{Fatia do volume \quote{Test Spheres}.}
 \end{figure}
 
@@ -170,6 +170,137 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	\caption{\quote{Knee}.}
 \end{figure}
 
-%\clearpage
 \section{Malhas Não Regulares}
 \label{sec:result.irreg}
+
+	Para visualizar volumes com malhas não regulares foi preciso utilizar um outro visualizador. Escolheu-se então a técnica proposta por \textit{Miranda e Celes}~\cite{miranda} em \quote{Accurate volume rendering of unstructed hexahedral meshes}. Como esse método não faz uso de um modelo de iluminação, nota-se uma grande diferença na visualização dos volumes, se comparados com os anteriores. No entanto, a análise dos resultados não é prejudicada.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_vrep_so_slice}
+	\caption{...}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_vrep_so_kd}
+		\includegraphics[width=0.65\textwidth]{images/r_vrep_so_kd_ft}
+		\label{fig:r_vrep_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_vrep_so_mine}
+		\includegraphics[width=0.65\textwidth]{images/r_vrep_so_mine_ft}			\label{fig:r_vrep_mine}
+	}
+	\caption{Visualização e função de transferência do volume...}
+	\label{fig:r_vrep}
+\end{figure}
+
+	Texto...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_vrep_so_2_slice}
+	\caption{...}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_vrep_so_2_kd}
+		\includegraphics[width=0.65\textwidth]{images/r_vrep_so_2_kd_ft}
+		\label{fig:r_vrep_2_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_vrep_so_2_mine}
+		\includegraphics[width=0.65\textwidth]{images/r_vrep_so_2_mine_ft}			\label{fig:r_vrep_2_mine}
+	}
+	\caption{Visualização e função de transferência do volume...}
+	\label{fig:r_vrep_2}
+\end{figure}
+
+	Texto...
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_box_so_slice}
+	\caption{...}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_box_so_kd}
+		\includegraphics[width=0.65\textwidth]{images/r_box_so_kd_ft}
+		\label{fig:r_box_so_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_box_so_mine}
+		\includegraphics[width=0.65\textwidth]{images/r_box_so_mine_ft}			\label{fig:r_box_so_mine}
+	}
+	\caption{Visualização e função de transferência do volume...}
+	\label{fig:r_box_so}
+\end{figure}
+
+Texto...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SG %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_box_sg_slice}
+	\caption{...}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_box_sg_kd}
+		\includegraphics[width=0.65\textwidth]{images/r_box_sg_kd_ft}
+		\label{fig:r_box_sg_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_box_sg_mine}
+		\includegraphics[width=0.65\textwidth]{images/r_box_sg_mine_ft}			\label{fig:r_box_sg_mine}
+	}
+	\caption{Visualização e função de transferência do volume...}
+	\label{fig:r_box_sg}
+\end{figure}
+
+Texto...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{images/r_box_sw_slice}
+	\caption{...}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_box_sw_kd}
+		\includegraphics[width=0.65\textwidth]{images/r_box_sw_kd_ft}
+		\label{fig:r_box_sw_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.35\textwidth]{images/r_box_sw_mine}
+		\includegraphics[width=0.65\textwidth]{images/r_box_sw_mine_ft}			\label{fig:r_box_sw_mine}
+	}
+	\caption{Visualização e função de transferência do volume...}
+	\label{fig:r_box_sw}
+\end{figure}
+
+Texto...
