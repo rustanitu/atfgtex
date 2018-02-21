@@ -173,19 +173,19 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 \section{Malhas Não Regulares}
 \label{sec:result.irreg}
 
-	Para visualizar volumes com malhas não regulares foi preciso utilizar um outro visualizador. Escolheu-se então a técnica proposta por \textit{Miranda e Celes}~\cite{miranda} em \quote{Accurate volume rendering of unstructed hexahedral meshes}. Como esse método não faz uso de um modelo de iluminação, nota-se uma grande diferença na visualização dos volumes, se comparados com os anteriores. No entanto, a análise dos resultados não é prejudicada.
+	Para visualizar volumes com malhas não regulares foi preciso utilizar um outro visualizador. Escolheu-se então a técnica proposta por \textit{Miranda e Celes}~\cite{miranda} em \quote{Accurate volume rendering of unstructed hexahedral meshes}. Como esse método não faz uso de um modelo de iluminação, nota-se uma grande diferença na visualização dos volumes, se comparados com os anteriores. Contudo, isso não prejudica a análise dos resultados.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 	\centering
 	\subfigure[]{
-		\frame{\includegraphics[width=0.3\textwidth]{images/r_vrep_so_slice}}
+		\frame{\includegraphics[width=0.25\textwidth]{images/r_vrep_so_slice}}
 	}
 	\caption{Fatia de um reservatório de petróleo cúbico.}
 	\label{fig:box_slice}
 \end{figure}
 
-	A figura acima mostra uma fatia da simulação de um reservatório de petróleo cúbico com um poço injetor no canto superior esquerdo e um produtor no canto diagonal oposto. A propriedade simulada é saturação de óleo.
+	A figura acima mostra uma fatia da simulação de um reservatório de petróleo cúbico com um poço injetor no canto superior esquerdo e um produtor no canto diagonal oposto. A propriedade simulada é a saturação de óleo.
 
 \begin{figure}[h]
 	\centering
@@ -209,11 +209,12 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 	\centering
-	\frame{\includegraphics[width=0.3\textwidth]{images/r_vrep_so_2_slice_}}
+	\frame{\includegraphics[width=0.25\textwidth]{images/r_vrep_so_2_slice_}}
 	\caption{Fatia de um reservatório de petróleo cúbico.}
+	\label{fig:r_vrep_2_slice}
 \end{figure}
 
-	A figura acima refere-se ao mesmo volume da Figura~\ref{fig:box_slice}, mas em outro momento da simulação. Agora há apenas uma fronteira forte: aquela que divide a região escura da região clara, na fatia do volume. Contudo, três fronteiras mais fracas ainda podem ser vistas.
+	A figura acima refere-se ao mesmo volume da Figura~\ref{fig:box_slice}, mas em outro momento da simulação. Agora há apenas uma fronteira forte (1) e três fracas (2, 3 e 4).
 
 \begin{figure}[h]
 	\centering
@@ -232,7 +233,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	\label{fig:r_vrep_2}
 \end{figure}
 
-	Como mostra a Figura~\ref{fig:r_vrep_2} acima, nenhum método foi capaz de realçar todas as fronteiras. Utilizando \textit{Kindlmann e Durkin} obteve-se as fronteiras $ 1 $ e $ 4 $ enquanto com o método proposto nesta dissertação obteve-se as fronteiras $ 1 $, $ 3 $ e $ 4 $. O motivo pelo qual $ 4 $ é realçada com opacidade muito baixa é a estreita relação entre opacidade e amplitude de $ -h(v) $.
+	Como mostra a Figura~\ref{fig:r_vrep_2}, nenhum método foi capaz de realçar todas as fronteiras. Utilizando \textit{Kindlmann e Durkin} obteve-se as fronteiras $ 1 $ e $ 4 $ enquanto com o método proposto nesta dissertação obteve-se as fronteiras $ 1 $, $ 3 $ e $ 4 $. O motivo pelo qual $ 4 $ é realçada com opacidade muito baixa é a estreita relação entre opacidade e amplitude de $ -h(v) $.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
@@ -241,7 +242,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	\caption{Fatia do volume \quote{Caixa de sapato} com a propriedade saturação de óleo.}
 \end{figure}
 
-	A figura acima mostra uma fatia da simulação de um reservatório de petróleo retangular com um poço injetor à superior e um produtor à direita, chamado \quote{Caixa de sapato}. A propriedade simulada é saturação de óleo.
+	A figura acima mostra uma fatia da simulação de um reservatório de petróleo retangular, chamado \quote{Caixa de sapato}, com um poço injetor à esquerda e um produtor à direita. A propriedade simulada é a saturação de óleo. No lado esquerdo da fatia é possível perceber um cone, com sua base voltada para baixo. A parte interna do cone é preta e faz fronteira com seu contorno que possui uma tonalidade de cinza claro. Por sua vez, este contorno faz fronteira com o resto do volume em um tom de cinza mais escuro.
 
 \begin{figure}[h]
 	\centering
@@ -266,10 +267,10 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	\caption{Visualização e função de transferência do volume \quote{Caixa de sapato} com a propriedade saturação de óleo.}
 	\label{fig:r_box_so}
 \end{figure}
-
-	No lado esquerdo da fatia do volume em questão é possível perceber um cone, com sua base voltada para baixo. A parte interna do cone é preta e faz fronteira com seu contorno que possui uma tonalidade de cinza claro. Este contorno por sua vez, faz fronteira com o resto do volume em um tom de cinza mais escuro. Então, através da Figura~\ref{fig:r_box_so} observa-se que o método proposto por esta dissertação destaca a fronteira interna do cone (a mais forte), enquanto o método de \textit{Kindlmann e Durkin} realça a fronteira externa do cone.
 	
-	Como esse volume é pequeno, falta resolução em sua fatia para discutir qual das fronteiras amarelas é a mais adequada. Contudo, pode-se destacar que ambos os métodos destacam fronteiras mais fracas distintas.
+	Comparando a Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_kd} com a Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine} observa-se que o método de \textit{Kindlmann e Durkin} detectou o cone mais externo, enquanto o método proposto por esta dissertação detectou o cone mais interno. Ambas as visualizações auxiliam o usuário a compreender melhor o fluxo de óleo no reservatório. Porém, conceitualmente, o mais correto é o cone interno (detectado por esta dissertação em azul na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine_ft}) por ser a fronteira mais forte, isto é, a que possui variação mais abrupta.
+	
+	Como esse volume é pequeno, falta resolução em sua fatia para discutir qual das fronteiras amarelas é a mais adequada. Contudo, pode-se ressaltar que ambos os métodos destacam fronteiras mais fracas que podem ser identificadas na fatia do volume, são elas: isosuperfície verde na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_kd} e isosuperfície laranja na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SG %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
@@ -278,35 +279,46 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	\caption{Fatia do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
 \end{figure}
 
-	A figura acima mostra uma fatia do volume \quote{Caixa de sapato} com a propriedade saturação de gás.
+	A figura acima mostra uma fatia do volume \quote{Caixa de sapato} com a propriedade saturação de gás. Nela, nota-se que a fronteira principal se encontra entre o preto e o cinza claro, criando um formato de escada.
 
 \begin{figure}[h]
 	\centering
-	\subfigure[Função de transferência pelo método de \textit{Kindlmann e Durkin}.]
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
+	{
+		\includegraphics[width=0.8\textwidth]{images/r_box_sg_kd}
+		\label{fig:r_box_sg_kd}
+	}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.8\textwidth]{images/r_box_sg_mine}	\label{fig:r_box_sg_mine}
+	}
+	\caption{Visualização do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
+	\label{fig:r_box_sg}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
 	{
 		\includegraphics[width=0.7\textwidth]{images/r_box_sg_kd_ft}
 		\label{fig:r_box_sg_kd_ft}
 	}
-	\subfigure[Visualização pela FT do método de \textit{Kindlmann e Durkin}.]
-	{
-		\includegraphics[width=0.7\textwidth]{images/r_box_sg_kd}
-		\label{fig:r_box_sg_kd}
-	}
-	\subfigure[Função de transferência pelo método proposto.]
+	\subfigure[Método proposto.]
 	{
 		\includegraphics[width=0.7\textwidth]{images/r_box_sg_mine_ft}			\label{fig:r_box_sg_mine_ft}
 	}
-	\subfigure[Visualização pela FT do método proposto.]
-	{
-		\includegraphics[width=0.7\textwidth]{images/r_box_sg_mine}	\label{fig:r_box_sg_mine}
-	}
-	\caption{Visualização e função de transferência do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
-	\label{fig:r_box_sg}
+	\caption{Funções de transferência do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
+	\label{fig:r_box_sg_ft}
 \end{figure}
 
-Texto...
+	Como pode ser observado na Figura~\ref{fig:r_box_sg}, o método de \textit{Kindlmann e Durkin} realça apenas a fronteira principal, enquanto o método proposto por esta dissertação destaca também a fronteira mais fraca, em vermelho na Figura~\ref{fig:r_box_sg}~\ref{fig:r_box_sg_mine}. Em contra partida, o método aqui proposto realça diversas isosuperfícies paralelas àquela que verdadeiramente identifica o centro da fronteira principal. Isso ocorre devido à pouca resolução do volume.
+	
+	Como a função de transferência proposta por esta dissertação não é proveniente de uma fórmula matemática que dependente dos valores da fronteira variarem de acordo com uma distribuição gaussiana, ela é capaz de identificar fronteiras menos borradas que a FT de \textit{Kindlmann e Durkin}~\cite{gordon}. Essa característica gera uma disparidade maior entre os métodos, na visualização de volumes com pouca resolução. Por um lado, permite que o método proposto identifique fronteiras mesmo que elas não se comportem de forma ideal, por outro, tende a encontrar fronteiras repetidas com deslocamento variado.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	O volume a seguir...
+	
 \begin{figure}[h]
 	\centering
 	\frame{\includegraphics[width=0.5\textwidth]{images/r_box_sw_slice}}
@@ -345,5 +357,13 @@ Texto...
 	\includegraphics[width=0.7\textwidth]{images/pituba}
 	\caption{...}
 \end{figure}
+
+Texto...
+
+Texto...
+
+Texto...
+
+Texto...
 
 Texto...
