@@ -373,7 +373,7 @@
 %%% Section titles
 %%%
 
-%% \newcommand{\autolabel}[1]{\label{sec:#1}#1}
+\newcommand{\autolabel}[1]{\label{sec:#1}#1}
 
 \titleformat{name=\chapter}			%% the command
    [display]					%% the shape
@@ -382,7 +382,7 @@
    {\singlespacing\large\arial\bfseries}	%% the format (whole title)
    {\thechapter}				%% the label
    {0pt}					%% label title sep (space)
-   {} %% {\autolabel}					%% before (code)
+   {\autolabel}					%% before (code)
    {}						%% after (code)
 \titlespacing{\chapter}		%% command
    {0pt}			%% left
@@ -395,7 +395,7 @@
    {\penalty -5000\singlespacing\normalsize\arial\bfseries}
    {\thesection}
    {0pt}
-   {} %% {\autolabel}
+   {\autolabel}
    {}
 
 \titleformat{name=\section,numberless}
@@ -411,7 +411,7 @@
    {\penalty -4000\singlespacing\normalsize\arial\bfseries}
    {\thesubsection}
    {0pt}
-   {} %% {\autolabel}
+   {\autolabel}
    {}
 
 \titleformat{name=\subsection,numberless}
@@ -427,7 +427,7 @@
    {\penalty -3000\singlespacing\normalsize\arial\bfseries}
    {\thesubsubsection}
    {0pt}
-   {} %% {\autolabel}
+   {\autolabel}
    {}
 
 \titleformat{name=\subsubsection,numberless}
@@ -435,7 +435,7 @@
    {\penalty -3000\singlespacing\normalsize\arial\bfseries}
    {\thesubsubsection}
    {0pt}
-   {} %% {\autolabel}
+   {\autolabel}
    {}
 
 \titleformat{name=\paragraph}
@@ -674,6 +674,7 @@
 \newcommand{\CDD}[1]{\renewcommand{\puc@CDD}{#1}}
 
 \newcommand{\jurymember}[4]{}
+\newcommand{\jurymemberext}[3]{}
 
 \newcommand{\puc@schoolheadtitle}{%
   \ifthenelse{\boolean{puc@localebr}}%
@@ -865,9 +866,8 @@ Centro Técnico Científico}}
   the requirements for the degree of Doutor em \puc@program.}
 
 \newcommand{\puc@presentedformsc}{Dissertação apresentada como requisito
-  parcial para obtenção do grau de Mestre pelo Programa de
-  Pós--graduação em \puc@program do Departamento de \puc@department do
-  \puc@school da \puc@uni.}
+  parcial para a obtenção do grau de Mestre pelo Programa de
+  Pós--graduação em \puc@program\ da \puc@uni.}
 
 \newcommand{\puc@presentedformscuk}{Thesis presented to the Programa de
   Pós--graduação em \puc@program da \puc@uni in partial fulfillment of
@@ -966,6 +966,9 @@ Centro Técnico Científico}}
   \vspace*{\stretch{1}}%
   \renewcommand{\jurymember}[4]{\ifthenelse{\equal{##1}{}}{}{%
       \puc@rightmargin{\textbf{##2 ##1}\\##3 -- ##4}
+      \vspace*{\stretch{1}}\par}}%
+  \renewcommand{\jurymemberext}[3]{\ifthenelse{\equal{##1}{}}{}{%
+      \puc@rightmargin{\textbf{##2 ##1}\\##3}
       \vspace*{\stretch{1}}\par}}%
   \par%
   \ifthenelse{\equal{\puc@advisorInst}{}}{%
@@ -1196,34 +1199,35 @@ Centro Técnico Científico}}
 %%% tables
 %%%
 
-\newcommand{\puc@figuretext}{Figura}
-\newcommand{\puc@figuretextuk}{Figure}
-
-\newcommand{\puc@tabletext}{Tabela}
-\newcommand{\puc@tabletextuk}{Table}
-
-\renewcommand{\cftfigfont}{%
-  \ifthenelse{\boolean{puc@localebr}}%
-  {\puc@figuretext~}%
-  {\puc@figuretextuk~}}
-
-\renewcommand{\cfttabfont}{%
-  \ifthenelse{\boolean{puc@localebr}}%
-  {\puc@tabletext~}%
-  {\puc@tabletextuk~}}
+%%% Lista de Figuras com "Figura" antes do nº
+%\newcommand{\puc@figuretext}{Figura}
+%\newcommand{\puc@figuretextuk}{Figure}
+%
+%\newcommand{\puc@tabletext}{Tabela}
+%\newcommand{\puc@tabletextuk}{Table}
+%
+%\renewcommand{\cftfigfont}{%
+%  \ifthenelse{\boolean{puc@localebr}}%
+%  {\puc@figuretext~}%
+%  {\puc@figuretextuk~}}
+%
+%\renewcommand{\cfttabfont}{%
+%  \ifthenelse{\boolean{puc@localebr}}%
+%  {\puc@tabletext~}%
+%  {\puc@tabletextuk~}}
 
 \newcommand{\puc@showtables}{%
   \cleardoublepage%
   \puc@setmargins@dedication%
-  \ifthenelse{\boolean{puc@localebr}}{%
+  %\ifthenelse{\boolean{puc@localebr}}{%
     \renewcommand{\contentsname}{Sumário}%
     \renewcommand{\listfigurename}{Lista de figuras}%
     \renewcommand{\listtablename}{Lista de tabelas}%
-  }{%
-    \renewcommand{\contentsname}{Table of contents}%
-    \renewcommand{\listfigurename}{List of figures}%
-    \renewcommand{\listtablename}{List of tables}%
-  }%
+%  }{%
+%    \renewcommand{\contentsname}{Table of contents}%
+%    \renewcommand{\listfigurename}{List of figures}%
+%    \renewcommand{\listtablename}{List of tables}%
+%  }%
   \markboth{\contentsname}{\contentsname}%
   \thispagestyle{empty}%
   \pdfbookmark[0]{\contentsname}{anchor:contents}%
