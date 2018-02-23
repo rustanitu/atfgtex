@@ -173,7 +173,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 \section{Malhas Não Regulares}
 \label{sec:result.irreg}
 
-	Para visualizar volumes com malhas não regulares foi preciso utilizar um outro visualizador. Escolheu-se então a técnica proposta por \textit{Miranda e Celes}~\cite{miranda} em \quote{Accurate volume rendering of unstructed hexahedral meshes}. Como esse método não faz uso de um modelo de iluminação, nota-se uma grande diferença na visualização dos volumes, se comparados com os anteriores. Contudo, isso não prejudica a análise dos resultados.
+	Para visualizar volumes com malhas não regulares foi preciso utilizar um outro visualizador. Escolheu-se então a técnica proposta por \textit{Miranda e Celes}~\cite{miranda} em \quote{Accurate volume rendering of unstructed hexahedral meshes}. Então, cinco volumes sintéticos no formato de um ortoedro são analisados. Esses volumes foram obtidos a partir de dois modelos de reservatório, chamados A e B, variando-se o time step da simulação ou a propriedade mapeada.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
@@ -181,11 +181,11 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	\subfigure[]{
 		\frame{\includegraphics[width=0.25\textwidth]{images/r_vrep_so_slice}}
 	}
-	\caption{Fatia de um reservatório de petróleo cúbico.}
+	\caption{Fatia do volume de SO do modelo A.}
 	\label{fig:box_slice}
 \end{figure}
 
-	A figura acima mostra uma fatia da simulação de um reservatório de petróleo cúbico com um poço injetor no canto superior esquerdo e um produtor no canto diagonal oposto. A propriedade simulada é a saturação de óleo.
+	A figura acima mostra uma fatia do volume de saturação de óleo (SO) do modelo A, que possui um poço injetor no canto superior esquerdo e um produtor no canto diagonal oposto.
 
 \begin{figure}[h]
 	\centering
@@ -200,7 +200,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 		\includegraphics[width=0.35\textwidth]{images/r_vrep_so_mine}
 		\includegraphics[width=0.65\textwidth]{images/r_vrep_so_mine_ft}			\label{fig:r_vrep_mine}
 	}
-	\caption{Visualização e função de transferência do reservatório de petróleo cúbico.}
+	\caption{FT e visualização do volume de SO do modelo~A.}
 	\label{fig:r_vrep}
 \end{figure}
 
@@ -209,8 +209,8 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 	\centering
-	\frame{\includegraphics[width=0.25\textwidth]{images/r_vrep_so_2_slice_}}
-	\caption{Fatia de um reservatório de petróleo cúbico.}
+	\frame{\includegraphics[width=0.3\textwidth]{images/r_vrep_so_2_slice_}}
+	\caption{Fatia do volume de SO do modelo A.}
 	\label{fig:r_vrep_2_slice}
 \end{figure}
 
@@ -229,7 +229,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 		\includegraphics[width=0.35\textwidth]{images/r_vrep_so_2_mine}
 		\includegraphics[width=0.65\textwidth]{images/r_vrep_so_2_mine_ft}			\label{fig:r_vrep_2_mine}
 	}
-	\caption{Visualização e função de transferência do reservatório de petróleo cúbico.}
+	\caption{FT e visualização do volume de SO do modelo~A.}
 	\label{fig:r_vrep_2}
 \end{figure}
 
@@ -239,10 +239,12 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 \begin{figure}[h]
 	\centering
 	\frame{\includegraphics[width=0.5\textwidth]{images/r_box_so_slice}}
-	\caption{Fatia do volume \quote{Caixa de sapato} com a propriedade saturação de óleo.}
+	\caption{Fatia do volume de SO do modelo B.}
 \end{figure}
 
-	A figura acima mostra uma fatia da simulação de um reservatório de petróleo retangular, chamado \quote{Caixa de sapato}, com um poço injetor à esquerda e um produtor à direita. A propriedade simulada é a saturação de óleo. No lado esquerdo da fatia é possível perceber um cone, com sua base voltada para baixo. A parte interna do cone é preta e faz fronteira com seu contorno que possui uma tonalidade de cinza claro. Por sua vez, este contorno faz fronteira com o resto do volume em um tom de cinza mais escuro.
+	A figura acima mostra uma fatia do volume de saturação de óleo do modelo B, que possui um poço injetor à esquerda e um produtor à direita. No lado esquerdo da fatia é possível perceber um cone, com sua base voltada para baixo. A parte interna do cone é preta e faz fronteira com seu contorno que possui uma tonalidade de cinza claro. Por sua vez, este contorno faz fronteira com o resto do volume em um tom de cinza mais escuro.
+	
+	Comparando a Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_kd} com a Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine} observa-se que o método de \textit{Kindlmann e Durkin} detectou o cone mais externo, enquanto o método proposto por esta dissertação detectou o cone mais interno. Ambas as visualizações auxiliam o usuário a compreender melhor o fluxo de óleo no reservatório. Porém, conceitualmente, o mais correto é o cone interno (detectado por esta dissertação em azul na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine_ft}) por ser a fronteira mais forte, isto é, a que possui variação mais abrupta.
 
 \begin{figure}[h]
 	\centering
@@ -264,11 +266,9 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	{
 		\includegraphics[width=0.7\textwidth]{images/r_box_so_mine}	\label{fig:r_box_so_mine}
 	}
-	\caption{Visualização e função de transferência do volume \quote{Caixa de sapato} com a propriedade saturação de óleo.}
+	\caption{FT e visualização do volume de SO do modelo~B.}
 	\label{fig:r_box_so}
 \end{figure}
-	
-	Comparando a Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_kd} com a Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine} observa-se que o método de \textit{Kindlmann e Durkin} detectou o cone mais externo, enquanto o método proposto por esta dissertação detectou o cone mais interno. Ambas as visualizações auxiliam o usuário a compreender melhor o fluxo de óleo no reservatório. Porém, conceitualmente, o mais correto é o cone interno (detectado por esta dissertação em azul na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine_ft}) por ser a fronteira mais forte, isto é, a que possui variação mais abrupta.
 	
 	Como esse volume é pequeno, falta resolução em sua fatia para discutir qual das fronteiras amarelas é a mais adequada. Contudo, pode-se ressaltar que ambos os métodos destacam fronteiras mais fracas que podem ser identificadas na fatia do volume, são elas: isosuperfície verde na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_kd} e isosuperfície laranja na Figura~\ref{fig:r_box_so}~\ref{fig:r_box_so_mine}.
 
@@ -276,10 +276,10 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 \begin{figure}[h]
 	\centering
 	\frame{\includegraphics[width=0.5\textwidth]{images/r_box_sg_slice}}
-	\caption{Fatia do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
+	\caption{Fatia do volume de SG do modelo B.}
 \end{figure}
 
-	A figura acima mostra uma fatia do volume \quote{Caixa de sapato} com a propriedade saturação de gás. Nela, nota-se que a fronteira principal se encontra entre o preto e o cinza claro, criando um formato de escada.
+	A figura acima mostra uma fatia do volume de saturação de gás (SG) do modelo B. Nela, nota-se que a fronteira principal se encontra entre o preto e o cinza claro.
 
 \begin{figure}[h]
 	\centering
@@ -292,7 +292,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	{
 		\includegraphics[width=0.8\textwidth]{images/r_box_sg_mine}	\label{fig:r_box_sg_mine}
 	}
-	\caption{Visualização do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
+	\caption{Visualização do volume de SG do modelo~B.}
 	\label{fig:r_box_sg}
 \end{figure}
 
@@ -307,7 +307,7 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 	{
 		\includegraphics[width=0.7\textwidth]{images/r_box_sg_mine_ft}			\label{fig:r_box_sg_mine_ft}
 	}
-	\caption{Funções de transferência do volume \quote{Caixa de sapato} com a propriedade saturação de gás.}
+	\caption{Funções de transferência do volume de SG do modelo~B.}
 	\label{fig:r_box_sg_ft}
 \end{figure}
 
@@ -317,53 +317,47 @@ A Figura~\ref{fig:r_engine_slice} exibe uma fatia do volume \quote{Engine}, onde
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	O volume a seguir...
+	O volume a seguir ilustra bem a diferença entre os dois métodos, pois utilizando \textit{Kindlmann e Durkin} obtém-se apenas a fronteira mais forte, enquanto ao utilizar o método proposto nesta dissertação obtém-se algumas isosuperfícies paralelas à fronteira mais forte. Em compensação, o método proposto destaca também fronteiras mais fracas que podem ser claramente observadas a partir da fatia do volume, exibida na Figura~\ref{fig:r_box_sw_slice}. O volume em questão descreve a saturação de água (SW) do modelo B. Como pode ser observado, pelo menos três fronteiras são esperadas: preto-cinza claro, branco-cinza claro e cinza claro-cinza escuro. No entanto, como mostra a Figura~\ref{fig:r_box_sw}, apenas o método proposto por esta dissertação realça todas as fronteiras.
 	
 \begin{figure}[h]
 	\centering
-	\frame{\includegraphics[width=0.5\textwidth]{images/r_box_sw_slice}}
-	\caption{Fatia do volume \quote{Caixa de sapato} com a propriedade saturação de água.}
+	\frame{\includegraphics[width=0.35\textwidth]{images/r_box_sw_slice}}
+	\caption{Fatia do volume de SW do modelo B.}
+	\label{fig:r_box_sw_slice}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-	\subfigure[Função de transferência pelo método de \textit{Kindlmann e Durkin}.]
-	{
-		\includegraphics[width=0.7\textwidth]{images/r_box_sw_kd_ft}
-		\label{fig:r_box_sw_kd_ft}
-	}
-	\subfigure[Visualização pela FT do método de \textit{Kindlmann e Durkin}.]
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
 	{
 		\includegraphics[width=0.7\textwidth]{images/r_box_sw_kd}
 		\label{fig:r_box_sw_kd}
 	}
-	\subfigure[Função de transferência pelo método proposto.]
+	\subfigure[Método de \textit{Kindlmann e Durkin}.]
 	{
-		\includegraphics[width=0.7\textwidth]{images/r_box_sw_mine_ft}			\label{fig:r_box_sw_mine_ft}
+		\includegraphics[width=0.7\textwidth]{images/r_box_sw_kd_ft}
+		\label{fig:r_box_sw_kd_ft}
 	}
-	\subfigure[Visualização pela FT do método proposto.]
+	\subfigure[Método proposto.]
 	{
 		\includegraphics[width=0.7\textwidth]{images/r_box_sw_mine}	\label{fig:r_box_sw_mine}
 	}
-	\caption{Visualização e função de transferência do volume \quote{Caixa de sapato} com a propriedade saturação de água.}
+	\subfigure[Método proposto.]
+	{
+		\includegraphics[width=0.7\textwidth]{images/r_box_sw_mine_ft}			\label{fig:r_box_sw_mine_ft}
+	}
+	\caption{Visualização e FT do volume de SW do modelo~B.}
 	\label{fig:r_box_sw}
 \end{figure}
 
-Texto...
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pituba %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	A figura abaixo mostra um momento da simulação da saturação de óleo de um modelo real de reservatório de petróleo, o Pituba. Essa visualização, feita pelo Geresim, incorpora uma função de transferência gerada automaticamente pelo método proposto nesta dissertação. Para este caso, não gerou-se uma função de opacidade mas uma função de peso, isto é, o valor da FT gerada multiplica cada coordenada rgb da FT de cores do Geresim. Assim, as fronteiras são realçadas através de cores mais claras, enquanto todo o resto do modelo possui tonalidades mais escuras.
+	
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/pituba}
-	\caption{...}
+	\includegraphics[width=1\textwidth]{images/pituba}
+	\caption{Visualização do modelo Pituba através do Geresim, com uma FT gerada automaticamente pelo método descrito nesta dissertação.}
 \end{figure}
-
-Texto...
-
-Texto...
-
-Texto...
-
-Texto...
-
-Texto...
+	
+	Nesta figura observa-se fronteiras (de cor laranja) circundando os poços de injeção (em azul). Essas regiões são consistentes com as fronteiras de avanço esperadas, já que é a partir dos poços de injeção de água que se formaram as interfaces entre a água e o óleo e, portanto, obtém a maior variação na saturação de óleo. Sendo assim, as fronteiras identificadas são bons indícios de onde se encontram as frentes de avanço.

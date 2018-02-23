@@ -63,6 +63,7 @@
 \newboolean{puc@phd}
 \setboolean{puc@phd}{false}
 \DeclareOption{msc}{\setboolean{puc@phd}{false}}
+\DeclareOption{master}{\setboolean{puc@phd}{false}}
 \DeclareOption{phd}{\setboolean{puc@phd}{true}}
 
 % tight or wide page layout
@@ -73,7 +74,7 @@
 
 % hyphenation
 
-\newcommand{\locale}{}
+\renewcommand{\locale}{}
 \newboolean{puc@localebr}
 \setboolean{puc@localebr}{false}
 \newboolean{puc@localeus}
