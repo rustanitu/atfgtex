@@ -1222,7 +1222,7 @@ Centro Técnico Científico}}
   %\ifthenelse{\boolean{puc@localebr}}{%
     \renewcommand{\contentsname}{Sumário}%
     \renewcommand{\listfigurename}{Lista de figuras}%
-    \renewcommand{\listtablename}{Lista de tabelas}%
+    %\renewcommand{\listtablename}{Lista de tabelas}%
 %  }{%
 %    \renewcommand{\contentsname}{Table of contents}%
 %    \renewcommand{\listfigurename}{List of figures}%
@@ -1240,13 +1240,13 @@ Centro Técnico Científico}}
     \thispagestyle{empty}%
     \listoffigures%
   }{}%
-  \ifthenelse{\equal{\puc@tablesmode}{tab} \or \equal{\puc@tablesmode}{figtab}}%
-  {%
-    \clearpage%
-    \markboth{\listtablename}{\listtablename}%
-    \thispagestyle{empty}%
-    \listoftables%
-  }{}%
+  %\ifthenelse{\equal{\puc@tablesmode}{tab} \or \equal{\puc@tablesmode}{figtab}}%
+  %{%
+  %  \clearpage%
+  %  \markboth{\listtablename}{\listtablename}%
+  %  \thispagestyle{empty}%
+  %  \listoftables%
+  %}{}%
 }
 
 
