@@ -1,0 +1,12 @@
+Capa:
+ - Título: 40
+ - Nome: 20
+ - Data: 14
+ 
+Corpo:
+ - Título: 32
+ - Conteúdo: 20
+ - Legenda: 14
+ 
+Seção:
+ - Título: 40
