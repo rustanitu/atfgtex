@@ -357,8 +357,8 @@
 %%% subfigures
 %%%
 
-\renewcommand{\thesubfigure}{\thefigure (\alph{subfigure})}
-\renewcommand{\@thesubfigure}{\thesubfigure:\space}
+%\renewcommand{\thesubfigure}{\thefigure (\alph{subfigure})}
+%\renewcommand{\@thesubfigure}{\thesubfigure:\space}
 \renewcommand{\p@subfigure}{}
 
 
