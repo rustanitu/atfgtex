@@ -2,7 +2,7 @@
 
 \chapter{Geração Baseada em Derivadas Médias}
 \label{ch:my}
-	Este capítulo descreve o método automático para gerar funções de transferência, proposto nesta dissertação, utilizando derivadas médias baseadas no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}.
+	Este capítulo descreve o método semiautomático para gerar funções de transferência, proposto nesta dissertação, utilizando derivadas médias baseadas no trabalho de \textit{Kindlmann e Durkin}~\cite{gordon}.
 
 \section{Detecção de Fronteiras}
 \label{sec:my.deriv}
@@ -160,7 +160,7 @@ t = f'''(x) = -\frac{(x^{2} - \sigma^{2})(v_{max} - v_{min})}{\sigma^{5}\sqrt{2\
 \subsection{Cálculo das Derivadas}
 	Para calcular as derivadas é preciso lembrar que o volume não possui uma função analítica $ f(x, y, z) $ que o defina. Ele contém apenas um mapeamento de uma posição $ (x, y, z) $ para um valor escalar $ v $. Portanto, as derivadas de cada ponto do volume precisam ser calculadas com base na sua vizinhança e esse cálculo pode variar de acordo com o tipo do volume de dados.
 	
-	Se um volume pode ser representado por uma malha regular, então ele é espacialmente delimitado por uma caixa retangular, preenchida por células cúbicas alinhadas aos eixos da caixa, onde cada célula representa um dado do volume. Este é o caso dos volumes resultantes da maioria dos métodos de aquisição por escaneamento de uma estrutura fisiológica real, como os exames médicos. Há ainda volumes cujos dados são topologicamente estruturados, mas que não podem ser representados por uma grade regular, pois a direção da disposição dos dados varia ao longo do volume. Então, utiliza-se uma malha não regular, composta por células hexaédricos irregulares, como é o caso dos volumes resultantes das simulações de reservatórios de petróleo utilizados nesta dissertação.
+	Se um volume pode ser representado por uma malha regular, então ele é espacialmente delimitado por uma caixa retangular, preenchida por células cúbicas alinhadas aos eixos da caixa, onde cada célula representa um dado do volume. Este é o caso dos volumes resultantes da maioria dos métodos de aquisição por escaneamento de uma estrutura fisiológica real, como os exames médicos. Há ainda volumes cujos dados são topologicamente estruturados, mas que não podem ser representados por uma grade regular, pois a direção da disposição dos dados varia ao longo do volume. Então, utiliza-se uma malha não regular, composta por células hexaédricas irregulares, como é o caso dos volumes resultantes das simulações de reservatórios de petróleo utilizados nesta dissertação.
 	
 	A diferença entre esses dois tipos de representatividade pode ser vista na Figura~\ref{fig:meshes}, onde uma versão 2D de cada malha é ilustrada. O modo de se calcular as derivadas para cada um desses casos é discutido nas subseções seguintes.
 	

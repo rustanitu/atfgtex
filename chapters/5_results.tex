@@ -23,11 +23,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SPHERES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	A Figura~\ref{fig:r_sphere_slice} exibe uma fatia de um volume sintético com ruído que possui cinco fronteiras. Observando as cores que representam os diferentes materiais desse volume, é possível perceber que há sobreposição no intervalo de valores das fronteiras.
 	
-	Como pode ser observado na Figura~\ref{fig:r_sphere_kd}~\ref{fig:r_sphere_kd_ft}, o método de \textit{Kindlmann e Durkin} identifica duas fronteiras. Já o método proposto nesta dissertação identifica quatro, como mostra a Figura~\ref{fig:r_sphere_mine}~\ref{fig:r_sphere_mine_ft}. As diferentes superfícies de mesma cor, indicam quais isosuperfícies foram realçadas devido à sobreposição no intervalo de valores das fronteiras. Por isso que é possível contar cinco esferas nas Figuras~\ref{fig:r_sphere_kd}~\ref{fig:r_sphere_kd_vis}~e~\ref{fig:r_sphere_mine}~\ref{fig:r_sphere_mine_vis}, pois o valor de uma das fronteiras destacadas está dentro do intervalo das fronteiras não destacadas.
+	Como pode ser observado na Figura~\ref{fig:r_sphere_kd}~\ref{fig:r_sphere_kd_ft}, o método de \textit{Kindlmann e Durkin} identifica apenas duas fronteiras. Já o método proposto nesta dissertação identifica quatro, como mostra a Figura~\ref{fig:r_sphere_mine}~\ref{fig:r_sphere_mine_ft}. As diferentes superfícies de mesma cor indicam quais isosuperfícies foram realçadas devido à sobreposição no intervalo de valores das fronteiras. Por isso que é possível contar cinco esferas nas Figuras~\ref{fig:r_sphere_kd}~\ref{fig:r_sphere_kd_vis}~e~\ref{fig:r_sphere_mine}~\ref{fig:r_sphere_mine_vis}, pois o valor de uma das fronteiras destacadas está dentro do intervalo das fronteiras não destacadas.
 	
 	Esse é o motivo pelo qual a Figura~\ref{fig:r_sphere_mine}~\ref{fig:r_sphere_mine_vis} apresenta de forma mais nítida as interfaces entre os diferentes materiais do volume. Pois o método proposto foi capaz de identificar melhor as fronteiras. Mesmo com as sobreposições nos intervalos de valores das fronteiras, o método proposto deixou de detectar apenas uma fronteira. Já o método de \textit{Kindlmann e Durkin} não detectou três.
 	
-	Além disso, a fronteira \quote{mais importante}, aquela que apresenta maior transição de valores, também não foi identificada pelo método de \textit{Kindlmann e Durkin}, mas foi corretamente detectada pelo método aqui proposto.
+	Além disso, a fronteira \quote{mais importante}, aquela que apresenta maior variação de valores, também não foi identificada pelo método de \textit{Kindlmann e Durkin}, mas foi detectada pelo método aqui proposto, com maior intensidade.
 	
 \begin{figure}[h]
 	\centering
@@ -138,7 +138,7 @@
 \newpage
 	O volume a seguir é uma tomografia computadorizada de uma cabeça com uma estrutura de suporte na parte de trás. A Figura~\ref{fig:r_cthead} mostra que os dois métodos realçam a cabeça, o crânio e a estrutura de suporte. O segundo pico das duas funções de transferência são coincidentes e equivalem ao crânio, em amarelo. No entanto, o primeiro pico dos dois métodos não coincidem um com o outro.
 	
-	O método de \textit{Kindlmann~e~Durkin} apresenta um deslocamento para a esquerda, centralizando esse pico onde a segunda derivada é igual a zero. Devido à posição desse pico, alguns voxels do volume são realçados juntamente com a cabeça e sua estrutura de suporte, permitindo a interpretação de que todos compõem uma só isosuperfície. O mesmo não ocorre com o método proposto por esta dissertação, que realça a cabeça corretamente ao mesmo tempo que mostra menos a estrutura presente na sua parte de trás, permitindo entendê-las como isosuperfícies diferentes.
+	O método de \textit{Kindlmann~e~Durkin} apresenta um deslocamento para a esquerda, centralizando esse pico onde a segunda derivada é igual a zero. Devido à posição desse pico, alguns voxels do volume são realçados juntamente com a cabeça e sua estrutura de suporte, induzindo a uma interpretação de que todos compõem uma só isosuperfície. O mesmo não ocorre com o método proposto por esta dissertação, que realça a cabeça corretamente ao mesmo tempo que mostra menos a estrutura presente na sua parte de trás, permitindo entendê-las como isosuperfícies diferentes.
 
 \begin{figure}[h]
 	\centering
@@ -157,7 +157,7 @@
 	\label{fig:r_cthead}
 \end{figure}
 
-	A terceira e a quarta fronteira da Figura~\ref{fig:r_cthead}~\ref{fig:r_cthead_mine} realçam regiões de maior intensidades. A terceira é interna ao crânio e a quarta aos dentes. Ambas são vistas separadamente na Figura~\ref{fig:r_cthead_iso2}, respectivamente em laranja e vermelho.
+	A terceira e a quarta fronteiras da Figura~\ref{fig:r_cthead}~\ref{fig:r_cthead_mine} realçam regiões de maior intensidades. A terceira é interna ao crânio e a quarta aos dentes. Ambas são vistas separadamente na Figura~\ref{fig:r_cthead_iso2}, respectivamente em laranja e vermelho.
 	
 \begin{figure}[h]
 	\centering
@@ -185,11 +185,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Skull %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	As duas últimas fronteiras do volume \quote{CT Head}, identificadas pelo método proposto, são exemplos de fronteiras que não são indicadas pelo máximo local na primeira derivada média. No entanto, essas fronteiras conseguem ser identificadas a partir da terceira, uma vez que seus extremos locais são menos alterados pela média.	A Figura~\ref{fig:r_skull} ilustra melhor essa situação, através do volume \quote{Skull}. Esse volume consiste em apenas um crânio, mas com regiões que contém a mesma intensidade e aparentam ser ruído obtido durante a aquisição dos dados.
 	
-	Na Figura~\ref{fig:r_skull}, observa-se que o método proposto por esta dissertação realça o crânio com uma quantidade bem menor de ruído, em comparação com o resultado obtido através do método de \textit{Kindlmann e Durkin}. Porém, o mesmo resultado não teria sido obtido se a métrica do método proposto utilizasse máximos locais na primeira derivada média.
+	Na Figura~\ref{fig:r_skull}, observa-se que o método proposto por esta dissertação realça o crânio com uma quantidade bem menor de ruído, em comparação com o resultado obtido através do método de \textit{Kindlmann e Durkin}. Porém, o mesmo resultado não teria sido obtido se a métrica do método proposto utilizasse máximos locais na primeira derivada média, pois não ocorre um máximo local próximo à primeira fronteira.
 	
 	Na Figura~\ref{fig:r_skull}~\ref{fig:r_skull_kd} é possível perceber que, próximo à fronteira destacada, encontra-se uma curva acentuada. Este ponto, que pode ser confundido com um máximo local, armazena a maior primeira derivada média da região do crânio. No entanto, esse volume possui uma pequena região de intensidade muito maior que a do crânio, gerando fronteiras mais abruptas e, portanto, de maior derivada.
 	
-	Essas fronteiras, (que não foram detectadas pelo método de \textit{Kindlmann e Durkin}, apenas pelo método proposto) se sobrepõem com a do crânio. Isso causa a perda do máximo local da primeira derivada média. Mas o mesmo não ocorre com a terceira derivada, o que permitiu que o método proposto destacasse corretamente o crânio.
+	Essas fronteiras (que não foram detectadas pelo método de \textit{Kindlmann e Durkin}, apenas pelo método proposto) se sobrepõem com a do crânio. Isso causa a perda do máximo local da primeira derivada média. O mesmo não ocorre com a terceira derivada, neste caso, o que permitiu que o método proposto destacasse corretamente o crânio. Isso exemplifica que em alguns casos a terceira derivada é menos sensível à média quando há sobreposição no intervalo de valores das fronteiras.
 	
 \begin{figure}[h]
 	\centering
@@ -210,9 +210,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tooth %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	O volume seguinte é um dente envolvido por um material que causa a forma cilíndrica revelada nas visualizações da Figura~\ref{fig:r_tooth}. Como pode ser observado, tanto as funções de transferência como suas respectivas visualizações são semelhantes em ambos os métodos. Percebe-se apenas um ligeiro deslocamento da última fronteira obtida pelo método de \textit{Kindlmann~e~Durkin}, em relação à fronteira detectada  pelo método aqui proposto.
-	
-	Mais uma vez, não é possível avaliar apenas pela fatia do volume, qual fronteira é a mais correta. No entanto, vale ressaltar que o resultado exibido na Figura~\ref{fig:r_tooth}~\ref{fig:r_tooth_kd}, foi obtido após se encontrar o valor apropriado para o $ g_{thresh} $. Já o resultado exibido na Figura~\ref{fig:r_tooth}~\ref{fig:r_tooth_mine} não exigiu manipulação alguma da função de transferência.
+	O volume seguinte é um dente envolvido por um material que causa a forma cilíndrica revelada nas visualizações da Figura~\ref{fig:r_tooth}. Como pode ser observado, tanto as funções de transferência como suas respectivas visualizações são semelhantes em ambos os métodos. Percebe-se apenas um ligeiro deslocamento da última fronteira obtida pelo método de \textit{Kindlmann~e~Durkin}, em relação à fronteira detectada  pelo método aqui proposto. Mais uma vez, não é possível avaliar apenas pela fatia do volume, qual fronteira é a mais correta. No entanto, vale ressaltar que o resultado exibido na Figura~\ref{fig:r_tooth}~\ref{fig:r_tooth_kd}, foi obtido após se encontrar o valor apropriado para o $ g_{thresh} $. Já o resultado exibido na Figura~\ref{fig:r_tooth}~\ref{fig:r_tooth_mine} não exigiu manipulação alguma da função de transferência.
 	
 \begin{figure}[h]
 	\centering
@@ -231,7 +229,7 @@
 	\label{fig:r_tooth}
 \end{figure}
 
-	A Figura~\ref{fig:r_toothx_kd} mostra a visualização do dente, utilizando a FT gerada pelo método de \textit{Kindlmann e Durkin}, com $ g_{thresh} = 0 $ e com a metade do valor utilizado Na Figura~\ref{fig:r_tooth}~\ref{fig:r_tooth_kd}.
+	A Figura~\ref{fig:r_toothx_kd} mostra a visualização do dente, utilizando a FT gerada pelo método de \textit{Kindlmann e Durkin}, com $ g_{thresh} = 0 $ e com a metade do valor utilizado na Figura~\ref{fig:r_tooth}~\ref{fig:r_tooth_kd}.
 
 \begin{figure}[h]
 	\centering
@@ -326,13 +324,13 @@
 %	\label{fig:r_m_carp_exo}
 %\end{figure}
 \newpage
-	O volume \quote{Knee} apresenta uma peculiaridade. Ele contém duas fronteiras: a externa, que aparenta ser a pele, e a interna, que é estrutura óssea do joelho. A fronteira interna abrange um grande intervalo de valores. Então, para poder visualizá-la separadamente, foi preciso desligar a fronteira externa e aumentar consideravelmente a largura da função de transferência. Essa tarefa seria mais complicada em um método onde as fronteiras não são associadas a isovalores, pois ao aumentar muito a largura da função de transferência, as fronteiras se uniriam. Isso tornaria mais difícil sua separação, para visualizar apenas a estrutura óssea.
+	O volume \quote{Knee} apresenta uma peculiaridade. Ele contém duas fronteiras: a externa, que aparenta ser a pele, e a interna, que é estrutura óssea do joelho. A fronteira interna abrange um grande intervalo de valores. Então, para poder visualizá-la separadamente, foi preciso desligar a fronteira externa e aumentar consideravelmente a largura da função de transferência.
 
 \begin{figure}[h]
 	\centering
 	\subfigure[]
 	{
-		\includegraphics[width=0.7\textwidth]{images/r_m_knee_ft}
+		\includegraphics[width=0.8\textwidth]{images/r_m_knee_ft}
 	}
 	\subfigure[]
 	{
@@ -345,7 +343,7 @@
 \section{Malhas Não Regulares}
 \label{sec:result.irreg}
 
-	Nesta seção, são exibidos os resultados para dois modelos simples (A e B) de reservatório e um modelo real (Pituba). Para visualizar esses volumes com malhas não regulares, escolheu-se a técnica proposta por \textit{Miranda e Celes}~\cite{miranda}.
+	Nesta seção, são exibidos os resultados para dois modelos simples (A e B) de reservatório de petróleo e um modelo real (Pituba). Para visualizar esses volumes com malhas não regulares, escolheu-se a técnica proposta por \textit{Miranda e Celes}~\cite{miranda}.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VREP SO 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	A Figura~\ref{fig:box_slice} mostra a simulação da saturação de óleo (SO) para o modelo de reservatório A. As fronteiras fortes podem ser identificadas por regiões próximas de coloração diferente, onde suas respectivas cores não são vizinhas na escala de cores. Quanto maior a distância na escala de cores, mais forte é a fronteira. Portanto, percebe-se que este modelo possui uma fronteira forte entre o amarelo e o vermelho.\\
@@ -359,7 +357,7 @@
 
 	A Figura~\ref{fig:r_vrep} mostra que os dois métodos identificam a fronteira mais forte. Além disso, ambos destacam também uma fronteira em azul, próximo ao posso injetor. Contudo, o método descrito por esta dissertação identifica também uma terceira fronteira, que representa a fronteira entre a região vermelha e a laranja, na Figura~\ref{fig:box_slice}. Por conta desta última fronteira, uma outra isosuperfície (em vermelho) é realçada próxima à fronteira mais forte. O mesmo ocorre com o método de \textit{Kindlmann e Durkin}, que realça uma isosuperfície pequena (semelhante a um traço) no canto inferior direito da visualização da Figura~\ref{fig:r_vrep}~\ref{fig:r_vrep_kd}
 	
-	Para os reservatórios é ainda mais difícil avaliar os resultados, uma vez que não se conhece as estruturas internas, como nos volumes médicos e não há \quote{ground truth}. No entanto, pode se dizer que o método proposto apresenta um resultado melhor, pois ele destaca as mesmas fronteiras que o método de \textit{Kindlmann e Durkin} e mais uma, permitindo ao usuário uma maior percepção da estrutura global do reservatório. Minimamente, indicando para o usuário onde fazer buscas.
+	Para os reservatórios é ainda mais difícil avaliar os resultados, uma vez que não se conhece as estruturas internas, como nos volumes médicos e não há \quote{ground truth}. No entanto, acredita-se que o método proposto apresenta um resultado mais adequado, pois ele destaca as mesmas fronteiras que o método de \textit{Kindlmann e Durkin} e mais uma, permitindo ao usuário uma maior percepção da estrutura global do reservatório. Minimamente, indicando para o usuário onde fazer buscas.
 
 \begin{figure}[h]
 	\centering
@@ -414,7 +412,7 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOX SO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-	A Figura~\ref{fig:r_box_so_slice} mostra a simulação da saturação de óleo para o modelo de reservatório B. Comparando-a com as visualizações das Figuras~\ref{fig:r_box_so_kd}~e~\ref{fig:r_box_so_mine}, nota-se que as isosuperfícies realçadas pelos dois métodos, são interfaces entre regiões de SO distintas. As fronteiras destacadas são diferentes e não se pode afirmar quais estão certas ou erradas. Contudo, mais uma vez o método proposto destaca uma fronteira a mais que o método de \textit{Kindlmann e Durkin}.
+	A Figura~\ref{fig:r_box_so_slice} mostra a simulação da saturação de óleo para o modelo de reservatório B. Comparando-a com as visualizações das Figuras~\ref{fig:r_box_so_kd}~e~\ref{fig:r_box_so_mine}, nota-se que as isosuperfícies realçadas pelos dois métodos, são interfaces entre regiões de SO distintas. As fronteiras destacadas são diferentes e não se pode afirmar quais estão certas ou erradas. Contudo, mais uma vez, o método proposto destaca fronteiras nas regiões onde se observa valores elevados do gradiente.
 
 \begin{figure}[h]
 	\centering
