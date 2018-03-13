@@ -1,0 +1,16 @@
+Slide 1:
+Boa tarde a todos os presentes. Obrigado pela presença.
+Obrigado aos membros da banca, por aceitarem o nosso convite.
+
+Meu nome é Rustam, orientando do professor Waldemar, e hoje vou apresentar pra vocês minha dissertação de mestrado intitulada "Geração Semiautomática de Função de Transferência para Realce de Fronteiras Baseada em Derivadas Médias".
+
+Slide 3:
+A visualização volumétrica é a área da computação gráfica caracterizada pela visualização de campos escalares tridimensionais, como os resultantes dos exames médicos de ressonância magnética e tomografia computadorizada a simulações físicas, como simulação de reservatório de petróleo e análise de fraturas em materiais.
+
+Parte essencial da visualização volumétrica é a função de transferência: um mapeamento entre os voxels do volume e propriedades óticas como cor e opacidade. Basicamente é a FT que diz como cada elemento do volume deve ser visualizado.
+
+Aqui temos um exemplo de campo escalar: uma fatia de uma tomografia computadorizada. E duas visualizações a partir de funções de transferência diferentes.
+
+Slide 4:
+No entanto, encontrar FTs manualmente é uma tarefa trabalhosa que exige conhecimento sobre os dados analisados, ajuda de interface e tentativa e erro.
+Em 1998 Kindlmann e Durkin mostraram como obter automaticamente FTs para realce de fronteiras.
