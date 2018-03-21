@@ -47,13 +47,14 @@
 	month={Nov},
 }
 
-@article{park,
+@inproceedings{park,
 	title = {Multi-Dimensional Transfer Function Design for Scientific Visualization},
 	url = {https://www.cse.iitb.ac.in/~sharat/icvgip.org/icvgip2004/proceedings/cg2_299.pdf},
-	pages = {6},
+	pages = {290--295},
 	author = {Park, Sangmin and Bajaj, Chandrajit},
-	date = {2004},
+	year = {2004},
 	file = {Multi-Dimensional Transfer Function Design for Scientific Visualization.pdf:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\EHTNGN9T\\Multi-Dimensional Transfer Function Design for Scientific Visualization.pdf:application/pdf},
+	booktitle = {Proceedings of the Fourth Indian Conference on Computer Vision, Graphics \& Image Processing (ICVGIP)},
 }
 
 @inproceedings{lumema,
@@ -82,9 +83,10 @@
 	abstract = {A crucial step in volume rendering is the design of transfer functions that highlights those aspects of the volume data that are of interest to the user. For many applications, boundaries carry most of the relevant information. Reliable detection of boundaries is often hampered by limitations of the imaging process, such as blurring and noise. We present a method to identify the materials that form the boundaries. These materials are then used in a new domain that facilitates interactive and semiautomatic design of appropriate transfer functions. We also show how the obtained boundary information can be used in region-growing-based segmentation.},
 	pages = {208--218},
 	number = {2},
-	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	journal = {{IEEE} Transactions on Visualization and Computer Graphics},
 	author = {Sereda, P. and Bartroli, A. V. and Serlie, I. W. O. and Gerritsen, F. A.},
-	date = {2006-03},
+	year = {2006},
+	month = {Mar},
 	keywords = {Algorithms, boundary detection, Computed tomography, Computer graphics, Computer Simulation, Data Interpretation, Statistical, data visualisation, Data visualization, direct volume rendering, Histograms, Image Enhancement, Image Interpretation, Computer-Assisted, Image reconstruction, image segmentation, Imaging, Three-Dimensional, Information Storage and Retrieval, interactive design, {LH} histogram, Medical diagnostic imaging, Models, Statistical, Multidimensional systems, multidimensional transfer functions, Numerical Analysis, Computer-Assisted, Optical imaging, region growing., Rendering (computer graphics), semiautomatic design, Shape, Signal Processing, Computer-Assisted, Transfer function, transfer functions, User-Computer Interface, Volume Rendering, volume visualization},
 	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\U3SE4KNT\\1580455.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\QMXZW9HU\\Sereda et al. - 2006 - Visualization of boundaries in volumetric data set.pdf:application/pdf}
 }
@@ -111,24 +113,25 @@
 	abstract = {Most direct volume renderings produced today employ one-dimensional transfer functions which assign color and opacity to the volume based solely on the single scalar quantity which comprises the data set. Though they have not received widespread attention, multidimensional transfer functions are a very effective way to extract materials and their boundaries for both scalar and multivariate data. However, identifying good transfer functions is difficult enough in one dimension, let alone two or three dimensions. This paper demonstrates an important class of three-dimensional transfer functions for scalar data, and describes the application of multidimensional transfer functions to multivariate data. We present a set of direct manipulation widgets that make specifying such transfer functions intuitive and convenient. We also describe how to use modern graphics hardware to both interactively render with multidimensional transfer functions and to provide interactive shadows for volumes. The transfer functions, widgets, and hardware combine to form a powerful system for interactive volume exploration.},
 	pages = {270--285},
 	number = {3},
-	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	journal = {{IEEE} Transactions on Visualization and Computer Graphics},
 	author = {Kniss, Joe and Kindlmann, Gordon and Hansen, Charles},
 	urldate = {2016-03-02},
 	date = {2002-07},
+	year = {2002},
 	keywords = {direct manipulation widgets, direct volume rendering, graphics hardware., multidimensional transfer functions, volume visualization},
 	file = {IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\RZFI9H7I\\Kniss et al. - 2002 - Multidimensional transfer functions for interactiv.pdf:application/pdf}
 }
 
 @inproceedings{zou,
 	title = {A new two-dimensional transfer functions for volume rendering},
-	volume = {8},
 	doi = {10.1109/CISP.2010.5648200},
 	abstract = {Most direct volume rendering produced today still employ one-dimensional (1D) transfer function. The 1D transfer function is very convenient, but their capability for extracting specific material boundaries is not entirely satisfactory. The two-dimensional (2D) transfer functions are known as a very effective way to extract specific material boundaries and convey subtle surface properties, though they are not convenient enough for operators. That makes the 2D transfer functions not been wildly used yet. This paper demonstrates a new 2D transfer functions which based on 1D transfer function and combined with methods of traditional 2D transfer functions. That means this new 2D transfer functions are convenient as the 1D function and capable as the traditional 2D transfer functions.},
 	eventtitle = {2010 3rd International Congress on Image and Signal Processing},
 	pages = {3733--3736},
 	booktitle = {2010 3rd International Congress on Image and Signal Processing},
 	author = {Zou, Y. and Bai, D. and Wang, S. and Kang, Y.},
-	date = {2010-10},
+	year = {2010},
+	month = {Oct},
 	keywords = {1D transfer function, 2D transfer function, Biomedical imaging, convenient, Data visualization, direct volume rendering, Image color analysis, material boundaries extraction, Materials, quality, Rendering (computer graphics), Transfer function, transfer functions, Volume Rendering},
 	file = {IEEE Xplore Abstract Record:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\JC5UMFNW\\5648200.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\Rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\qhee50j6.default\\zotero\\storage\\I37SJS5B\\Zou et al. - 2010 - A new two-dimensional transfer functions for volum.pdf:application/pdf}
 }
@@ -199,9 +202,10 @@
 	abstract = {Direct volume rendering ({DVR}) is of increasing diagnostic value in the analysis of data sets captured using the latest medical imaging modalities. The deployment of {DVR} in everyday clinical work, however, has so far been limited. One contributing factor is that current transfer function ({TF}) models can encode only a small fraction of the user's domain knowledge. In this paper, we use histograms of local neighborhoods to capture tissue characteristics. This allows domain knowledge on spatial relations in the data set to be integrated into the {TF}. As a first example, we introduce partial range histograms in an automatic tissue detection scheme and present its effectiveness in a clinical evaluation. We then use local histogram analysis to perform a classification where the tissue-type certainty is treated as a second {TF} dimension. The result is an enhanced rendering where tissues with overlapping intensity ranges can be discerned without requiring the user to explicitly define a complex, multidimensional {TF}},
 	pages = {1570--1579},
 	number = {6},
-	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	journal = {{IEEE} Transactions on Visualization and Computer Graphics},
 	author = {Lundstrom, C. and Ljung, P. and Ynnerman, A.},
-	date = {2006-11},
+	year = {2006},
+	month = {Nov},
 	keywords = {Algorithms, automatic tissue detection scheme, biological tissues, Biomedical imaging, classification, clinical evaluation, Computer Simulation, Data analysis, Data Interpretation, Statistical, data visualisation, Data visualization, direct volume rendering, Histograms, Image analysis, image classification, Image Enhancement, Image Interpretation, Computer-Assisted, Imaging, Three-Dimensional, Information Storage and Retrieval, local histogram analysis, medical image processing, medical imaging, medical imaging modalities, Models, Biological, Models, Statistical, Multidimensional systems, partial range histogram., Performance analysis, Rendering (computer graphics), Reproducibility of Results, Sensitivity and Specificity, Shape, {TF} models, Transfer function, transfer functions, volume visualization},
 	file = {IEEE Xplore Abstract Record:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\UVEUCR3S\\1703376.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\BFDTKD78\\Lundstrom et al. - 2006 - Local Histograms for Design of Transfer Functions .pdf:application/pdf}
 }
@@ -228,9 +232,10 @@
 	abstract = {In this paper we present a framework to define transfer functions from a target distribution provided by the user. A target distribution can reflect the data importance, or highly relevant data value interval, or spatial segmentation. Our approach is based on a communication channel between a set of viewpoints and a set of bins of a volume data set, and it supports 1D as well as 2D transfer functions including the gradient information. The transfer functions are obtained by minimizing the informational divergence or Kullback-Leibler distance between the visibility distribution captured by the viewpoints and a target distribution selected by the user. The use of the derivative of the informational divergence allows for a fast optimization process. Different target distributions for 1D and 2D transfer functions are analyzed together with importance-driven and view-based techniques.},
 	pages = {1932--1941},
 	number = {12},
-	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	journal = {{IEEE} Transactions on Visualization and Computer Graphics},
 	author = {Ruiz, M. and Bardera, A. and Boada, I. and Viola, I. and Feixas, M. and Sbert, M.},
-	date = {2011-12},
+	year = {2011},
+	month = {Dec},
 	keywords = {1D transfer functions, 2D transfer functions, automatic transfer functions, communication channel, data value interval, Data visualization, informational divergence, Information analysis, Information theory, Kullback-Leibler distance, Kullback-Leibler distance., Mutual information, optical transfer function, optimisation, optimization process, Probability distribution, Rendering (computer graphics), spatial segmentation, target distribution, Transfer function, transfer functions, visibility, visibility distribution},
 	file = {IEEE Xplore Abstract Record:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\CVWJQ4EE\\6064956.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\EFTSZPSA\\Ruiz et al. - 2011 - Automatic Transfer Functions Based on Informationa.pdf:application/pdf}
 }
@@ -244,24 +249,25 @@
 	abstract = {Transfer functions facilitate the volumetric data visualization by assigning optical properties to various data features and scalar values. Automation of transfer function specifications still remains a challenge in volume rendering. This paper presents an approach for automating transfer function generations by utilizing topological attributes derived from the contour tree of a volume. The contour tree acts as a visual index to volume segments, and captures associated topological attributes involved in volumetric data. A residue flow model based on Darcy's law is employed to control distributions of opacity between branches of the contour tree. Topological attributes are also used to control color selection in a perceptual color space and create harmonic color transfer functions. The generated transfer functions can depict inclusion relationship between structures and maximize opacity and color differences between them. The proposed approach allows efficient automation of transfer function generations, and exploration on the data to be carried out based on controlling of opacity residue flow rate instead of complex low-level transfer function parameter adjustments. Experiments on various data sets demonstrate the practical use of our approach in transfer function generations.},
 	pages = {1481--1488},
 	number = {6},
-	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	journal = {{IEEE} Transactions on Visualization and Computer Graphics},
 	author = {Zhou, J. and Takatsuka, M.},
-	date = {2009-11},
+	year = {2009},
+	month = {Nov},
 	keywords = {Algorithms, Australia, Automatic control, Automatic generation control, automatic transfer function generation, Automation, color, color harmonics, color selection, colour graphics, Computer graphics, contour tree, Darcy's law, data visualisation, Data visualization, Foot, Harmonic Color., Head, Humans, Image motion analysis, Image Processing, Computer-Assisted, Knee, Models, Theoretical, opacity, Optical control, Optical harmonic generation, optical properties, perceptual color space, Rendering (computer graphics), {ResidueFlow}, residue flow model, Topology, Transfer function, transfer functions, trees (mathematics), Volume Rendering, volumetric data visualization},
 	file = {IEEE Xplore Abstract Record:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\T7NSTF6J\\5290764.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\BB5SEU7Q\\Zhou e Takatsuka - 2009 - Automatic Transfer Function Generation Using Conto.pdf:application/pdf}
 }
 
 @article{lan,
 	title = {Improving Separability of Structures with Similar Attributes in 2D Transfer Function Design},
-	volume = {{PP}},
+	volume = {23},
 	issn = {1077-2626},
 	doi = {10.1109/TVCG.2016.2537341},
 	abstract = {The 2D transfer function based on scalar value and gradient magnitude ({SG}-{TF}) is popularly used in volume rendering. However, it is plagued by the boundary-overlapping problem: different structures with similar attributes have the same region in {SG}-{TF} space, and their boundaries are usually connected. The {SG}-{TF} thus often fails in separating these structures (or their boundaries) and has limited ability to classify different objects in real-world 3D images. To overcome such a difficulty, we propose a novel method for boundary separation by integrating spatial connectivity computation of the boundaries and set operations on boundary voxels into the {SG}-{TF}. Specifically, spatial positions of boundaries and their regions in the {SG}-{TF} space are computed, from which boundaries can be well separated and volume rendered in different colors. In the method, the boundaries are divided into three classes and different boundary-separation techniques are applied to them, respectively. The complex task of separating various boundaries in 3D images is then simplified by breaking it into several small separation problems. The method shows good object classification ability in real-world 3D images while avoiding the complexity of high-dimensional transfer functions. Its effectiveness and validation is demonstrated by many experimental results to visualize boundaries of different structures in complex real-world 3D images.},
-	pages = {1--1},
+	pages = {1546--1560},
 	number = {99},
-	journaltitle = {{IEEE} Transactions on Visualization and Computer Graphics},
+	journal = {{IEEE} Transactions on Visualization and Computer Graphics},
 	author = {Lan, S. and Wang, L. and Song, Y. and Wang, Y. P. and Yao, L. and Sun, K. and Xia, B. and Zongben, X.},
-	date = {2016},
+	year = {2016},
 	keywords = {boundaries, classification ability, Complexity theory, Computed tomography, connectivity computation, Image color analysis, Rendering (computer graphics), rendering (computer graphics), set operations, Three-dimensional displays, Transfer function, transfer functions, Visualization, Volume Rendering},
 	file = {IEEE Xplore Abstract Record:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\NV6UCSUA\\7423790.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\rustam\\AppData\\Roaming\\Zotero\\Zotero\\Profiles\\4oi0x5fp.default\\zotero\\storage\\3U3M33PP\\Lan et al. - 2016 - Improving Separability of Structures with Similar .pdf:application/pdf}
 }
@@ -323,7 +329,7 @@
 	pages = {28--34},
 	booktitle = {International Conference on Modeling, Simulation and Visualization Methods},
 	author = {Barroso, V.B.R.B. and Celes, W. and Gattass, M.},
-	date = {2013},
+	year = {2013},
 }
 
 @inproceedings{miranda,
@@ -347,11 +353,12 @@
 	doi = {10.1016/j.cag.2016.06.007},
 	abstract = {The exploration of volumetric datasets is a challenging task due to its three-dimensional nature. Segmenting or classifying the volume helps to reduce the dimensionality of the problem, but there remains the issue of searching through the feature space in order to find regions of interest. This problem is aggravated when the relation between scalar values and spatial features is unclear or unknown. To aid in the identification and selection of significant structures, interactive exploration methods are important, as they help to correlate the volumetric rendering with the scalar data domain. In this work, we present a semi-automatic method for exploring volumetric datasets using a graph-based approach. First, we automatically classify the volume from a 2D histogram, following ideas from previous proposals. Then, through a graph structure with dynamic edge weights, a hierarchy is generated to identify similar structures. The final hierarchy allows for an interactive and in-depth volume exploration by splitting, joining or removing regions in real-time.},
 	pages = {55--65},
-	journaltitle = {Computers \& Graphics},
+	journal = {Computers \& Graphics},
 	shortjournal = {Computers \& Graphics},
 	author = {Ponciano, Daniel and Seefelder, Marcos and Marroquim, Ricardo},
 	urldate = {2018-02-02},
-	date = {2016-11-01},
+	year = {2016},
+	month = {Nov},
 	keywords = {Graph algorithms, Volume exploration},
 	file = {ScienceDirect Full Text PDF:C\:\\Users\\Rustam\\Zotero\\storage\\35WGWRJE\\Ponciano et al. - 2016 - Graph-based interactive volume exploration.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\Rustam\\Zotero\\storage\\8F5YT43Y\\S0097849316300802.html:text/html}
 }

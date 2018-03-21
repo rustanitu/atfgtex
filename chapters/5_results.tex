@@ -3,7 +3,7 @@
 \chapter{Resultados}
 \label{ch:result}
 
-	Este capítulo apresenta os resultados desta dissertação para volumes de malhas regulares conhecidos na literatura e modelos de simulação de reservatório de petróleo, respectivamente nas Seções~\ref{sec:result.reg}~e~\ref{sec:result.irreg}. Esses resultados serão comparados com os obtidos através da aplicação do método de \textit{Kindlmann e Durkin}~\cite{gordon}. A fim de obter os melhores resultados para esse método, o melhor valor de $ g_{thresh} $ é encontrado manualmente, para cada volume. E para os volumes não regulares, oriundos de simulações de reservatório de petróleo, as derivadas são calculadas de acordo com a Subseção~\ref{subsec:my.nonstruct}.
+	Este capítulo apresenta os resultados desta dissertação para volumes de malhas regulares conhecidos na literatura e modelos de simulação de reservatório de petróleo, respectivamente nas Seções~\ref{sec:result.reg}~e~\ref{sec:result.irreg}. Esses resultados serão comparados com os obtidos através da aplicação do método de \textit{Kindlmann e Durkin}~\cite{gordon}. A fim de obter os melhores resultados para esse método, o melhor valor de $ g_{thresh} $ é encontrado manualmente, para cada volume. Para os volumes não regulares, oriundos de simulações de reservatório de petróleo, as derivadas são calculadas de acordo com a Subseção~\ref{subsec:my.nonstruct}.
 	
 	É preciso lembrar, contudo, que existem diversas técnicas de visualização volumétrica. Então, a análise feita será sempre em cima da função de transferência obtida e como esta foi capaz, ou não, de realçar as fronteiras do volume.
 	
@@ -18,7 +18,7 @@
 \section{Malhas Regulares}
 \label{sec:result.reg}
 
-	Para visualizar os volumes de malhas regulares utilizou-se o visualizador volumétrico apresentado por \textit{Campagnolo et al.}~\cite{lqc}, aplicando o modelo de iluminação de Blinn-Phong e a estratégia \quote{front-to-back composition}, ambos explicados no Capítulo 39 de~\cite{gems}.
+	Para visualizar os volumes de malhas regulares utilizou-se o visualizador volumétrico apresentado por \textit{Campagnolo et al.}~\cite{lqc}, aplicando o modelo de iluminação de Blinn--Phong e a estratégia \quote{front-to-back composition}, ambos explicados no Capítulo 39 de~\cite{gems}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SPHERES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	A Figura~\ref{fig:r_sphere_slice} exibe uma fatia de um volume sintético com ruído que possui cinco fronteiras. Observando as cores que representam os diferentes materiais desse volume, é possível perceber que há sobreposição no intervalo de valores das fronteiras.
@@ -189,7 +189,7 @@
 	
 	Na Figura~\ref{fig:r_skull}~\ref{fig:r_skull_kd} é possível perceber que, próximo à fronteira destacada, encontra-se uma curva acentuada. Este ponto, que pode ser confundido com um máximo local, armazena a maior primeira derivada média da região do crânio. No entanto, esse volume possui uma pequena região de intensidade muito maior que a do crânio, gerando fronteiras mais abruptas e, portanto, de maior derivada.
 	
-	Essas fronteiras (que não foram detectadas pelo método de \textit{Kindlmann e Durkin}, apenas pelo método proposto) se sobrepõem com a do crânio. Isso causa a perda do máximo local da primeira derivada média. O mesmo não ocorre com a terceira derivada, neste caso, o que permitiu que o método proposto destacasse corretamente o crânio. Isso exemplifica que em alguns casos a terceira derivada é menos sensível à média quando há sobreposição no intervalo de valores das fronteiras.
+	Essas fronteiras (que não foram detectadas pelo método de \textit{Kindlmann e Durkin}, apenas pelo método proposto) se sobrepõem com a do crânio. Isso causa a perda do máximo local da primeira derivada média. O mesmo não ocorre com a terceira derivada, neste caso, o que permitiu que o método proposto destacasse corretamente o crânio. Isso exemplifica que, em alguns casos, a terceira derivada é menos sensível à média quando há sobreposição no intervalo de valores das fronteiras.
 	
 \begin{figure}[h]
 	\centering
@@ -355,7 +355,7 @@
 	\label{fig:box_slice}
 \end{figure}
 
-	A Figura~\ref{fig:r_vrep} mostra que os dois métodos identificam a fronteira mais forte. Além disso, ambos destacam também uma fronteira em azul, próximo ao posso injetor. Contudo, o método descrito por esta dissertação identifica também uma terceira fronteira, que representa a fronteira entre a região vermelha e a laranja, na Figura~\ref{fig:box_slice}. Por conta desta última fronteira, uma outra isosuperfície (em vermelho) é realçada próxima à fronteira mais forte. O mesmo ocorre com o método de \textit{Kindlmann e Durkin}, que realça uma isosuperfície pequena (semelhante a um traço) no canto inferior direito da visualização da Figura~\ref{fig:r_vrep}~\ref{fig:r_vrep_kd}
+	A Figura~\ref{fig:r_vrep} mostra que os dois métodos identificam a fronteira mais forte. Além disso, ambos destacam também uma fronteira em azul, próximo ao posso injetor. Contudo, o método descrito por esta dissertação identifica também uma terceira fronteira, que representa a fronteira entre a região vermelha e a laranja, na Figura~\ref{fig:box_slice}. Por conta desta última fronteira, uma outra isosuperfície (em vermelho) é realçada próxima à fronteira mais forte. O mesmo ocorre com o método de \textit{Kindlmann e Durkin}, que realça uma isosuperfície pequena (semelhante a um traço) no canto inferior direito da visualização da Figura~\ref{fig:r_vrep}~\ref{fig:r_vrep_kd}.
 	
 	Para os reservatórios é ainda mais difícil avaliar os resultados, uma vez que não se conhece as estruturas internas, como nos volumes médicos e não há \quote{ground truth}. No entanto, acredita-se que o método proposto apresenta um resultado mais adequado, pois ele destaca as mesmas fronteiras que o método de \textit{Kindlmann e Durkin} e mais uma, permitindo ao usuário uma maior percepção da estrutura global do reservatório. Minimamente, indicando para o usuário onde fazer buscas.
 
@@ -531,7 +531,7 @@
 	\label{fig:r_box_sw_mine}
 \end{figure}
 
-	Assim, percebe-se que o método proposto por esta dissertação, realça mais interfaces entre regiões de diferentes intensidades, revelando ao usuário (de forma automática), uma estrutura global do dado volumétrico sendo visualizado.
+	Assim, percebe-se que o método proposto por esta dissertação realça mais interfaces entre regiões de diferentes intensidades, revelando ao usuário (de forma automática) uma estrutura global do dado volumétrico sendo visualizado.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pituba %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage

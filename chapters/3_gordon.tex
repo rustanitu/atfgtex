@@ -3,7 +3,7 @@
 \chapter{Geração Semiautomática}
 \label{ch:gordon}
 
-	\textit{Kindlmann e Durkin}~\cite{gordon} foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudados por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática \textit{X} Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para pesquisa e desenvolvimento desta dissertação e será apresentado neste capítulo em 3 seções. A Seção~\ref{sec:gordon.bound} define o conceito de fronteira e explica como identificá-las. A obtenção do modelo matemático que gera a função de transferência 1D e 2D pode ser encontrada na Seção~\ref{sec:gordon.ft}, bem como seus respectivos resultados. Por fim, o método é avaliado na Seção~\ref{sec:gordon.aval}.
+	\textit{Kindlmann e Durkin}~\cite{gordon} foram uns dos primeiros a gerar funções de transferência para visualizar as fronteiras de um volume de dados. Apesar de ter sido publicado há quase 20 anos e de possuir alguns pontos fracos já estudados por outros, seu trabalho ainda é o mais equilibrado no quesito \quote{Geração automática $\times$ Controle do usuário}. Isso deve-se ao fato de que seu método gera bons resultados com funções de transferência 1D, que são naturalmente mais intuitivas ao usuário. Além disso, exige intervenção mínima do usuário para gerar a FT, ao mesmo tempo que permite um controle fino sobre como a fronteira deve ser apresentada visualmente. Por esse motivo, este trabalho foi escolhido como base para pesquisa e desenvolvimento desta dissertação e será apresentado neste capítulo em três seções. A Seção~\ref{sec:gordon.bound} define o conceito de fronteira e explica como identificá-las. A obtenção do modelo matemático que gera a função de transferência 1D e 2D pode ser encontrada na Seção~\ref{sec:gordon.ft}, bem como seus respectivos resultados. Por fim, o método é avaliado na Seção~\ref{sec:gordon.aval}.
 	
 \section{Detecção de Fronteiras}
 \label{sec:gordon.bound}
@@ -15,7 +15,7 @@
 	\label{fig:boundary_model}
 \end{figure}
 
-	Kindlmann e Durkin partem da premissa de que todos os materiais representados no volume de dados possuem propriedades físicas homogêneas. Dessa forma, toda fronteira seria caracterizada por uma variação abrupta na intensidade lida do volume e poderia ser representada pela função degrau. No entanto, devido aos dispositivos responsáveis pela aquisição de dados, as fronteiras são comumente borradas com uma resposta gaussiana na frequência. Por esse motivo, o comportamento de uma fronteira em um volume de dados é melhor representado pela convolução da função degrau com uma gaussiana. O resultado dessa convolução é a função \textit{erf(x)}, ou função \textit{erro}, ilustrada na Figura~\ref{fig:boundary_model}.
+	Kindlmann e Durkin partem da premissa de que todos os materiais representados no volume de dados possuem propriedades físicas homogêneas. Dessa forma, toda fronteira é caracterizada por uma variação abrupta na intensidade lida do volume e poderia ser representada pela função degrau. No entanto, devido aos dispositivos responsáveis pela aquisição de dados, as fronteiras são comumente borradas com uma resposta gaussiana na frequência. Por esse motivo, o comportamento de uma fronteira em um volume de dados é melhor representado pela convolução da função degrau com uma gaussiana. O resultado dessa convolução é a função \textit{erf(x)}, ou função \textit{erro}, ilustrada na Figura~\ref{fig:boundary_model}.
 
 	\textit{erf(x)} é uma função contínua cuja imagem varia de $-1$ a $1$. Como uma fronteira pode variar entre quaisquer dois valores escalares contidos no volume, \textit{erf(x)} deve ser escalada para variar de $v_{min}$ a $v_{max}$. Assim, a função $f(x)$ que modela uma fronteira é definida pela Equação~\eqref{eq:boundary}. O esticamento da função $ f(x) $ em relação à $ erf(x) $ pelo fator $ \sigma\sqrt{2} $ será explicado mais à frente.
 	\\
@@ -24,7 +24,7 @@
 	v = f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
 \end{equation} \
 
-	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Uma vez que a derivada direcional indica a taxa de variação de uma função em uma determinada direção, a isosuperfície que melhor representa a fronteira é aquela que possui a maior derivada, pois esta estará localizada no ponto da fronteira em que a variação entre $v_{min}$ e $v_{max}$ for maior.
+	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Uma vez que a derivada direcional indica a taxa de variação de uma função em uma determinada direção, a isosuperfície que melhor representa a fronteira é aquela que possui a maior derivada, pois ela estará localizada no ponto da fronteira em que a variação entre $v_{min}$ e $v_{max}$ for maior.
 	
 \begin{figure}[h]
 	\centering
@@ -62,7 +62,7 @@
 	
 	No entanto, as curvas apresentadas apenas possuem essa forma na direção do gradiente. Isso dificulta expressar graficamente as ocorrências de fronteiras em um volume, uma vez que o vetor gradiente pode mudar a cada posição. Foi preciso então encontrar uma relação que identificasse uma fronteira independente de sua posição no volume.
 	
-	Em busca de uma solução, \textit{Kindlmann e Durkin}~\cite{gordon} decidiram inspecionar as curvas de $ f(x) $, $ f'(x) $ e $ f''(x) $, em função umas das outras. Como pode ser visto na Figura~\ref{fig:g_sampling}~\ref{fig:g_cross_sampling}, uma fronteira ainda é identificada quando $ f'(x) $ é máximo e $ f''(x) $ é zero, mesmo em função de $ f(x) $. Mas como a própria ilustração indica, apesar da posição não ter sido levada em consideração, as funções foram avaliadas continuamente na localização conhecida de uma fronteira. Então, a mesma análise foi feita com amostragens por todo o volume, guardando em histogramas distintos as ocorrências das derivadas em função do valor escalar. Como ilustrado na Figura~\ref{fig:g_sampling}~\ref{fig:g_full_sampling}, as curvas apresentam o mesmo padrão já proposto para identificar fronteiras.
+	Em busca de uma solução, \textit{Kindlmann e Durkin}~\cite{gordon} decidiram inspecionar as curvas de $ f(x) $, $ f'(x) $ e $ f''(x) $, em função umas das outras. Como pode ser visto na Figura~\ref{fig:g_sampling}~\ref{fig:g_cross_sampling}, uma fronteira ainda é identificada quando $ f'(x) $ é máximo e $ f''(x) $ é zero, mesmo em função de $ f(x) $. Porém, como a própria ilustração indica, apesar da posição não ter sido levada em consideração, as funções foram avaliadas continuamente na localização conhecida de uma fronteira. Então, a mesma análise foi feita com amostragens por todo o volume, guardando em histogramas distintos as ocorrências das derivadas em função do valor escalar. Como ilustrado na Figura~\ref{fig:g_sampling}~\ref{fig:g_full_sampling}, as curvas apresentam o mesmo padrão já proposto para identificar fronteiras.
 	
 \begin{figure}[t]
 	\centering
@@ -87,7 +87,7 @@
 	\label{fig:g_histo3d}
 \end{figure}
 	
-	Um histograma 3D de tamanho $ 256^{3} $ foi proposto para guardar a relação entre $ f(x) $, $ f'(x) $ e $ f''(x) $ independente de $x$. Cada eixo corresponde a uma das funções e os valores devem ser mapeados para o intervalo $ [0,255] $, como ilustra a Figura~\ref{fig:g_histo3d}. O histograma permite ainda gerar os histogramas 2D exibidos na Figura~\ref{fig:g_sampling}~\ref{fig:g_full_sampling}. Para obter um histograma 2D de $ f'(x) $ em função de $ f(x) $, acumula-se o histograma 3D na direção do eixo $ f''(x) $. Já para obter $ f''(x) $ em função de $ f(x) $, acumula-se na direção do eixo $ f'(x) $. Além disso, a partir dele é possível extrair as médias que serão utilizadas na geração da função de transferência, como será visto nas subseções~\ref{subsec:gordon.1d}~e~\ref{subsec:gordon.2d}.
+	Então, um histograma 3D de tamanho $ 256^{3} $ é proposto por \textit{Kindlmann e Durkin}~\cite{gordon}, para guardar a relação entre $ f(x) $, $ f'(x) $ e $ f''(x) $ independente de $x$. Cada eixo corresponde a uma das funções e os valores devem ser mapeados para o intervalo $ [0,255] $, como ilustra a Figura~\ref{fig:g_histo3d}. O histograma permite ainda gerar os histogramas 2D exibidos na Figura~\ref{fig:g_sampling}~\ref{fig:g_full_sampling}. Para obter um histograma 2D de $ f'(x) $ em função de $ f(x) $, acumula-se o histograma 3D na direção do eixo $ f''(x) $. Já para obter $ f''(x) $ em função de $ f(x) $, acumula-se na direção do eixo $ f'(x) $. Além disso, a partir dele é possível extrair as médias que serão utilizadas na geração da função de transferência, como será visto nas subseções~\ref{subsec:gordon.1d}~e~\ref{subsec:gordon.2d}.
 	
 	A Figura~\ref{fig:g_res} mostra os histogramas 2D acumulados para dois volumes de dados. No volume \quote{Turbine Blade} da Figura~\ref{fig:g_res}~\ref{fig:g_res_turbine}, observa-se que a intensidade é aproximadamente uma só. Dessa forma, espera-se que apenas uma fronteira seja identificada: aquela que separa a turbina de seu exterior. Essa expectativa é comprovada pelos histogramas acumulados. No primeiro histograma, três arcos se destacam, onde $ v_{min} = 0 $ (preto) e $ v_{max} = [130,190] $ (cinza claro).
 	
@@ -139,7 +139,7 @@
 	
 	A função par que decresce linearmente de $1$ a $0$ no intervalo $[0,\sigma]$ e permanece $0$ em $[\sigma, \infty]$ é provavelmente a forma mais intuitiva de relacionar a transparência com $x$. O volume se torna completamente opaco apenas nos pontos onde há ocorrência do centro exato de uma fronteira e vai perdendo essa opacidade linearmente até atingir uma região homogênea. Contudo, Kindlmann e Durkin designam ao usuário a tarefa de definir uma função de opacidade $ b(x) $ em função de $ x $.
 	
-	Através de $b(x)$ o usuário ganha um controle fino sobre o render final do volume, pois cabe a ele dizer como a fronteira deve ser visualizada. A Figura~\ref{fig:g_bx} mostra como diferentes opções de $b(x)$ podem afetar a visualização final. Nesse exemplo o volume é composto por duas esferas concêntricas de raios distintos. Percebe-se que apenas variando a função de opacidade é possível alternar entre: visualizar apenas a esfera de fora ou ambas, visualizar toda a fronteira ou apenas o lado interior da esfera que compõe a fronteira, ou até mesmo decidir entre uma transição suave ou abrupta.
+	Através de $b(x)$ o usuário ganha um controle fino sobre a visualização final do volume, pois cabe a ele dizer como a fronteira deve ser visualizada. A Figura~\ref{fig:g_bx} mostra como diferentes opções de $b(x)$ podem afetar a visualização final. Nesse exemplo o volume é composto por duas esferas concêntricas de raios distintos. Percebe-se que apenas variando a função de opacidade é possível alternar entre: visualizar apenas a esfera de fora ou ambas, visualizar toda a fronteira ou apenas o lado interior da esfera que compõe a fronteira, ou até mesmo decidir entre uma transição suave ou abrupta.
 	
 \begin{figure}[h]
 	\centering
@@ -163,7 +163,7 @@
 	\label{fig:g_hv}
 \end{figure}
 
-	As regiões homogêneas do volume deveriam possuir derivadas iguais a zero. No entanto, isso raramente acontece na prática. Para lidar com esse ruído, um threshold é inserido na Equação~\eqref{eq:pv}. Não é fornecido nenhuma forma precisa de se obter $ g_{thresh} $. Apenas é sugerido que se o usuário for capaz de encontrar um valor escalar superior à derivada \quote{ambiente} do volume, a fórmula de $ p(v) $ será mais precisa.
+	As regiões homogêneas do volume deveriam possuir derivadas iguais a zero. No entanto, isso raramente acontece na prática. Para lidar com esse ruído, \textit{Kindlmann e Durkin}~\cite{gordon} inserem um limiar na Equação~\eqref{eq:pv}. Não é fornecida nenhuma forma precisa de se obter $ g_{thresh} $. Apenas é sugerido que se o usuário for capaz de encontrar um valor escalar superior à derivada \quote{ambiente} do volume, a fórmula de $ p(v) $ será mais precisa.
 
 \begin{equation} \label{eq:pv}
 	p(v) = -\frac{\sigma^{2}h(v)}{max(g(v) - g_{thresh}, 0)}
@@ -187,7 +187,7 @@
 
 	As imagens abaixo mostram resultados para 3 volumes: molécula \quote{Bucky Ball}, \quote{Nucleon} e uma ressonância magnética da cabeça de um indivíduo. A Figura~\ref{fig:g_res_slices_1d} exibe fatias dos volumes, com o intervalo de intensidades mapeado entre preto e branco. A Figura~\ref{fig:g_res_fts_1d} apresenta as funções de transferência obtidas para cada volume. Por fim, a Figura~\ref{fig:g_res_vis_1d} mostra a visualização do volume com a FT gerada.
 	
-	Para visualizar os volumes de malhas regulares utilizou-se o visualizador volumétrico apresentado por \textit{Campagnolo et al.}~\cite{lqc}, aplicando o modelo de iluminação de Blinn-Phong e a estratégia \quote{front-to-back composition}, ambos explicados no Capítulo 39 de~\cite{gems}.
+	Para visualizar os volumes de malhas regulares utilizou-se o visualizador volumétrico apresentado por \textit{Campagnolo et al.}~\cite{lqc}, aplicando o modelo de iluminação de Blinn--Phong e a estratégia \quote{front-to-back composition}, ambos explicados no Capítulo 39 de~\cite{gems}.
 	
 %%% SLICE
 \begin{figure}[h]
@@ -367,7 +367,7 @@
 	%Durante a pesquisa, utilizou-se como $ g_{thresh} $ o equivalente ao menor vale em $ g(v) $ para gerar resultados pelo método de \textit{Kindlmann e Durkin}~\cite{gordon}. Essa solução automática para a escolha do valor de $ g_{thresh} $ proporcionou funções de transferência satisfatórias para a maioria dos volumes avaliados, de forma que melhores resultados não foram encontrados. No entanto, em alguns casos, uma função de transferência melhor pode ser obtida escolhendo outros vales, ou com uma pequena variação do valor selecionado automaticamente, como é ilustrado na Figura~\ref{fig:g_thresh}. Percebe-se que o menor vale já proporciona uma melhor compreensão do volume, visto na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_1}, enquanto o uso do terceiro menor vale permite uma visualização ainda mais limpa, exibida na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_2}.
 	Durante a pesquisa, verificou-se que o valor do menor vale em $ g(v) $ serve como um bom $ g_{thresh} $ inicial. Em nenhum volume avaliado este valor comprometeu a visualização, escondendo uma fronteira existente. No entanto, nos volumes mais complexos, com sobreposição no intervalo de valores das fronteiras, um ajuste manual nesse valor resulta em uma função de transferência melhor. A Figura~\ref{fig:g_thresh} ilustra bem a força desse parâmetro. Percebe-se que o menor vale já proporciona uma melhor compreensão do volume, visto na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_1}, enquanto o uso do terceiro menor vale permite uma visualização ainda mais limpa, exibida na Figura~\ref{fig:g_thresh}~\ref{fig:thresh_2}.
 	
-	Contudo, esse parâmetro pode mudar completamente a relação entre $ g(v) $ e $ h(v) $, mexendo na distância dos voxels ao centro da fronteira e, portanto, diretamente na função de transferência. Então, mais estudos devem ser feitos para se definir valores garantidamente adequados.
+	Contudo, esse parâmetro pode mudar completamente a relação entre $ g(v) $ e $ h(v) $, mudando a distância dos voxels ao centro da fronteira e, portanto, alterando diretamente a função de transferência. Então, mais estudos devem ser feitos para se definir valores garantidamente adequados.
 	
 	%Esta solução é ainda justificada pela ideia de que $ g(v) $ pode conter um deslocamento em sua imagem (como será visto na subseção abaixo), uma vez que ela é composta pela média dos valores da primeira derivada quantizados no histograma e, portanto, o $ g_{thresh} $ corrige esse deslocamento na Equação~\eqref{eq:pv}.
 	
@@ -387,7 +387,7 @@
 	\label{fig:g_shift}
 \end{figure}
 
-    Uma análise mais profunda da Equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de x. No entanto, $ f'(x) $ nunca assume infinito.
+    Uma análise mais profunda da Equação~\eqref{eq:x}, repetida abaixo por comodidade, revela que $ f''(x) $ possui um peso maior que $ f'(x) $ na determinação de uma fronteira. Como visto nesse capítulo, o centro exato de uma fronteira é indicado por $ x = 0 $. Matematicamente, isso só ocorre quando $ f''(x) = 0 $ ou $ f'(x) $ tende a infinito. Dado o comportamento conhecido das funções $ f'(x) $ e $ f''(x) $, sabe-se que $ f''(x) $ assume $ 0 $ três vezes ao longo de $ x $. No entanto, $ f'(x) $ nunca assume infinito.
     
 \begin{equation} \label{eq:xpvg}
 	x = -\frac{\sigma^{2}f''(x)}{f'(x)} \ \approx \ 
