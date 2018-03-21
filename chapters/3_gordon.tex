@@ -21,7 +21,7 @@
 	\\
 
 \begin{equation} \label{eq:boundary}
-	v = f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
+	f(x) = v_{min} + (v_{max} - v_{min}) \frac{1 + erf(\frac{x}{\sigma\sqrt{2}})}{2}
 \end{equation} \
 
 	Uma outra maneira de interpretar a fronteira é como sendo uma das isosuperfícies entre $v_{min}$ e $v_{max}$. Uma vez que a derivada direcional indica a taxa de variação de uma função em uma determinada direção, a isosuperfície que melhor representa a fronteira é aquela que possui a maior derivada, pois ela estará localizada no ponto da fronteira em que a variação entre $v_{min}$ e $v_{max}$ for maior.
@@ -118,11 +118,11 @@
 	\\
 	
 \begin{equation} \label{eq:first}
-	g = f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+	f'(x) = \frac{v_{max} - v_{min}}{\sigma\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
 \end{equation} \
 
 \begin{equation} \label{eq:second}
-	h = f''(x) = -\frac{x(v_{max} - v_{min})}{\sigma^{3}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
+	f''(x) = -\frac{x(v_{max} - v_{min})}{\sigma^{3}\sqrt{2\pi}}\ e^{-\frac{x^{2}}{2\sigma^{2}}}
 \end{equation} \
 
 	A função $f'(x)$ é uma gaussiana cujo desvio padrão é $\sigma$. Como a gaussiana tem pontos de inflexão em $\pm\sigma$, isso implica que $f''(x)$ atinge seus pontos extremos também em $\pm\sigma$. Observa-se pela Figura~\ref{fig:g_functions} que $2\sigma$ aproxima a distância entre $v_{max}$ e $v_{min}$, servindo assim como \quote{espessura} da fronteira. Cada volume possuirá um $\sigma$ diferente, que pode ser calculado uma vez que se saiba os valores máximos de $f'(x)$ e $f''(x)$. A partir do cálculo de $\sigma$ é possível extrair $x$ relacionando $f'(x)$ e $f''(x)$, como mostram as equações \eqref{eq:sigma} e \eqref{eq:x}.
